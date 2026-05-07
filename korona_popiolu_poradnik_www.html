@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Korona Popiołu — Poradnik Gracza</title>
+  <style>
+    :root {
+      --bg: #080a0f;
+      --panel: rgba(17, 21, 31, 0.94);
+      --panel2: rgba(29, 35, 49, 0.94);
+      --text: #f3ead9;
+      --muted: #b8aa96;
+      --accent: #d8a84f;
+      --accent2: #ffe2a3;
+      --danger: #d55e5e;
+      --good: #68c083;
+      --blue: #7eb5ff;
+      --border: rgba(255,255,255,0.12);
+      --shadow: 0 22px 60px rgba(0,0,0,0.45);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      font-family: Georgia, 'Times New Roman', serif;
+      background:
+        radial-gradient(circle at top left, rgba(216,168,79,0.22), transparent 34%),
+        linear-gradient(rgba(5,7,11,0.82), rgba(5,7,11,0.95)),
+        url('https://images.unsplash.com/photo-1518709268805-4e9042af2176?auto=format&fit=crop&w=1800&q=80');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    .page {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    header {
+      border: 1px solid var(--border);
+      background: var(--panel);
+      border-radius: 24px;
+      padding: 34px;
+      box-shadow: var(--shadow);
+      margin-bottom: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::after {
+      content: '';
+      position: absolute;
+      right: -110px;
+      top: -120px;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(216,168,79,0.22), transparent 65%);
+      pointer-events: none;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(32px, 5vw, 56px);
+      color: var(--accent);
+      letter-spacing: 0.5px;
+      line-height: 1;
+    }
+
+    .subtitle {
+      margin: 0;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.5;
+      max-width: 850px;
+    }
+
+    .top-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 22px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 12px;
+      border: 1px solid rgba(216,168,79,0.35);
+      background: rgba(216,168,79,0.08);
+      border-radius: 999px;
+      color: #ffdfa0;
+      font-size: 14px;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 20px;
+    }
+
+    .sidebar {
+      border: 1px solid var(--border);
+      background: var(--panel);
+      border-radius: 22px;
+      padding: 16px;
+      box-shadow: var(--shadow);
+      align-self: start;
+      position: sticky;
+      top: 16px;
+    }
+
+    .nav-title {
+      margin: 0 0 12px;
+      font-size: 16px;
+      color: var(--accent2);
+    }
+
+    .tab-btn {
+      width: 100%;
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--text);
+      padding: 13px 14px;
+      border-radius: 14px;
+      cursor: pointer;
+      text-align: left;
+      font-family: inherit;
+      font-size: 16px;
+      transition: 0.15s ease;
+      margin-bottom: 6px;
+    }
+
+    .tab-btn:hover {
+      background: rgba(255,255,255,0.06);
+      border-color: var(--border);
+    }
+
+    .tab-btn.active {
+      background: linear-gradient(180deg, rgba(216,168,79,0.24), rgba(89,61,24,0.24));
+      border-color: rgba(216,168,79,0.45);
+      color: #ffe2a3;
+    }
+
+    .content {
+      border: 1px solid var(--border);
+      background: var(--panel);
+      border-radius: 22px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      min-height: 700px;
+    }
+
+    .tab {
+      display: none;
+      animation: show 0.18s ease;
+    }
+
+    .tab.active {
+      display: block;
+    }
+
+    @keyframes show {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h2 {
+      margin: 0 0 16px;
+      font-size: 34px;
+      color: var(--accent2);
+      line-height: 1.12;
+    }
+
+    h3 {
+      margin: 28px 0 12px;
+      color: #ffd789;
+      font-size: 23px;
+    }
+
+    h4 {
+      margin: 0 0 8px;
+      color: #ffe2a3;
+      font-size: 18px;
+    }
+
+    p, li {
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 17px;
+    }
+
+    ul, ol {
+      padding-left: 24px;
+    }
+
+    .lead {
+      font-size: 19px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-top: -4px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin: 16px 0;
+    }
+
+    .grid.three {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .card {
+      border: 1px solid var(--border);
+      background: var(--panel2);
+      border-radius: 18px;
+      padding: 17px;
+      min-height: 120px;
+    }
+
+    .card.good {
+      border-color: rgba(104,192,131,0.38);
+      background: rgba(104,192,131,0.08);
+    }
+
+    .card.bad {
+      border-color: rgba(213,94,94,0.4);
+      background: rgba(213,94,94,0.08);
+    }
+
+    .card.blue {
+      border-color: rgba(126,181,255,0.35);
+      background: rgba(126,181,255,0.08);
+    }
+
+    .card.gold {
+      border-color: rgba(216,168,79,0.35);
+      background: rgba(216,168,79,0.08);
+    }
+
+    .small {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.55;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 10px;
+    }
+
+    .tag {
+      display: inline-block;
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(0,0,0,0.2);
+      border-radius: 999px;
+      padding: 5px 9px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .route {
+      counter-reset: step;
+      display: grid;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .route-step {
+      counter-increment: step;
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 12px;
+      align-items: start;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.045);
+      border-radius: 16px;
+      padding: 14px;
+    }
+
+    .route-step::before {
+      content: counter(step);
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: rgba(216,168,79,0.18);
+      border: 1px solid rgba(216,168,79,0.45);
+      color: #ffe0a0;
+      display: grid;
+      place-items: center;
+      font-weight: bold;
+    }
+
+    .route-step strong {
+      color: #ffe2a3;
+    }
+
+    .notice {
+      border-left: 4px solid var(--accent);
+      background: rgba(216,168,79,0.08);
+      border-radius: 14px;
+      padding: 16px;
+      margin: 18px 0;
+      color: #ffe7b7;
+      line-height: 1.6;
+    }
+
+    .warning {
+      border-left-color: var(--danger);
+      background: rgba(213,94,94,0.08);
+      color: #ffd0d0;
+    }
+
+    .success {
+      border-left-color: var(--good);
+      background: rgba(104,192,131,0.08);
+      color: #d9ffe4;
+    }
+
+    .item-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .item {
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.045);
+      border-radius: 18px;
+      padding: 16px;
+    }
+
+    .item .type {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
+    .item .effect {
+      color: #dbe9ff;
+      font-size: 15px;
+      line-height: 1.55;
+    }
+
+    .boss {
+      border: 1px solid rgba(213,94,94,0.28);
+      background: rgba(213,94,94,0.06);
+      border-radius: 18px;
+      padding: 17px;
+      margin-bottom: 14px;
+    }
+
+    .boss-stats {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: 10px 0;
+    }
+
+    .stat {
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(0,0,0,0.24);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: #ffdddd;
+      font-size: 14px;
+    }
+
+    .ending {
+      border-radius: 20px;
+      padding: 18px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.045);
+      margin-bottom: 14px;
+    }
+
+    .ending h3 {
+      margin-top: 0;
+    }
+
+    .checklist {
+      display: grid;
+      gap: 10px;
+    }
+
+    label.check {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      align-items: start;
+      gap: 10px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.045);
+      border-radius: 15px;
+      padding: 13px;
+      cursor: pointer;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    input[type="checkbox"] {
+      width: 19px;
+      height: 19px;
+      accent-color: #d8a84f;
+      margin-top: 2px;
+    }
+
+    .search-box {
+      margin-bottom: 16px;
+    }
+
+    .search-box input {
+      width: 100%;
+      border: 1px solid var(--border);
+      background: rgba(0,0,0,0.28);
+      border-radius: 15px;
+      color: var(--text);
+      padding: 14px 15px;
+      font-family: inherit;
+      font-size: 16px;
+      outline: none;
+    }
+
+    .search-box input:focus {
+      border-color: rgba(216,168,79,0.55);
+      box-shadow: 0 0 0 3px rgba(216,168,79,0.1);
+    }
+
+    .mini-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 12px 0 20px;
+    }
+
+    .mini-nav a {
+      color: #ffe2a3;
+      text-decoration: none;
+      border: 1px solid rgba(216,168,79,0.28);
+      background: rgba(216,168,79,0.08);
+      padding: 7px 10px;
+      border-radius: 999px;
+      font-size: 14px;
+    }
+
+    .mini-nav a:hover {
+      filter: brightness(1.12);
+    }
+
+    @media (max-width: 920px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        position: static;
+      }
+
+      .grid,
+      .grid.three,
+      .item-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+        color: #000;
+      }
+
+      header,
+      .sidebar,
+      .content,
+      .card,
+      .item,
+      .boss,
+      .ending,
+      label.check {
+        background: #fff !important;
+        color: #000 !important;
+        box-shadow: none !important;
+      }
+
+      .sidebar {
+        display: none;
+      }
+
+      .layout {
+        display: block;
+      }
+
+      .tab {
+        display: block !important;
+        page-break-before: always;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <h1>Korona Popiołu</h1>
+      <p class="subtitle">Poradnik gracza do przygodówki wyboru RPG fantasy. Znajdziesz tu solucję, opis zakończeń, przedmiotów, broni, bossów i listę rzeczy do sprawdzenia przed finałem.</p>
+      <div class="top-actions">
+        <span class="pill">⚔️ RPG fantasy</span>
+        <span class="pill">📜 Solucja</span>
+        <span class="pill">👑 Zakończenia</span>
+        <span class="pill">🎒 Przedmioty</span>
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside class="sidebar">
+        <p class="nav-title">Zakładki poradnika</p>
+        <button class="tab-btn active" data-tab="start">Start</button>
+        <button class="tab-btn" data-tab="solucja">Solucja</button>
+        <button class="tab-btn" data-tab="zakonczenia">Zakończenia</button>
+        <button class="tab-btn" data-tab="przedmioty">Przedmioty</button>
+        <button class="tab-btn" data-tab="bron">Broń</button>
+        <button class="tab-btn" data-tab="bossowie">Przeciwnicy i bossowie</button>
+        <button class="tab-btn" data-tab="decyzje">Decyzje</button>
+        <button class="tab-btn" data-tab="checklista">Checklista finału</button>
+      </aside>
+
+      <main class="content">
+        <section id="start" class="tab active">
+          <h2>Start poradnika</h2>
+          <p class="lead">Ta sekcja jest bezpieczna na pierwsze uruchomienie gry. Nie zdradza konkretnych rozwiązań fabularnych ani pełnej drogi do finału. Jeśli chcesz grać bez spoilerów, zacznij właśnie tutaj, a do pozostałych zakładek zaglądaj dopiero wtedy, gdy utkniesz.</p>
+
+          <div class="grid three">
+            <div class="card gold">
+              <h4>Jak grać</h4>
+              <p>Czytaj opisy scen, wybieraj akcje przyciskami, zbieraj przedmioty, pilnuj zdrowia i wracaj do bezpiecznych miejsc, gdy robi się niebezpiecznie.</p>
+            </div>
+            <div class="card good">
+              <h4>Na co uważać</h4>
+              <p>Nie każda walka jest obowiązkowa. Czasem rozmowa, ostrożność albo właściwy przedmiot są lepsze niż atak.</p>
+            </div>
+            <div class="card blue">
+              <h4>Decyzje mają znaczenie</h4>
+              <p>Gra zapamiętuje twoje wybory. Pomoc, kradzież, przemoc albo szacunek wobec innych mogą zmienić dalszy przebieg historii.</p>
+            </div>
+          </div>
+
+          <h3>Porady bez spoilerów</h3>
+          <div class="route">
+            <div class="route-step"><div><strong>Rozmawiaj z postaciami</strong><br><span class="small">NPC często dają wskazówki, zadania poboczne, zniżki albo informacje, które później otwierają dodatkowe wybory.</span></div></div>
+            <div class="route-step"><div><strong>Nie wydawaj wszystkiego od razu</strong><br><span class="small">Złoto przydaje się nie tylko do leczenia. Czasem pozwala kupić mapę, narzędzie, informację albo rozwiązać konflikt bez walki.</span></div></div>
+            <div class="route-step"><div><strong>Zbieraj przedmioty</strong><br><span class="small">Nawet prosty przedmiot może później otworzyć bezpieczniejszą ścieżkę, uniknąć pułapki albo pomóc w rozmowie.</span></div></div>
+            <div class="route-step"><div><strong>Obserwuj ton sceny</strong><br><span class="small">Jeśli miejsce wygląda jak grobowiec, świątynia albo przeklęta ruina, agresywne decyzje mogą mieć gorsze skutki.</span></div></div>
+            <div class="route-step"><div><strong>Przygotuj się przed wyprawą</strong><br><span class="small">Przed wejściem do nowej, niebezpiecznej lokacji dobrze mieć leczenie, światło i trochę złota w zapasie.</span></div></div>
+            <div class="route-step"><div><strong>Nie śpiesz się do finału</strong><br><span class="small">Gra nagradza eksplorację. Warto wracać do wcześniejszych miejsc po zdobyciu nowych informacji lub przedmiotów.</span></div></div>
+          </div>
+
+          <h3>Jak korzystać z poradnika</h3>
+          <div class="grid">
+            <div class="card">
+              <h4>Bez spoilerów</h4>
+              <p>Zostań przy tej sekcji i ewentualnie sprawdzaj tylko ogólne porady. To najlepsze rozwiązanie na pierwsze przejście.</p>
+            </div>
+            <div class="card bad">
+              <h4>Ze spoilerami</h4>
+              <p>Zakładki „Solucja”, „Zakończenia” i „Checklista finału” zdradzają konkretne lokacje, przedmioty oraz warunki finału.</p>
+            </div>
+          </div>
+
+          <div class="notice success"><strong>Najlepsza rada na start:</strong> graj naturalnie, nie próbuj od razu robić idealnej ścieżki. Pierwsze przejście najlepiej potraktować jako odkrywanie świata.</div>
+        </section>
+
+        <section id="solucja" class="tab">
+          <h2>Solucja krok po kroku</h2>
+          <p class="lead">Poniżej bezpieczna ścieżka prowadząca do dobrego albo najlepszego zakończenia.</p>
+
+          <div class="mini-nav">
+            <a href="#ravenford">Ravenford</a>
+            <a href="#las">Mroczny Las</a>
+            <a href="#bagna">Bagna</a>
+            <a href="#krypta">Krypta</a>
+            <a href="#fort">Fort</a>
+            <a href="#wieza">Wieża</a>
+            <a href="#ruiny">Ruiny</a>
+          </div>
+
+          <h3 id="ravenford">1. Ravenford</h3>
+          <div class="card">
+            <p>Na początku przeszukaj pokój i zabierz Małą Miksturę. Potem zejdź do sali gospody, pomóż rannemu strażnikowi i porozmawiaj z kronikarzem Edrinem.</p>
+            <ul>
+              <li>Weź zadanie główne o trzech artefaktach.</li>
+              <li>W sklepie kup Miksturę Leczenia, jeśli masz złoto.</li>
+              <li>U kowala weź zadanie odzyskania skrzyni narzędzi.</li>
+              <li>W kaplicy porozmawiaj z Siostrą Aleną.</li>
+            </ul>
+          </div>
+
+          <h3 id="las">2. Mroczny Las</h3>
+          <div class="card">
+            <p>W lesie najważniejszy jest ranny kupiec. Pomóż mu, nawet jeśli musisz zużyć miksturę. Dzięki temu dostaniesz zniżki i lepszą reputację.</p>
+            <ul>
+              <li>Zbadaj przewrócony wóz.</li>
+              <li>Pomóż kupcowi.</li>
+              <li>Nie okradaj wozu.</li>
+              <li>Pomódl się przy kapliczce albo złóż ofiarę.</li>
+              <li>Nie niszcz posągu.</li>
+              <li>Zdobądź Wilcze Futro z Wilka Cienia.</li>
+              <li>Znajdź skrzynię narzędzi kowala.</li>
+            </ul>
+          </div>
+
+          <h3 id="bagna">3. Bagna Umarłych</h3>
+          <div class="card">
+            <p>Na bagna najlepiej iść dopiero po kupieniu Mapy Bagien. Bez niej można stracić zdrowie albo trafić na dodatkową walkę.</p>
+            <ul>
+              <li>Użyj Mapy Bagien.</li>
+              <li>Odwiedź zatopioną chatę zielarki.</li>
+              <li>Oddaj Wilcze Futro za Eliksir Czystej Krwi.</li>
+              <li>Nie okradaj zielarki.</li>
+              <li>Unikaj zbędnych walk z Topielcami.</li>
+            </ul>
+          </div>
+
+          <h3 id="krypta">4. Krypta Milczących</h3>
+          <div class="card">
+            <p>Krypta nagradza ciszę i szacunek. Agresywne zachowania budzą strażników.</p>
+            <ul>
+              <li>Wejdź z Pochodnią albo magią.</li>
+              <li>W Korytarzu Bez Echa idź powoli.</li>
+              <li>Nie krzycz i nie biegnij.</li>
+              <li>W Sali Pustych Hełmów uklęknij przed posągiem.</li>
+              <li>Nie kradnij z grobowców.</li>
+              <li>Zdobądź Srebrny Klucz.</li>
+            </ul>
+          </div>
+
+          <h3 id="fort">5. Fort Zdrajców</h3>
+          <div class="card">
+            <p>Fort da się przejść walką, ale najlepsza droga to rozmowa z dowódcą Caelem.</p>
+            <ul>
+              <li>Przy bramie powiedz prawdę.</li>
+              <li>Pokaż Srebrny Klucz, jeśli masz taką opcję.</li>
+              <li>Nie atakuj strażników.</li>
+              <li>Przestudiuj mapę, ale jej nie kradnij.</li>
+              <li>Przekonaj Caela, że nie chcesz władzy.</li>
+              <li>Zdobądź Pieczęć Starego Króla.</li>
+            </ul>
+          </div>
+
+          <h3 id="wieza">6. Wieża Astromanty</h3>
+          <div class="card">
+            <p>Wieża jest kluczowa dla fabuły. Tutaj najlepiej odkryć prawdę o Elianie.</p>
+            <ul>
+              <li>Przy drzwiach powiedz, że chcesz poznać prawdę albo zakończyć cierpienie.</li>
+              <li>W Bibliotece przeczytaj księgi o Koronie, Arvandzie i Elianie.</li>
+              <li>Nie pal ksiąg.</li>
+              <li>Nie wybieraj pragnienia władzy.</li>
+              <li>W Sali Luster wybierz bohatera albo przejdź z zamkniętymi oczami.</li>
+              <li>Zdobądź Kryształ Świtu.</li>
+            </ul>
+          </div>
+
+          <h3 id="ruiny">7. Ruiny Valdorinu</h3>
+          <div class="card">
+            <p>Nie wchodź do ruin bez trzech głównych artefaktów. W ruinach gra rozlicza większość wcześniejszych decyzji.</p>
+            <ul>
+              <li>Użyj Srebrnego Klucza na Bramie Milczących.</li>
+              <li>Pieczęć Starego Króla ochroni cię przed pułapkami.</li>
+              <li>Kryształ Świtu ochroni przed utratą pamięci.</li>
+              <li>Na rynku nie przeszukuj chciwie straganów.</li>
+              <li>Znajdź dom medyka i przeczytaj dziennik.</li>
+              <li>Idź do pokoju Eliany.</li>
+              <li>Zdobądź Łzę Księżniczki, jeśli chcesz najlepsze zakończenie.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="zakonczenia" class="tab">
+          <h2>Zakończenia</h2>
+          <p class="lead">Gra ma kilka zakończeń. Różnią się nie tylko ostatnim wyborem, ale też tym, jak gracz zachowywał się wcześniej.</p>
+
+          <div class="ending good">
+            <h3>Najlepsze: Świt dla umarłych</h3>
+            <p><strong>Wymagania:</strong> trzy główne artefakty, Łza Księżniczki Eliany, wiedza o Elianie, niska reputacja popiołu.</p>
+            <p><strong>Jak odblokować:</strong> pomagaj ludziom, nie niszcz kapliczki, przekonaj Caela pokojowo, w Wieży przeczytaj księgi o Elianie, w ruinach znajdź jej pokój i użyj Łzy w finale.</p>
+          </div>
+
+          <div class="ending good">
+            <h3>Dobre: Świt nad Valdorinem</h3>
+            <p><strong>Wymagania:</strong> trzy główne artefakty i pokonanie Popielnego Króla bez zakładania Korony.</p>
+            <p><strong>Jak odblokować:</strong> zdobądź Srebrny Klucz, Kryształ Świtu i Pieczęć, wejdź do ruin, pokonaj króla i zniszcz Koronę.</p>
+          </div>
+
+          <div class="ending blue">
+            <h3>Neutralne: Nowy Strażnik</h3>
+            <p><strong>Wymagania:</strong> trzy artefakty, brak pełnej wiedzy o Elianie albo brak Łzy, wybór zapieczętowania Korony.</p>
+            <p><strong>Efekt:</strong> klątwa słabnie, ale nie znika. Gracz zostaje strażnikiem Korony albo przekazuje ją nowym opiekunom.</p>
+          </div>
+
+          <div class="ending bad">
+            <h3>Złe: Władca Popiołu</h3>
+            <p><strong>Wymagania:</strong> wybierz w finale „Załóż Koronę” albo używaj zbyt często mocy Czarnego Odłamka.</p>
+            <p><strong>Efekt:</strong> gracz zostaje nowym Popielnym Królem, a Valdorin budzi się jako miasto posłusznych cieni.</p>
+          </div>
+
+          <div class="ending bad">
+            <h3>Tragiczne: Zgubiony w popiele</h3>
+            <p><strong>Wymagania:</strong> wejdź do Ruin Valdorinu bez kompletu artefaktów, szczególnie bez Kryształu Świtu.</p>
+            <p><strong>Efekt:</strong> gracz traci pamięć, imię i duszę, zostając jednym z cieni miasta.</p>
+          </div>
+
+          <div class="ending bad">
+            <h3>Mroczne: Zniszczenie bez świtu</h3>
+            <p><strong>Wymagania:</strong> trzy artefakty, Wola Zniszczenia, brak Łzy Eliany i brutalne zniszczenie Korony.</p>
+            <p><strong>Efekt:</strong> klątwa znika, ale dusze mieszkańców Valdorinu zostają rozerwane razem z Koroną.</p>
+          </div>
+        </section>
+
+        <section id="przedmioty" class="tab">
+          <h2>Przedmioty i artefakty</h2>
+          <p class="lead">Przedmioty otwierają dodatkowe wybory. Niektóre są zwykłym wyposażeniem, inne decydują o finale.</p>
+
+          <div class="search-box">
+            <input type="text" id="itemSearch" placeholder="Szukaj przedmiotu, np. Kryształ, Mapa, Mikstura..." />
+          </div>
+
+          <div class="item-list" id="itemsList">
+            <div class="item" data-name="srebrny klucz artefakt krypta">
+              <div class="type">Artefakt główny</div>
+              <h4>Srebrny Klucz</h4>
+              <p>Zdobywany w Krypcie Milczących. Otwiera Bramę Milczących prowadzącą do ruin Valdorinu.</p>
+              <div class="effect">Najlepiej zdobyć go z szacunkiem, bez hałasowania i kradzieży w krypcie.</div>
+            </div>
+
+            <div class="item" data-name="kryształ świtu artefakt wieża">
+              <div class="type">Artefakt główny</div>
+              <h4>Kryształ Świtu</h4>
+              <p>Zdobywany w Wieży Astromanty. Chroni przed klątwą Korony i utratą pamięci.</p>
+              <div class="effect">Zmniejsza siłę Popielnego Króla i pomaga w najlepszym zakończeniu.</div>
+            </div>
+
+            <div class="item" data-name="pieczęć starego króla artefakt fort">
+              <div class="type">Artefakt główny</div>
+              <h4>Pieczęć Starego Króla</h4>
+              <p>Zdobywana w Forcie Zdrajców. Wyłącza królewskie pułapki w pałacu.</p>
+              <div class="effect">Najlepiej zdobyć ją pokojowo od Caela.</div>
+            </div>
+
+            <div class="item" data-name="łza księżniczki eliany artefakt zakończenie">
+              <div class="type">Artefakt sekretny</div>
+              <h4>Łza Księżniczki Eliany</h4>
+              <p>Zdobywana w pokoju Eliany w ruinach. Wymaga wiedzy o jej historii i dobrej reputacji.</p>
+              <div class="effect">Odblokowuje najlepsze zakończenie „Świt dla umarłych”.</div>
+            </div>
+
+            <div class="item" data-name="stary list króla list prawda">
+              <div class="type">Przedmiot fabularny</div>
+              <h4>Stary List Króla</h4>
+              <p>Ujawnia, że król użył Korony, próbując ocalić córkę.</p>
+              <div class="effect">Odblokowuje opcję przebaczenia albo dodatkowy dialog w finale.</div>
+            </div>
+
+            <div class="item" data-name="czarny odłamek korony zły popiół">
+              <div class="type">Przeklęty artefakt</div>
+              <h4>Czarny Odłamek Korony</h4>
+              <p>Daje moc, ale zwiększa reputację popiołu.</p>
+              <div class="effect">Może ułatwić walki, ale grozi złym zakończeniem.</div>
+            </div>
+
+            <div class="item" data-name="mikstura leczenia zdrowie">
+              <div class="type">Przedmiot użytkowy</div>
+              <h4>Mikstura leczenia</h4>
+              <p>Przywraca 10 zdrowia.</p>
+              <div class="effect">Najlepiej oszczędzać ją na bossów i trudne walki.</div>
+            </div>
+
+            <div class="item" data-name="mała mikstura zdrowie">
+              <div class="type">Przedmiot użytkowy</div>
+              <h4>Mała mikstura</h4>
+              <p>Przywraca 6 zdrowia.</p>
+              <div class="effect">Dobra na początek gry albo do pomocy rannemu kupcowi.</div>
+            </div>
+
+            <div class="item" data-name="pochodnia krypta duchy">
+              <div class="type">Przedmiot użytkowy</div>
+              <h4>Pochodnia</h4>
+              <p>Pozwala wejść do ciemnych miejsc i osłabia część duchów.</p>
+              <div class="effect">Ważna w Krypcie Milczących i przy walce z nieumarłymi.</div>
+            </div>
+
+            <div class="item" data-name="mapa bagien bagna">
+              <div class="type">Przedmiot użytkowy</div>
+              <h4>Mapa Bagien</h4>
+              <p>Ułatwia przejście przez Bagna Umarłych.</p>
+              <div class="effect">Jeden z najlepszych zakupów we wczesnej fazie gry.</div>
+            </div>
+
+            <div class="item" data-name="wytrychy łotrzyk zamki fort">
+              <div class="type">Narzędzie</div>
+              <h4>Wytrychy</h4>
+              <p>Otwierają zamki, skrzynie i boczne wejścia.</p>
+              <div class="effect">Pozwalają wejść do fortu po cichu i zdobywać ukryte skarby.</div>
+            </div>
+
+            <div class="item" data-name="wilcze futro zielarka eliksir">
+              <div class="type">Łup</div>
+              <h4>Wilcze Futro</h4>
+              <p>Zdobywane po walce z Wilkiem Cienia.</p>
+              <div class="effect">Najlepiej oddać zielarce za Eliksir Czystej Krwi.</div>
+            </div>
+
+            <div class="item" data-name="eliksir czystej krwi trucizna bagna">
+              <div class="type">Eliksir</div>
+              <h4>Eliksir Czystej Krwi</h4>
+              <p>Chroni przed trucizną bagien i częścią efektów klątwy.</p>
+              <div class="effect">Bardzo przydatny przed Kryptą i ruinami.</div>
+            </div>
+
+            <div class="item" data-name="stary amulet pułapka klątwa">
+              <div class="type">Amulet</div>
+              <h4>Stary Amulet</h4>
+              <p>Chroni przed jedną pułapką albo przekleństwem.</p>
+              <div class="effect">Można go zdobyć w Krypcie, jeśli gracz zachowuje szacunek.</div>
+            </div>
+
+            <div class="item" data-name="żelazny pierścień kowal obrażenia">
+              <div class="type">Nagroda poboczna</div>
+              <h4>Żelazny Pierścień</h4>
+              <p>Nagroda od kowala za odzyskanie skrzyni narzędzi.</p>
+              <div class="effect">Zmniejsza obrażenia albo chroni przed częścią pułapek.</div>
+            </div>
+          </div>
+        </section>
+
+        <section id="bron" class="tab">
+          <h2>Broń</h2>
+          <p class="lead">Lepsza broń mocno ułatwia grę, ale nie każda broń pasuje do każdego przejścia.</p>
+
+          <div class="grid">
+            <div class="card">
+              <h4>Stary miecz</h4>
+              <p>Broń startowa Wojownika. Wystarczy na początek, ale później warto kupić Stalowy Miecz.</p>
+              <div class="tag-row"><span class="tag">start</span><span class="tag">bezpieczny</span></div>
+            </div>
+            <div class="card">
+              <h4>Sztylet</h4>
+              <p>Broń startowa Łotrzyka. Słaba w otwartej walce, ale pasuje do skradania i unikania konfliktów.</p>
+              <div class="tag-row"><span class="tag">łotrzyk</span><span class="tag">skradanie</span></div>
+            </div>
+            <div class="card gold">
+              <h4>Stalowy miecz</h4>
+              <p>Najlepszy uniwersalny zakup u kowala. Polecany do pierwszego przejścia gry.</p>
+              <div class="tag-row"><span class="tag">polecane</span><span class="tag">uniwersalne</span></div>
+            </div>
+            <div class="card gold">
+              <h4>Topór najemnika</h4>
+              <p>Mocna broń do walki z ludźmi i bossami. Dobry wybór dla Wojownika i Banity.</p>
+              <div class="tag-row"><span class="tag">duży atak</span><span class="tag">bossowie</span></div>
+            </div>
+            <div class="card blue">
+              <h4>Kostur Iskier</h4>
+              <p>Broń magiczna. Bardzo skuteczna przeciw nieumarłym, szkieletom i cieniom.</p>
+              <div class="tag-row"><span class="tag">magia</span><span class="tag">nieumarli</span></div>
+            </div>
+            <div class="card bad">
+              <h4>Ostrze Kości</h4>
+              <p>Silna, ale przeklęta broń z Wyspy Kości. Może ranić gracza po walce.</p>
+              <div class="tag-row"><span class="tag">ryzyko</span><span class="tag">mroczna ścieżka</span></div>
+            </div>
+          </div>
+        </section>
+
+        <section id="bossowie" class="tab">
+          <h2>Przeciwnicy i bossowie</h2>
+          <p class="lead">Nie każdą walkę trzeba przyjmować. W wielu przypadkach rozmowa, reputacja albo odpowiedni przedmiot są lepsze niż miecz.</p>
+
+          <div class="boss">
+            <h4>Wilk Cienia</h4>
+            <div class="boss-stats"><span class="stat">Zdrowie: 12</span><span class="stat">Atak: 3</span><span class="stat">Łup: Wilcze Futro</span></div>
+            <p>Prosty przeciwnik z lasu. Pokonaj go, żeby zdobyć Wilcze Futro dla zielarki.</p>
+          </div>
+
+          <div class="boss">
+            <h4>Topielec</h4>
+            <div class="boss-stats"><span class="stat">Zdrowie: 16</span><span class="stat">Atak: 4</span><span class="stat">Ryzyko: trucizna</span></div>
+            <p>Przeciwnik z bagien. Najlepiej walczyć z nim po zdobyciu Eliksiru Czystej Krwi.</p>
+          </div>
+
+          <div class="boss">
+            <h4>Szkielet Wartownik</h4>
+            <div class="boss-stats"><span class="stat">Zdrowie: 18</span><span class="stat">Atak: 5</span><span class="stat">Słabość: magia/pochodnia</span></div>
+            <p>Pojawia się w Krypcie, jeśli gracz hałasuje albo narusza grobowce. Najlepiej go w ogóle nie budzić.</p>
+          </div>
+
+          <div class="boss">
+            <h4>Dowódca Cael</h4>
+            <div class="boss-stats"><span class="stat">Zdrowie: 30</span><span class="stat">Atak: 7</span><span class="stat">Nagroda: Pieczęć</span></div>
+            <p>Silny przeciwnik, ale może być sojusznikiem. Najlepiej przekonać go rozmową i dobrą reputacją.</p>
+          </div>
+
+          <div class="boss">
+            <h4>Cień Gracza</h4>
+            <div class="boss-stats"><span class="stat">Statystyki: zależne od gracza</span><span class="stat">Miejsce: Wieża</span></div>
+            <p>Im więcej złych decyzji, tym silniejszy Cień. Błogosławieństwo Świtu i mikstury bardzo pomagają.</p>
+          </div>
+
+          <div class="boss">
+            <h4>Popielny Król</h4>
+            <div class="boss-stats"><span class="stat">Zdrowie: 45+</span><span class="stat">Atak: 8</span><span class="stat">Boss finałowy</span></div>
+            <p>Nie walcz bez trzech artefaktów. Kryształ Świtu osłabia jego moc, a Łza Eliany pozwala odblokować najlepszy finał.</p>
+          </div>
+        </section>
+
+        <section id="decyzje" class="tab">
+          <h2>Najważniejsze decyzje</h2>
+          <p class="lead">Te wybory powinny wracać później w fabule i wpływać na zakończenia.</p>
+
+          <div class="grid">
+            <div class="card good">
+              <h4>Pomoc rannemu kupcowi</h4>
+              <p>Daje dobrą reputację, zniżki w sklepie i ułatwia pokojowe rozmowy.</p>
+            </div>
+            <div class="card bad">
+              <h4>Okradzenie kupca</h4>
+              <p>Daje szybkie złoto, ale pogarsza reputację i może podnieść ceny.</p>
+            </div>
+            <div class="card good">
+              <h4>Modlitwa przy kapliczce</h4>
+              <p>Daje błogosławieństwo i wzmacnia ścieżkę dobrego zakończenia.</p>
+            </div>
+            <div class="card bad">
+              <h4>Zniszczenie kapliczki</h4>
+              <p>Daje złoto, ale wzmacnia Popielnego Króla i reputację popiołu.</p>
+            </div>
+            <div class="card good">
+              <h4>Szacunek w Krypcie</h4>
+              <p>Ułatwia zdobycie Srebrnego Klucza i może dać Stary Amulet.</p>
+            </div>
+            <div class="card bad">
+              <h4>Kradzież z grobowców</h4>
+              <p>Budzi strażników i pogarsza drogę do dobrego finału.</p>
+            </div>
+            <div class="card good">
+              <h4>Pokojowe przekonanie Caela</h4>
+              <p>Pozwala zdobyć Pieczęć bez walki i zachować szansę na najlepsze zakończenie.</p>
+            </div>
+            <div class="card bad">
+              <h4>Zabicie Caela</h4>
+              <p>Daje szybką Pieczęć, ale zamyka część pokojowych konsekwencji.</p>
+            </div>
+            <div class="card good">
+              <h4>Poznanie historii Eliany</h4>
+              <p>Odblokowuje Łzę Księżniczki i najlepsze zakończenie.</p>
+            </div>
+            <div class="card bad">
+              <h4>Założenie Korony</h4>
+              <p>Prowadzi do złego zakończenia „Władca Popiołu”.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="checklista" class="tab">
+          <h2>Checklista przed finałem</h2>
+          <p class="lead">Przed wejściem do Ruin Valdorinu warto sprawdzić, czy masz wszystko, co potrzebne.</p>
+
+          <div class="notice warning"><strong>Uwaga:</strong> wejście do ruin bez kompletu artefaktów może skończyć się zakończeniem „Zgubiony w popiele”.</div>
+
+          <h3>Minimum do normalnego finału</h3>
+          <div class="checklist">
+            <label class="check"><input type="checkbox" /> <span>Mam Srebrny Klucz z Krypty Milczących.</span></label>
+            <label class="check"><input type="checkbox" /> <span>Mam Kryształ Świtu z Wieży Astromanty.</span></label>
+            <label class="check"><input type="checkbox" /> <span>Mam Pieczęć Starego Króla z Fortu Zdrajców.</span></label>
+            <label class="check"><input type="checkbox" /> <span>Mam przynajmniej dwie Mikstury Leczenia.</span></label>
+            <label class="check"><input type="checkbox" /> <span>Mam dobrą broń, np. Stalowy Miecz, Topór Najemnika albo Kostur Iskier.</span></label>
+          </div>
+
+          <h3>Do najlepszego zakończenia</h3>
+          <div class="checklist">
+            <label class="check"><input type="checkbox" /> <span>Pomogłem rannemu kupcowi.</span></label>
+            <label class="check"><input type="checkbox" /> <span>Nie zniszczyłem kapliczki w lesie.</span></label>
+            <label class="check"><input type="checkbox" /> <span>Zdobyłem Pieczęć pokojowo albo bez zabijania Caela.</span></label>
+            <label class="check"><input type="checkbox" /> <span>W Wieży Astromanty przeczytałem księgi o Koronie, Arvandzie i Elianie.</span></label>
+            <label class="check"><input type="checkbox" /> <span>Znalazłem Stary List Króla albo dziennik medyka.</span></label>
+            <label class="check"><input type="checkbox" /> <span>Znalazłem pokój Eliany w ruinach.</span></label>
+            <label class="check"><input type="checkbox" /> <span>Zdobyłem Łzę Księżniczki Eliany.</span></label>
+            <label class="check"><input type="checkbox" /> <span>Nie używałem Czarnego Odłamka Korony albo nie mam wysokiej reputacji popiołu.</span></label>
+            <label class="check"><input type="checkbox" /> <span>Nie planuję zakładać Korony w finale.</span></label>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script>
+    const buttons = document.querySelectorAll('.tab-btn');
+    const tabs = document.querySelectorAll('.tab');
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        const target = button.dataset.tab;
+        buttons.forEach(btn => btn.classList.remove('active'));
+        tabs.forEach(tab => tab.classList.remove('active'));
+        button.classList.add('active');
+        document.getElementById(target).classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+
+    const search = document.getElementById('itemSearch');
+    const itemCards = document.querySelectorAll('#itemsList .item');
+
+    if (search) {
+      search.addEventListener('input', () => {
+        const query = search.value.trim().toLowerCase();
+        itemCards.forEach(card => {
+          const text = (card.dataset.name + ' ' + card.innerText).toLowerCase();
+          card.style.display = text.includes(query) ? '' : 'none';
+        });
+      });
+    }
+
+    const checks = document.querySelectorAll('input[type="checkbox"]');
+    const savedChecks = JSON.parse(localStorage.getItem('koronaPoradnikChecks') || '{}');
+
+    checks.forEach((check, index) => {
+      check.checked = !!savedChecks[index];
+      check.addEventListener('change', () => {
+        savedChecks[index] = check.checked;
+        localStorage.setItem('koronaPoradnikChecks', JSON.stringify(savedChecks));
+      });
+    });
+  </script>
+</body>
+</html>

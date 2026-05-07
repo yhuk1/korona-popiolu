@@ -46,6 +46,13 @@ const WEAPONS = {
   "Kostur Iskier": 4,
 };
 
+const STACKABLE_ITEMS = new Set([
+  "Mikstura leczenia",
+  "Mała mikstura",
+  "Chleb",
+  "Suszone mięso",
+]);
+
 const HEROES = {
   warrior: {
     name: "Wojownik",
@@ -116,6 +123,7 @@ let state;
 const els = {
   sceneName: document.querySelector("#sceneName"),
   storyText: document.querySelector("#storyText"),
+  eventLog: document.querySelector("#eventLog"),
   choices: document.querySelector("#choices"),
   heroClass: document.querySelector("#heroClass"),
   health: document.querySelector("#health"),
@@ -154,6 +162,7 @@ function newGame() {
     inventory: [],
     artifacts: [],
     statuses: [],
+    notifications: [],
     flags: {},
     rep: { good: 0, greed: 0, ash: 0 },
     nextAttackBonus: 0,
@@ -176,7 +185,12 @@ function chooseHero(heroKey) {
   state.weapon = hero.weapon;
   state.inventory = [...hero.inventory];
   addStatus(hero.trait);
+  startMusic({ quiet: true, fromButton: true });
   renderScene("dream");
+}
+
+function openGuide() {
+  window.open("korona_popiolu_poradnik_www.html", "_blank", "noopener");
 }
 
 function attackValue() {
@@ -204,22 +218,33 @@ function mainArtifactCount() {
 }
 
 function addItem(item) {
-  if (item && !state.inventory.includes(item)) state.inventory.push(item);
+  if (!item) return;
+  if (STACKABLE_ITEMS.has(item) || !state.inventory.includes(item)) {
+    state.inventory.push(item);
+    addNotification(`Otrzymujesz: ${item}.`, "item");
+  }
 }
 
 function removeItem(item) {
   const index = state.inventory.indexOf(item);
   if (index === -1) return false;
   state.inventory.splice(index, 1);
+  addNotification(`Tracisz: ${item}.`, "loss");
   return true;
 }
 
 function addArtifact(artifact) {
-  if (artifact && !state.artifacts.includes(artifact)) state.artifacts.push(artifact);
+  if (artifact && !state.artifacts.includes(artifact)) {
+    state.artifacts.push(artifact);
+    addNotification(`Artefakt zdobyty: ${artifact}.`, "artifact");
+  }
 }
 
 function addStatus(status) {
-  if (status && !state.statuses.includes(status)) state.statuses.push(status);
+  if (status && !state.statuses.includes(status)) {
+    state.statuses.push(status);
+    addNotification(`Ważna informacja: ${status}.`, "info");
+  }
 }
 
 function setFlag(flag, value = true) {
@@ -227,11 +252,15 @@ function setFlag(flag, value = true) {
 }
 
 function heal(amount) {
+  const before = state.health;
   state.health = Math.min(state.maxHealth, state.health + amount);
+  const healed = state.health - before;
+  if (healed > 0) addNotification(`Odzyskujesz ${healed} zdrowia.`, "good");
 }
 
 function damage(amount) {
   state.health -= amount;
+  addNotification(`Tracisz ${amount} zdrowia.`, "danger");
   if (state.health <= 0) {
     state.health = 0;
     renderEnding("Śmierć w popiele", "Zdrowie spada do zera. Twoja historia kończy się na drodze do Valdorinu, a mgła dopisuje twoje imię do swoich szeptów.");
@@ -244,6 +273,29 @@ function repLabel() {
   return `Dobro ${state.rep.good} / Chciwość ${state.rep.greed} / Popiół ${state.rep.ash}`;
 }
 
+function addNotification(text, type = "info") {
+  if (!state?.notifications) return;
+  state.notifications.push({ text, type });
+  if (state.notifications.length > 8) state.notifications.shift();
+}
+
+function renderNotifications() {
+  els.eventLog.innerHTML = "";
+  if (!state.notifications.length) {
+    els.eventLog.hidden = true;
+    return;
+  }
+
+  els.eventLog.hidden = false;
+  state.notifications.forEach((entry) => {
+    const item = document.createElement("p");
+    item.className = `event event-${entry.type}`;
+    item.textContent = entry.text;
+    els.eventLog.appendChild(item);
+  });
+  state.notifications = [];
+}
+
 function applyEffects(effects = []) {
   for (const effect of effects) {
     if (effect.item) addItem(effect.item);
@@ -251,20 +303,38 @@ function applyEffects(effects = []) {
     if (effect.artifact) addArtifact(effect.artifact);
     if (effect.status) addStatus(effect.status);
     if (effect.flag) setFlag(effect.flag, effect.value ?? true);
-    if (effect.gold) state.gold = Math.max(0, state.gold + effect.gold);
+    if (effect.gold) {
+      state.gold = Math.max(0, state.gold + effect.gold);
+      addNotification(effect.gold > 0 ? `Zdobywasz ${effect.gold} złota.` : `Tracisz ${Math.abs(effect.gold)} złota.`, effect.gold > 0 ? "item" : "loss");
+    }
     if (effect.heal) heal(effect.heal);
     if (effect.damage && damage(effect.damage)) return false;
     if (effect.maxHealth) {
       state.maxHealth += effect.maxHealth;
       state.health += Math.max(0, effect.maxHealth);
+      addNotification(`Maksymalne zdrowie zmienia się o ${effect.maxHealth}.`, "good");
     }
-    if (effect.weapon) state.weapon = effect.weapon;
-    if (effect.attack) state.baseAttack += effect.attack;
-    if (effect.bonus) state.nextAttackBonus += effect.bonus;
+    if (effect.weapon) {
+      state.weapon = effect.weapon;
+      addNotification(`Nowa broń: ${effect.weapon}.`, "item");
+    }
+    if (effect.attack) {
+      state.baseAttack += effect.attack;
+      addNotification(`Atak zmienia się o ${effect.attack}.`, "item");
+    }
+    if (effect.bonus) {
+      state.nextAttackBonus += effect.bonus;
+      addNotification(`Następny atak otrzymuje premię +${effect.bonus}.`, "good");
+    }
     if (effect.rep) {
       state.rep.good += effect.rep.good || 0;
       state.rep.greed += effect.rep.greed || 0;
       state.rep.ash += effect.rep.ash || 0;
+      const changes = [];
+      if (effect.rep.good) changes.push(`dobro ${effect.rep.good > 0 ? "+" : ""}${effect.rep.good}`);
+      if (effect.rep.greed) changes.push(`chciwość ${effect.rep.greed > 0 ? "+" : ""}${effect.rep.greed}`);
+      if (effect.rep.ash) changes.push(`popiół ${effect.rep.ash > 0 ? "+" : ""}${effect.rep.ash}`);
+      if (changes.length) addNotification(`Reputacja: ${changes.join(", ")}.`, "info");
     }
   }
   return true;
@@ -296,11 +366,13 @@ function describeRequirement(choice) {
 }
 
 function takeChoice(choice) {
-  startMusic({ quiet: true });
   if (!isAvailable(choice)) {
     return renderNotice("Ten wybór jest niedostępny", describeRequirement(choice), state.scene);
   }
-  if (choice.requireGold) state.gold -= choice.requireGold;
+  if (choice.requireGold) {
+    state.gold -= choice.requireGold;
+    addNotification(`Wydajesz ${choice.requireGold} złota.`, "loss");
+  }
   if (choice.effects && !applyEffects(choice.effects)) return;
   if (choice.healItem) return useHealingItem(choice.healItem);
   if (choice.fight) return startFight(choice.fight.enemy(), choice.fight.win, choice.fight.lose);
@@ -316,6 +388,7 @@ function renderScene(id) {
   setMusicMood(scene.art || "village");
   els.sceneName.textContent = scene.title;
   els.storyText.innerHTML = scene.text().split("\n").map((p) => `<p>${p}</p>`).join("");
+  renderNotifications();
   els.choices.innerHTML = "";
 
   scene.choices.filter(canShow).forEach((choice) => {
@@ -339,6 +412,7 @@ function renderCustom(title, text, choices, art = "village") {
   setMusicMood(art);
   els.sceneName.textContent = title;
   els.storyText.innerHTML = text.split("\n").map((p) => `<p>${p}</p>`).join("");
+  renderNotifications();
   els.choices.innerHTML = "";
   choices.forEach((choice) => {
     const button = document.createElement("button");
@@ -393,6 +467,7 @@ function useHealingItem(item) {
 function buy(item, price, back = "shop") {
   if (state.gold < price) return renderNotice("Sklep", "Nie masz tyle złota.", back);
   state.gold -= price;
+  addNotification(`Wydajesz ${price} złota.`, "loss");
   addItem(item);
   renderNotice("Sklep", `Kupujesz: ${item}.`, back);
 }
@@ -476,6 +551,7 @@ function sacrificeStrike() {
 
 function useBlackShard() {
   state.rep.ash += 3;
+  addNotification("Reputacja: popiół +3.", "danger");
   if (state.rep.ash >= 6) return endingBad();
   state.enemy.health -= 25;
   if (state.enemy.health <= 0) return endingDark();
@@ -492,7 +568,10 @@ function enemyStrike(prefix) {
 
 function winFight(prefix) {
   const enemy = state.enemy;
-  if (enemy.gold) state.gold += enemy.gold;
+  if (enemy.gold) {
+    state.gold += enemy.gold;
+    addNotification(`Zdobywasz ${enemy.gold} złota.`, "item");
+  }
   if (enemy.item) addItem(enemy.item);
   if (enemy.poison && !has(ITEMS.elixir)) damage(3);
   if (state.weapon === "Ostrze Kości" && Math.random() < 0.5) damage(1);
@@ -575,6 +654,7 @@ const SCENES = {
     art: "village",
     text: () => "Valdorin budzi starą klątwę. Wybierz wędrowca, który przejdzie przez czarny deszcz, popiół i pamięć umarłego miasta.",
     choices: [
+      c("Poradnik", { action: openGuide, kind: "good" }),
       c("Wojownik", { action: () => chooseHero("warrior") }),
       c("Łotrzyk", { action: () => chooseHero("rogue") }),
       c("Uczeń Maga", { action: () => chooseHero("mage") }),
@@ -952,12 +1032,12 @@ const SCENES = {
     art: "fort",
     text: () => "Cael mówi: „Każdy bohater wierzy, że jest silniejszy od tych, którzy przyszli przed nim. A potem Korona przemawia jego głosem.”",
     choices: [
-      c("Przekonaj go, że nie chcesz władzy", { requireGood: 3, action: () => { addArtifact(ARTIFACTS.seal); setFlag("convincedCael"); addStatus("Przekonał Caela"); state.rep.good += 1; completeArtifactEvent(); }, kind: "good" }),
+      c("Przekonaj go, że nie chcesz władzy", { requireGood: 3, action: () => { addArtifact(ARTIFACTS.seal); setFlag("convincedCael"); addStatus("Przekonał Caela"); state.rep.good += 1; addNotification("Reputacja: dobro +1.", "good"); completeArtifactEvent(); }, kind: "good" }),
       c("Poproś o prawdę", { to: "cael", effects: [{ status: "Wie, że zdrajcy byli pierwszymi obrońcami" }] }),
       c("Pokaż Stary List Króla", { requireArtifact: ARTIFACTS.letter, action: () => { addArtifact(ARTIFACTS.seal); setFlag("convincedCael"); completeArtifactEvent(); }, kind: "good" }),
       c("Zaoferuj 20 złota", { requireGold: 20, action: () => { addArtifact(ARTIFACTS.seal); completeArtifactEvent(); } }),
-      c("Wyzwij go na pojedynek", { fight: { enemy: () => ENEMIES.cael, win: () => { addArtifact(ARTIFACTS.seal); setFlag("killedCael"); addStatus("Zabił Caela"); state.rep.ash += 1; completeArtifactEvent(); } }, kind: "danger" }),
-      c("Spróbuj ukraść Pieczęć", { requireClass: "rogue", action: () => { addArtifact(ARTIFACTS.seal); state.rep.greed += 2; completeArtifactEvent(); }, kind: "danger" }),
+      c("Wyzwij go na pojedynek", { fight: { enemy: () => ENEMIES.cael, win: () => { addArtifact(ARTIFACTS.seal); setFlag("killedCael"); addStatus("Zabił Caela"); state.rep.ash += 1; addNotification("Reputacja: popiół +1.", "danger"); completeArtifactEvent(); } }, kind: "danger" }),
+      c("Spróbuj ukraść Pieczęć", { requireClass: "rogue", action: () => { addArtifact(ARTIFACTS.seal); state.rep.greed += 2; addNotification("Reputacja: chciwość +2.", "danger"); completeArtifactEvent(); }, kind: "danger" }),
       c("Wróć", { to: "village" }),
     ],
   },
@@ -1008,6 +1088,7 @@ const SCENES = {
         addArtifact(ARTIFACTS.crystal);
         state.maxHealth += 5;
         state.health += 5;
+        addNotification("Maksymalne zdrowie wzrasta o 5.", "good");
         completeArtifactEvent();
       }, kind: "good" }),
     ],
@@ -1017,7 +1098,7 @@ const SCENES = {
     art: "village",
     text: () => "Kiedy wracasz do Ravenford, dzwon bije po raz drugi. Mgła już jest na placu. Z jej wnętrza wychodzą postacie z popiołu. Nie atakują od razu. Stoją i patrzą w okna domów.",
     choices: [
-      c("Broń mieszkańców", { fight: { enemy: () => ENEMIES.ashKnight, win: () => { setFlag("nightAttackDone"); state.rep.good += 2; renderScene("village"); } }, kind: "danger" }),
+      c("Broń mieszkańców", { fight: { enemy: () => ENEMIES.ashKnight, win: () => { setFlag("nightAttackDone"); state.rep.good += 2; addNotification("Reputacja: dobro +2.", "good"); renderScene("village"); } }, kind: "danger" }),
       c("Ewakuuj dzieci do kaplicy", { to: "village", effects: [{ flag: "nightAttackDone" }, { rep: { good: 2 } }, { status: "Ewakuował dzieci do kaplicy" }], kind: "good" }),
       c("Szukaj kronikarza", { to: "edrinWell", effects: [{ flag: "nightAttackDone" }, { status: "Widział Edrina rozmawiającego z cieniem" }] }),
       c("Schowaj się w gospodzie", { to: "village", effects: [{ flag: "nightAttackDone" }, { rep: { greed: 1 } }] }),
@@ -1187,6 +1268,10 @@ function getDroneFrequencies() {
 }
 
 function toggleMusic() {
+  if (!state.heroKey) {
+    renderNotice("Muzyka", "Muzyka włączy się po wyborze klasy postaci.", "start");
+    return;
+  }
   if (music.running) {
     stopMusic();
     return;
@@ -1382,29 +1467,10 @@ function updateAudioButton() {
   els.audioBtn.title = music.running ? "Wyłącz muzykę" : "Włącz muzykę";
 }
 
-function armFirstGestureMusic() {
-  if (music.autoplayArmed || music.running) return;
-  music.autoplayArmed = true;
-  const startFromGesture = (event) => {
-    if (event.target === els.audioBtn) return;
-    music.autoplayArmed = false;
-    document.removeEventListener("pointerdown", startFromGesture, true);
-    document.removeEventListener("touchstart", startFromGesture, true);
-    document.removeEventListener("click", startFromGesture, true);
-    document.removeEventListener("keydown", startFromGesture, true);
-    startMusic({ quiet: true });
-  };
-  document.addEventListener("pointerdown", startFromGesture, true);
-  document.addEventListener("touchstart", startFromGesture, true);
-  document.addEventListener("click", startFromGesture, true);
-  document.addEventListener("keydown", startFromGesture, true);
-}
-
 els.audioBtn.addEventListener("click", toggleMusic);
 els.restartBtn.addEventListener("click", newGame);
 setupAsh();
 newGame();
-armFirstGestureMusic();
 
 if ("serviceWorker" in navigator && location.protocol !== "file:") {
   window.addEventListener("load", () => {

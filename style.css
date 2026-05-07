@@ -121,6 +121,45 @@ h1 {
   margin: 0 0 0.9rem;
 }
 
+.event-log {
+  display: grid;
+  gap: 7px;
+  margin-top: -4px;
+  margin-bottom: 2px;
+}
+
+.event-log[hidden] {
+  display: none;
+}
+
+.event {
+  width: fit-content;
+  max-width: 100%;
+  margin: 0;
+  padding: 7px 10px;
+  border-left: 3px solid var(--accent);
+  color: #f7edda;
+  background: rgba(0, 0, 0, 0.34);
+  font-family: Arial, sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.35;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.9);
+}
+
+.event-artifact,
+.event-item {
+  border-left-color: var(--accent);
+}
+
+.event-good {
+  border-left-color: var(--accent-2);
+}
+
+.event-danger,
+.event-loss {
+  border-left-color: var(--danger);
+}
+
 .choices {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
