@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Korona Popiołu</title>
+    <meta name="theme-color" content="#0b0b0a" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Korona Popiołu" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="icon" href="assets/icons/icon-192.png" />
+    <link rel="apple-touch-icon" href="assets/icons/icon-192.png" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <canvas id="ashCanvas" aria-hidden="true"></canvas>
+
+    <main class="game-shell">
+      <section class="story-panel" aria-live="polite">
+        <div class="brand-row">
+          <img src="assets/crown.svg" alt="" class="crown-mark" />
+          <div>
+            <p class="kicker">Mroczne fantasy / text adventure</p>
+            <h1>Korona Popiołu</h1>
+          </div>
+        </div>
+
+        <p id="sceneName" class="scene-name"></p>
+        <div id="storyText" class="story-text"></div>
+        <div id="choices" class="choices"></div>
+      </section>
+
+      <aside class="status-panel">
+        <div class="stat-header">
+          <span>Postać</span>
+          <button id="restartBtn" type="button" title="Nowa gra">↻</button>
+        </div>
+
+        <dl class="stats">
+          <div>
+            <dt>Klasa</dt>
+            <dd id="heroClass">-</dd>
+          </div>
+          <div>
+            <dt>Zdrowie</dt>
+            <dd><span id="health">-</span></dd>
+          </div>
+          <div>
+            <dt>Złoto</dt>
+            <dd id="gold">-</dd>
+          </div>
+          <div>
+            <dt>Atak</dt>
+            <dd id="attack">-</dd>
+          </div>
+          <div>
+            <dt>Broń</dt>
+            <dd id="weapon">-</dd>
+          </div>
+        </dl>
+
+        <section>
+          <h2>Artefakty</h2>
+          <ul id="artifacts" class="tag-list"></ul>
+        </section>
+
+        <section>
+          <h2>Ekwipunek</h2>
+          <ul id="inventory" class="tag-list"></ul>
+        </section>
+
+        <section>
+          <h2>Statusy</h2>
+          <ul id="statuses" class="tag-list muted"></ul>
+        </section>
+      </aside>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
