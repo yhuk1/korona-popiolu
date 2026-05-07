@@ -1,0 +1,1728 @@
+# Korona Popiołu — scenariusz rozszerzony do gry przygodowej RPG
+
+Gatunek: text adventure / choose-your-own-adventure / proste RPG fantasy
+Forma: gra przeglądarkowa z opisami scen, przyciskami wyborów, ekwipunkiem, walką, złotem, zdrowiem i kilkoma zakończeniami
+Klimat: mroczne fantasy, przeklęte królestwo, tajemnica dawnego króla, moralne wybory, powolne odkrywanie prawdy
+
+---
+
+## 1. Główna idea gry
+
+Gracz wciela się w wędrowca, który przybywa do królestwa Valdorin w chwili, gdy stara klątwa zaczyna się budzić. Od stu lat dawna stolica królestwa leży w ruinie, a nad jej murami unosi się popielata mgła. Ludzie boją się wymawiać nazwę miasta, bo wierzą, że każde wspomnienie o Valdorinie przybliża powrót Popielnego Króla.
+
+Legenda mówi, że ostatni król, Arvand III, założył Koronę Popiołu, aby ocalić swoją córkę przed śmiercią. Korona spełniła jego prośbę, ale w zamian zabrała życie całemu miastu. Od tamtej pory Valdorin istnieje pomiędzy światem żywych i umarłych, a każdy, kto wejdzie do ruin bez ochrony, traci pamięć, imię i duszę.
+
+Gracz musi zebrać kilka artefaktów, odkryć prawdę o Koronie, zdecydować komu zaufać i ostatecznie wybrać los królestwa.
+
+---
+
+## 2. Rozszerzony zarys fabuły
+
+Początkowo gracz sądzi, że jego zadanie jest proste: zebrać trzy artefakty i zniszczyć Koronę Popiołu. Jednak w trakcie podróży odkrywa, że historia królestwa została zakłamana. Popielny Król nie był zwykłym tyranem. Zdrajcy nie byli jedynie zdrajcami. Kronikarz z Ravenford także nie mówi całej prawdy.
+
+W grze pojawiają się trzy główne siły:
+
+1. **Ludzie Ravenford** — chcą zakończenia klątwy, ale boją się kosztów.
+2. **Strażnicy Pieczęci** — dawni potomkowie zdrajców, którzy pilnują, aby nikt nie sięgnął po Koronę.
+3. **Sługi Popiołu** — istoty związane z Koroną, które chcą sprowadzić nowego nosiciela.
+
+Gracz może zostać bohaterem, nowym strażnikiem, przeklętym władcą albo ofiarą własnej chciwości.
+
+---
+
+## 3. Podstawowy cel gry
+
+Aby odblokować pełny finał, gracz musi zdobyć minimum trzy główne artefakty:
+
+* **Srebrny Klucz** — otwiera Bramę Milczących pod ruinami Valdorinu.
+* **Kryształ Świtu** — chroni ciało i duszę przed działaniem Korony.
+* **Pieczęć Starego Króla** — pozwala wejść do sali tronowej bez aktywowania dawnych pułapek.
+
+W wersji rozszerzonej można dodać artefakty dodatkowe, które nie są obowiązkowe, ale wpływają na zakończenie:
+
+* **Stary List Króla** — ujawnia prawdę o motywacji Arvanda.
+* **Łza Księżniczki Eliany** — pozwala odblokować najbardziej pokojowe zakończenie.
+* **Czarny Odłamek Korony** — daje potężną moc, ale zwiększa ryzyko złego zakończenia.
+* **Księga Imion Umarłych** — pozwala rozmawiać z cieniami mieszkańców Valdorinu.
+* **Błogosławieństwo Świtu** — wzmacnia gracza w finale.
+
+---
+
+## 4. Klasy postaci
+
+Na początku gracz wybiera jedną z czterech klas. Każda ma inne statystyki, inne opcje dialogowe i inne sposoby przechodzenia scen.
+
+### 4.1 Wojownik
+
+Zdrowie: 38
+Złoto: 8
+Atak: 7
+Startowy przedmiot: Stary miecz, chleb, pochodnia
+Specjalna cecha: może zastraszać słabszych przeciwników i czasem unikać walki przez pokaz siły.
+
+Opis:
+
+Wojownik jest najlepszy w bezpośredniej walce. Nadaje się dla gracza, który chce iść prostszą drogą, pokonywać przeciwników i rozwiązywać problemy siłą. Ma mniej subtelnych opcji, ale łatwiej przeżywa trudne starcia.
+
+Specjalne wybory:
+
+* Wyważ drzwi.
+* Zasłoń ranną osobę własnym ciałem.
+* Zastrasz bandytów.
+* Podejmij honorowy pojedynek.
+
+### 4.2 Łotrzyk
+
+Zdrowie: 30
+Złoto: 16
+Atak: 5
+Startowy przedmiot: Sztylet, wytrychy, chleb
+Specjalna cecha: może otwierać zamki, rozbrajać pułapki i okradać wybrane postacie.
+
+Opis:
+
+Łotrzyk daje najwięcej możliwości omijania walki. Często może znaleźć ukryte przejścia, zabrać dodatkowe złoto albo zdobyć przedmiot bez konfliktu. Jednak jeśli dojdzie do długiej walki, jest mniej odporny niż wojownik.
+
+Specjalne wybory:
+
+* Otwórz zamek wytrychami.
+* Ukradnij sakiewkę.
+* Zakradnij się za strażnika.
+* Rozbrój pułapkę.
+
+### 4.3 Uczeń Maga
+
+Zdrowie: 26
+Złoto: 10
+Atak: 4
+Startowy przedmiot: Iskra many, mała mikstura, pochodnia
+Specjalna cecha: może odczytywać runy, odkrywać iluzje i rozmawiać z magicznymi bytami.
+
+Opis:
+
+Uczeń Maga jest trudniejszy na początku, ale ma dostęp do informacji i sekretów. W wielu lokacjach może zrozumieć ukryte znaki, ominąć przeklęte przejścia albo zdobyć dodatkowe wizje fabularne.
+
+Specjalne wybory:
+
+* Odczytaj runy.
+* Rozprosz iluzję.
+* Wezwij iskrę światła.
+* Przemów do ducha.
+
+### 4.4 Banita
+
+Zdrowie: 32
+Złoto: 5
+Atak: 6
+Startowy przedmiot: Toporek, kaptur banity, suszone mięso
+Specjalna cecha: zna świat przestępczy i może dogadywać się z bandytami.
+
+Opis:
+
+Banita jest klasą pośrednią. Nie ma tyle zdrowia co wojownik ani tyle sprytu co łotrzyk, ale zna ludzi z marginesu i może inaczej rozwiązywać konflikty. Niektóre postacie będą mu ufać bardziej, inne mniej.
+
+Specjalne wybory:
+
+* Porozmawiaj językiem bandytów.
+* Udawaj człowieka Popiołu.
+* Wymuś okup.
+* Rozpoznaj zasadzkę.
+
+---
+
+## 5. Statystyki i zasoby
+
+Gracz zarządza kilkoma prostymi parametrami.
+
+### Zdrowie
+
+Gdy zdrowie spadnie do zera, gracz umiera i otrzymuje zakończenie śmierci. Zdrowie można odzyskiwać przez mikstury, odpoczynek, kapliczki, jedzenie i niektóre wybory fabularne.
+
+### Złoto
+
+Złoto służy do kupowania mikstur, map, broni, informacji, łapówek i usług. Niektóre zakończenia zależą od tego, czy gracz był chciwy, czy hojny.
+
+### Atak
+
+Atak określa obrażenia zadawane w walce. Broń zwiększa atak. Niektóre statusy, jak Błogosławieństwo Świtu albo Wola Zniszczenia, chwilowo modyfikują obrażenia.
+
+### Reputacja
+
+W wersji rozszerzonej warto dodać ukrytą reputację:
+
+* **Reputacja dobra** — rośnie za pomoc, uczciwość i ratowanie ludzi.
+* **Reputacja zła** — rośnie za kradzież, zdradę, morderstwa i niszczenie świętych miejsc.
+* **Reputacja popiołu** — rośnie, gdy gracz używa mocy Korony albo wybiera brutalne, przeklęte rozwiązania.
+
+Reputacja wpływa na dialogi, ceny, sojuszników i zakończenia.
+
+---
+
+## 6. Główne akty gry
+
+Gra może być podzielona na pięć dużych aktów.
+
+### Akt I — Czarny deszcz nad Ravenford
+
+Gracz budzi się w gospodzie i poznaje podstawowe zagrożenie. Wioska jest pierwszą bezpieczną lokacją. Gracz wybiera klasę, rozmawia z kronikarzem, kupcem, kowalem i zielarką. Pierwszym celem jest wejście do Mrocznego Lasu i zdobycie informacji o trzech artefaktach.
+
+Główne elementy aktu:
+
+* wybór klasy,
+* rozmowa z kronikarzem,
+* pierwsze zakupy,
+* proste zadania poboczne,
+* pierwsza walka,
+* decyzja moralna z rannym kupcem,
+* odkrycie, że klątwa zaczyna wychodzić poza ruiny.
+
+### Akt II — Trzy drogi do artefaktów
+
+Gracz może wybrać kolejność zdobywania artefaktów. Każda ścieżka ma własny klimat:
+
+* Krypta Milczących — próba odwagi i ciszy.
+* Fort Zdrajców — próba zaufania i polityki.
+* Wieża Astromanty — próba prawdy i tożsamości.
+
+W tym akcie gra staje się bardziej otwarta. Gracz może wracać do wioski, leczyć się, kupować sprzęt i wykonywać zadania poboczne.
+
+### Akt III — Prawda pod popiołem
+
+Po zdobyciu dwóch artefaktów zaczynają pojawiać się sny i wizje. Popielny Król przemawia do gracza. Kronikarz zaczyna zachowywać się podejrzanie. Strażnicy Pieczęci ostrzegają, że zniszczenie Korony może nie być możliwe.
+
+Główne odkrycia:
+
+* Król Arvand nie był zwykłym tyranem.
+* Korona była starsza niż całe królestwo.
+* Księżniczka Eliana mogła nie umrzeć do końca.
+* Kronikarz zna więcej szczegółów, niż przyznał na początku.
+
+### Akt IV — Miasto bez imion
+
+Gracz po zdobyciu trzech artefaktów wchodzi do ruin Valdorinu. To osobna, końcowa część gry. Ruiny są labiryntem wspomnień. Gracz spotyka cienie dawnych mieszkańców, odnajduje listy, poznaje ostatnie chwile miasta i może zdecydować, czy chce zniszczyć Koronę, przejąć ją, zamknąć albo przebaczyć królowi.
+
+### Akt V — Sala Korony
+
+Finał. Gracz konfrontuje się z Popielnym Królem, samą Koroną i własnymi decyzjami. Zależnie od zdobytych przedmiotów, reputacji i wyborów może otrzymać różne zakończenia.
+
+---
+
+# 7. Lokacje główne
+
+---
+
+## 7.1 Ravenford — ostatnia żywa wioska
+
+Ravenford to pierwsza bezpieczna lokacja. Jest mała, uboga i przestraszona. Mieszkańcy żyją blisko granicy Mrocznego Lasu, więc jako pierwsi widzą skutki powrotu klątwy.
+
+### Opis wejściowy
+
+> Ravenford nie wygląda jak miejsce, które może oprzeć się czemukolwiek. Kilkanaście drewnianych domów stoi wokół błotnistego placu. Nad dachami unosi się dym z mokrego drewna. Ludzie zamykają okiennice, choć dzień dopiero się zaczął. Czarny deszcz uderza o kamienie studni, zostawiając na nich szare smugi.
+
+### Dostępne miejsca
+
+* Gospoda „Pod Krukiem”
+* Sklep kupiecki
+* Kuźnia Borena
+* Chata zielarki Mirny
+* Kaplica Świtu
+* Tablica ogłoszeń
+* Droga do Mrocznego Lasu
+
+### Ważne postacie
+
+#### Kronikarz Edrin
+
+Stary człowiek, który zna historię Valdorinu. Na początku wydaje się pomocnikiem, ale później okazuje się, że ukrywa część prawdy.
+
+Możliwe dialogi:
+
+* „Czym jest Korona Popiołu?”
+* „Kim był Popielny Król?”
+* „Dlaczego nikt wcześniej nie zniszczył Korony?”
+* „Skąd wiesz tyle o ruinach?”
+
+Sekret:
+
+Edrin jest potomkiem królewskich kronikarzy. Jego ród przysięgał pilnować, aby nikt nie zapomniał o Koronie. Jednak Edrin zataił fakt, że Korony nie da się po prostu rozbić zwykłą siłą.
+
+#### Boren, kowal
+
+Praktyczny, szorstki, ale uczciwy. Nie wierzy w legendy, dopóki mgła nie zabiera jego ucznia.
+
+Zadanie poboczne:
+
+**Skrzynia narzędzi kowala**
+
+Boren prosi gracza o odzyskanie skrzyni narzędzi z Mrocznego Lasu. Jeśli gracz to zrobi, otrzyma zniżkę na broń i Żelazny Pierścień.
+
+#### Kupiec Lorian
+
+Handlarz, którego można uratować w lesie. Jeśli gracz mu pomoże, ceny w sklepie spadają. Jeśli gracz go okradnie, sklep później może zostać zamknięty albo ceny wzrosną.
+
+#### Zielarka Mirna
+
+Starsza kobieta znająca właściwości przeklętych roślin. Może przygotować Eliksir Czystej Krwi, jeśli gracz przyniesie jej Wilcze Futro, Bagienny Korzeń albo Srebrny Mech.
+
+#### Siostra Alena
+
+Opiekunka kaplicy. Uważa, że Korony nie da się zniszczyć nienawiścią. Jej dialogi pomagają odblokować dobre zakończenie.
+
+---
+
+## 7.2 Gospoda „Pod Krukiem”
+
+To miejsce startowe. Tutaj gracz budzi się po dziwnym śnie.
+
+### Scena startowa
+
+> Budzisz się nagle, jakby ktoś wypowiedział twoje imię tuż przy uchu. W pokoju jest zimno. Na podłodze leży ślad popiołu, którego nie było tam wieczorem. Z dołu dochodzą krzyki. Dzwon alarmowy bije nierówno, jakby człowiek, który go szarpie, robił to ostatkiem sił.
+
+Wybory:
+
+* Zejdź na dół.
+* Przeszukaj pokój.
+* Wyjrzyj przez okno.
+* Sprawdź ślad popiołu.
+
+Efekty:
+
+* Przeszukanie pokoju daje Małą Miksturę.
+* Sprawdzenie śladu popiołu daje pierwszy znak klątwy.
+* Uczeń Maga może odczytać ślad jako fragment zaklęcia przywołania.
+
+### Scena w sali głównej
+
+> W sali gospody panuje chaos. Karczmarz rygluje drzwi. Dwóch chłopów niesie rannego strażnika. Przy kominku siedzi starzec z księgą na kolanach. Tylko on wygląda, jakby spodziewał się tego od dawna.
+
+Wybory:
+
+* Porozmawiaj z kronikarzem.
+* Pomóż rannemu strażnikowi.
+* Zapytaj karczmarza, co się stało.
+* Wyjdź mimo ostrzeżeń.
+
+Konsekwencje:
+
+* Pomoc strażnikowi zwiększa dobrą reputację.
+* Wyjście bez rozmowy z kronikarzem opóźnia zdobycie informacji, ale daje bardziej tajemniczy początek.
+* Jeśli gracz zignoruje rannego, strażnik później może umrzeć, co zmieni jedną scenę w kaplicy.
+
+---
+
+## 7.3 Mroczny Las
+
+Pierwsza niebezpieczna lokacja. Las jest żywy, obserwuje gracza i zmienia ścieżki.
+
+### Opis wejściowy
+
+> Mroczny Las zaczyna się nagle. Granica między polami a drzewami jest tak równa, jakby ktoś narysował ją nożem. Pnie są czarne, liście blade, a ziemia miękka od popiołu. Kiedy robisz pierwszy krok, gałęzie skrzypią, choć nie ma wiatru.
+
+### Możliwe ścieżki
+
+* Główna ścieżka
+* Przewrócony wóz kupca
+* Stara kapliczka
+* Polana z wilkami
+* Zarośnięta chata drwala
+* Kamienny krąg
+* Ukryta ścieżka do Bagien Umarłych
+
+### Scena: przewrócony wóz
+
+> Wóz leży na boku. Jedno koło nadal powoli się obraca, choć nie widzisz nikogo, kto mógłby je poruszyć. Między skrzyniami leży ranny kupiec. Jego płaszcz nasiąkł krwią i czarnym deszczem.
+
+Wybory:
+
+* Pomóż kupcowi.
+* Daj mu miksturę.
+* Przeszukaj wóz.
+* Dobij go, żeby się nie męczył.
+* Zostaw go.
+
+Konsekwencje:
+
+* Pomoc daje status „Pomógł kupcowi”.
+* Przeszukanie wozu daje złoto, ale złą reputację.
+* Dobicie kupca daje reputację popiołu i późniejszy koszmar.
+* Zostawienie go bez pomocy sprawia, że sklep w Ravenford działa gorzej.
+
+### Scena: stara kapliczka
+
+> Na środku polany stoi posąg kobiety trzymającej słońce w dłoniach. Twarz ma pękniętą, ale z pęknięcia sączy się ciepłe światło. Wokół posągu nie pada czarny deszcz.
+
+Wybory:
+
+* Pomódl się.
+* Złóż 5 złota ofiary.
+* Zostaw jedzenie dla podróżnych.
+* Zniszcz posąg.
+* Zabierz srebrną ozdobę z podstawy.
+
+Konsekwencje:
+
+* Modlitwa daje wizję i małe leczenie.
+* Ofiara daje Błogosławieństwo Świtu.
+* Zostawienie jedzenia później ratuje zagubione dziecko.
+* Zniszczenie posągu daje złoto, ale wzmacnia Popielnego Króla.
+* Kradzież ozdoby daje przedmiot, który można sprzedać, ale blokuje najczystsze zakończenie.
+
+### Scena: chata drwala
+
+> Chata jest pusta, ale na stole stoi miska jeszcze ciepłej zupy. Na ścianie ktoś wyrył paznokciami jedno zdanie: „Las odda ciało, ale zabierze imię.”
+
+Wybory:
+
+* Zjedz zupę.
+* Przeszukaj chatę.
+* Sprawdź piwnicę.
+* Wyjdź natychmiast.
+
+Efekty:
+
+* Zupa leczy 4 zdrowia, ale tylko jeśli gracz wcześniej pomógł kupcowi albo pomodlił się przy kapliczce.
+* Przeszukanie daje Siekierę Drwala.
+* Piwnica zawiera ducha drwala, który opowiada o Bagiennym Przewoźniku.
+
+### Przeciwnicy w lesie
+
+#### Wilk Cienia
+
+Zdrowie: 12
+Atak: 3
+Nagroda: Wilcze Futro, 4 złota
+
+#### Stary Wilk
+
+Zdrowie: 20
+Atak: 5
+Nagroda: Kieł Cienia
+
+#### Leśny Upiór
+
+Zdrowie: 18
+Atak: 4
+Specjalna cecha: ignoruje pierwszy zwykły atak, chyba że gracz ma pochodnię, magię albo błogosławieństwo.
+
+---
+
+## 7.4 Bagna Umarłych
+
+Bagna są lokacją przejściową, ale w wersji rozszerzonej stają się ważnym miejscem z własnymi zadaniami.
+
+### Opis wejściowy
+
+> Ziemia ugina się pod butami. Każdy krok wydaje cichy, mokry odgłos, jakby bagno próbowało cię wciągnąć. Mgła wisi nisko. W wodzie odbijają się twarze ludzi, których nie ma obok ciebie.
+
+### Mechanika bagien
+
+Jeśli gracz nie ma Mapy Bagien, przy każdym głębszym wejściu może:
+
+* stracić zdrowie,
+* zgubić złoto,
+* trafić na Topielca,
+* wejść do losowej sceny,
+* odkryć sekret przez przypadek.
+
+Jeśli gracz ma Mapę Bagien, może bezpiecznie wybrać cel podróży.
+
+### Miejsca na bagnach
+
+* Zatopiona chata zielarki
+* Martwy prom
+* Wyspa kości
+* Zatopiony cmentarz
+* Krąg błędnych ogników
+* Przejście do Krypty Milczących
+
+### Scena: martwy prom
+
+> Przy zgniłym pomoście stoi prom bez przewoźnika. Lina sama napina się nad wodą. Na burcie wydrapano napis: „Zapłać, wspomnij albo oddaj coś, czego żałujesz.”
+
+Wybory:
+
+* Zapłać 3 złota.
+* Wspomnij kogoś zmarłego.
+* Oddaj jeden przedmiot.
+* Spróbuj przepłynąć samemu.
+* Zniszcz prom.
+
+Konsekwencje:
+
+* Zapłata przewozi bezpiecznie.
+* Wspomnienie zmarłego daje wizję fabularną.
+* Oddanie przedmiotu może zwiększyć szansę na dobre zakończenie, jeśli gracz odda coś cennego.
+* Próba przepłynięcia grozi walką z Topielcem.
+* Zniszczenie promu odcina skrót i zwiększa reputację popiołu.
+
+### Scena: wyspa kości
+
+> Wyspa nie jest z ziemi. Tworzą ją setki kości splecionych korzeniami. Pośrodku stoi czarny kamień z wbitym mieczem.
+
+Wybory:
+
+* Wyciągnij miecz.
+* Odczytaj napis na kamieniu.
+* Zostaw ofiarę.
+* Odejdź.
+
+Efekty:
+
+* Wyciągnięcie miecza daje Ostrze Kości, ale budzi Upiora Rycerza.
+* Odczytanie napisu ujawnia, że miecz należał do rycerza, który próbował zabić króla po założeniu Korony.
+* Zostawienie ofiary daje ochronę przed jednym topielcem.
+
+### Scena: błędne ogniki
+
+> W mgle pojawiają się trzy światła. Jedno jest niebieskie, drugie złote, trzecie blade jak kość. Każde porusza się w inną stronę.
+
+Wybory:
+
+* Idź za niebieskim światłem.
+* Idź za złotym światłem.
+* Idź za bladym światłem.
+* Zgaś światła pochodnią.
+
+Konsekwencje:
+
+* Niebieskie światło prowadzi do zielarki.
+* Złote światło prowadzi do skrzyni z pieniędzmi, ale jest tam pułapka.
+* Blade światło prowadzi do cienia dziecka, które prosi o pomoc.
+* Zgaszenie świateł przywołuje Błędnika.
+
+---
+
+## 7.5 Krypta Milczących
+
+Krypta jest miejscem zdobycia Srebrnego Klucza. Jej motywem jest cisza, pamięć i szacunek dla zmarłych.
+
+### Opis wejściowy
+
+> Schody prowadzą pod ziemię tak głęboko, że światło dnia znika po kilku krokach. Ściany są gładkie, bez pajęczyn i kurzu. To miejsce nie jest opuszczone. Ono czeka.
+
+### Zasada krypty
+
+Niektóre wybory są karane, jeśli gracz zachowuje się głośno, chciwie albo bez szacunku.
+
+Ciche, ostrożne decyzje prowadzą do łatwiejszego przejścia. Agresywne decyzje budzą strażników.
+
+### Pomieszczenia
+
+* Korytarz Bez Echa
+* Sala Pustych Hełmów
+* Grobowiec Strażnika
+* Studnia Szeptów
+* Komnata Srebrnego Klucza
+
+### Scena: Korytarz Bez Echa
+
+> Robisz krok. Nie słyszysz go. Upuszczasz mały kamień. Nie słyszysz nic. Twoje serce bije szybko, ale nawet ono wydaje się cichsze.
+
+Wybory:
+
+* Idź powoli.
+* Biegnij przed siebie.
+* Krzyknij, żeby sprawdzić echo.
+* Użyj pochodni.
+* Użyj magii.
+
+Konsekwencje:
+
+* Idź powoli — bezpieczne przejście.
+* Biegnij — pułapka, strata zdrowia.
+* Krzyk — walka ze Szkieletem Wartownikiem.
+* Pochodnia — odkrywa napis ostrzegawczy.
+* Magia — ujawnia ukryte drzwi do Studni Szeptów.
+
+### Scena: Sala Pustych Hełmów
+
+> Na kamiennych stojakach leżą dziesiątki hełmów. Każdy jest rozcięty w tym samym miejscu. Na końcu sali stoi posąg rycerza bez twarzy.
+
+Wybory:
+
+* Załóż jeden z hełmów.
+* Uklęknij przed posągiem.
+* Zabierz hełm na sprzedaż.
+* Przejdź dalej.
+
+Efekty:
+
+* Założenie hełmu daje wizję ostatniej bitwy.
+* Uklęknięcie otwiera bezpieczne przejście.
+* Kradzież hełmu budzi trzech strażników.
+* Przejście dalej bez interakcji jest neutralne.
+
+### Scena: Studnia Szeptów
+
+> Studnia nie ma wody. Z jej wnętrza dochodzą szepty. Nie rozumiesz słów, ale masz wrażenie, że głosy znają twoje myśli.
+
+Wybory:
+
+* Wrzuć monetę.
+* Wypowiedz swoje imię.
+* Posłuchaj szeptów.
+* Zatkaj studnię kamieniem.
+
+Konsekwencje:
+
+* Moneta daje wskazówkę do finału.
+* Wypowiedzenie imienia zapisuje gracza w Księdze Umarłych. W finale cienie mogą go rozpoznać.
+* Słuchanie szeptów daje wiedzę, ale kosztuje zdrowie.
+* Zatkanie studni zwiększa reputację popiołu.
+
+### Zdobycie Srebrnego Klucza
+
+> W ostatniej komnacie leży sarkofag strażnika. Na jego piersi spoczywa Srebrny Klucz. Nie jest zimny. Gdy go podnosisz, przez chwilę słyszysz setki oddechów, jakby zmarli wypuścili powietrze z ulgą.
+
+Efekt:
+
+* Gracz zdobywa Srebrny Klucz.
+* Jeśli zachowywał się z szacunkiem, otrzymuje dodatkowo Stary Amulet.
+* Jeśli kradł lub hałasował, po wyjściu atakuje go Strażnik Krypty.
+
+---
+
+## 7.6 Fort Zdrajców
+
+Fort jest miejscem zdobycia Pieczęci Starego Króla. Tematem tej lokacji jest prawda, lojalność i historia pisana przez zwycięzców.
+
+### Opis wejściowy
+
+> Fort stoi samotnie na wzgórzu. Mury są popękane, ale nadal mocne. Nad bramą nie ma herbu królestwa. Zamiast niego wisi czarna tarcza przecięta srebrną kreską.
+
+### Kim są Strażnicy Pieczęci?
+
+Ludzie nazywają ich zdrajcami, bo ich przodkowie odmówili posłuszeństwa Popielnemu Królowi. W rzeczywistości byli pierwszymi, którzy próbowali powstrzymać Koronę. Od stu lat pilnują Pieczęci, aby nikt nie otworzył drogi do sali tronowej.
+
+### Sposoby wejścia
+
+* Walka przy bramie.
+* Skradanie przez zawalony mur.
+* Negocjacje.
+* Użycie fałszywego znaku Popiołu.
+* Pomoc rannemu strażnikowi na zewnątrz.
+
+### Scena: brama fortu
+
+> Dwóch strażników celuje w ciebie kuszami. Nie wyglądają jak bandyci. Są zmęczeni, brudni i zmarznięci, ale trzymają broń pewnie.
+
+Wybory:
+
+* Powiedz, że szukasz Pieczęci.
+* Skłam, że jesteś posłańcem z Ravenford.
+* Zaatakuj.
+* Pokaż Srebrny Klucz.
+* Wycofaj się.
+
+Konsekwencje:
+
+* Szczerość otwiera rozmowę z dowódcą, jeśli gracz ma dobrą reputację.
+* Kłamstwo może zadziałać dla łotrzyka albo banity.
+* Atak prowadzi do walki.
+* Pokazanie Srebrnego Klucza sprawia, że strażnicy traktują gracza poważnie, ale z lękiem.
+
+### Scena: sala map
+
+> Na dużym stole leży mapa Valdorinu sprzed klątwy. Miasto jest na niej żywe, kolorowe, pełne mostów, ogrodów i rynków. Ktoś zaznaczył czerwonym atramentem drogę do sali tronowej.
+
+Wybory:
+
+* Przestudiuj mapę.
+* Zabierz mapę.
+* Zapytaj dowódcę o czerwone znaki.
+* Zignoruj mapę.
+
+Efekty:
+
+* Studiowanie mapy daje przewagę w ruinach.
+* Kradzież mapy pogarsza relacje ze strażnikami.
+* Pytanie o znaki ujawnia, że wiele wejść do pałacu jest fałszywych.
+
+### Dowódca Cael
+
+Dowódca fortu nie jest złoczyńcą. Jest człowiekiem, który całe życie słyszał, że jego ród to zdrajcy, choć tak naprawdę jego przodkowie próbowali uratować królestwo.
+
+Dialog:
+
+> „Każdy bohater mówi, że zniszczy Koronę. Każdy wierzy, że jest silniejszy od tych, którzy przyszli przed nim. A potem Korona przemawia jego głosem.”
+
+Możliwe wybory:
+
+* Przekonaj go, że nie chcesz władzy.
+* Poproś o prawdę.
+* Zaoferuj złoto.
+* Wyzwij go na pojedynek.
+* Spróbuj ukraść Pieczęć.
+
+Konsekwencje:
+
+* Jeśli gracz pomagał ludziom, Cael może oddać Pieczęć dobrowolnie.
+* Jeśli gracz był chciwy albo okrutny, Cael zaatakuje.
+* Jeśli gracz ma Stary List Króla, może pokazać go Caelowi i odblokować dodatkowy dialog.
+
+### Zdobycie Pieczęci
+
+> Cael otwiera żelazną skrzynię. W środku leży ciężka pieczęć z herbem dawnego króla. Jej powierzchnia jest pęknięta, jakby ktoś próbował ją kiedyś zniszczyć.
+
+Efekt:
+
+* Gracz zdobywa Pieczęć Starego Króla.
+* Jeśli zdobył ją pokojowo, Cael może pojawić się w finale jako sojusznik.
+* Jeśli zdobył ją przemocą, fort zostanie pusty albo wrogi.
+
+---
+
+## 7.7 Wieża Astromanty
+
+Wieża jest miejscem zdobycia Kryształu Świtu. Jej tematem jest prawda, iluzja i wewnętrzne pragnienia gracza.
+
+### Opis wejściowy
+
+> Wieża wyrasta z nagiej skały. Nie ma bramy ani strażników. Kamienne schody prowadzą do drzwi, które nie rzucają cienia. Nad wieżą niebo jest czyste, choć wokół pada czarny deszcz.
+
+### Zasada wieży
+
+Wieża testuje nie siłę, lecz intencje. Gracz widzi wizje własnych decyzji. Jeśli był okrutny, wieża pokazuje mu ludzi, których skrzywdził. Jeśli pomagał innym, widzi tych, którzy dzięki niemu przeżyli.
+
+### Pomieszczenia
+
+* Drzwi bez cienia
+* Biblioteka gwiazd
+* Sala luster
+* Schody bez końca
+* Dach pod nocnym słońcem
+
+### Scena: drzwi bez cienia
+
+> Drzwi są zamknięte, ale nie mają zamka. Gdy zbliżasz dłoń, na drewnie pojawia się pytanie: „Po co idziesz do Korony?”
+
+Wybory:
+
+* Aby ocalić królestwo.
+* Aby zdobyć władzę.
+* Aby poznać prawdę.
+* Aby zakończyć cierpienie.
+* Nie wiem.
+
+Konsekwencje:
+
+* Ocalenie królestwa — neutralne wejście.
+* Władza — gracz otrzymuje Czarny Odłamek, ale rośnie reputacja popiołu.
+* Prawda — odblokowuje bibliotekę.
+* Zakończenie cierpienia — wzmacnia dobre zakończenie.
+* Nie wiem — wieża pokazuje graczowi los poprzednich śmiałków.
+
+### Scena: biblioteka gwiazd
+
+> Księgi nie leżą na półkach. Unoszą się w powietrzu jak ptaki. Na suficie świecą gwiazdy, ale układają się w mapę Valdorinu.
+
+Wybory:
+
+* Przeczytaj księgę o Koronie.
+* Przeczytaj księgę o królu Arvandzie.
+* Przeczytaj księgę o księżniczce Elianie.
+* Zabierz księgę.
+* Spal księgi.
+
+Efekty:
+
+* Księga o Koronie ujawnia, że Korona nie tworzy pragnień, tylko je wzmacnia.
+* Księga o królu ujawnia jego rozpacz po chorobie córki.
+* Księga o Elianie sugeruje, że jej dusza jest uwięziona w Koronie.
+* Kradzież księgi daje przedmiot, ale zamyka część wieży.
+* Spalenie ksiąg daje reputację popiołu i walkę z Gwiezdnym Strażnikiem.
+
+### Scena: sala luster
+
+> Widzisz trzy odbicia. Jedno wygląda jak bohater. Drugie jak król. Trzecie jak potwór. Wszystkie mają twoje oczy.
+
+Wybory:
+
+* Dotknij odbicia bohatera.
+* Dotknij odbicia króla.
+* Dotknij odbicia potwora.
+* Rozbij wszystkie lustra.
+* Zamknij oczy i przejdź dalej.
+
+Konsekwencje:
+
+* Bohater — leczenie i dobra reputacja.
+* Król — złoto i wizja złego zakończenia.
+* Potwór — Wola Zniszczenia.
+* Rozbicie luster — walka z Cieniem Gracza.
+* Zamknięcie oczu — ominięcie próby, ale bez nagrody.
+
+### Boss: Cień Gracza
+
+Cień ma statystyki zależne od gracza.
+
+Zdrowie: tyle, ile aktualne zdrowie gracza plus 5
+Atak: połowa ataku gracza plus 3
+Specjalna cecha: jeśli gracz ma złą reputację, Cień jest silniejszy.
+
+Dialog Cienia:
+
+> „Nie jestem twoim wrogiem. Jestem tym, co próbujesz ukryć za słowem bohater.”
+
+### Zdobycie Kryształu Świtu
+
+> Na szczycie wieży nie ma dachu. Nad tobą świeci słońce, choć wokół jest noc. Na kamiennym postumencie leży Kryształ Świtu. W jego wnętrzu pulsuje ciepłe światło.
+
+Efekt:
+
+* Gracz zdobywa Kryształ Świtu.
+* Maksymalne zdrowie wzrasta.
+* Klątwa Korony zadaje mniej obrażeń w finale.
+* Jeśli gracz przeczytał księgę o Elianie, odblokowuje trop do Łzy Księżniczki.
+
+---
+
+## 7.8 Ruiny Valdorinu
+
+Ruiny są końcowym obszarem gry. Powinny być większe niż wcześniejsze lokacje i działać jak mroczny labirynt.
+
+### Opis wejściowy
+
+> Valdorin nie jest martwy. Jest zatrzymany. Na ulicach leży popiół, ale nie przykrywa wszystkiego równo. W niektórych miejscach widać ślady stóp sprzed stu lat. W oknach stoją sylwetki. Nie ruszają się, ale czujesz, że patrzą.
+
+### Zasada ruin
+
+Ruiny zmieniają się zależnie od tego, jakie decyzje podejmował gracz. Jeśli gracz pomagał ludziom, cienie są spokojniejsze. Jeśli gracz kradł, zabijał i niszczył święte miejsca, miasto staje się bardziej wrogie.
+
+### Miejsca w ruinach
+
+* Brama Milczących
+* Rynek bez głosów
+* Dom królewskiego medyka
+* Spalony teatr
+* Most Popielnych Cieni
+* Pałac królewski
+* Pokój księżniczki Eliany
+* Sala Korony
+
+### Scena: Brama Milczących
+
+> Brama jest ogromna. Nie ma zawiasów, zamka ani klamki. Pośrodku widzisz otwór w kształcie klucza, ale kiedy wkładasz Srebrny Klucz, brama przez chwilę przypomina zamknięte powieki.
+
+Wymagania:
+
+* Srebrny Klucz — otwiera bramę.
+* Pieczęć Starego Króla — dezaktywuje pułapki za bramą.
+* Kryształ Świtu — chroni przed utratą pamięci.
+
+Jeśli czegoś brakuje:
+
+* Brak Srebrnego Klucza — nie da się wejść.
+* Brak Pieczęci — gracz traci zdrowie przez pułapki.
+* Brak Kryształu — gracz traci część ekwipunku albo trafia do złego zakończenia.
+
+### Scena: Rynek bez głosów
+
+> Na rynku stoją setki ludzi z popiołu. Sprzedawcy, dzieci, strażnicy, żebracy. Wszyscy zamarli w jednej chwili. Na środku rynku przewrócona fontanna nadal leje wodę, ale woda zamienia się w szary pył, zanim dotknie ziemi.
+
+Wybory:
+
+* Przeszukaj stragany.
+* Dotknij jednej z postaci.
+* Wrzuć monetę do fontanny.
+* Odczytaj tablicę ogłoszeń.
+* Idź dalej do pałacu.
+
+Konsekwencje:
+
+* Przeszukanie straganów daje złoto, ale może rozgniewać cienie.
+* Dotknięcie postaci daje wspomnienie ostatnich chwil miasta.
+* Moneta do fontanny leczy gracza albo daje wizję.
+* Tablica ogłoszeń zawiera informację o chorobie księżniczki.
+
+### Scena: dom królewskiego medyka
+
+> Dom pachnie ziołami i starą chorobą. Na stole leży dziennik medyka. Ostatnie zdanie urywa się w połowie, jakby autor nagle zapomniał, kim jest.
+
+Wybory:
+
+* Przeczytaj dziennik.
+* Zabierz lekarstwa.
+* Poszukaj ukrytej piwnicy.
+* Spal dom, żeby zakończyć cierpienie wspomnień.
+
+Efekty:
+
+* Dziennik ujawnia, że Eliana była śmiertelnie chora.
+* Lekarstwa dają dwie mikstury.
+* Piwnica zawiera Łzę Księżniczki, jeśli gracz ma Kryształ Świtu i dobrą reputację.
+* Spalenie domu zwiększa Wolę Zniszczenia, ale blokuje pokojowe zakończenie.
+
+### Scena: spalony teatr
+
+> W teatrze nadal siedzi publiczność z popiołu. Na scenie stoi aktorka z ręką uniesioną w dramatycznym geście. Kiedy wchodzisz, kurtyna sama się podnosi.
+
+Wybory:
+
+* Obejrzyj przedstawienie.
+* Wejdź na scenę.
+* Przerwij przedstawienie.
+* Opuść teatr.
+
+Efekty:
+
+* Przedstawienie pokazuje alegorię upadku króla.
+* Wejście na scenę zmusza gracza do odpowiedzi na pytanie: „Czy jedno życie jest warte królestwa?”
+* Przerwanie przedstawienia wywołuje walkę z Aktorem Bez Twarzy.
+
+### Scena: pokój księżniczki Eliany
+
+> Pokój jest nietknięty. Na łóżku leży mała korona z białych kwiatów. Przy oknie stoi drewniany koń na biegunach. W powietrzu czuć zapach lekarstw i lawendy.
+
+Wybory:
+
+* Przeczytaj list Eliany.
+* Dotknij kwiatowej korony.
+* Zabierz zabawkę.
+* Zostaw własny przedmiot na łóżku.
+* Zawołaj Elianę po imieniu.
+
+Konsekwencje:
+
+* List Eliany ujawnia, że dziewczynka bała się Korony i prosiła ojca, by jej nie używał.
+* Kwiatowa korona odblokowuje scenę rozmowy z duszą Eliany.
+* Zabranie zabawki zwiększa złą reputację.
+* Zostawienie własnego przedmiotu daje Łzę Księżniczki, jeśli gracz działał szczerze.
+* Zawołanie Eliany działa tylko, jeśli gracz zna jej imię z ksiąg albo dziennika.
+
+---
+
+# 8. Zadania poboczne
+
+---
+
+## 8.1 Ranny kupiec
+
+Start: Mroczny Las, przewrócony wóz
+Cel: zdecydować, co zrobić z rannym kupcem
+Nagrody: zniżka w sklepie, dobra reputacja, dodatkowe dialogi
+
+Możliwe zakończenia zadania:
+
+1. Gracz pomaga kupcowi — ceny spadają, kupiec daje informację o bagnach.
+2. Gracz okrada kupca — zdobywa złoto, ale ceny później rosną albo sklep znika.
+3. Gracz zostawia kupca — neutralne, ale Ravenford staje się bardziej ponure.
+4. Gracz dobija kupca — reputacja popiołu, późniejszy koszmar i silniejszy Cień Gracza.
+
+---
+
+## 8.2 Skrzynia narzędzi kowala
+
+Start: Kuźnia Borena
+Cel: odzyskać skrzynię z Mrocznego Lasu
+Nagrody: Żelazny Pierścień, zniżka na broń, naprawa broni
+
+Przebieg:
+
+Boren mówi, że jego uczeń poszedł po drewno i nie wrócił. W lesie gracz znajduje skrzynię oraz ślady walki. Może zabrać skrzynię, poszukać ucznia albo zignorować sprawę.
+
+Dodatkowy wariant:
+
+Jeśli gracz odnajdzie ucznia żywego w chacie drwala, Boren daje mu lepszą nagrodę: Stalowy Miecz za darmo albo wzmocnienie pancerza.
+
+---
+
+## 8.3 Zagubione dziecko
+
+Start: Ravenford po pierwszym powrocie z lasu
+Cel: odnaleźć dziecko, które poszło za bladym światłem
+Nagroda: Błogosławieństwo matki, dobra reputacja, Amulet Dziecka
+
+Przebieg:
+
+Matka prosi gracza o odnalezienie syna. Dziecko jest na bagnach, zwabione przez błędne ogniki. Gracz może je uratować, ale musi wybrać między dzieckiem a skrzynią ze złotem.
+
+Wybór moralny:
+
+* Uratować dziecko i stracić okazję na skarb.
+* Zabrać skarb i pozwolić dziecku zginąć.
+* Spróbować zrobić oba, ale wtedy pojawia się walka.
+
+---
+
+## 8.4 Głód w Ravenford
+
+Start: Tablica ogłoszeń
+Cel: zdobyć jedzenie dla wioski
+Nagroda: dobra reputacja, darmowy odpoczynek w gospodzie
+
+Opcje:
+
+* Kupić jedzenie za własne złoto.
+* Upolować zwierzę w lesie.
+* Ukradnąć zapasy kupca.
+* Przekonać fort, aby przysłał pomoc.
+
+Konsekwencje:
+
+Pomoc wiosce sprawia, że mieszkańcy w finale modlą się za gracza, co osłabia Koronę. Kradzież zapasów pogarsza relacje i może doprowadzić do zamieszek.
+
+---
+
+## 8.5 Duch drwala
+
+Start: Chata drwala
+Cel: pomóc duchowi odzyskać imię
+Nagroda: Mapa ukrytych ścieżek, dobra reputacja, sekretne przejście do krypty
+
+Przebieg:
+
+Duch pamięta, że miał rodzinę, ale nie pamięta własnego imienia. Gracz musi znaleźć wyryte imię na starym toporze albo w księdze w kaplicy.
+
+Zakończenia:
+
+* Gracz odnajduje imię — duch odchodzi w spokoju.
+* Gracz kłamie i podaje fałszywe imię — duch zamienia się w Leśnego Upiora.
+* Gracz ignoruje ducha — brak nagrody.
+
+---
+
+## 8.6 Sekret zielarki
+
+Start: Chata Mirny
+Cel: odkryć, dlaczego Mirna zna się na klątwie
+Nagroda: Eliksir Czystej Krwi, dodatkowe informacje o Koronie
+
+Sekret:
+
+Mirna jako młoda kobieta weszła kiedyś do ruin z grupą śmiałków. Tylko ona wróciła, ale zapomniała twarzy swoich towarzyszy. Od tamtej pory spisuje wszystkie imiona, jakie słyszy od duchów.
+
+Wybory:
+
+* Wysłuchaj jej historii.
+* Poproś o eliksir.
+* Oskarż ją o tchórzostwo.
+* Ukradnij jej notatki.
+
+Konsekwencje:
+
+Jeśli gracz okaże szacunek, Mirna da mu specjalny eliksir chroniący przed utratą pamięci w ruinach.
+
+---
+
+# 9. Przedmioty
+
+---
+
+## 9.1 Przedmioty użytkowe
+
+### Mikstura leczenia
+
+Przywraca 10 zdrowia.
+
+### Mała mikstura
+
+Przywraca 6 zdrowia.
+
+### Chleb
+
+Przywraca 3 zdrowia poza walką.
+
+### Suszone mięso
+
+Przywraca 5 zdrowia poza walką.
+
+### Pochodnia
+
+Pozwala wejść do ciemnych miejsc i osłabia niektóre duchy.
+
+### Mapa bagien
+
+Pozwala bezpiecznie poruszać się po Bagnach Umarłych.
+
+### Wytrychy
+
+Pozwalają otwierać zamki, skrzynie i niektóre boczne wejścia.
+
+### Eliksir Czystej Krwi
+
+Chroni przed trucizną bagien i częścią efektów Krypty.
+
+### Stary Amulet
+
+Chroni przed jedną pułapką albo jednym przekleństwem.
+
+---
+
+## 9.2 Broń
+
+### Stary miecz
+
+Atak +3
+Opis: zardzewiały, ale nadal skuteczny.
+
+### Stalowy miecz
+
+Atak +5
+Opis: dobra broń z kuźni Borena.
+
+### Topór najemnika
+
+Atak +6
+Opis: ciężki, brutalny, skuteczny przeciw ludziom.
+
+### Siekiera drwala
+
+Atak +4
+Specjalne: dodatkowe obrażenia przeciw leśnym stworom.
+
+### Ostrze Kości
+
+Atak +7
+Specjalne: zadaje duże obrażenia, ale po każdej walce istnieje szansa utraty 1 zdrowia przez klątwę.
+
+### Kostur Iskier
+
+Atak +4
+Specjalne: dodatkowe obrażenia przeciw nieumarłym i cieniom.
+
+---
+
+## 9.3 Artefakty fabularne
+
+### Srebrny Klucz
+
+Otwiera Bramę Milczących. Zdobywany w Krypcie Milczących.
+
+### Kryształ Świtu
+
+Chroni przed Koroną. Zdobywany w Wieży Astromanty.
+
+### Pieczęć Starego Króla
+
+Wyłącza królewskie pułapki. Zdobywana w Forcie Zdrajców.
+
+### Stary List Króla
+
+Ujawnia motywację Arvanda. Odblokowuje opcję przebaczenia.
+
+### Łza Księżniczki Eliany
+
+Najważniejszy dodatkowy artefakt. Pozwala uwolnić duszę Eliany i odblokować najlepsze zakończenie.
+
+### Czarny Odłamek Korony
+
+Daje moc, ale wzmacnia pokusę złego zakończenia.
+
+---
+
+# 10. Przeciwnicy
+
+---
+
+## Wilk Cienia
+
+Zdrowie: 12
+Atak: 3
+Nagroda: Wilcze Futro, 4 złota
+
+Opis:
+
+Zwierzę, które zbyt długo oddychało mgłą z Valdorinu. Jego oczy świecą bladym światłem.
+
+---
+
+## Topielec
+
+Zdrowie: 16
+Atak: 4
+Nagroda: 7 złota
+
+Specjalne:
+
+Po walce może zatruć gracza, jeśli nie ma Eliksiru Czystej Krwi.
+
+---
+
+## Szkielet Wartownik
+
+Zdrowie: 18
+Atak: 5
+Nagroda: 9 złota
+
+Specjalne:
+
+Słaby przeciw magii i pochodni.
+
+---
+
+## Najemnik Zdrajców
+
+Zdrowie: 20
+Atak: 5
+Nagroda: 12 złota
+
+Opis:
+
+Nie jest zły z natury. Broni fortu, bo wierzy, że nikt nie powinien dotrzeć do Korony.
+
+---
+
+## Dowódca Cael
+
+Zdrowie: 30
+Atak: 7
+Nagroda: Pieczęć Starego Króla
+
+Specjalne:
+
+Można uniknąć walki przez reputację, dialog albo odpowiednie przedmioty.
+
+---
+
+## Cień Gracza
+
+Zdrowie: zależne od gracza
+Atak: zależny od gracza
+
+Opis:
+
+Manifestacja tego, czego gracz się wypiera. Im więcej złych czynów, tym silniejszy Cień.
+
+---
+
+## Aktor Bez Twarzy
+
+Zdrowie: 24
+Atak: 6
+Nagroda: Maska Teatru
+
+Specjalne:
+
+Zadaje większe obrażenia, jeśli gracz wcześniej kłamał w ważnych dialogach.
+
+---
+
+## Strażnik Krypty
+
+Zdrowie: 26
+Atak: 6
+Nagroda: Stary Amulet
+
+Specjalne:
+
+Pojawia się, jeśli gracz zbezcześci kryptę.
+
+---
+
+## Popielny Rycerz
+
+Zdrowie: 32
+Atak: 8
+Nagroda: Popielna Zbroja
+
+Opis:
+
+Dawny obrońca Valdorinu. Nie wie, że miasto już upadło.
+
+---
+
+## Popielny Król
+
+Zdrowie: 45
+Atak: 8
+Boss finałowy
+
+Modyfikatory:
+
+* Jeśli gracz ma Kryształ Świtu, atak króla spada.
+* Jeśli gracz zniszczył kapliczkę, król ma więcej zdrowia.
+* Jeśli gracz ma Łzę Eliany, można odblokować pokojowe zakończenie.
+* Jeśli gracz ma Czarny Odłamek, może użyć potężnej mocy, ale ryzykuje złe zakończenie.
+
+---
+
+# 11. Rozbudowane zakończenia
+
+---
+
+## 11.1 Zakończenie najlepsze — „Świt dla umarłych”
+
+Warunki:
+
+* Gracz ma trzy główne artefakty.
+* Gracz ma Łzę Księżniczki Eliany.
+* Gracz zna prawdę z listu króla albo ksiąg astromanty.
+* Gracz nie założył Korony.
+* Gracz nie ma bardzo wysokiej reputacji popiołu.
+
+Opis:
+
+> Nie podnosisz broni. Nie krzyczysz. Wyciągasz przed siebie Łzę Eliany. Popielny Król zamiera. Przez chwilę nie jest potworem ani władcą. Jest tylko ojcem, który zrozumiał zbyt późno, że miłość bez zgody ukochanej osoby może stać się klątwą.
+>
+> Korona pęka nie od uderzenia, ale od ciszy, która po raz pierwszy od stu lat nie jest pełna bólu. Z jej wnętrza wychodzi dziewczynka w białej sukni. Bierze ojca za rękę. Oboje rozpadają się w światło.
+>
+> Nad Valdorinem wstaje świt. Nie wszystko zostaje naprawione. Zmarli nie wracają. Ale ich imiona przestają boleć.
+
+Efekt:
+
+Królestwo zostaje uwolnione, Ravenford przetrwa, a gracz zostaje zapamiętany jako ten, który nie pokonał króla, lecz pozwolił mu odejść.
+
+---
+
+## 11.2 Zakończenie dobre — „Świt nad Valdorinem”
+
+Warunki:
+
+* Gracz ma trzy główne artefakty.
+* Gracz pokonuje Popielnego Króla.
+* Gracz niszczy Koronę.
+
+Opis:
+
+> Walka kończy się, gdy ostrze przecina koronę na tronie. Popiół unosi się w górę jak odwrócony śnieg. Cienie mieszkańców Valdorinu patrzą na ciebie bez gniewu.
+>
+> Klątwa pęka. Ruiny pozostają ruinami, ale przestają być więzieniem.
+
+Efekt:
+
+Królestwo ma szansę na odbudowę. Gracz przeżywa, ale nocami czasem słyszy głos króla.
+
+---
+
+## 11.3 Zakończenie neutralne — „Nowy Strażnik”
+
+Warunki:
+
+* Gracz nie niszczy Korony.
+* Gracz zamyka ją ponownie.
+* Gracz ma Pieczęć i Kryształ, ale nie zna całej prawdy.
+
+Opis:
+
+> Nie potrafisz zniszczyć Korony. Nie potrafisz jej też założyć. Zamykasz ją więc tam, gdzie spoczywała przez sto lat. Tym razem zostajesz przy niej.
+>
+> Mijają lata. Ludzie zapominają twoje imię, ale pamiętają, że ktoś pilnuje ruin.
+
+Efekt:
+
+Klątwa słabnie, ale nie znika. Gracz zostaje strażnikiem Korony.
+
+---
+
+## 11.4 Zakończenie złe — „Władca Popiołu”
+
+Warunki:
+
+* Gracz zakłada Koronę.
+* Albo gracz ma wysoką reputację popiołu i używa Czarnego Odłamka w finale.
+
+Opis:
+
+> Korona jest lżejsza, niż sądziłeś. Przez moment wydaje ci się, że wygrałeś. Potem słyszysz głosy. Nie krzyczą. Kłaniają się.
+>
+> Valdorin budzi się. Umarli wychodzą z domów, klękają na rynku i czekają na pierwszy rozkaz nowego króla.
+
+Efekt:
+
+Gracz zostaje nowym Popielnym Królem.
+
+---
+
+## 11.5 Zakończenie tragiczne — „Zgubiony w popiele”
+
+Warunki:
+
+* Gracz wchodzi do ruin bez kompletu artefaktów.
+* Gracz traci pamięć przez brak Kryształu Świtu.
+
+Opis:
+
+> Na początku zapominasz, po co tu przyszedłeś. Potem zapominasz drogę powrotną. Na końcu zapominasz własne imię.
+>
+> Po latach inny śmiałek zobaczy twoją twarz w oknie martwego miasta.
+
+Efekt:
+
+Gra kończy się porażką.
+
+---
+
+## 11.6 Zakończenie mroczne — „Zniszczenie bez świtu”
+
+Warunki:
+
+* Gracz ma Wolę Zniszczenia.
+* Gracz niszczy Koronę brutalnie, bez Łzy Eliany i bez przebaczenia.
+
+Opis:
+
+> Korona pęka. Król znika. Miasto zaczyna się walić. Cienie nie zostają uwolnione. Zostają rozerwane razem z klątwą.
+>
+> Świt przychodzi, ale jest zimny.
+
+Efekt:
+
+Klątwa znika, ale dusze mieszkańców zostają zniszczone. Ravenford przetrwa, ale ludzie będą mówić, że gracz ocalił żywych kosztem umarłych.
+
+---
+
+# 12. Przykładowy pełny przebieg gry
+
+Poniżej przykładowa ścieżka dla gracza, który dąży do najlepszego zakończenia.
+
+1. Gracz wybiera klasę Uczeń Maga.
+2. W gospodzie pomaga rannemu strażnikowi.
+3. Rozmawia z kronikarzem i poznaje legendę Korony.
+4. W Ravenford odwiedza kaplicę i rozmawia z Siostrą Aleną.
+5. W Mrocznym Lesie pomaga rannemu kupcowi.
+6. Przy kapliczce modli się i zostawia jedzenie.
+7. Odzyskuje skrzynię narzędzi kowala.
+8. Wraca do wioski, dostaje zniżkę i Żelazny Pierścień.
+9. Idzie na bagna, kupuje albo zdobywa Mapę Bagien.
+10. Pomaga zielarce i otrzymuje Eliksir Czystej Krwi.
+11. W Krypcie Milczących zachowuje ciszę i szacunek.
+12. Zdobywa Srebrny Klucz.
+13. W Forcie Zdrajców rozmawia z dowódcą Caelem i przekonuje go bez walki.
+14. Zdobywa Pieczęć Starego Króla.
+15. W Wieży Astromanty mówi, że chce poznać prawdę.
+16. Czyta księgę o Elianie.
+17. Pokonuje albo omija Cień Gracza.
+18. Zdobywa Kryształ Świtu.
+19. W ruinach znajduje dom medyka i pokój Eliany.
+20. Zdobywa Łzę Księżniczki.
+21. W sali tronowej nie atakuje od razu, tylko używa Łzy.
+22. Odblokowuje zakończenie „Świt dla umarłych”.
+
+---
+
+# 13. Przykładowe sceny gotowe do gry
+
+---
+
+## Scena: pierwszy sen gracza
+
+Tytuł: Sen o Koronie
+
+Opis:
+
+> Stoisz w sali tronowej, choć nigdy wcześniej jej nie widziałeś. Na tronie leży korona z czarnego metalu. Nie świeci, a jednak widzisz ją wyraźnie. Wokół stoją ludzie bez twarzy. Każdy z nich trzyma w dłoniach garść popiołu.
+>
+> Głos, którego nie rozpoznajesz, mówi: „Wszystko, co umiera, może zostać zatrzymane. Wystarczy zapłacić.”
+
+Wybory:
+
+* Podejdź do Korony.
+* Cofnij się.
+* Zapytaj, kto mówi.
+* Strąć Koronę z tronu.
+
+Efekty:
+
+* Podejście do Korony daje pierwszy punkt reputacji popiołu.
+* Cofnięcie się daje odporność na pierwszą wizję.
+* Pytanie odblokowuje szept Eliany.
+* Strącenie Korony sprawia, że gracz budzi się z utratą 1 zdrowia, ale zyskuje Wolę Oporu.
+
+---
+
+## Scena: rozmowa z Siostrą Aleną
+
+Tytuł: Kaplica Świtu
+
+Opis:
+
+> Kaplica jest mała i uboga. Na ołtarzu pali się tylko jedna świeca, ale jej płomień nie porusza się mimo przeciągu. Siostra Alena klęczy przed pękniętym symbolem słońca.
+
+Dialog:
+
+> „Ludzie myślą, że świt to nagroda dla dobrych. Nie. Świt przychodzi także dla winnych. Pytanie tylko, czy potrafią spojrzeć w jego stronę.”
+
+Wybory:
+
+* Poproś o błogosławieństwo.
+* Zapytaj o Popielnego Króla.
+* Powiedz, że król zasłużył na potępienie.
+* Ofiaruj złoto kaplicy.
+* Odejdź.
+
+Konsekwencje:
+
+* Błogosławieństwo działa lepiej, jeśli gracz wcześniej pomagał innym.
+* Pytanie o króla ujawnia, że Alena wierzy w możliwość przebaczenia.
+* Potępienie króla wzmacnia ścieżkę zniszczenia.
+* Ofiara dla kaplicy zwiększa dobrą reputację.
+
+---
+
+## Scena: nocny atak na Ravenford
+
+Ta scena może pojawić się po zdobyciu pierwszego artefaktu.
+
+Opis:
+
+> Kiedy wracasz do Ravenford, dzwon bije po raz drugi. Tym razem nie ostrzega przed mgłą. Mgła już jest na placu. Z jej wnętrza wychodzą postacie z popiołu. Nie atakują od razu. Stoją i patrzą w okna domów.
+
+Wybory:
+
+* Broń mieszkańców.
+* Pomóż ewakuować dzieci do kaplicy.
+* Szukaj kronikarza.
+* Schowaj się w gospodzie.
+* Użyj artefaktu.
+
+Konsekwencje:
+
+* Obrona mieszkańców prowadzi do walki z Popielnym Rycerzem.
+* Ewakuacja dzieci daje dużą dobrą reputację.
+* Szukanie kronikarza ujawnia, że rozmawia on z cieniem.
+* Schowanie się pogarsza reputację.
+* Użycie artefaktu może odpędzić mgłę, ale osłabi gracza.
+
+---
+
+## Scena: kronikarz przy studni
+
+Może pojawić się po zdobyciu dwóch artefaktów.
+
+Opis:
+
+> Edrin stoi przy starej studni. Wrzuca do niej kartki wyrwane ze swojej księgi. Kiedy podchodzisz, nie wydaje się zaskoczony.
+
+Dialog:
+
+> „Niektóre prawdy są jak choroba. Jeśli zapiszesz je zbyt dokładnie, ktoś kiedyś zechce je powtórzyć.”
+
+Wybory:
+
+* Zażądaj wyjaśnień.
+* Wyciągnij kartki ze studni.
+* Pozwól mu spalić resztę.
+* Oskarż go o zdradę.
+* Zapytaj o Elianę.
+
+Konsekwencje:
+
+* Wyjaśnienia ujawniają, że Edrin wie o Łzie Eliany.
+* Kartki ze studni dają fragment historii Korony.
+* Pozwolenie mu spalić księgę blokuje część wiedzy, ale Edrin później pomaga graczowi.
+* Oskarżenie może doprowadzić do ucieczki Edrina.
+* Pytanie o Elianę odblokowuje drogę do najlepszego zakończenia.
+
+---
+
+## Scena: ostatni marsz do pałacu
+
+Opis:
+
+> Idziesz główną aleją Valdorinu. Po obu stronach stoją cienie mieszkańców. Nie zatrzymują cię. Nie błagają. Tylko patrzą. Im bliżej pałacu, tym cięższy staje się Kryształ Świtu. Jakby niósł w sobie światło przeznaczone dla całego miasta.
+
+Wybory:
+
+* Idź prosto do pałacu.
+* Zatrzymaj się i przemów do cieni.
+* Uklęknij i poproś o przebaczenie.
+* Rozkaż cieniom się usunąć.
+* Użyj Kryształu Świtu.
+
+Konsekwencje:
+
+* Przemówienie do cieni może dać wsparcie w finale.
+* Prośba o przebaczenie działa tylko, jeśli gracz ma dobrą reputację.
+* Rozkaz wzmacnia ścieżkę Korony.
+* Użycie Kryształu leczy gracza, ale może go osłabić przed bossem.
+
+---
+
+# 14. System decyzji i konsekwencji
+
+Gra powinna zapamiętywać decyzje gracza. Nawet jeśli mechanicznie są proste, fabularnie powinny wracać.
+
+Przykładowe flagi:
+
+* Pomógł kupcowi
+* Okradł kupca
+* Uratował dziecko
+* Zostawił dziecko
+* Pomógł kowalowi
+* Zniszczył kapliczkę
+* Modlił się przy kapliczce
+* Zdobył Srebrny Klucz z szacunkiem
+* Zbezcześcił kryptę
+* Przekonał Caela
+* Zabił Caela
+* Przeczytał księgę o Elianie
+* Znalazł Stary List Króla
+* Zdobył Łzę Eliany
+* Ma Czarny Odłamek Korony
+* Ma wysoką reputację popiołu
+
+Te flagi mogą wpływać na:
+
+* ceny w sklepach,
+* dialogi NPC,
+* dostępne wybory,
+* siłę bossów,
+* treść zakończeń,
+* to, kto pojawi się w finale.
+
+---
+
+# 15. Dodatkowe pomysły na rozgrywkę
+
+## Odpoczynek
+
+Gracz może odpocząć w gospodzie za 3 złota. Jeśli pomógł wiosce, odpoczynek jest darmowy.
+
+## Głód
+
+Opcjonalny system: jedzenie może być używane do leczenia poza walką. Nie trzeba robić pełnego głodu, żeby nie komplikować gry.
+
+## Losowe wydarzenia
+
+Przy przechodzeniu między lokacjami może pojawić się losowe wydarzenie:
+
+* spotkanie wędrownego handlarza,
+* atak wilków,
+* znalezienie porzuconej sakiewki,
+* wizja Korony,
+* ranny strażnik,
+* błędny ognik,
+* ukryta kapliczka.
+
+## Poziomy doświadczenia
+
+Można dodać prosty system doświadczenia:
+
+* Za walkę i zadania gracz dostaje punkty doświadczenia.
+* Po zdobyciu 10 punktów awansuje.
+* Awans daje +5 maksymalnego zdrowia albo +1 ataku.
+
+## Prosty system moralności
+
+Nie trzeba pokazywać graczowi liczb. Wystarczy, że gra wewnętrznie liczy:
+
+* dobro,
+* chciwość,
+* popiół.
+
+Na końcu zakończenie zależy od tego, która wartość dominuje.
+
+---
+
+# 16. Szkielet fabularny do implementacji
+
+Minimalna wersja rozszerzona może mieć taki układ scen:
+
+1. Sen o Koronie
+2. Gospoda w Ravenford
+3. Rozmowa z kronikarzem
+4. Wioska Ravenford
+5. Sklep
+6. Kuźnia
+7. Kaplica
+8. Mroczny Las
+9. Przewrócony wóz
+10. Kapliczka w lesie
+11. Chata drwala
+12. Bagna Umarłych
+13. Chata zielarki
+14. Martwy prom
+15. Wyspa kości
+16. Krypta Milczących
+17. Korytarz Bez Echa
+18. Sala Pustych Hełmów
+19. Komnata Srebrnego Klucza
+20. Fort Zdrajców
+21. Brama fortu
+22. Sala map
+23. Dowódca Cael
+24. Wieża Astromanty
+25. Drzwi bez cienia
+26. Biblioteka gwiazd
+27. Sala luster
+28. Dach wieży
+29. Nocny atak na Ravenford
+30. Kronikarz przy studni
+31. Ruiny Valdorinu
+32. Rynek bez głosów
+33. Dom medyka
+34. Spalony teatr
+35. Pokój Eliany
+36. Most Popielnych Cieni
+37. Pałac królewski
+38. Sala Korony
+39. Finał
+40. Zakończenie
+
+---
+
+# 17. Ton narracji
+
+Gra powinna mieć styl mroczny, ale czytelny. Opisy powinny być klimatyczne, ale nie za długie przy każdej scenie. Najlepiej stosować układ:
+
+1. Krótki opis miejsca.
+2. Jedno mocne zdanie budujące klimat.
+3. Dostępne wybory.
+4. Krótkie konsekwencje.
+
+Przykład stylu:
+
+> Mgła pachnie mokrym popiołem. Gdzieś daleko dzwoni dzwon, choć wiesz, że w tej części miasta nie ma już żadnej wieży. Na bruku widzisz ślady małych stóp prowadzące do pałacu.
+
+Taki styl jest dobry do przygodówki tekstowej, bo daje klimat, ale nie blokuje gracza ścianą tekstu.
+
+---
+
+# 18. Najważniejsze wybory gracza
+
+Najważniejsze decyzje, które powinny mieć wpływ na zakończenie:
+
+1. Czy gracz pomaga rannemu kupcowi?
+2. Czy gracz niszczy kapliczkę?
+3. Czy gracz ratuje zagubione dziecko?
+4. Czy gracz traktuje zmarłych w Krypcie z szacunkiem?
+5. Czy gracz zdobywa Pieczęć przez rozmowę czy przemoc?
+6. Czy gracz mówi prawdę w Wieży Astromanty?
+7. Czy gracz odkrywa historię Eliany?
+8. Czy gracz używa Czarnego Odłamka?
+9. Czy gracz przebacza królowi?
+10. Czy gracz zakłada Koronę?
+
+---
+
+# 19. Główna myśl fabularna
+
+Gra nie jest tylko o pokonaniu złego króla. Główna myśl brzmi:
+
+**Nie każdą klątwę da się zakończyć siłą. Czasem trzeba najpierw zrozumieć, z czego powstała.**
+
+Korona Popiołu nie jest zwykłym przedmiotem zła. Ona wzmacnia rozpacz, strach, chciwość i miłość zmienioną w obsesję. Dlatego gracz może wygrać na kilka sposobów, ale najlepsze zakończenie wymaga nie tylko siły, lecz także wiedzy, współczucia i odmowy sięgnięcia po władzę.
+
+---
+
+# 20. Propozycja kolejnego etapu
+
+Po tym scenariuszu można przygotować wersję techniczną do gry, czyli:
+
+* listę scen w formacie JavaScript,
+* każde przejście między scenami,
+* wymagania przedmiotów,
+* skutki decyzji,
+* statystyki przeciwników,
+* sklep,
+* ekwipunek,
+* system reputacji,
+* zakończenia.
+
+Najlepszy następny krok to przerobienie tego scenariusza na strukturę danych, np. tak:
+
+```js
+const scenes = {
+  ravenford: {
+    title: "Ravenford",
+    text: "Wioska jest ostatnim bezpiecznym miejscem...",
+    choices: [
+      { text: "Idź do sklepu", next: "shop" },
+      { text: "Wyrusz do lasu", next: "forest" }
+    ]
+  }
+};
+```
+
+Dzięki temu scenariusz stanie się bezpośrednio grywalny.

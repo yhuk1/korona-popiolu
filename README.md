@@ -33,10 +33,14 @@ python main.py
 ## Co jest w prototypie
 
 - wybór klasy postaci,
+- rozszerzone klasy: Wojownik, Łotrzyk, Uczeń Maga i Banita,
 - zdrowie, złoto, broń, ekwipunek, artefakty i statusy fabularne,
+- system reputacji: dobro, chciwość i popiół,
 - sklepy, kowal, zniżki i konsekwencje decyzji,
-- eksploracja Ravenford, lasu, bagien, krypty, fortu, wieży i ruin,
+- akty fabularne, Ravenford, las, bagna, krypta, fort, wieża, atak na wioskę, ruiny i Sala Korony,
+- zadania poboczne, NPC, dodatkowe artefakty i moralne konsekwencje,
 - generowane ilustracje lokacji w `assets/locations`,
+- opcjonalna muzyka ambientowa generowana w przeglądarce,
 - turowa walka z atakiem, miksturą i ucieczką,
-- trzy wymagane artefakty do finału,
-- kilka zakończeń zależnych od decyzji.
+- trzy główne artefakty oraz artefakty dodatkowe do najlepszych zakończeń,
+- sześć zakończeń zależnych od decyzji, wiedzy i reputacji.
