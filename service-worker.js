@@ -1,4 +1,4 @@
-const CACHE_NAME = "korona-popiolu-v11";
+const CACHE_NAME = "korona-popiolu-v12";
 
 const ASSETS = [
   "./",

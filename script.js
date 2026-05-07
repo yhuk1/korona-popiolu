@@ -145,6 +145,7 @@ const music = {
   running: false,
   starting: false,
   autoplayArmed: false,
+  session: 0,
   mood: "village",
   oscillators: [],
   timers: [],
@@ -1272,7 +1273,7 @@ function toggleMusic() {
     renderNotice("Muzyka", "Muzyka włączy się po wyborze klasy postaci.", "start");
     return;
   }
-  if (music.running) {
+  if (music.running || music.starting) {
     stopMusic();
     return;
   }
@@ -1291,6 +1292,8 @@ async function startMusic(options = {}) {
   }
 
   music.starting = true;
+  const session = music.session + 1;
+  music.session = session;
   if (!music.context) {
     music.context = new AudioContext();
   }
@@ -1301,6 +1304,8 @@ async function startMusic(options = {}) {
     if (!quiet) renderNotice("Muzyka", "Chrome zablokował automatyczne audio. Kliknij dowolny wybór w grze albo przycisk muzyki.");
     return false;
   }
+
+  if (session !== music.session) return false;
 
   if (music.context.state !== "running") {
     music.starting = false;
@@ -1372,8 +1377,10 @@ function startNoiseLayer() {
 
 function scheduleChime() {
   if (!music.running || !music.context) return;
+  const session = music.session;
   const delay = 1800 + Math.random() * 2600;
   const timer = window.setTimeout(() => {
+    if (session !== music.session || !music.running) return;
     playChime();
     if (Math.random() < 0.65) playPulse();
     scheduleChime();
@@ -1430,32 +1437,36 @@ function playPulse() {
 }
 
 function stopMusic() {
-  if (!music.context || !music.running) return;
-  const now = music.context.currentTime;
-  music.master.gain.exponentialRampToValueAtTime(0.0001, now + 0.6);
+  music.session += 1;
   music.timers.forEach((timer) => window.clearTimeout(timer));
   music.timers = [];
-  window.setTimeout(() => {
-    music.oscillators.forEach((oscillator) => {
-      try {
-        oscillator.stop();
-      } catch {
-        // Oscillator mógł już zostać zatrzymany.
-      }
-    });
-    if (music.noise) {
-      try {
-        music.noise.stop();
-      } catch {
-        // Warstwa szumu mogła już zostać zatrzymana.
-      }
+  music.oscillators.forEach((oscillator) => {
+    try {
+      oscillator.stop();
+    } catch {
+      // Oscillator mógł już zostać zatrzymany.
     }
-    music.oscillators = [];
-    music.noise = null;
+  });
+  if (music.noise) {
+    try {
+      music.noise.stop();
+    } catch {
+      // Warstwa szumu mogła już zostać zatrzymana.
+    }
+  }
+  try {
     music.master?.disconnect();
-    music.master = null;
-    music.delay = null;
-  }, 700);
+  } catch {
+    // Master mógł być już odłączony.
+  }
+  if (music.context) {
+    music.context.close().catch(() => {});
+  }
+  music.context = null;
+  music.oscillators = [];
+  music.noise = null;
+  music.master = null;
+  music.delay = null;
   music.running = false;
   music.starting = false;
   updateAudioButton();
