@@ -1,4 +1,4 @@
-const CACHE_NAME = "korona-popiolu-v12";
+const CACHE_NAME = "korona-popiolu-v20";
 
 const ASSETS = [
   "./",
@@ -7,6 +7,9 @@ const ASSETS = [
   "./script.js",
   "./manifest.webmanifest",
   "./korona_popiolu_poradnik_www.html",
+  "./korona_popiolu_poradnik_www.txt",
+  "./sidequests.txt",
+  "./bron.txt",
   "./assets/crown.svg",
   "./assets/icons/icon-192.png",
   "./assets/icons/icon-512.png",

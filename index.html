@@ -26,9 +26,18 @@
           </div>
         </div>
 
-        <p id="sceneName" class="scene-name"></p>
-        <div id="storyText" class="story-text"></div>
-        <div id="eventLog" class="event-log" aria-live="polite"></div>
+        <div class="location-strip">
+          <div>
+            <p class="location-label">Aktualna lokacja</p>
+            <p id="sceneName" class="scene-name"></p>
+          </div>
+          <p id="sceneAtmosphere" class="scene-atmosphere"></p>
+        </div>
+
+        <div class="story-box">
+          <div id="storyText" class="story-text"></div>
+          <div id="eventLog" class="event-log" aria-live="polite"></div>
+        </div>
         <div id="choices" class="choices"></div>
       </section>
 
@@ -42,49 +51,181 @@
         </div>
 
         <dl class="stats">
-          <div>
+          <div class="stat-row stat-plain">
             <dt>Klasa</dt>
             <dd id="heroClass">-</dd>
           </div>
-          <div>
-            <dt>Zdrowie</dt>
-            <dd><span id="health">-</span></dd>
+          <div class="stat-row stat-meter">
+            <dt><span class="stat-icon">HP</span> Zdrowie</dt>
+            <dd>
+              <span id="health">-</span>
+              <span class="meter meter-health"><span id="healthBar"></span></span>
+            </dd>
           </div>
-          <div>
-            <dt>Złoto</dt>
+          <div class="stat-row stat-plain">
+            <dt><span class="stat-icon">ZL</span> Złoto</dt>
             <dd id="gold">-</dd>
           </div>
-          <div>
-            <dt>Atak</dt>
-            <dd id="attack">-</dd>
+          <div class="stat-row stat-plain">
+            <dt>Poziom</dt>
+            <dd id="level">-</dd>
           </div>
-          <div>
-            <dt>Broń</dt>
-            <dd id="weapon">-</dd>
+          <div class="stat-row stat-meter">
+            <dt><span class="stat-icon">XP</span> Doświadczenie</dt>
+            <dd>
+              <span id="xp">-</span>
+              <span class="meter meter-xp"><span id="xpBar"></span></span>
+            </dd>
           </div>
         </dl>
 
-        <section>
-          <h2>Artefakty</h2>
-          <ul id="artifacts" class="tag-list"></ul>
+        <section class="panel-actions" aria-label="Menu postaci">
+          <button id="statsOpenBtn" class="panel-action" type="button">
+            <span>Statystyki</span>
+            <small>Atak, obrona, wola</small>
+          </button>
+          <button id="inventoryOpenBtn" class="panel-action" type="button">
+            <span>Ekwipunek</span>
+            <small>Wyposażenie i plecak</small>
+          </button>
+          <button id="artifactsOpenBtn" class="panel-action" type="button">
+            <span>Artefakty</span>
+            <small>Klucze, pieczęcie, relikty</small>
+          </button>
+          <button id="journalOpenBtn" class="panel-action" type="button">
+            <span>Dziennik</span>
+            <small>Ważne tropy i decyzje</small>
+          </button>
         </section>
 
         <section>
           <h2>Reputacja</h2>
           <ul id="reputation" class="tag-list"></ul>
         </section>
-
-        <section>
-          <h2>Ekwipunek</h2>
-          <ul id="inventory" class="tag-list"></ul>
-        </section>
-
-        <section>
-          <h2>Statusy</h2>
-          <ul id="statuses" class="tag-list muted"></ul>
-        </section>
       </aside>
     </main>
+
+    <div id="statsModal" class="inventory-modal hidden" role="dialog" aria-modal="true" aria-labelledby="statsTitle">
+      <div class="inventory-window stats-window">
+        <button id="statsCloseBtn" class="inventory-close" type="button" aria-label="Zamknij statystyki">×</button>
+
+        <header class="inventory-window-header">
+          <p>Valdorin / parametry bohatera</p>
+          <h2 id="statsTitle">Statystyki</h2>
+          <p id="statsHeroSummary">Wybierz klasę, aby zobaczyć pełną kartę postaci.</p>
+        </header>
+
+        <div class="stats-detail-grid">
+          <article class="stats-card stats-card-wide">
+            <span>Broń</span>
+            <strong id="weapon">-</strong>
+            <p>Główny oręż używany w walce.</p>
+          </article>
+          <article class="stats-card">
+            <span>Atak</span>
+            <strong id="attack">-</strong>
+            <p>Obrażenia zadawane w turze.</p>
+          </article>
+          <article class="stats-card">
+            <span>Obrona</span>
+            <strong id="defense">-</strong>
+            <p>Zmniejsza obrażenia przeciwników.</p>
+          </article>
+          <article class="stats-card">
+            <span>Unik</span>
+            <strong id="dodge">-</strong>
+            <p>Szansa uniknięcia kontrataku.</p>
+          </article>
+          <article class="stats-card">
+            <span>Wola</span>
+            <strong id="will">-</strong>
+            <p>Chroni przed wpływem nieumarłych i Korony.</p>
+          </article>
+          <article class="stats-card">
+            <span>Wiedza</span>
+            <strong id="knowledge">-</strong>
+            <p>Pomaga przy runach, magii i sekretach.</p>
+          </article>
+          <article class="stats-card">
+            <span>Spryt</span>
+            <strong id="cunning">-</strong>
+            <p>Pomaga w skradaniu, zamkach i fortelach.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div id="artifactsModal" class="inventory-modal hidden" role="dialog" aria-modal="true" aria-labelledby="artifactsTitle">
+      <div class="inventory-window artifacts-window">
+        <button id="artifactsCloseBtn" class="inventory-close" type="button" aria-label="Zamknij artefakty">×</button>
+
+        <header class="inventory-window-header">
+          <p>Valdorin / relikty wyprawy</p>
+          <h2 id="artifactsTitle">Artefakty</h2>
+          <p id="artifactsSummary">Główne artefakty otwierają drogę do sali Korony.</p>
+        </header>
+
+        <div id="artifactGrid" class="artifact-grid"></div>
+      </div>
+    </div>
+
+    <div id="inventoryModal" class="inventory-modal hidden" role="dialog" aria-modal="true" aria-labelledby="inventoryTitle">
+      <div class="inventory-window">
+        <button id="inventoryCloseBtn" class="inventory-close" type="button" aria-label="Zamknij ekwipunek">×</button>
+
+        <header class="inventory-window-header">
+          <p>Valdorin / karta bohatera</p>
+          <h2 id="inventoryTitle">Ekwipunek</h2>
+          <p id="inventoryHeroSummary">Wybierz klasę, aby zobaczyć wyposażenie.</p>
+        </header>
+
+        <div class="inventory-layout">
+          <section class="inventory-section equipment-section">
+            <h3>Wyposażenie</h3>
+            <div class="hero-paper">
+              <div id="inventoryHeroSketch" class="hero-sketch">?</div>
+              <button class="equip-slot slot-head" type="button" data-slot="head"></button>
+              <button class="equip-slot slot-armor" type="button" data-slot="armor"></button>
+              <button class="equip-slot slot-weapon" type="button" data-slot="weapon"></button>
+              <button class="equip-slot slot-amulet" type="button" data-slot="amulet"></button>
+              <button class="equip-slot slot-ring" type="button" data-slot="ring"></button>
+              <button class="equip-slot slot-boots" type="button" data-slot="boots"></button>
+              <button class="equip-slot slot-artifact" type="button" data-slot="artifact"></button>
+            </div>
+          </section>
+
+          <section class="inventory-section bag-section">
+            <h3>Plecak</h3>
+            <div id="inventoryGrid" class="inventory-grid" aria-label="Przedmioty w plecaku"></div>
+            <article id="itemDetails" class="item-details">
+              <p class="item-details-kicker">Przedmiot</p>
+              <h4>Pusta karta</h4>
+              <p>Kurz osiada na nieopisanym miejscu w kronice.</p>
+            </article>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <div id="journalModal" class="inventory-modal hidden" role="dialog" aria-modal="true" aria-labelledby="journalTitle">
+      <div class="inventory-window journal-window">
+        <button id="journalCloseBtn" class="inventory-close" type="button" aria-label="Zamknij dziennik">×</button>
+
+        <header class="inventory-window-header">
+          <p>Valdorin / zapiski podróży</p>
+          <h2 id="journalTitle">Dziennik</h2>
+          <p id="journalSummary">Ważne informacje, decyzje i tropy fabularne.</p>
+        </header>
+
+        <div class="journal-tabs" role="tablist" aria-label="Zakładki dziennika">
+          <button class="journal-tab is-active" type="button" data-journal-tab="quests">Zadania</button>
+          <button class="journal-tab" type="button" data-journal-tab="info">Informacje</button>
+          <button class="journal-tab" type="button" data-journal-tab="recent">Ostatnie</button>
+        </div>
+
+        <div id="journalEntries" class="journal-entries"></div>
+      </div>
+    </div>
 
     <script src="script.js"></script>
   </body>

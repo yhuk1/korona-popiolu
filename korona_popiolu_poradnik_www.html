@@ -1,1048 +1,2054 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pl">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Korona Popiołu — Poradnik Gracza</title>
-  <style>
-    :root {
-      --bg: #080a0f;
-      --panel: rgba(17, 21, 31, 0.94);
-      --panel2: rgba(29, 35, 49, 0.94);
-      --text: #f3ead9;
-      --muted: #b8aa96;
-      --accent: #d8a84f;
-      --accent2: #ffe2a3;
-      --danger: #d55e5e;
-      --good: #68c083;
-      --blue: #7eb5ff;
-      --border: rgba(255,255,255,0.12);
-      --shadow: 0 22px 60px rgba(0,0,0,0.45);
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      color: var(--text);
-      font-family: Georgia, 'Times New Roman', serif;
-      background:
-        radial-gradient(circle at top left, rgba(216,168,79,0.22), transparent 34%),
-        linear-gradient(rgba(5,7,11,0.82), rgba(5,7,11,0.95)),
-        url('https://images.unsplash.com/photo-1518709268805-4e9042af2176?auto=format&fit=crop&w=1800&q=80');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-    }
-
-    .page {
-      max-width: 1240px;
-      margin: 0 auto;
-      padding: 24px;
-    }
-
-    header {
-      border: 1px solid var(--border);
-      background: var(--panel);
-      border-radius: 24px;
-      padding: 34px;
-      box-shadow: var(--shadow);
-      margin-bottom: 20px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    header::after {
-      content: '';
-      position: absolute;
-      right: -110px;
-      top: -120px;
-      width: 320px;
-      height: 320px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(216,168,79,0.22), transparent 65%);
-      pointer-events: none;
-    }
-
-    h1 {
-      margin: 0 0 8px;
-      font-size: clamp(32px, 5vw, 56px);
-      color: var(--accent);
-      letter-spacing: 0.5px;
-      line-height: 1;
-    }
-
-    .subtitle {
-      margin: 0;
-      color: var(--muted);
-      font-size: 18px;
-      line-height: 1.5;
-      max-width: 850px;
-    }
-
-    .top-actions {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 22px;
-    }
-
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      padding: 8px 12px;
-      border: 1px solid rgba(216,168,79,0.35);
-      background: rgba(216,168,79,0.08);
-      border-radius: 999px;
-      color: #ffdfa0;
-      font-size: 14px;
-    }
-
-    .layout {
-      display: grid;
-      grid-template-columns: 260px 1fr;
-      gap: 20px;
-    }
-
-    .sidebar {
-      border: 1px solid var(--border);
-      background: var(--panel);
-      border-radius: 22px;
-      padding: 16px;
-      box-shadow: var(--shadow);
-      align-self: start;
-      position: sticky;
-      top: 16px;
-    }
-
-    .nav-title {
-      margin: 0 0 12px;
-      font-size: 16px;
-      color: var(--accent2);
-    }
-
-    .tab-btn {
-      width: 100%;
-      border: 1px solid transparent;
-      background: transparent;
-      color: var(--text);
-      padding: 13px 14px;
-      border-radius: 14px;
-      cursor: pointer;
-      text-align: left;
-      font-family: inherit;
-      font-size: 16px;
-      transition: 0.15s ease;
-      margin-bottom: 6px;
-    }
-
-    .tab-btn:hover {
-      background: rgba(255,255,255,0.06);
-      border-color: var(--border);
-    }
-
-    .tab-btn.active {
-      background: linear-gradient(180deg, rgba(216,168,79,0.24), rgba(89,61,24,0.24));
-      border-color: rgba(216,168,79,0.45);
-      color: #ffe2a3;
-    }
-
-    .content {
-      border: 1px solid var(--border);
-      background: var(--panel);
-      border-radius: 22px;
-      padding: 24px;
-      box-shadow: var(--shadow);
-      min-height: 700px;
-    }
-
-    .tab {
-      display: none;
-      animation: show 0.18s ease;
-    }
-
-    .tab.active {
-      display: block;
-    }
-
-    @keyframes show {
-      from { opacity: 0; transform: translateY(4px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    h2 {
-      margin: 0 0 16px;
-      font-size: 34px;
-      color: var(--accent2);
-      line-height: 1.12;
-    }
-
-    h3 {
-      margin: 28px 0 12px;
-      color: #ffd789;
-      font-size: 23px;
-    }
-
-    h4 {
-      margin: 0 0 8px;
-      color: #ffe2a3;
-      font-size: 18px;
-    }
-
-    p, li {
-      color: var(--text);
-      line-height: 1.65;
-      font-size: 17px;
-    }
-
-    ul, ol {
-      padding-left: 24px;
-    }
-
-    .lead {
-      font-size: 19px;
-      color: var(--muted);
-      line-height: 1.6;
-      margin-top: -4px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-      margin: 16px 0;
-    }
-
-    .grid.three {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .card {
-      border: 1px solid var(--border);
-      background: var(--panel2);
-      border-radius: 18px;
-      padding: 17px;
-      min-height: 120px;
-    }
-
-    .card.good {
-      border-color: rgba(104,192,131,0.38);
-      background: rgba(104,192,131,0.08);
-    }
-
-    .card.bad {
-      border-color: rgba(213,94,94,0.4);
-      background: rgba(213,94,94,0.08);
-    }
-
-    .card.blue {
-      border-color: rgba(126,181,255,0.35);
-      background: rgba(126,181,255,0.08);
-    }
-
-    .card.gold {
-      border-color: rgba(216,168,79,0.35);
-      background: rgba(216,168,79,0.08);
-    }
-
-    .small {
-      color: var(--muted);
-      font-size: 15px;
-      line-height: 1.55;
-    }
-
-    .tag-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-      margin-top: 10px;
-    }
-
-    .tag {
-      display: inline-block;
-      border: 1px solid rgba(255,255,255,0.16);
-      background: rgba(0,0,0,0.2);
-      border-radius: 999px;
-      padding: 5px 9px;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .route {
-      counter-reset: step;
-      display: grid;
-      gap: 10px;
-      margin-top: 16px;
-    }
-
-    .route-step {
-      counter-increment: step;
-      display: grid;
-      grid-template-columns: 42px 1fr;
-      gap: 12px;
-      align-items: start;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.045);
-      border-radius: 16px;
-      padding: 14px;
-    }
-
-    .route-step::before {
-      content: counter(step);
-      width: 34px;
-      height: 34px;
-      border-radius: 50%;
-      background: rgba(216,168,79,0.18);
-      border: 1px solid rgba(216,168,79,0.45);
-      color: #ffe0a0;
-      display: grid;
-      place-items: center;
-      font-weight: bold;
-    }
-
-    .route-step strong {
-      color: #ffe2a3;
-    }
-
-    .notice {
-      border-left: 4px solid var(--accent);
-      background: rgba(216,168,79,0.08);
-      border-radius: 14px;
-      padding: 16px;
-      margin: 18px 0;
-      color: #ffe7b7;
-      line-height: 1.6;
-    }
-
-    .warning {
-      border-left-color: var(--danger);
-      background: rgba(213,94,94,0.08);
-      color: #ffd0d0;
-    }
-
-    .success {
-      border-left-color: var(--good);
-      background: rgba(104,192,131,0.08);
-      color: #d9ffe4;
-    }
-
-    .item-list {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-    }
-
-    .item {
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.045);
-      border-radius: 18px;
-      padding: 16px;
-    }
-
-    .item .type {
-      color: var(--muted);
-      font-size: 14px;
-      margin-bottom: 8px;
-    }
-
-    .item .effect {
-      color: #dbe9ff;
-      font-size: 15px;
-      line-height: 1.55;
-    }
-
-    .boss {
-      border: 1px solid rgba(213,94,94,0.28);
-      background: rgba(213,94,94,0.06);
-      border-radius: 18px;
-      padding: 17px;
-      margin-bottom: 14px;
-    }
-
-    .boss-stats {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin: 10px 0;
-    }
-
-    .stat {
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: rgba(0,0,0,0.24);
-      border: 1px solid rgba(255,255,255,0.12);
-      color: #ffdddd;
-      font-size: 14px;
-    }
-
-    .ending {
-      border-radius: 20px;
-      padding: 18px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.045);
-      margin-bottom: 14px;
-    }
-
-    .ending h3 {
-      margin-top: 0;
-    }
-
-    .checklist {
-      display: grid;
-      gap: 10px;
-    }
-
-    label.check {
-      display: grid;
-      grid-template-columns: 28px 1fr;
-      align-items: start;
-      gap: 10px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.045);
-      border-radius: 15px;
-      padding: 13px;
-      cursor: pointer;
-      color: var(--text);
-      line-height: 1.5;
-    }
-
-    input[type="checkbox"] {
-      width: 19px;
-      height: 19px;
-      accent-color: #d8a84f;
-      margin-top: 2px;
-    }
-
-    .search-box {
-      margin-bottom: 16px;
-    }
-
-    .search-box input {
-      width: 100%;
-      border: 1px solid var(--border);
-      background: rgba(0,0,0,0.28);
-      border-radius: 15px;
-      color: var(--text);
-      padding: 14px 15px;
-      font-family: inherit;
-      font-size: 16px;
-      outline: none;
-    }
-
-    .search-box input:focus {
-      border-color: rgba(216,168,79,0.55);
-      box-shadow: 0 0 0 3px rgba(216,168,79,0.1);
-    }
-
-    .mini-nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin: 12px 0 20px;
-    }
-
-    .mini-nav a {
-      color: #ffe2a3;
-      text-decoration: none;
-      border: 1px solid rgba(216,168,79,0.28);
-      background: rgba(216,168,79,0.08);
-      padding: 7px 10px;
-      border-radius: 999px;
-      font-size: 14px;
-    }
-
-    .mini-nav a:hover {
-      filter: brightness(1.12);
-    }
-
-    @media (max-width: 920px) {
-      .layout {
-        grid-template-columns: 1fr;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KORONA POPIOŁU — PORADNIK GRACZA</title>
+    <meta name="theme-color" content="#0b0b0a" />
+    <style>
+      :root {
+        --bg: #080807;
+        --panel: rgba(18, 17, 15, 0.9);
+        --panel-strong: rgba(28, 25, 21, 0.94);
+        --line: rgba(235, 197, 107, 0.18);
+        --text: #f3ead9;
+        --muted: #b9ad99;
+        --accent: #d8a84f;
+        --accent-soft: rgba(216, 168, 79, 0.16);
       }
 
-      .sidebar {
-        position: static;
-      }
-
-      .grid,
-      .grid.three,
-      .item-list {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media print {
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
       body {
-        background: #fff;
-        color: #000;
+        margin: 0;
+        min-height: 100vh;
+        color: var(--text);
+        background:
+          linear-gradient(rgba(5, 6, 6, 0.72), rgba(5, 6, 6, 0.94)),
+          url("assets/locations/crown-hall.png") center / cover fixed,
+          #080807;
+        font-family: Georgia, "Times New Roman", serif;
+        line-height: 1.7;
       }
 
-      header,
-      .sidebar,
-      .content,
-      .card,
-      .item,
-      .boss,
-      .ending,
-      label.check {
-        background: #fff !important;
-        color: #000 !important;
-        box-shadow: none !important;
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background:
+          radial-gradient(circle at 20% 10%, rgba(216, 168, 79, 0.18), transparent 30%),
+          radial-gradient(circle at 82% 0%, rgba(140, 48, 45, 0.18), transparent 34%);
       }
 
-      .sidebar {
-        display: none;
+      .page {
+        width: min(1180px, calc(100% - 28px));
+        margin: 0 auto;
+        padding: 28px 0 48px;
+        position: relative;
+      }
+
+      header {
+        border: 1px solid var(--line);
+        background: var(--panel-strong);
+        padding: clamp(22px, 4vw, 42px);
+        box-shadow: 0 24px 70px rgba(0, 0, 0, 0.44);
+      }
+
+      .kicker {
+        margin: 0 0 10px;
+        color: var(--accent);
+        font-family: Arial, sans-serif;
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(2.2rem, 8vw, 5.8rem);
+        line-height: 0.96;
+      }
+
+      .subtitle {
+        max-width: 820px;
+        margin: 18px 0 0;
+        color: var(--muted);
+        font-size: clamp(1rem, 2.2vw, 1.25rem);
       }
 
       .layout {
+        display: grid;
+        grid-template-columns: 280px minmax(0, 1fr);
+        gap: 22px;
+        margin-top: 22px;
+        align-items: start;
+      }
+
+      nav {
+        position: sticky;
+        top: 16px;
+        border: 1px solid var(--line);
+        background: rgba(14, 13, 12, 0.9);
+        padding: 18px;
+        max-height: calc(100vh - 32px);
+        overflow: auto;
+      }
+
+      nav h2 {
+        margin: 0 0 12px;
+        color: var(--accent);
+        font-family: Arial, sans-serif;
+        font-size: 0.82rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      nav a {
         display: block;
+        color: var(--text);
+        text-decoration: none;
+        border-left: 2px solid transparent;
+        padding: 8px 0 8px 10px;
+        font-size: 0.94rem;
       }
 
-      .tab {
-        display: block !important;
-        page-break-before: always;
+      nav a:hover,
+      nav a:focus-visible {
+        border-left-color: var(--accent);
+        background: var(--accent-soft);
+        outline: none;
       }
-    }
-  </style>
-</head>
-<body>
-  <div class="page">
-    <header>
-      <h1>Korona Popiołu</h1>
-      <p class="subtitle">Poradnik gracza do przygodówki wyboru RPG fantasy. Znajdziesz tu solucję, opis zakończeń, przedmiotów, broni, bossów i listę rzeczy do sprawdzenia przed finałem.</p>
-      <div class="top-actions">
-        <span class="pill">⚔️ RPG fantasy</span>
-        <span class="pill">📜 Solucja</span>
-        <span class="pill">👑 Zakończenia</span>
-        <span class="pill">🎒 Przedmioty</span>
+
+      .guide-section {
+        border: 1px solid var(--line);
+        background: var(--panel);
+        padding: clamp(18px, 3vw, 34px);
+        margin-bottom: 18px;
+        box-shadow: 0 18px 52px rgba(0, 0, 0, 0.28);
+      }
+
+      .guide-section h2 {
+        margin: 0 0 20px;
+        color: var(--accent);
+        font-family: Arial, sans-serif;
+        font-size: clamp(1rem, 2vw, 1.35rem);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .guide-section h3 {
+        margin: 24px 0 8px;
+        color: #fff6de;
+        font-family: Arial, sans-serif;
+        font-size: 0.92rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      p { margin: 0 0 14px; }
+      ul { margin: 0 0 18px; padding-left: 24px; }
+      li { margin: 6px 0; }
+
+      .top-link {
+        display: inline-block;
+        margin-top: 8px;
+        color: var(--accent);
+        font-family: Arial, sans-serif;
+        font-size: 0.86rem;
+        text-decoration: none;
+      }
+
+      @media (max-width: 900px) {
+        .layout { grid-template-columns: 1fr; }
+        nav { position: static; max-height: none; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page" id="top">
+      <header>
+        <p class="kicker">Poradnik gracza</p>
+        <h1>KORONA POPIOŁU — PORADNIK GRACZA</h1>
+        <p class="subtitle">Wersja rozszerzona: solucja, zakończenia, misje poboczne, wyposażenie i system doświadczenia</p>
+      </header>
+
+      <div class="layout">
+        <nav aria-label="Spis tre?ci">
+          <h2>Spis tre?ci</h2>
+          <a href="#1-wprowadzenie-bez-spoilerow">WPROWADZENIE BEZ SPOILERÓW</a>
+<a href="#2-podstawowe-zasady-gry">PODSTAWOWE ZASADY GRY</a>
+<a href="#3-system-doswiadczenia-i-poziomow">SYSTEM DOŚWIADCZENIA I POZIOMÓW</a>
+<a href="#4-klasy-postaci">KLASY POSTACI</a>
+<a href="#5-solucja-glowna-bezpieczna-sciezka">SOLUCJA GŁÓWNA — BEZPIECZNA ŚCIEŻKA</a>
+<a href="#6-zakonczenia-i-warunki-odblokowania">ZAKOŃCZENIA I WARUNKI ODBLOKOWANIA</a>
+<a href="#7-misje-poboczne-lista-i-opis-przejscia">MISJE POBOCZNE — LISTA I OPIS PRZEJŚCIA</a>
+<a href="#8-nowe-wyposazenie-klasowe">NOWE WYPOSAŻENIE KLASOWE</a>
+<a href="#9-przedmioty-uniwersalne">PRZEDMIOTY UNIWERSALNE</a>
+<a href="#10-pancerze-amulety-i-relikty">PANCERZE, AMULETY I RELIKTY</a>
+<a href="#11-sklepy-i-nagrody-od-npc">SKLEPY I NAGRODY OD NPC</a>
+<a href="#12-przeciwnicy-i-taktyki">PRZECIWNICY I TAKTYKI</a>
+<a href="#13-checklista-przed-finalem">CHECKLISTA PRZED FINAŁEM</a>
+<a href="#14-najlepsze-zestawy-wyposazenia">NAJLEPSZE ZESTAWY WYPOSAŻENIA</a>
+<a href="#15-szybkie-sciezki-przejscia">SZYBKIE ŚCIEŻKI PRZEJŚCIA</a>
+        </nav>
+
+        <main>
+          <section id="1-wprowadzenie-bez-spoilerow" class="guide-section">
+<h2>1. WPROWADZENIE BEZ SPOILERÓW</h2>
+<p>Korona Popiołu to tekstowa przygodówka fantasy z elementami RPG. Gracz czyta opisy sytuacji, wybiera akcje przyciskami, zbiera przedmioty, zarządza zdrowiem i złotem, walczy z przeciwnikami, zdobywa doświadczenie oraz odblokowuje różne zakończenia zależne od decyzji.</p>
+<p>Najważniejsze ogólne zasady:</p>
+<ul>
+<li>Nie każda walka jest obowiązkowa.</li>
+<li>Rozmowa często daje lepszy efekt niż atak.</li>
+<li>Warto pomagać ludziom, jeśli chcesz dobre zakończenie.</li>
+<li>Kradzież i używanie przeklętej mocy może ułatwić grę na początku, ale utrudnić finał.</li>
+<li>Nie wchodź do bardzo niebezpiecznych lokacji bez przygotowania.</li>
+<li>Przed finałem warto mieć kilka mikstur, dobrą broń, ochronę przed klątwą i informacje fabularne.</li>
+<li>Gra powinna zapamiętywać ważne decyzje gracza.</li>
+</ul>
+<p>Najważniejsza rada na pierwsze przejście: Graj naturalnie. Nie próbuj od razu robić idealnej ścieżki. Najlepiej odkrywać świat, rozmawiać z NPC i wracać do wcześniejszych lokacji po zdobyciu nowych przedmiotów.</p>
+</section>
+<section id="2-podstawowe-zasady-gry" class="guide-section">
+<h2>2. PODSTAWOWE ZASADY GRY</h2>
+<h3>ZDROWIE</h3>
+<p>Zdrowie spada przez walkę, pułapki, trucizny, klątwy i złe decyzje. Jeśli spadnie do zera, gracz ginie.</p>
+<p>Leczenie:</p>
+<ul>
+<li>Mikstura Leczenia: +10 zdrowia</li>
+<li>Duża Mikstura Leczenia: +20 zdrowia</li>
+<li>Mała Mikstura: +6 zdrowia</li>
+<li>Chleb: +3 zdrowia poza walką</li>
+<li>Suszone mięso: +5 zdrowia poza walką</li>
+<li>Odpoczynek w gospodzie</li>
+<li>Specjalne wydarzenia fabularne</li>
+<li>Błogosławieństwo albo światło Kaplicy Świtu</li>
+</ul>
+<h3>ZŁOTO</h3>
+<p>Złoto służy do kupowania:</p>
+<ul>
+<li>mikstur,</li>
+<li>map,</li>
+<li>wytrychów,</li>
+<li>broni,</li>
+<li>pancerzy,</li>
+<li>informacji,</li>
+<li>łapówek,</li>
+<li>składników do eliksirów.</li>
+</ul>
+<p>Chciwe decyzje często dają dużo złota, ale mogą zwiększać reputację chciwości lub popiołu.</p>
+<h3>ATAK</h3>
+<p>Atak zależy od klasy, broni i bonusów. Niektóre bronie działają lepiej przeciw konkretnym przeciwnikom.</p>
+<p>Przykłady:</p>
+<ul>
+<li>Kostur Iskier lepszy przeciw nieumarłym.</li>
+<li>Topór Najemnika lepszy przeciw ludziom.</li>
+<li>Miecz Strażnika Bramy lepszy przeciw duchom i strażnikom krypty.</li>
+<li>Czarny Odłamek Korony zwiększa moc, ale jest niebezpieczny fabularnie.</li>
+</ul>
+<h3>REPUTACJA</h3>
+<p>Gra może liczyć ukryte wartości reputacji:</p>
+<ul>
+<li>dobra reputacja,</li>
+<li>chciwość,</li>
+<li>popiół,</li>
+<li>zniszczenie,</li>
+<li>szacunek duchów.</li>
+</ul>
+<p>Dobra reputacja pomaga w rozmowach, cenach i pokojowych zakończeniach.</p>
+<p>Chciwość daje więcej złota, ale pogarsza relacje.</p>
+<p>Popiół oznacza podatność na Koronę. Wysoka reputacja popiołu może prowadzić do złego zakończenia.</p>
+<p>Zniszczenie pomaga w brutalnych rozwiązaniach, ale może zablokować najczystszy finał.</p>
+<p>Szacunek duchów pomaga w Krypcie, ruinach i misjach związanych z imionami zmarłych.</p>
+</section>
+<section id="3-system-doswiadczenia-i-poziomow" class="guide-section">
+<h2>3. SYSTEM DOŚWIADCZENIA I POZIOMÓW</h2>
+<p>Doświadczenie zdobywa się za:</p>
+<ul>
+<li>ukończone misje poboczne,</li>
+<li>ważne decyzje fabularne,</li>
+<li>pokonanych przeciwników,</li>
+<li>odkrywanie sekretów,</li>
+<li>pokojowe rozwiązanie trudnych konfliktów,</li>
+<li>odnajdywanie informacji o głównym lore.</li>
+</ul>
+<h3>PROPONOWANE PROGI POZIOMÓW</h3>
+<p>Poziom 1: 0 XP Poziom 2: 100 XP Poziom 3: 250 XP Poziom 4: 450 XP Poziom 5: 700 XP Poziom 6: 1000 XP Poziom 7: 1350 XP Poziom 8: 1750 XP</p>
+<h3>NAGRODA ZA AWANS</h3>
+<p>Przy awansie gracz wybiera jedną nagrodę:</p>
+<ul>
+<li>+5 maksymalnego zdrowia,</li>
+<li>+1 do ataku,</li>
+<li>+1 do obrony,</li>
+<li>+1 do woli,</li>
+<li>+1 do sprytu,</li>
+<li>+1 do wiedzy,</li>
+<li>dodatkowe miejsce na przedmiot użytkowy.</li>
+</ul>
+<h3>PROPONOWANE XP ZA AKCJE</h3>
+<p>Mała walka: 15–30 XP Trudna walka: 40–70 XP Boss poboczny: 80–150 XP Mała misja: 40–80 XP Średnia misja: 90–150 XP Duża misja lore: 160–250 XP Pokojowe rozwiązanie trudnego konfliktu: +20–60 XP bonusu Odkrycie ważnej prawdy fabularnej: +50–100 XP</p>
+<h3>PRZYKŁADY</h3>
+<p>Pomoc rannemu kupcowi: 40 XP Pokonanie Wilka Cienia: 25 XP Ukończenie misji „Imię drwala”: 100 XP Pokojowe przekonanie Caela: 180 XP Ukończenie „Modlitwy za miasto bez grobów”: 250 XP</p>
+</section>
+<section id="4-klasy-postaci" class="guide-section">
+<h2>4. KLASY POSTACI</h2>
+<h3>WOJOWNIK</h3>
+<p>Start:</p>
+<ul>
+<li>Zdrowie: 38</li>
+<li>Złoto: 8</li>
+<li>Atak: 7</li>
+<li>Przedmioty: Stary miecz, Wytarta kolczuga, Chleb, Pochodnia, Mały bandaż</li>
+</ul>
+<p>Mocne strony:</p>
+<ul>
+<li>bezpośrednia walka,</li>
+<li>ciężka broń,</li>
+<li>pancerze,</li>
+<li>ochrona NPC,</li>
+<li>honorowe pojedynki.</li>
+</ul>
+<p>Słabe strony:</p>
+<ul>
+<li>mniej sekretów,</li>
+<li>słabsze skradanie,</li>
+<li>trudniejsze obchodzenie pułapek.</li>
+</ul>
+<p>Specjalne akcje:</p>
+<ul>
+<li>Wyważ drzwi.</li>
+<li>Zastrasz przeciwnika.</li>
+<li>Przyjmij cios na tarczę.</li>
+<li>Stań w obronie słabszego.</li>
+<li>Wyzwij przeciwnika na pojedynek.</li>
+</ul>
+<h3>ŁOTRZYK</h3>
+<p>Start:</p>
+<ul>
+<li>Zdrowie: 30</li>
+<li>Złoto: 16</li>
+<li>Atak: 5</li>
+<li>Przedmioty: Sztylet, Wytrychy, Lekki płaszcz, Mała sakiewka złota, Linka z hakiem</li>
+</ul>
+<p>Mocne strony:</p>
+<ul>
+<li>zamki,</li>
+<li>pułapki,</li>
+<li>skradanie,</li>
+<li>unikanie walk,</li>
+<li>zdobywanie złota.</li>
+</ul>
+<p>Słabe strony:</p>
+<ul>
+<li>słabszy w otwartej walce,</li>
+<li>łatwo wejść w ścieżkę chciwości,</li>
+<li>mniejsza odporność na klątwę.</li>
+</ul>
+<p>Specjalne akcje:</p>
+<ul>
+<li>Otwórz zamek.</li>
+<li>Rozbrój pułapkę.</li>
+<li>Zakradnij się.</li>
+<li>Podsłuchaj rozmowę.</li>
+<li>Ukradnij sakiewkę.</li>
+</ul>
+<h3>UCZEŃ MAGA</h3>
+<p>Start:</p>
+<ul>
+<li>Zdrowie: 26</li>
+<li>Złoto: 10</li>
+<li>Atak: 4</li>
+<li>Przedmioty: Iskra many, Kostur ucznia, Mała mikstura, Pochodnia, Notatnik runiczny</li>
+</ul>
+<p>Mocne strony:</p>
+<ul>
+<li>runy,</li>
+<li>duchy,</li>
+<li>sekrety,</li>
+<li>iluzje,</li>
+<li>najlepsze zakończenie.</li>
+</ul>
+<p>Słabe strony:</p>
+<ul>
+<li>mało zdrowia,</li>
+<li>słabszy początek,</li>
+<li>wymaga ostrożności.</li>
+</ul>
+<p>Specjalne akcje:</p>
+<ul>
+<li>Odczytaj runy.</li>
+<li>Rozprosz iluzję.</li>
+<li>Porozmawiaj z duchem.</li>
+<li>Zbadaj magiczny ślad.</li>
+<li>Użyj iskry many.</li>
+</ul>
+<h3>BANITA</h3>
+<p>Start:</p>
+<ul>
+<li>Zdrowie: 32</li>
+<li>Złoto: 5</li>
+<li>Atak: 6</li>
+<li>Przedmioty: Toporek, Kaptur banity, Suszone mięso, Kości oszusta, Stary znak bandy</li>
+</ul>
+<p>Mocne strony:</p>
+<ul>
+<li>rozmowy z bandytami,</li>
+<li>zastraszanie,</li>
+<li>szare moralnie wybory,</li>
+<li>elastyczna walka,</li>
+<li>półświatek.</li>
+</ul>
+<p>Słabe strony:</p>
+<ul>
+<li>kapłani i strażnicy mniej ufają,</li>
+<li>łatwiej wejść w mroczną ścieżkę,</li>
+<li>słabszy przeciw duchom bez specjalnych przedmiotów.</li>
+</ul>
+<p>Specjalne akcje:</p>
+<ul>
+<li>Porozmawiaj językiem bandytów.</li>
+<li>Udawaj sługę Popiołu.</li>
+<li>Rozpoznaj zasadzkę.</li>
+<li>Wymuś okup.</li>
+<li>Zaproponuj podział łupu.</li>
+</ul>
+</section>
+<section id="5-solucja-glowna-bezpieczna-sciezka" class="guide-section">
+<h2>5. SOLUCJA GŁÓWNA — BEZPIECZNA ŚCIEŻKA</h2>
+<p>To ścieżka dla gracza, który chce dojść do dobrego albo najlepszego zakończenia.</p>
+<h3>ETAP 1: GOSPODA W RAVENFORD</h3>
+<p>Zalecane kroki:</p>
+<p>1. Przeszukaj pokój. 2. Zabierz Małą Miksturę. 3. Zejdź do sali głównej. 4. Pomóż rannemu strażnikowi. 5. Porozmawiaj z Kronikarzem Edrinem. 6. Przyjmij główne zadanie o artefaktach. 7. Nie ignoruj pierwszych ostrzeżeń o Koronie.</p>
+<p>Warto: Pomoc strażnikowi zwiększa dobrą reputację i może odblokować późniejszą misję „Chory strażnik Ravenford”.</p>
+<h3>ETAP 2: WIOSKA RAVENFORD</h3>
+<p>Zalecane kroki:</p>
+<p>1. Odwiedź sklep Loriana. 2. Kup Miksturę Leczenia, jeśli masz złoto. 3. Odwiedź kowala Borena. 4. Weź misję „Skrzynia narzędzi Borena”. 5. Idź do Kaplicy Świtu. 6. Porozmawiaj z Siostrą Aleną. 7. Sprawdź tablicę ogłoszeń. 8. Dopiero potem idź do Mrocznego Lasu.</p>
+<h3>ETAP 3: MROCZNY LAS</h3>
+<p>Zalecane kroki:</p>
+<p>1. Zbadaj przewrócony wóz. 2. Pomóż rannemu kupcowi. 3. Nie okradaj wozu. 4. Idź do starej kapliczki. 5. Pomódl się albo złóż ofiarę. 6. Nie niszcz posągu. 7. Pokonaj Wilka Cienia. 8. Zabierz Wilcze Futro. 9. Poszukaj skrzyni narzędzi kowala. 10. Jeśli znajdziesz chatę drwala, rozpocznij misję „Imię drwala”.</p>
+<h3>ETAP 4: POWRÓT DO RAVENFORD</h3>
+<p>Zalecane kroki:</p>
+<p>1. Oddaj skrzynię Borenowi. 2. Odbierz Żelazny Pierścień albo zniżkę. 3. Kup Stalowy Miecz lub inną broń. 4. Kup Mapę Bagien. 5. Porozmawiaj z Lorianem po uratowaniu. 6. Wykonaj misję „Ostatnia przesyłka kupca Loriana”, jeśli jest dostępna.</p>
+<h3>ETAP 5: BAGNA UMARŁYCH</h3>
+<p>Zalecane kroki:</p>
+<p>1. Wejdź z Mapą Bagien. 2. Odwiedź Zielarkę Mirnę. 3. Oddaj Wilcze Futro. 4. Zdobądź Eliksir Czystej Krwi. 5. Nie okradaj zielarki. 6. Wykonaj misję „Trzy monety dla przewoźnika” albo „Serce Bagiennego Korzenia”, jeśli chcesz lepsze przygotowanie. 7. Unikaj niepotrzebnych walk z Topielcami.</p>
+<h3>ETAP 6: KRYPTA MILCZĄCYCH</h3>
+<p>Zalecane kroki:</p>
+<p>1. Wejdź z Pochodnią albo magią. 2. W Korytarzu Bez Echa idź powoli. 3. Nie krzycz. 4. Nie biegnij. 5. W Sali Pustych Hełmów okaż szacunek. 6. Nie kradnij z grobowców. 7. Przy Studni Szeptów użyj monety, Księgi Imion albo ostrożnej rozmowy. 8. Zdobądź Srebrny Klucz. 9. Jeśli zachowałeś szacunek, możesz zdobyć Stary Amulet.</p>
+<h3>ETAP 7: FORT ZDRAJCÓW</h3>
+<p>Zalecane kroki:</p>
+<p>1. Nie zaczynaj od ataku. 2. Powiedz prawdę strażnikom. 3. Pokaż Srebrny Klucz, jeśli masz wybór. 4. Przestudiuj mapę, ale jej nie kradnij. 5. Porozmawiaj z Caelem. 6. Wykonaj misję „Złamana przysięga Caela”, jeśli chcesz pokojowo zdobyć Pieczęć. 7. Przekonaj Caela, że nie chcesz władzy. 8. Zdobądź Pieczęć Starego Króla.</p>
+<h3>ETAP 8: WIEŻA ASTROMANTY</h3>
+<p>Zalecane kroki:</p>
+<p>1. Przy drzwiach powiedz, że chcesz poznać prawdę albo zakończyć cierpienie. 2. W Bibliotece Gwiazd czytaj księgi. 3. Przeczytaj księgę o Koronie. 4. Przeczytaj księgę o królu Arvandzie. 5. Przeczytaj księgę o Elianie. 6. Nie pal ksiąg. 7. Nie wybieraj pragnienia władzy. 8. W Sali Luster wybieraj prawdę, strach albo bohatera. 9. Zdobądź Kryształ Świtu.</p>
+<h3>ETAP 9: RAVENFORD PO ARTEFAKTACH</h3>
+<p>Po zdobyciu pierwszych artefaktów mogą odblokować się ważne misje:</p>
+<ul>
+<li>Nocny atak na Ravenford,</li>
+<li>Chory strażnik Ravenford,</li>
+<li>Zaginiona księga kronikarza,</li>
+<li>Modlitwa za miasto bez grobów.</li>
+</ul>
+<p>Warto je wykonać przed finałem, bo mogą osłabić Koronę i pomóc w najlepszym zakończeniu.</p>
+<h3>ETAP 10: RUINY VALDORINU</h3>
+<p>Nie wchodź bez kompletu głównych artefaktów.</p>
+<p>Zalecane kroki:</p>
+<p>1. Użyj Srebrnego Klucza. 2. Użyj Pieczęci Starego Króla. 3. Trzymaj Kryształ Świtu. 4. Na rynku okazuj szacunek cieniom. 5. Nie kradnij bez potrzeby. 6. Znajdź dom królewskiego medyka. 7. Przeczytaj Dziennik Królewskiego Medyka. 8. Znajdź pokój Eliany. 9. Napraw Zabawkowego Konia Eliany, jeśli masz narzędzia. 10. Zdobądź Łzę Księżniczki Eliany. 11. Wykonaj „Imiona na rynku” i „Modlitwę za miasto bez grobów”, jeśli chcesz najlepsze zakończenie.</p>
+<h3>ETAP 11: SALA KORONY</h3>
+<p>Zalecane kroki:</p>
+<p>1. Nie zakładaj Korony. 2. Nie atakuj bez rozmowy, jeśli chcesz najlepsze zakończenie. 3. Użyj Łzy Eliany. 4. Pokaż Stary List Króla lub Dziennik Medyka. 5. Jeśli masz Rytualną Świecę Miasta bez Grobów, użyj jej. 6. Wybierz przebaczenie albo uwolnienie Eliany. 7. Jeśli musisz walczyć, użyj Kryształu Świtu, mikstur i dobrego wyposażenia.</p>
+</section>
+<section id="6-zakonczenia-i-warunki-odblokowania" class="guide-section">
+<h2>6. ZAKOŃCZENIA I WARUNKI ODBLOKOWANIA</h2>
+<h3>ZAKOŃCZENIE NAJLEPSZE: ŚWIT DLA UMARŁYCH</h3>
+<p>Wymagania:</p>
+<ul>
+<li>Srebrny Klucz,</li>
+<li>Kryształ Świtu,</li>
+<li>Pieczęć Starego Króla,</li>
+<li>Łza Księżniczki Eliany,</li>
+<li>wiedza o Elianie,</li>
+<li>niska reputacja popiołu,</li>
+<li>najlepiej dobra reputacja i szacunek duchów.</li>
+</ul>
+<p>Pomocne misje:</p>
+<ul>
+<li>Dziecko za bladym światłem,</li>
+<li>Chory strażnik Ravenford,</li>
+<li>Zaginiona księga kronikarza,</li>
+<li>Płacz w Studni Szeptów,</li>
+<li>Teatr ostatniego dnia,</li>
+<li>Imiona na rynku,</li>
+<li>Zabawkowy koń Eliany,</li>
+<li>Modlitwa za miasto bez grobów.</li>
+</ul>
+<p>W finale:</p>
+<ul>
+<li>nie zakładaj Korony,</li>
+<li>nie używaj Czarnego Odłamka,</li>
+<li>użyj Łzy Eliany,</li>
+<li>wybierz przebaczenie lub uwolnienie.</li>
+</ul>
+<h3>ZAKOŃCZENIE DOBRE: ŚWIT NAD VALDORINEM</h3>
+<p>Wymagania:</p>
+<ul>
+<li>trzy główne artefakty,</li>
+<li>pokonanie Popielnego Króla,</li>
+<li>zniszczenie Korony,</li>
+<li>brak wyboru „Załóż Koronę”.</li>
+</ul>
+<p>Nie wymaga Łzy Eliany, ale jest mniej pełne fabularnie.</p>
+<h3>ZAKOŃCZENIE NEUTRALNE: NOWY STRAŻNIK</h3>
+<p>Wymagania:</p>
+<ul>
+<li>trzy główne artefakty,</li>
+<li>brak pełnej prawdy albo brak Łzy Eliany,</li>
+<li>wybór zapieczętowania Korony zamiast jej zniszczenia.</li>
+</ul>
+<p>Efekt: Klątwa słabnie, ale nie znika. Gracz zostaje strażnikiem albo powierza Koronę nowym opiekunom.</p>
+<h3>ZAKOŃCZENIE ZŁE: WŁADCA POPIOŁU</h3>
+<p>Wymagania:</p>
+<ul>
+<li>w finale wybierz „Załóż Koronę”,</li>
+</ul>
+<p>albo:</p>
+<ul>
+<li>wysoka reputacja popiołu,</li>
+<li>używanie Czarnego Odłamka,</li>
+<li>wybory oparte na władzy, chciwości i dominacji.</li>
+</ul>
+<p>Efekt: Gracz zostaje nowym Popielnym Królem.</p>
+<h3>ZAKOŃCZENIE TRAGICZNE: ZGUBIONY W POPIELE</h3>
+<p>Wymagania:</p>
+<ul>
+<li>wejście do Ruin Valdorinu bez kompletu artefaktów,</li>
+<li>szczególnie bez Kryształu Świtu.</li>
+</ul>
+<p>Efekt: Gracz traci pamięć, imię i duszę.</p>
+<h3>ZAKOŃCZENIE MROCZNE: ZNISZCZENIE BEZ ŚWITU</h3>
+<p>Wymagania:</p>
+<ul>
+<li>trzy główne artefakty,</li>
+<li>Wola Zniszczenia,</li>
+<li>brak Łzy Eliany,</li>
+<li>brutalne zniszczenie Korony.</li>
+</ul>
+<p>Efekt: Klątwa znika, ale dusze mieszkańców Valdorinu zostają zniszczone razem z nią.</p>
+<h3>DODATKOWE ZAKOŃCZENIE BANITY: KRÓL BEZ TRONU</h3>
+<p>Wymagania:</p>
+<ul>
+<li>Banita,</li>
+<li>Kaptur Bezdomnego Króla,</li>
+<li>wysoka chciwość albo popiół,</li>
+<li>zebranie wyrzutków i użycie ich do przejęcia władzy,</li>
+<li>odrzucenie przebaczenia w finale.</li>
+</ul>
+<p>Efekt: Gracz nie zostaje klasycznym Popielnym Królem, ale tworzy własne królestwo wyrzutków, oparte na zemście i strachu.</p>
+</section>
+<section id="7-misje-poboczne-lista-i-opis-przejscia" class="guide-section">
+<h2>7. MISJE POBOCZNE — LISTA I OPIS PRZEJŚCIA</h2>
+<p>W tej wersji poradnika opisano 25 misji pobocznych związanych z głównym lore.</p>
+<h3>MISJA 1: DZWON, KTÓRY BIJE POD ZIEMIĄ</h3>
+<p>Miejsce: Ravenford, plac przy studni NPC: Karczmarz Oren</p>
+<h3>XP: 40–80 XP</h3>
+<p>Lore: Dzwon Ravenford zawiera fragment dawnego dzwonu pałacowego Valdorinu. Gdy Korona się budzi, dzwon odpowiada ruinom.</p>
+<p>Dialog startowy:</p>
+<p>Oren: „Słyszysz to? Dzwon na wieży przestał bić, ale ja słyszę drugi. Spod ziemi. Trzy uderzenia każdej nocy.”</p>
+<p>Cele:</p>
+<p>1. Porozmawiaj z Orenem. 2. Zbadaj dzwonnicę. 3. Zejdź do piwnicy pod gospodą. 4. Znajdź Fragment Pałacowego Dzwonu. 5. Zdecyduj, co z nim zrobić.</p>
+<p>Wybory i nagrody:</p>
+<p>Oczyść fragment u Aleny:</p>
+<ul>
+<li>80 XP</li>
+<li>status: Oczyszczony Dzwon Ravenford</li>
+<li>słabsza pierwsza fala cieni podczas ataku na wioskę</li>
+</ul>
+<p>Oddaj fragment Edrinowi:</p>
+<ul>
+<li>70 XP</li>
+<li>więcej informacji o Valdorinie</li>
+</ul>
+<p>Sprzedaj fragment:</p>
+<ul>
+<li>40 XP</li>
+<li>15 złota</li>
+<li>ryzyko przeklętego towaru u kupca</li>
+</ul>
+<p>Zniszcz fragment:</p>
+<ul>
+<li>60 XP</li>
+<li>Wola Zniszczenia +1</li>
+</ul>
+<h3>MISJA 2: IMIĘ DRWALA</h3>
+<p>Miejsce: Mroczny Las, chata drwala NPC: Duch drwala</p>
+<h3>XP: 30–100 XP</h3>
+<p>Lore: Klątwa odbiera ludziom imiona. Duch drwala jest pierwszym przykładem tego, co może stać się z żywymi.</p>
+<p>Dialog:</p>
+<p>Duch: „Nie jedz, jeśli nie znasz mojego imienia.”</p>
+<p>Cele:</p>
+<p>1. Zbadaj chatę. 2. Znajdź stary topór z inicjałami T.R. 3. Sprawdź księgę zmarłych w kaplicy. 4. Poznaj imię: Tomasz Rana. 5. Wróć do ducha.</p>
+<p>Wybory:</p>
+<p>Powiedz prawdziwe imię:</p>
+<ul>
+<li>100 XP</li>
+<li>Mapa ukrytych ścieżek</li>
+<li>duch pokazuje skrót do bagien</li>
+<li>dobra reputacja</li>
+</ul>
+<p>Skłam:</p>
+<ul>
+<li>60 XP</li>
+<li>walka z Leśnym Upiorem</li>
+<li>możliwy łup: Siekiera Drwala</li>
+</ul>
+<p>Zabierz topór i odejdź:</p>
+<ul>
+<li>30 XP</li>
+<li>Siekiera Drwala</li>
+<li>duch wraca później jako przeciwnik</li>
+</ul>
+<h3>MISJA 3: DZIECKO ZA BLADYM ŚWIATŁEM</h3>
+<p>Miejsce: Ravenford, potem Bagna Umarłych NPC: Mara, matka chłopca</p>
+<h3>XP: 50–170 XP</h3>
+<p>Lore: Błędne ogniki to resztki dziecięcych wspomnień z Valdorinu. Korona używa ich jako przynęty.</p>
+<p>Dialog:</p>
+<p>Mara: „Mówił, że widzi światło. Blade, piękne. Powiedział, że ktoś woła go po imieniu.”</p>
+<p>Cele:</p>
+<p>1. Przyjmij prośbę Mary. 2. Idź na Bagna. 3. Znajdź trzy ogniki. 4. Wybierz blade światło. 5. Uratuj chłopca.</p>
+<p>Wybory:</p>
+<p>Ratuj chłopca:</p>
+<ul>
+<li>140 XP</li>
+<li>Amulet Dziecka</li>
+<li>8 złota</li>
+<li>cienie dzieci nie atakują w ruinach</li>
+</ul>
+<p>Zabierz skarb zamiast dziecka:</p>
+<ul>
+<li>50 XP</li>
+<li>30 złota</li>
+<li>reputacja popiołu +2</li>
+<li>Cień Gracza silniejszy</li>
+</ul>
+<p>Spróbuj uratować dziecko i skarb:</p>
+<ul>
+<li>170 XP</li>
+<li>Amulet Dziecka</li>
+<li>20 złota</li>
+<li>walka z Błędnikiem</li>
+</ul>
+<h3>MISJA 4: OSTATNIA PRZESYŁKA KUPCA LORIANA</h3>
+<p>Miejsce: Sklep Loriana Warunek: pomogłeś rannemu kupcowi</p>
+<h3>XP: 40–120 XP</h3>
+<p>Lore: Paczka zawiera monety Valdorinu i list rodziny, która uciekła z miasta.</p>
+<p>Dialog:</p>
+<p>Lorian: „Uratowałeś mi życie. Nie powinienem prosić o więcej, ale ta przesyłka nie może trafić w złe ręce.”</p>
+<p>Cele:</p>
+<p>1. Odbierz paczkę. 2. Dostarcz ją Alenie albo Edrinowi. 3. Zdecyduj, czy ją otworzyć.</p>
+<p>Wybory:</p>
+<p>Dostarcz bez otwierania:</p>
+<ul>
+<li>90 XP</li>
+<li>10 złota</li>
+<li>Zaufanie Loriana</li>
+</ul>
+<p>Oddaj Alenie:</p>
+<ul>
+<li>120 XP</li>
+<li>Modlitwa za podziemia Valdorinu</li>
+<li>dobra reputacja</li>
+</ul>
+<p>Sprzedaj monety:</p>
+<ul>
+<li>40 XP</li>
+<li>35 złota</li>
+<li>chciwość +1</li>
+</ul>
+<h3>MISJA 5: SKRZYNIA NARZĘDZI BORENA</h3>
+<p>Miejsce: Kuźnia NPC: Boren</p>
+<h3>XP: 40–150 XP</h3>
+<p>Lore: Narzędzia Borena są zrobione z metalu spod Valdorinu i mogą później pomóc przy Pieczęci albo zabawce Eliany.</p>
+<p>Dialog:</p>
+<p>Boren: „Nie proszę cię o bohaterstwo. Proszę o skrzynię. Bez niej nie naprawię nawet zawiasu.”</p>
+<p>Cele:</p>
+<p>1. Weź zadanie. 2. Idź do Mrocznego Lasu. 3. Znajdź skrzynię. 4. Opcjonalnie znajdź ucznia kowala. 5. Wróć do Borena.</p>
+<p>Nagrody:</p>
+<p>Tylko skrzynia:</p>
+<ul>
+<li>80 XP</li>
+<li>Żelazny Pierścień</li>
+<li>zniżka u kowala</li>
+</ul>
+<p>Skrzynia i uratowany uczeń:</p>
+<ul>
+<li>150 XP</li>
+<li>Stalowy Miecz albo ulepszenie broni</li>
+<li>dobra reputacja</li>
+</ul>
+<p>Zatrzymanie skrzyni:</p>
+<ul>
+<li>40 XP</li>
+<li>Narzędzia Valdorińskie</li>
+<li>Boren odmawia usług</li>
+</ul>
+<h3>MISJA 6: ŚWIECE DLA KAPLICY ŚWITU</h3>
+<p>Miejsce: Kaplica Świtu NPC: Siostra Alena</p>
+<h3>XP: 30–100 XP</h3>
+<p>Lore: Świece Świtu osłabiają mgłę i pomagają ludziom zachować imiona.</p>
+<p>Dialog:</p>
+<p>Alena: „Czasem płomień wystarczy, żeby człowiek przypomniał sobie własne imię.”</p>
+<p>Cele:</p>
+<p>1. Zdobądź wosk. 2. Zdobądź srebrny pył. 3. Przynieś składniki Alenie. 4. Zdecyduj, czy oddać świece kaplicy, czy zabrać część.</p>
+<p>Nagrody:</p>
+<p>Oddaj wszystko:</p>
+<ul>
+<li>100 XP</li>
+<li>status: Światło w Kaplicy</li>
+<li>słabszy atak mgły na Ravenford</li>
+</ul>
+<p>Zabierz część:</p>
+<ul>
+<li>80 XP</li>
+<li>2x Świeca Świtu</li>
+</ul>
+<p>Sprzedaj składniki:</p>
+<ul>
+<li>30 XP</li>
+<li>20 złota</li>
+<li>chciwość +1</li>
+</ul>
+<h3>MISJA 7: CHORY STRAŻNIK RAVENFORD</h3>
+<p>Miejsce: Gospoda albo kaplica NPC: Strażnik Edric</p>
+<h3>XP: 30–130 XP</h3>
+<p>Lore: Edric został dotknięty mgłą i traci wspomnienia. Pokazuje, co robi klątwa.</p>
+<p>Dialog:</p>
+<p>Edric: „Miałem żonę. Pamiętam, że ją kochałem. Nie pamiętam jej twarzy.”</p>
+<p>Cele:</p>
+<p>1. Porozmawiaj z Edriciem. 2. Zdobądź Eliksir Czystej Krwi. 3. Zdobądź błogosławieństwo albo Świecę Świtu. 4. Zdecyduj, czy leczyć Edrica.</p>
+<p>Nagrody:</p>
+<p>Wylecz:</p>
+<ul>
+<li>130 XP</li>
+<li>Gwizdek Straży</li>
+<li>Edric pomaga podczas ataku</li>
+<li>dobra reputacja</li>
+</ul>
+<p>Zachowaj eliksir:</p>
+<ul>
+<li>30 XP</li>
+<li>Edric może pojawić się później jako cień</li>
+</ul>
+<p>Magiczne spowolnienie choroby:</p>
+<ul>
+<li>80 XP</li>
+<li>informacja o dawnym trakcie do fortu</li>
+</ul>
+<h3>MISJA 8: ZAGINIONA KSIĘGA KRONIKARZA</h3>
+<p>Miejsce: Ravenford NPC: Edrin</p>
+<h3>XP: 70–130 XP</h3>
+<p>Lore: Księga zawiera nieocenzurowaną historię Popielnego Króla.</p>
+<p>Dialog:</p>
+<p>Edrin: „Nie zgubiłem jej. Ukryłem tak dobrze, że sam zacząłem bać się ją odnaleźć.”</p>
+<p>Cele:</p>
+<p>1. Porozmawiaj z Edrinem. 2. Zbadaj magazyn za gospodą. 3. Podążaj za śladem popiołu. 4. Odzyskaj księgę. 5. Zdecyduj, komu ją oddać.</p>
+<p>Nagrody:</p>
+<p>Oddaj Edrinowi:</p>
+<ul>
+<li>90 XP</li>
+<li>10 złota</li>
+<li>Zaufanie Kronikarza</li>
+</ul>
+<p>Oddaj Alenie:</p>
+<ul>
+<li>120 XP</li>
+<li>modlitwa za Elianę</li>
+<li>dobra reputacja</li>
+</ul>
+<p>Oddaj Caelowi:</p>
+<ul>
+<li>130 XP</li>
+<li>łatwiejsze pokojowe zdobycie Pieczęci</li>
+<li>Prawda o Zdrajcach</li>
+</ul>
+<p>Zachowaj:</p>
+<ul>
+<li>70 XP</li>
+<li>Księga Zakazanej Kroniki</li>
+<li>ryzyko popiołu przy czytaniu</li>
+</ul>
+<h3>MISJA 9: TRZY MONETY DLA PRZEWOŹNIKA</h3>
+<p>Miejsce: Bagna Umarłych, Martwy Prom NPC: Przewoźnik</p>
+<h3>XP: 30–120 XP</h3>
+<p>Lore: Przewoźnik przewoził uciekinierów z Valdorinu i nie zdołał ich ocalić.</p>
+<p>Dialog:</p>
+<p>Przewoźnik: „Trzy monety. Za ciało, które wieziesz. Za imię, które możesz stracić. Za żal, który jeszcze nie wie, że będzie twój.”</p>
+<p>Cele:</p>
+<p>1. Spotkaj Przewoźnika. 2. Zdobądź trzy stare monety Valdorinu. 3. Zapłać, oszukaj albo odmów.</p>
+<p>Nagrody:</p>
+<p>Zapłać prawdziwymi monetami:</p>
+<ul>
+<li>120 XP</li>
+<li>bezpieczny skrót przez bagna</li>
+<li>wiedza o uciekinierach</li>
+</ul>
+<p>Oszukaj:</p>
+<ul>
+<li>50 XP</li>
+<li>zachowujesz monety</li>
+<li>chciwość +1</li>
+</ul>
+<p>Odmów:</p>
+<ul>
+<li>30 XP</li>
+<li>możliwa walka z Topielcami</li>
+</ul>
+<h3>MISJA 10: SERCE BAGIENNEGO KORZENIA</h3>
+<p>Miejsce: Chata Mirny NPC: Mirna</p>
+<h3>XP: 60–150 XP</h3>
+<p>Lore: Korzeń wyrósł na miejscu pochówku uciekinierów z Valdorinu.</p>
+<p>Dialog:</p>
+<p>Mirna: „Potrzebuję korzenia, który rośnie tam, gdzie ziemia nie chce pamiętać kości.”</p>
+<p>Cele:</p>
+<p>1. Idź na Wyspę Kości. 2. Znajdź Bagienny Korzeń. 3. Poproś duchy o zgodę albo wyrwij korzeń siłą. 4. Wróć do Mirny.</p>
+<p>Nagrody:</p>
+<p>Poproś duchy:</p>
+<ul>
+<li>150 XP</li>
+<li>Eliksir Pamięci</li>
+<li>szacunek duchów</li>
+</ul>
+<p>Wyrwij siłą:</p>
+<ul>
+<li>90 XP</li>
+<li>Bagienny Korzeń</li>
+<li>walka z Upiorem Uciekiniera</li>
+<li>popiół +1</li>
+</ul>
+<p>Zostaw korzeń:</p>
+<ul>
+<li>60 XP</li>
+<li>duchy bagien rzadziej atakują</li>
+</ul>
+<h3>MISJA 11: RYCERZ BEZ HERBU</h3>
+<p>Miejsce: Mroczny Las albo droga do Fortu NPC: Bezherbowy Rycerz</p>
+<h3>XP: 40–150 XP</h3>
+<p>Lore: Rycerz wyrzekł się herbu, gdy zrozumiał, że król uległ Koronie.</p>
+<p>Dialog:</p>
+<p>Rycerz: „Naucz się rozpoznawać chwilę, w której herb przestaje oznaczać honor.”</p>
+<p>Cele:</p>
+<p>1. Spotkaj ducha rycerza. 2. Znajdź jego herb. 3. Zdecyduj, czy zwrócić, zniszczyć, sprzedać albo oddać Caelowi.</p>
+<p>Nagrody:</p>
+<p>Zwróć herb:</p>
+<ul>
+<li>130 XP</li>
+<li>Pas Rycerskiej Przysięgi</li>
+</ul>
+<p>Oddaj Caelowi:</p>
+<ul>
+<li>150 XP</li>
+<li>łatwiejsza rozmowa w Forcie</li>
+<li>Dowód prawdziwego buntu</li>
+</ul>
+<p>Zniszcz:</p>
+<ul>
+<li>100 XP</li>
+<li>status: Odrzucił fałszywy honor</li>
+</ul>
+<p>Sprzedaj:</p>
+<ul>
+<li>40 XP</li>
+<li>25 złota</li>
+<li>chciwość +1</li>
+</ul>
+<h3>MISJA 12: HEŁM, KTÓREGO NIE WOLNO ZAŁOŻYĆ</h3>
+<p>Miejsce: Krypta Milczących NPC: szept strażnika</p>
+<h3>XP: 50–120 XP</h3>
+<p>Lore: Hełm należał do kapitana, który pierwszy zobaczył przemianę króla.</p>
+<p>Dialog:</p>
+<p>Szept: „Nie zakładaj pamięci, której nie uniesiesz.”</p>
+<p>Nagrody:</p>
+<p>Załóż hełm:</p>
+<ul>
+<li>120 XP</li>
+<li>wiedza o pierwszej przemianie króla</li>
+<li>strata 4 zdrowia</li>
+</ul>
+<p>Zostaw hełm:</p>
+<ul>
+<li>90 XP</li>
+<li>Stary Amulet</li>
+<li>dobra reputacja</li>
+</ul>
+<p>Zabierz hełm:</p>
+<ul>
+<li>50 XP</li>
+<li>Hełm Kapitana</li>
+<li>dodatkowa walka</li>
+</ul>
+<p>Zniszcz:</p>
+<ul>
+<li>60 XP</li>
+<li>Wola Zniszczenia +1</li>
+</ul>
+<h3>MISJA 13: PŁACZ W STUDNI SZEPTÓW</h3>
+<p>Miejsce: Krypta Milczących NPC: Głosy zmarłych</p>
+<h3>XP: 100–160 XP</h3>
+<p>Lore: Studnia przechowuje imiona, których Korona nie zdołała całkowicie wymazać.</p>
+<p>Dialog:</p>
+<p>Głosy: „Oddaj imię. Weź prawdę.”</p>
+<p>Nagrody:</p>
+<p>Wypowiedz własne imię:</p>
+<ul>
+<li>130 XP</li>
+<li>poznajesz imię służącej Eliany: Nera</li>
+<li>strata 3 zdrowia</li>
+</ul>
+<p>Użyj Księgi Imion Umarłych:</p>
+<ul>
+<li>160 XP</li>
+<li>wiedza bez straty zdrowia</li>
+<li>szacunek duchów</li>
+</ul>
+<p>Poświęć cudze imię:</p>
+<ul>
+<li>100 XP</li>
+<li>popiół +2</li>
+<li>późniejszy cień tej osoby w ruinach</li>
+</ul>
+<h3>MISJA 14: ZŁAMANA PRZYSIĘGA CAELA</h3>
+<p>Miejsce: Fort Zdrajców NPC: Cael</p>
+<h3>XP: 80–180 XP</h3>
+<p>Lore: Cael przysiągł nigdy nie oddać Pieczęci. Gracz może pomóc mu zrozumieć, że sama przysięga stała się częścią klątwy.</p>
+<p>Dialog:</p>
+<p>Cael: „Mój ojciec umarł z tą przysięgą na ustach. A ty chcesz, bym złamał ją w jeden dzień?”</p>
+<p>Cele:</p>
+<p>1. Znajdź trzy dowody przebudzenia Korony. 2. Przynieś je Caelowi. 3. Przekonaj go albo zastrasz.</p>
+<p>Nagrody:</p>
+<p>Pokojowe przekonanie:</p>
+<ul>
+<li>180 XP</li>
+<li>Pieczęć Starego Króla</li>
+<li>Cael jako sojusznik</li>
+<li>dobra reputacja</li>
+</ul>
+<p>Zastraszenie:</p>
+<ul>
+<li>100 XP</li>
+<li>Pieczęć</li>
+<li>brak wsparcia Caela</li>
+</ul>
+<p>Kłamstwo:</p>
+<ul>
+<li>80 XP</li>
+<li>ryzyko wrogości Fortu</li>
+</ul>
+<h3>MISJA 15: CZERWONE ZNAKI NA MAPIE</h3>
+<p>Miejsce: Fort Zdrajców NPC: Ivara</p>
+<h3>XP: 60–120 XP</h3>
+<p>Lore: Czerwone znaki pokazują miejsca, gdzie ginęli poprzedni śmiałkowie.</p>
+<p>Dialog:</p>
+<p>Ivara: „Nie patrz na główną drogę. Wszyscy patrzą na główną drogę. I wszyscy tam giną.”</p>
+<p>Nagrody:</p>
+<p>Zaufaj Ivarze:</p>
+<ul>
+<li>120 XP</li>
+<li>Mapa Martwych Ulic</li>
+<li>mniej pułapek w Valdorinie</li>
+</ul>
+<p>Ukradnij mapę:</p>
+<ul>
+<li>60 XP</li>
+<li>Mapa Martwych Ulic</li>
+<li>Fort mniej ufa graczowi</li>
+</ul>
+<p>Zignoruj:</p>
+<ul>
+<li>brak nagrody</li>
+<li>trudniejsze ruiny</li>
+</ul>
+<h3>MISJA 16: DEZERTER ZE STRAŻY PIECZĘCI</h3>
+<p>Miejsce: droga między Fortem a Ravenford NPC: Rauk</p>
+<h3>XP: 50–140 XP</h3>
+<p>Lore: Rauk uciekł, bo usłyszał głos Korony.</p>
+<p>Dialog:</p>
+<p>Rauk: „Nie będę pilnował drzwi, za którymi coś zna moje sny.”</p>
+<p>Nagrody:</p>
+<p>Ukryj Rauka:</p>
+<ul>
+<li>140 XP</li>
+<li>Rauk ostrzega przed pułapką w pałacu</li>
+</ul>
+<p>Odprowadź do Fortu:</p>
+<ul>
+<li>100 XP</li>
+<li>lepsze relacje z Caelem</li>
+</ul>
+<p>Zabij:</p>
+<ul>
+<li>50 XP</li>
+<li>10 złota</li>
+<li>popiół +1</li>
+</ul>
+<p>Pozwól odejść:</p>
+<ul>
+<li>70 XP</li>
+<li>może wrócić jako sługa Korony</li>
+</ul>
+<h3>MISJA 17: KSIĘGA GWIAZD BEZ TYTUŁU</h3>
+<p>Miejsce: Wieża Astromanty NPC: Głos Astromanty</p>
+<h3>XP: 80–150 XP</h3>
+<p>Lore: Księga opisuje możliwą przyszłość gracza.</p>
+<p>Dialog:</p>
+<p>Głos: „Nie każda księga opisuje przeszłość. Niektóre próbują ostrzec przyszłość.”</p>
+<p>Nagrody:</p>
+<p>Czytaj do końca:</p>
+<ul>
+<li>150 XP</li>
+<li>poznajesz możliwe zakończenie</li>
+<li>możliwa strata zdrowia</li>
+</ul>
+<p>Zamknij księgę:</p>
+<ul>
+<li>100 XP</li>
+<li>Odmówił przeznaczeniu</li>
+<li>Cień Gracza słabszy</li>
+</ul>
+<p>Spal:</p>
+<ul>
+<li>80 XP</li>
+<li>Wola Zniszczenia +1</li>
+</ul>
+<p>Zabierz:</p>
+<ul>
+<li>120 XP</li>
+<li>Księga Nienapisanej Drogi</li>
+<li>ryzyko szeptów Korony</li>
+</ul>
+<h3>MISJA 18: LUSTRO, KTÓRE NIE POKAZUJE TWARZY</h3>
+<p>Miejsce: Wieża Astromanty NPC: Odbicie bez twarzy</p>
+<h3>XP: 120–150 XP</h3>
+<p>Lore: Lustro pokazuje, czym gracz może się stać pod wpływem Korony.</p>
+<p>Dialog:</p>
+<p>Odbicie: „Nie mam twarzy, bo jeszcze jej nie wybrałeś.”</p>
+<p>Nagrody:</p>
+<p>Zapytaj o strach:</p>
+<ul>
+<li>130 XP</li>
+<li>Zna własny lęk</li>
+<li>Cień Gracza słabszy</li>
+</ul>
+<p>Zapytaj o pragnienie:</p>
+<ul>
+<li>120 XP</li>
+<li>+1 ataku w następnej walce</li>
+<li>popiół +1</li>
+</ul>
+<p>Rozbij lustro:</p>
+<ul>
+<li>150 XP</li>
+<li>Odłamek Szczerego Lustra</li>
+<li>walka</li>
+</ul>
+<h3>MISJA 19: POPIÓŁ W KOŁYSCE</h3>
+<p>Miejsce: Ruiny Valdorinu NPC: Cień matki</p>
+<h3>XP: 40–150 XP</h3>
+<p>Lore: Pokazuje tragedię zwykłych mieszkańców Valdorinu.</p>
+<p>Dialog:</p>
+<p>Cień matki: „Proszę, nie budź jej. Całą noc płakała.”</p>
+<p>Nagrody:</p>
+<p>Oddaj grzechotkę matce:</p>
+<ul>
+<li>120 XP</li>
+<li>cienie dzieci spokojniejsze</li>
+</ul>
+<p>Zanieś grzechotkę do kaplicy:</p>
+<ul>
+<li>150 XP</li>
+<li>Modlitwa za dzieci Valdorinu</li>
+</ul>
+<p>Zabierz na sprzedaż:</p>
+<ul>
+<li>40 XP</li>
+<li>20 złota</li>
+<li>popiół +1</li>
+</ul>
+<h3>MISJA 20: TEATR OSTATNIEGO DNIA</h3>
+<p>Miejsce: Spalony teatr w ruinach NPC: Aktor Bez Twarzy</p>
+<h3>XP: 80–180 XP</h3>
+<p>Lore: Teatr odgrywa ostatni dzień Valdorinu.</p>
+<p>Dialog:</p>
+<p>Aktor: „Witaj na ostatnim przedstawieniu. Publiczność przyszła sto lat temu i wciąż czeka na zakończenie.”</p>
+<p>Kluczowe pytanie: „Czy jedno życie jest warte całego królestwa?”</p>
+<p>Nagrody:</p>
+<p>Odpowiedź: „Nie, jeśli to życie nie wyraziło zgody”:</p>
+<ul>
+<li>180 XP</li>
+<li>wiedza: Eliana bała się Korony</li>
+<li>łatwiejsze zdobycie Łzy Eliany</li>
+</ul>
+<p>„Nie wiem”:</p>
+<ul>
+<li>120 XP</li>
+<li>dodatkowa wizja</li>
+</ul>
+<p>Przerwij przedstawienie:</p>
+<ul>
+<li>140 XP</li>
+<li>Maska Teatru</li>
+<li>walka</li>
+</ul>
+<p>Zła odpowiedź:</p>
+<ul>
+<li>80 XP</li>
+<li>popiół +1</li>
+</ul>
+<h3>MISJA 21: IMIONA NA RYNKU</h3>
+<p>Miejsce: Rynek bez głosów w Valdorinie NPC: Cienie mieszkańców</p>
+<h3>XP: 50–220 XP</h3>
+<p>Lore: Korona odebrała mieszkańcom imiona.</p>
+<p>Cele:</p>
+<p>1. Zdobądź Księgę Imion Umarłych. 2. Porozmawiaj z trzema cieniami. 3. Znajdź ich imiona. 4. Zapisz imiona w księdze.</p>
+<p>Nagrody:</p>
+<p>Prawdziwe imiona:</p>
+<ul>
+<li>220 XP</li>
+<li>Głosy Rynku</li>
+<li>cienie pomagają w finale</li>
+</ul>
+<p>Fałszywe imiona:</p>
+<ul>
+<li>80 XP</li>
+<li>walka z Cieniami Rynku</li>
+</ul>
+<p>Kradzież ze straganów:</p>
+<ul>
+<li>50 XP</li>
+<li>30 złota</li>
+<li>popiół +2</li>
+</ul>
+<h3>MISJA 22: ZABAWKOWY KOŃ ELIANY</h3>
+<p>Miejsce: Pokój Eliany NPC: Cień Eliany</p>
+<h3>XP: 40–200 XP</h3>
+<p>Lore: Zabawka pokazuje, że Eliana była dzieckiem, a nie symbolem.</p>
+<p>Dialog:</p>
+<p>Cichy głos: „Tata mówił, że jak wyzdrowieję, pojadę na prawdziwym koniu.”</p>
+<p>Nagrody:</p>
+<p>Napraw konia:</p>
+<ul>
+<li>200 XP</li>
+<li>łatwiejsze zdobycie Łzy Eliany</li>
+<li>Naprawił wspomnienie Eliany</li>
+</ul>
+<p>Zostaw świecę:</p>
+<ul>
+<li>140 XP</li>
+<li>Eliana pojawia się spokojniej</li>
+</ul>
+<p>Zabierz konia:</p>
+<ul>
+<li>40 XP</li>
+<li>blokada albo utrudnienie najlepszego zakończenia</li>
+</ul>
+<p>Zniszcz:</p>
+<ul>
+<li>60 XP</li>
+<li>Wola Zniszczenia +1</li>
+<li>brak najlepszego zakończenia</li>
+</ul>
+<h3>MISJA 23: CZARNY ODŁAMEK W DŁONI DZIECKA</h3>
+<p>Miejsce: Ruiny Valdorinu NPC: Cień dziecka</p>
+<h3>XP: 40–220 XP</h3>
+<p>Lore: Odłamek jest fragmentem Korony, który chce wrócić do całości.</p>
+<p>Dialog:</p>
+<p>Dziecko: „To nie moje. Ale nie mogę puścić.”</p>
+<p>Nagrody:</p>
+<p>Zabierz:</p>
+<ul>
+<li>120 XP</li>
+<li>Czarny Odłamek Korony</li>
+<li>popiół +2</li>
+</ul>
+<p>Oczyść Kryształem Świtu:</p>
+<ul>
+<li>220 XP</li>
+<li>Jasny Odłamek Woli</li>
+<li>ochrona przed pokusą Korony</li>
+</ul>
+<p>Zniszcz:</p>
+<ul>
+<li>160 XP</li>
+<li>Wola Zniszczenia +1</li>
+<li>Popielny Król ma mniej opcji kuszenia</li>
+</ul>
+<p>Zostaw:</p>
+<ul>
+<li>40 XP</li>
+</ul>
+<h3>MISJA 24: OSTATNI ROZKAZ POPIELNEGO RYCERZA</h3>
+<p>Miejsce: Most Popielnych Cieni albo atak na Ravenford NPC: Popielny Rycerz</p>
+<h3>XP: 130–200 XP</h3>
+<p>Lore: Rycerz nadal wykonuje ostatni rozkaz króla: nikt nie opuszcza Valdorinu.</p>
+<p>Dialog:</p>
+<p>Rycerz: „Rozkaz królewski: bramy zamknięte. Nikt nie opuszcza Valdorinu.”</p>
+<p>Nagrody:</p>
+<p>Pokaż Pieczęć albo rozkaz Eliany:</p>
+<ul>
+<li>200 XP</li>
+<li>Popielna Ostroga</li>
+<li>rycerz pomaga w finale</li>
+</ul>
+<p>Pokonaj:</p>
+<ul>
+<li>130 XP</li>
+<li>Popielna Zbroja</li>
+</ul>
+<p>Podporządkuj Czarnym Odłamkiem:</p>
+<ul>
+<li>150 XP</li>
+<li>tymczasowy sojusznik</li>
+<li>popiół +3</li>
+</ul>
+<h3>MISJA 25: MODLITWA ZA MIASTO BEZ GROBÓW</h3>
+<p>Miejsce: Kaplica Świtu NPC: Alena, Edrin, Mirna, Cael</p>
+<h3>XP: 180–250 XP</h3>
+<p>Lore: Valdorin nie ma grobów, bo jego mieszkańcy nie odeszli. Rytuał pozwala ich przypomnieć i osłabić Koronę.</p>
+<p>Dialog:</p>
+<p>Alena: „Miasta nie grzebie się kamieniem. Miasto grzebie się imionami.”</p>
+<p>Cele:</p>
+<p>1. Porozmawiaj z Aleną. 2. Zbierz imiona mieszkańców. 3. Zdobądź Świecę Świtu. 4. Zdobądź popiół albo ziemię z Valdorinu. 5. Zaproś świadków. 6. Odpraw modlitwę.</p>
+<p>Nagrody:</p>
+<p>Modlitwa za mieszkańców:</p>
+<ul>
+<li>180 XP</li>
+<li>Pamięć Valdorinu</li>
+<li>mniej wrogich cieni</li>
+</ul>
+<p>Modlitwa za Elianę:</p>
+<ul>
+<li>200 XP</li>
+<li>łatwiejsze najlepsze zakończenie</li>
+</ul>
+<p>Modlitwa za króla:</p>
+<ul>
+<li>180 XP</li>
+<li>dodatkowy dialog z Arvandem</li>
+</ul>
+<p>Modlitwa za wszystkich:</p>
+<ul>
+<li>250 XP</li>
+<li>Rytuał Miasta bez Grobów</li>
+<li>Popielny Król osłabiony</li>
+<li>rozszerzony epilog najlepszego zakończenia</li>
+</ul>
+</section>
+<section id="8-nowe-wyposazenie-klasowe" class="guide-section">
+<h2>8. NOWE WYPOSAŻENIE KLASOWE</h2>
+<h3>WOJOWNIK — BRONIE I SPRZĘT</h3>
+<p>Stary miecz</p>
+<ul>
+<li>Atak +3</li>
+<li>Startowa broń</li>
+<li>Dobry tylko na początek</li>
+</ul>
+<p>Stalowy miecz Borena</p>
+<ul>
+<li>Atak +5</li>
+<li>Kupowany u kowala lub nagroda za skrzynię</li>
+<li>Najlepszy uniwersalny wybór na pierwsze przejście</li>
+</ul>
+<p>Miecz Strażnika Bramy</p>
+<ul>
+<li>Atak +6</li>
+<li>Obrona +1</li>
+<li>+2 obrażenia przeciw nieumarłym</li>
+<li>Zdobywany w Krypcie albo po Strażniku Krypty</li>
+</ul>
+<p>Topór Najemnika</p>
+<ul>
+<li>Atak +7</li>
+<li>+2 przeciw ludziom i bandytom</li>
+<li>Dobra broń dla agresywnego Wojownika</li>
+</ul>
+<p>Młot Przysięgi</p>
+<ul>
+<li>Atak +8</li>
+<li>Obrona +1</li>
+<li>Raz na walkę może ogłuszyć przeciwnika</li>
+<li>Nagroda z wątku Caela</li>
+</ul>
+<p>Tarcza Ostatniej Bramy</p>
+<ul>
+<li>Obrona +3</li>
+<li>Wola +1</li>
+<li>Raz na walkę blokuje cały atak</li>
+<li>Relikt z Ruin Valdorinu</li>
+</ul>
+<p>Ostrze Królewskiej Straży</p>
+<ul>
+<li>Atak +9</li>
+<li>Wola +1</li>
+<li>+3 przeciw Popielnym Rycerzom</li>
+<li>Może uruchomić specjalny dialog z królem</li>
+</ul>
+<p>Popielna Zbroja</p>
+<ul>
+<li>Obrona +4</li>
+<li>Wola -2</li>
+<li>Przeklęta</li>
+<li>Ułatwia walkę, utrudnia dobre zakończenia</li>
+</ul>
+<p>Rękawice Bramnika</p>
+<ul>
+<li>Atak +1</li>
+<li>Obrona +1</li>
+<li>Pozwalają wyważać drzwi bez obrażeń</li>
+</ul>
+<p>Pas Rycerskiej Przysięgi</p>
+<ul>
+<li>Wola +2</li>
+<li>Chroni przed jedną pokusą Korony</li>
+<li>Pomaga w rozmowie z Caelem</li>
+</ul>
+<h3>ŁOTRZYK — BRONIE I NARZĘDZIA</h3>
+<p>Sztylet</p>
+<ul>
+<li>Atak +2</li>
+<li>Unik +1</li>
+<li>Startowa broń Łotrzyka</li>
+</ul>
+<p>Para Cienkich Ostrzy</p>
+<ul>
+<li>Atak +4</li>
+<li>Unik +2</li>
+<li>Bonus do ataku z zaskoczenia</li>
+</ul>
+<p>Sztylet Milczącego Dzwonu</p>
+<ul>
+<li>Atak +5</li>
+<li>Spryt +2</li>
+<li>Pierwszy atak nie budzi dodatkowych przeciwników</li>
+<li>Można go wykuć z fragmentu dzwonu</li>
+</ul>
+<p>Wytrychy</p>
+<ul>
+<li>Otwierają zamki i skrzynie</li>
+<li>Startowy sprzęt Łotrzyka</li>
+</ul>
+<p>Zestaw Precyzyjnych Wytrychów</p>
+<ul>
+<li>Spryt +2</li>
+<li>Otwiera trudniejsze zamki</li>
+<li>Nagroda od Loriana</li>
+</ul>
+<p>Linka z hakiem</p>
+<ul>
+<li>Pozwala przechodzić mury, studnie i zawalone mosty</li>
+</ul>
+<p>Płaszcz Bez Cienia</p>
+<ul>
+<li>Unik +3</li>
+<li>Spryt +2</li>
+<li>Wola -1</li>
+<li>Świetny do skradania, ale ryzykowny w Wieży</li>
+</ul>
+<p>Igły z Jadem Topielca</p>
+<ul>
+<li>Jednorazowy atak trucizną</li>
+<li>Nie działa na duchy i szkielety</li>
+</ul>
+<p>Sakiewka Fałszywych Monet</p>
+<ul>
+<li>Pozwala oszukiwać przy płatnościach</li>
+<li>Ryzyko utraty reputacji</li>
+</ul>
+<p>Nóż do Przecinania Pieczęci</p>
+<ul>
+<li>Atak +4</li>
+<li>Spryt +3</li>
+<li>Otwiera magiczne zabezpieczenia</li>
+<li>Może uszkodzić ochronę fabularną</li>
+</ul>
+<p>Rękawiczki Kieszonkowca</p>
+<ul>
+<li>Spryt +2</li>
+<li>Zwiększają szansę kradzieży</li>
+</ul>
+<p>Gwizdek Straży</p>
+<ul>
+<li>Jednorazowo przyzywa pomoc albo odciąga przeciwnika</li>
+<li>Nagroda za uratowanie Edrica</li>
+</ul>
+<h3>UCZEŃ MAGA — RELIKTY I NARZĘDZIA</h3>
+<p>Iskra many</p>
+<ul>
+<li>Atak magiczny +2</li>
+<li>Wiedza +1</li>
+<li>Pozwala używać światła i odczytywać proste runy</li>
+</ul>
+<p>Kostur ucznia</p>
+<ul>
+<li>Atak +2</li>
+<li>Wiedza +1</li>
+</ul>
+<p>Kostur Iskier</p>
+<ul>
+<li>Atak +4</li>
+<li>Wiedza +2</li>
+<li>+3 przeciw nieumarłym i cieniom</li>
+</ul>
+<p>Laska Astromanty</p>
+<ul>
+<li>Atak +6</li>
+<li>Wiedza +3</li>
+<li>Wola +1</li>
+<li>Raz na walkę redukuje klątwę lub obrażenia magiczne</li>
+</ul>
+<p>Notatnik Runiczny</p>
+<ul>
+<li>Wiedza +1</li>
+<li>Pozwala zapisywać runy i odblokowywać późniejsze wskazówki</li>
+</ul>
+<p>Księga Nienapisanej Drogi</p>
+<ul>
+<li>Wiedza +4</li>
+<li>Wola -1</li>
+<li>Pokazuje możliwe konsekwencje wyborów</li>
+<li>Ryzyko szeptów Korony</li>
+</ul>
+<p>Soczewka Astromanty</p>
+<ul>
+<li>Wiedza +2</li>
+<li>Wykrywa ukryte runy i iluzje</li>
+</ul>
+<p>Pierścień Cichej Many</p>
+<ul>
+<li>Wola +2</li>
+<li>Wiedza +1</li>
+<li>Magia nie budzi części duchów</li>
+</ul>
+<p>Kreda Runiczna</p>
+<ul>
+<li>Rysuje znak ochronny</li>
+<li>Przydatna w Krypcie i ruinach</li>
+</ul>
+<p>Fiolka Gwiezdnego Pyłu</p>
+<ul>
+<li>Rozprasza iluzję</li>
+<li>Dobra na Lustro, Teatr i fałszywe bramy</li>
+</ul>
+<p>Amulet Ostatniego Snu</p>
+<ul>
+<li>Wola +3</li>
+<li>Chroni przed wizją Korony</li>
+<li>Pomaga w scenach z Elianą</li>
+</ul>
+<p>Zapisane Imię</p>
+<ul>
+<li>Pozwala przywołać konkretnego ducha</li>
+</ul>
+<h3>BANITA — SPRZĘT PÓŁŚWIATKA</h3>
+<p>Toporek Banity</p>
+<ul>
+<li>Atak +4</li>
+<li>Startowa broń</li>
+</ul>
+<p>Pałka Poborcy</p>
+<ul>
+<li>Atak +4</li>
+<li>Spryt +1</li>
+<li>Pozwala ogłuszyć zamiast zabić</li>
+</ul>
+<p>Hak Łupieżcy</p>
+<ul>
+<li>Atak +5</li>
+<li>Spryt +1</li>
+<li>Pozwala ściągać przeciwników i wyciągać przedmioty</li>
+</ul>
+<p>Płaszcz Banity</p>
+<ul>
+<li>Spryt +1</li>
+<li>Unik +1</li>
+<li>Bandyci częściej rozmawiają zamiast walczyć</li>
+</ul>
+<p>Stary Znak Bandy</p>
+<ul>
+<li>Odblokowuje dialogi z bandytami i dezerterami</li>
+</ul>
+<p>Kości Oszusta</p>
+<ul>
+<li>Spryt +2</li>
+<li>Pozwalają wygrać informacje lub złoto w hazardzie</li>
+</ul>
+<p>Nóż Dłużnika</p>
+<ul>
+<li>Atak +5</li>
+<li>Spryt +2</li>
+<li>Bonus przeciw zastraszonym przeciwnikom</li>
+</ul>
+<p>Łańcuch z Czarnego Targu</p>
+<ul>
+<li>Atak +5</li>
+<li>Obrona +1</li>
+<li>Może unieruchomić przeciwnika</li>
+</ul>
+<p>Maska Fałszywego Kultysty</p>
+<ul>
+<li>Spryt +3</li>
+<li>Wola -1</li>
+<li>Pozwala udawać sługę Popiołu</li>
+<li>Zwiększa ryzyko złego finału</li>
+</ul>
+<p>Kaptur Bezdomnego Króla</p>
+<ul>
+<li>Spryt +3</li>
+<li>Wola -2</li>
+<li>Daje wpływ na wyrzutków</li>
+<li>Może odblokować zakończenie „Król Bez Tronu”</li>
+</ul>
+<p>Fiolka Ślepego Dymu</p>
+<ul>
+<li>Pozwala uciec z walki albo zaatakować z zaskoczenia</li>
+</ul>
+<p>Gwóźdź z Szubienicy</p>
+<ul>
+<li>Atak +2</li>
+<li>Wola -1</li>
+<li>Odstrasza niektóre duchy, ale źle działa na reputację</li>
+</ul>
+</section>
+<section id="9-przedmioty-uniwersalne" class="guide-section">
+<h2>9. PRZEDMIOTY UNIWERSALNE</h2>
+<p>Mikstura Leczenia</p>
+<ul>
+<li>+10 zdrowia</li>
+</ul>
+<p>Duża Mikstura Leczenia</p>
+<ul>
+<li>+20 zdrowia</li>
+</ul>
+<p>Mała Mikstura</p>
+<ul>
+<li>+6 zdrowia</li>
+</ul>
+<p>Chleb</p>
+<ul>
+<li>+3 zdrowia poza walką</li>
+</ul>
+<p>Suszone Mięso</p>
+<ul>
+<li>+5 zdrowia poza walką</li>
+</ul>
+<p>Pochodnia</p>
+<ul>
+<li>pozwala wejść do ciemnych lokacji</li>
+<li>osłabia słabe duchy</li>
+</ul>
+<p>Latarnia Świtu</p>
+<ul>
+<li>nie gaśnie od mgły</li>
+<li>osłabia cienie</li>
+<li>nagroda z misji Aleny</li>
+</ul>
+<p>Mapa Bagien</p>
+<ul>
+<li>bezpieczne poruszanie po Bagnach Umarłych</li>
+</ul>
+<p>Mapa Martwych Ulic</p>
+<ul>
+<li>mniej pułapek w Valdorinie</li>
+</ul>
+<p>Eliksir Czystej Krwi</p>
+<ul>
+<li>chroni przed trucizną i częścią klątwy</li>
+</ul>
+<p>Eliksir Pamięci</p>
+<ul>
+<li>chroni przed utratą imienia w ruinach</li>
+</ul>
+<p>Świeca Świtu</p>
+<ul>
+<li>jednorazowo odstrasza ducha albo osłabia cienie</li>
+</ul>
+<p>Bandaże</p>
+<ul>
+<li>+4 zdrowia poza walką</li>
+<li>można użyć na rannych NPC</li>
+</ul>
+<p>Zestaw Obozowy</p>
+<ul>
+<li>pozwala odpocząć poza wioską raz na wyprawę</li>
+</ul>
+<p>Księga Imion Umarłych</p>
+<ul>
+<li>pozwala rozmawiać z cieniami</li>
+<li>kluczowa do misji z imionami</li>
+</ul>
+<p>Stary Amulet</p>
+<ul>
+<li>chroni przed jedną pułapką albo przekleństwem</li>
+</ul>
+<p>Amulet Dziecka</p>
+<ul>
+<li>cienie dzieci nie atakują</li>
+<li>pomaga w scenach z Elianą</li>
+</ul>
+<p>Odłamek Szczerego Lustra</p>
+<ul>
+<li>raz pokazuje, która opcja dialogowa jest kłamstwem albo pułapką</li>
+</ul>
+<p>Jasny Odłamek Woli</p>
+<ul>
+<li>chroni przed jedną próbą przejęcia przez Koronę</li>
+</ul>
+<p>Czarny Odłamek Korony</p>
+<ul>
+<li>+3 atak</li>
+<li>Wola -2</li>
+<li>odblokowuje rozkazy wobec cieni</li>
+<li>zwiększa reputację popiołu</li>
+</ul>
+<p>Pieczęć Zaufania Ravenford</p>
+<ul>
+<li>mieszkańcy pomagają graczowi</li>
+<li>lepsze ceny, nocleg, wsparcie w finale</li>
+</ul>
+</section>
+<section id="10-pancerze-amulety-i-relikty" class="guide-section">
+<h2>10. PANCERZE, AMULETY I RELIKTY</h2>
+<h3>PANCERZE</h3>
+<p>Wytarta Kolczuga</p>
+<ul>
+<li>Obrona +2</li>
+<li>Unik -1</li>
+<li>start Wojownika</li>
+</ul>
+<p>Skórzana Kurtka Najemnika</p>
+<ul>
+<li>Obrona +1</li>
+<li>Unik +1</li>
+<li>dobra dla Łotrzyka i Banity</li>
+</ul>
+<p>Płaszcz Podróżnika</p>
+<ul>
+<li>Wola +1</li>
+<li>podstawowa ochrona przed pogodą i zmęczeniem</li>
+</ul>
+<p>Szata Ucznia</p>
+<ul>
+<li>Wiedza +1</li>
+<li>Wola +1</li>
+</ul>
+<p>Szata Astromanty</p>
+<ul>
+<li>Wiedza +3</li>
+<li>Wola +2</li>
+<li>Obrona +1</li>
+<li>dobra dla Maga</li>
+</ul>
+<p>Pancerz Strażnika Pieczęci</p>
+<ul>
+<li>Obrona +3</li>
+<li>Wola +1</li>
+<li>zdobywany w Forcie</li>
+</ul>
+<p>Płaszcz Żałobnika</p>
+<ul>
+<li>Wola +2</li>
+<li>duchy ufają bardziej</li>
+</ul>
+<p>Królewski Płaszcz z Popiołu</p>
+<ul>
+<li>Atak +2</li>
+<li>Wola -3</li>
+<li>popiół +3</li>
+<li>bardzo ryzykowny</li>
+</ul>
+<h3>AMULETY I PIERŚCIENIE</h3>
+<p>Żelazny Pierścień</p>
+<ul>
+<li>zmniejsza obrażenia od pułapek albo obrażenia fizyczne o 1</li>
+</ul>
+<p>Pierścień Cichej Many</p>
+<ul>
+<li>magia nie budzi części duchów</li>
+</ul>
+<p>Pierścień Uczciwego Długu</p>
+<ul>
+<li>lepsze ceny, jeśli gracz pomagał ludziom</li>
+<li>pęka, jeśli gracz okrada NPC</li>
+</ul>
+<p>Medalion Zdrajcy</p>
+<ul>
+<li>Strażnicy Pieczęci traktują gracza przychylniej</li>
+</ul>
+<p>Wisior Popielnego Szeptu</p>
+<ul>
+<li>raz pozwala poznać myśl przeciwnika</li>
+<li>popiół +1</li>
+</ul>
+<p>Oko Astromanty</p>
+<ul>
+<li>wykrywa iluzje</li>
+</ul>
+<p>Znak Świtu</p>
+<ul>
+<li>Wola +2</li>
+<li>cienie słabiej kuszą gracza</li>
+</ul>
+<p>Pęknięty Medalion Arvanda</p>
+<ul>
+<li>odblokowuje dodatkowy dialog z Popielnym Królem</li>
+</ul>
+<h3>RELIKTY FABULARNE</h3>
+<p>Srebrny Klucz</p>
+<ul>
+<li>główny artefakt</li>
+</ul>
+<p>Kryształ Świtu</p>
+<ul>
+<li>główny artefakt</li>
+</ul>
+<p>Pieczęć Starego Króla</p>
+<ul>
+<li>główny artefakt</li>
+</ul>
+<p>Łza Księżniczki Eliany</p>
+<ul>
+<li>najlepsze zakończenie</li>
+</ul>
+<p>Stary List Króla</p>
+<ul>
+<li>prawda o Arvandzie</li>
+</ul>
+<p>Dziennik Królewskiego Medyka</p>
+<ul>
+<li>prawda o chorobie Eliany</li>
+</ul>
+<p>Kwiatowa Korona Eliany</p>
+<ul>
+<li>ułatwia kontakt z Elianą, ale nie powinna być kradziona</li>
+</ul>
+<p>Zabawkowy Koń Eliany</p>
+<ul>
+<li>naprawienie ułatwia najlepsze zakończenie</li>
+</ul>
+<p>Fragment Pałacowego Dzwonu</p>
+<ul>
+<li>można oczyścić, sprzedać, przekuć albo zniszczyć</li>
+</ul>
+<p>Herb Bezherbowego Rycerza</p>
+<ul>
+<li>pomaga w Forcie albo kończy misję ducha</li>
+</ul>
+<p>Grzechotka z Popiołu</p>
+<ul>
+<li>można oddać matce albo zanieść do kaplicy</li>
+</ul>
+<p>Maska Teatru</p>
+<ul>
+<li>raz zmusza przeciwnika do odpowiedzi prawdą</li>
+</ul>
+<p>Popielna Ostroga</p>
+<ul>
+<li>przyzywa ducha rycerza raz w finale</li>
+</ul>
+<p>Rytualna Świeca Miasta bez Grobów</p>
+<ul>
+<li>osłabia Koronę w finale</li>
+</ul>
+</section>
+<section id="11-sklepy-i-nagrody-od-npc" class="guide-section">
+<h2>11. SKLEPY I NAGRODY OD NPC</h2>
+<h3>SKLEP LORIANA — STANDARD</h3>
+<ul>
+<li>Mikstura Leczenia — 5 złota</li>
+<li>Mała Mikstura — 3 złota</li>
+<li>Chleb — 1 złoto</li>
+<li>Pochodnia — 3 złota</li>
+<li>Mapa Bagien — 8 złota</li>
+<li>Wytrychy — 10 złota</li>
+<li>Bandaże — 4 złota</li>
+<li>Zestaw Obozowy — 12 złota</li>
+</ul>
+<h3>PO URATOWANIU KUPCA</h3>
+<ul>
+<li>ceny niższe o 30–50%</li>
+<li>Precyzyjne Wytrychy</li>
+<li>Pierścień Uczciwego Długu</li>
+<li>Krople Przeciw Mgłom</li>
+</ul>
+<h3>KUŹNIA BORENA</h3>
+<ul>
+<li>Stalowy Miecz — 15 złota</li>
+<li>Topór Najemnika — 22 złota</li>
+<li>Naprawa broni — 6 złota</li>
+<li>Skórzana Kurtka Najemnika — 12 złota</li>
+<li>Wytarta Kolczuga — 14 złota</li>
+</ul>
+<h3>CHATA MIRNY</h3>
+<ul>
+<li>Mikstura Leczenia — 5 złota</li>
+<li>Nalewka Mirny — 7 złota</li>
+<li>Krople Przeciw Mgłom — 10 złota</li>
+<li>Proszek Srebrnego Mchu — 8 złota</li>
+<li>Eliksir Czystej Krwi — za składniki lub przysługę</li>
+<li>Eliksir Pamięci — za ukończenie misji Bagiennego Korzenia</li>
+</ul>
+<h3>CZARNY HANDLARZ</h3>
+<ul>
+<li>Sakiewka Fałszywych Monet — 12 złota</li>
+<li>Fiolka Ślepego Dymu — 9 złota</li>
+<li>Igły z Jadem Topielca — 14 złota</li>
+<li>Gwóźdź z Szubienicy — 7 złota</li>
+<li>Maska Fałszywego Kultysty — 25 złota</li>
+</ul>
+<h3>NAGRODY OD NPC</h3>
+<p>Boren:</p>
+<ul>
+<li>Żelazny Pierścień</li>
+<li>Stalowy Miecz</li>
+<li>ulepszenie broni</li>
+<li>przekucie Fragmentu Dzwonu</li>
+</ul>
+<p>Lorian:</p>
+<ul>
+<li>zniżki</li>
+<li>Precyzyjne Wytrychy</li>
+<li>Pierścień Uczciwego Długu</li>
+<li>Mapa Bagien</li>
+</ul>
+<p>Mirna:</p>
+<ul>
+<li>Eliksir Czystej Krwi</li>
+<li>Eliksir Pamięci</li>
+<li>Nalewka Mirny</li>
+<li>Krople Przeciw Mgłom</li>
+</ul>
+<p>Alena:</p>
+<ul>
+<li>Świeca Świtu</li>
+<li>Latarnia Świtu</li>
+<li>Znak Świtu</li>
+<li>Rytualna Świeca Miasta bez Grobów</li>
+</ul>
+<p>Cael:</p>
+<ul>
+<li>Pieczęć Starego Króla</li>
+<li>Medalion Zdrajcy</li>
+<li>Pancerz Strażnika Pieczęci</li>
+<li>Mapa Martwych Ulic</li>
+</ul>
+<p>Edrin:</p>
+<ul>
+<li>Fragment Kroniki</li>
+<li>Notatnik runiczny</li>
+<li>stare monety Valdorinu</li>
+<li>informacje o Elianie</li>
+</ul>
+</section>
+<section id="12-przeciwnicy-i-taktyki" class="guide-section">
+<h2>12. PRZECIWNICY I TAKTYKI</h2>
+<p>Wilk Cienia</p>
+<ul>
+<li>Zdrowie: 12</li>
+<li>Atak: 3</li>
+<li>XP: 25</li>
+<li>Łup: Wilcze Futro</li>
+</ul>
+<p>Taktyka: prosty przeciwnik. Pokonaj go, żeby zdobyć futro dla zielarki.</p>
+<p>Stary Wilk</p>
+<ul>
+<li>Zdrowie: 20</li>
+<li>Atak: 5</li>
+<li>XP: 45</li>
+</ul>
+<p>Taktyka: lepiej mieć Stalowy Miecz albo dobrą miksturę.</p>
+<p>Leśny Upiór</p>
+<ul>
+<li>Zdrowie: 18</li>
+<li>Atak: 4</li>
+<li>XP: 50</li>
+</ul>
+<p>Taktyka: użyj pochodni, magii albo poznaj jego imię.</p>
+<p>Topielec</p>
+<ul>
+<li>Zdrowie: 16</li>
+<li>Atak: 4</li>
+<li>XP: 40</li>
+</ul>
+<p>Taktyka: miej Eliksir Czystej Krwi. Unikaj, jeśli masz mało zdrowia.</p>
+<p>Szkielet Wartownik</p>
+<ul>
+<li>Zdrowie: 18</li>
+<li>Atak: 5</li>
+<li>XP: 50</li>
+</ul>
+<p>Taktyka: Kostur Iskier, pochodnia albo unikanie hałasu w Krypcie.</p>
+<p>Najemnik Zdrajców</p>
+<ul>
+<li>Zdrowie: 20</li>
+<li>Atak: 5</li>
+<li>XP: 55</li>
+</ul>
+<p>Taktyka: często da się ominąć dialogiem, skradaniem albo reputacją.</p>
+<p>Dowódca Cael</p>
+<ul>
+<li>Zdrowie: 30</li>
+<li>Atak: 7</li>
+<li>XP: 100</li>
+</ul>
+<p>Taktyka: najlepiej nie walczyć. Pokojowe przekonanie daje lepsze skutki.</p>
+<p>Cień Gracza</p>
+<ul>
+<li>Zdrowie zależne od gracza</li>
+<li>XP: 100–150</li>
+</ul>
+<p>Taktyka: im gorsze decyzje, tym silniejszy. Pomaga Wola, Błogosławieństwo i mikstury.</p>
+<p>Aktor Bez Twarzy</p>
+<ul>
+<li>Zdrowie: 24</li>
+<li>Atak: 6</li>
+<li>XP: 90</li>
+</ul>
+<p>Taktyka: lepiej odpowiedzieć na pytanie niż przerywać przedstawienie.</p>
+<p>Popielny Rycerz</p>
+<ul>
+<li>Zdrowie: 32</li>
+<li>Atak: 8</li>
+<li>XP: 120</li>
+</ul>
+<p>Taktyka: można go uwolnić Pieczęcią albo rozkazem Eliany. Walka nie jest najlepszym rozwiązaniem.</p>
+<p>Popielny Król</p>
+<ul>
+<li>Zdrowie: 45+</li>
+<li>Atak: 8</li>
+<li>XP: finał</li>
+</ul>
+<p>Taktyka:</p>
+<ul>
+<li>nie walcz bez artefaktów,</li>
+<li>Kryształ Świtu osłabia jego moc,</li>
+<li>Łza Eliany odblokowuje najlepszy finał,</li>
+<li>Czarny Odłamek kusi, ale prowadzi ku złemu zakończeniu.</li>
+</ul>
+</section>
+<section id="13-checklista-przed-finalem" class="guide-section">
+<h2>13. CHECKLISTA PRZED FINAŁEM</h2>
+<h3>MINIMUM DO NORMALNEGO FINAŁU</h3>
+<p>[ ] Srebrny Klucz [ ] Kryształ Świtu [ ] Pieczęć Starego Króla [ ] dobra broń [ ] przynajmniej 2 Mikstury Leczenia [ ] zdrowie blisko maksimum [ ] brak ciężkiej klątwy lub zatrucia</p>
+<h3>DO DOBREGO ZAKOŃCZENIA</h3>
+<p>[ ] nie założyłem Korony [ ] nie używałem często Czarnego Odłamka [ ] nie zniszczyłem kapliczki [ ] nie mam wysokiej reputacji popiołu [ ] mam Kryształ Świtu [ ] znam część prawdy o królu</p>
+<h3>DO NAJLEPSZEGO ZAKOŃCZENIA</h3>
+<p>[ ] pomogłem kupcowi [ ] pomogłem mieszkańcom Ravenford [ ] zdobyłem wiedzę o Elianie [ ] przeczytałem Dziennik Królewskiego Medyka [ ] byłem w pokoju Eliany [ ] naprawiłem lub uszanowałem Zabawkowego Konia Eliany [ ] zdobyłem Łzę Księżniczki Eliany [ ] wykonałem lub rozpocząłem Modlitwę za miasto bez grobów [ ] mam dobrą reputację [ ] mam szacunek duchów [ ] Cael żyje albo został przekonany pokojowo</p>
+<h3>NAJLEPSZE PRZEDMIOTY PRZED FINAŁEM</h3>
+<p>[ ] Latarnia Świtu [ ] Księga Imion Umarłych [ ] Eliksir Pamięci [ ] Amulet Dziecka [ ] Jasny Odłamek Woli [ ] Znak Świtu [ ] Rytualna Świeca Miasta bez Grobów [ ] Mapa Martwych Ulic</p>
+</section>
+<section id="14-najlepsze-zestawy-wyposazenia" class="guide-section">
+<h2>14. NAJLEPSZE ZESTAWY WYPOSAŻENIA</h2>
+<h3>WOJOWNIK — STRAŻNIK OSTATNIEJ BRAMY</h3>
+<p>Elementy:</p>
+<ul>
+<li>Miecz Strażnika Bramy</li>
+<li>Tarcza Ostatniej Bramy</li>
+<li>Pas Rycerskiej Przysięgi</li>
+</ul>
+<p>Bonus:</p>
+<ul>
+<li>większa obrona,</li>
+<li>blokowanie ataku,</li>
+<li>opcja ochrony sojusznika w finale.</li>
+</ul>
+<p>Dobre do:</p>
+<ul>
+<li>dobrego zakończenia,</li>
+<li>honorowego przejścia,</li>
+<li>obrony Ravenford.</li>
+</ul>
+<h3>ŁOTRZYK — MILCZĄCY ŚLAD</h3>
+<p>Elementy:</p>
+<ul>
+<li>Sztylet Milczącego Dzwonu</li>
+<li>Płaszcz Bez Cienia</li>
+<li>Zestaw Precyzyjnych Wytrychów</li>
+</ul>
+<p>Bonus:</p>
+<ul>
+<li>lepsze skradanie,</li>
+<li>łatwiejsze unikanie walk,</li>
+<li>omijanie pułapek.</li>
+</ul>
+<p>Ryzyko:</p>
+<ul>
+<li>jeśli grasz chciwie, łatwo zejść na złą ścieżkę.</li>
+</ul>
+<h3>UCZEŃ MAGA — UCZEŃ ASTROMANTY</h3>
+<p>Elementy:</p>
+<ul>
+<li>Laska Astromanty</li>
+<li>Soczewka Astromanty</li>
+<li>Szata Astromanty</li>
+</ul>
+<p>Bonus:</p>
+<ul>
+<li>dużo Wiedzy,</li>
+<li>rozpoznawanie iluzji,</li>
+<li>słabszy Cień Gracza,</li>
+<li>łatwiejsze najlepsze zakończenie.</li>
+</ul>
+<h3>BANITA — KRÓL CZARNEGO SZLAKU</h3>
+<p>Elementy:</p>
+<ul>
+<li>Nóż Dłużnika</li>
+<li>Kaptur Bezdomnego Króla</li>
+<li>Kości Oszusta</li>
+</ul>
+<p>Bonus:</p>
+<ul>
+<li>lepsze rozmowy z bandytami,</li>
+<li>więcej opcji zastraszania,</li>
+<li>możliwość zebrania wyrzutków.</li>
+</ul>
+<p>Ryzyko:</p>
+<ul>
+<li>wysoka szansa mrocznego albo złego zakończenia.</li>
+</ul>
+<h3>ŚCIEŻKA DOBREGO ZAKOŃCZENIA — UNIWERSALNY ZESTAW</h3>
+<p>Polecane:</p>
+<ul>
+<li>Stalowy Miecz albo Kostur Iskier</li>
+<li>Latarnia Świtu</li>
+<li>Księga Imion Umarłych</li>
+<li>Eliksir Pamięci</li>
+<li>Amulet Dziecka</li>
+<li>Znak Świtu</li>
+<li>Jasny Odłamek Woli</li>
+</ul>
+<p>Unikać:</p>
+<ul>
+<li>Czarny Odłamek Korony</li>
+<li>Popielna Zbroja</li>
+<li>Królewski Płaszcz z Popiołu</li>
+<li>Nóż do Przecinania Pieczęci używany bez potrzeby</li>
+</ul>
+</section>
+<section id="15-szybkie-sciezki-przejscia" class="guide-section">
+<h2>15. SZYBKIE ŚCIEŻKI PRZEJŚCIA</h2>
+<h3>SZYBKA ŚCIEŻKA DO DOBREGO ZAKOŃCZENIA</h3>
+<p>1. Wybierz Wojownika. 2. Pomóż rannemu kupcowi. 3. Nie niszcz kapliczki. 4. Kup Stalowy Miecz. 5. Kup Mapę Bagien. 6. Zdobądź Eliksir Czystej Krwi. 7. Przejdź Kryptę z szacunkiem. 8. Zdobądź Srebrny Klucz. 9. Przekonaj Caela. 10. Zdobądź Pieczęć. 11. W Wieży wybierz prawdę. 12. Zdobądź Kryształ Świtu. 13. Wejdź do ruin z kompletem artefaktów. 14. Pokonaj Popielnego Króla. 15. Zniszcz Koronę.</p>
+<h3>SZYBKA ŚCIEŻKA DO NAJLEPSZEGO ZAKOŃCZENIA</h3>
+<p>1. Wybierz Ucznia Maga. 2. Pomóż strażnikowi w gospodzie. 3. Pomóż kupcowi. 4. Pomódl się przy kapliczce. 5. Oddaj skrzynię kowalowi. 6. Zdobądź Mapę Bagien. 7. Pomóż Mirnie. 8. Zdobądź Eliksir Pamięci. 9. W Krypcie zachowaj ciszę i szacunek. 10. Zdobądź Srebrny Klucz. 11. Pokojowo przekonaj Caela. 12. Zdobądź Pieczęć. 13. W Wieży przeczytaj księgi o Koronie, Arvandzie i Elianie. 14. Zdobądź Kryształ. 15. Wykonaj Teatr ostatniego dnia. 16. W ruinach znajdź dom medyka. 17. Znajdź pokój Eliany. 18. Napraw Zabawkowego Konia Eliany. 19. Zdobądź Łzę Eliany. 20. Wykonaj Modlitwę za miasto bez grobów. 21. W finale użyj Łzy i wybierz przebaczenie.</p>
+<h3>SZYBKA ŚCIEŻKA DO ZŁEGO ZAKOŃCZENIA</h3>
+<p>1. Wybierz Banitę albo Łotrzyka. 2. Okradnij kupca. 3. Zniszcz kapliczkę. 4. Kradnij w Krypcie. 5. Zabij Caela. 6. W Wieży wybierz władzę. 7. Zabierz Czarny Odłamek. 8. Używaj przeklętych przedmiotów. 9. W ruinach przeszukuj stragany i ignoruj cienie. 10. W finale załóż Koronę.</p>
+<h3>SZYBKA ŚCIEŻKA DO TRAGICZNEGO ZAKOŃCZENIA</h3>
+<p>1. Zignoruj ostrzeżenia. 2. Zdobądź tylko jeden artefakt albo żaden. 3. Wejdź do Ruin Valdorinu za wcześnie. 4. Nie miej Kryształu Świtu. 5. Pozwól, by miasto odebrało ci imię.</p>
+<h3>KONIEC PORADNIKA</h3>
+<p>Główna zasada gry:</p>
+<p>Siła pozwala dojść do finału, ale tylko prawda, pamięć i współczucie pozwalają go naprawdę wygrać.</p>
+</section>
+          <a class="top-link" href="#top">Wr?? na g?r?</a>
+        </main>
       </div>
-    </header>
-
-    <div class="layout">
-      <aside class="sidebar">
-        <p class="nav-title">Zakładki poradnika</p>
-        <button class="tab-btn active" data-tab="start">Start</button>
-        <button class="tab-btn" data-tab="solucja">Solucja</button>
-        <button class="tab-btn" data-tab="zakonczenia">Zakończenia</button>
-        <button class="tab-btn" data-tab="przedmioty">Przedmioty</button>
-        <button class="tab-btn" data-tab="bron">Broń</button>
-        <button class="tab-btn" data-tab="bossowie">Przeciwnicy i bossowie</button>
-        <button class="tab-btn" data-tab="decyzje">Decyzje</button>
-        <button class="tab-btn" data-tab="checklista">Checklista finału</button>
-      </aside>
-
-      <main class="content">
-        <section id="start" class="tab active">
-          <h2>Start poradnika</h2>
-          <p class="lead">Ta sekcja jest bezpieczna na pierwsze uruchomienie gry. Nie zdradza konkretnych rozwiązań fabularnych ani pełnej drogi do finału. Jeśli chcesz grać bez spoilerów, zacznij właśnie tutaj, a do pozostałych zakładek zaglądaj dopiero wtedy, gdy utkniesz.</p>
-
-          <div class="grid three">
-            <div class="card gold">
-              <h4>Jak grać</h4>
-              <p>Czytaj opisy scen, wybieraj akcje przyciskami, zbieraj przedmioty, pilnuj zdrowia i wracaj do bezpiecznych miejsc, gdy robi się niebezpiecznie.</p>
-            </div>
-            <div class="card good">
-              <h4>Na co uważać</h4>
-              <p>Nie każda walka jest obowiązkowa. Czasem rozmowa, ostrożność albo właściwy przedmiot są lepsze niż atak.</p>
-            </div>
-            <div class="card blue">
-              <h4>Decyzje mają znaczenie</h4>
-              <p>Gra zapamiętuje twoje wybory. Pomoc, kradzież, przemoc albo szacunek wobec innych mogą zmienić dalszy przebieg historii.</p>
-            </div>
-          </div>
-
-          <h3>Porady bez spoilerów</h3>
-          <div class="route">
-            <div class="route-step"><div><strong>Rozmawiaj z postaciami</strong><br><span class="small">NPC często dają wskazówki, zadania poboczne, zniżki albo informacje, które później otwierają dodatkowe wybory.</span></div></div>
-            <div class="route-step"><div><strong>Nie wydawaj wszystkiego od razu</strong><br><span class="small">Złoto przydaje się nie tylko do leczenia. Czasem pozwala kupić mapę, narzędzie, informację albo rozwiązać konflikt bez walki.</span></div></div>
-            <div class="route-step"><div><strong>Zbieraj przedmioty</strong><br><span class="small">Nawet prosty przedmiot może później otworzyć bezpieczniejszą ścieżkę, uniknąć pułapki albo pomóc w rozmowie.</span></div></div>
-            <div class="route-step"><div><strong>Obserwuj ton sceny</strong><br><span class="small">Jeśli miejsce wygląda jak grobowiec, świątynia albo przeklęta ruina, agresywne decyzje mogą mieć gorsze skutki.</span></div></div>
-            <div class="route-step"><div><strong>Przygotuj się przed wyprawą</strong><br><span class="small">Przed wejściem do nowej, niebezpiecznej lokacji dobrze mieć leczenie, światło i trochę złota w zapasie.</span></div></div>
-            <div class="route-step"><div><strong>Nie śpiesz się do finału</strong><br><span class="small">Gra nagradza eksplorację. Warto wracać do wcześniejszych miejsc po zdobyciu nowych informacji lub przedmiotów.</span></div></div>
-          </div>
-
-          <h3>Jak korzystać z poradnika</h3>
-          <div class="grid">
-            <div class="card">
-              <h4>Bez spoilerów</h4>
-              <p>Zostań przy tej sekcji i ewentualnie sprawdzaj tylko ogólne porady. To najlepsze rozwiązanie na pierwsze przejście.</p>
-            </div>
-            <div class="card bad">
-              <h4>Ze spoilerami</h4>
-              <p>Zakładki „Solucja”, „Zakończenia” i „Checklista finału” zdradzają konkretne lokacje, przedmioty oraz warunki finału.</p>
-            </div>
-          </div>
-
-          <div class="notice success"><strong>Najlepsza rada na start:</strong> graj naturalnie, nie próbuj od razu robić idealnej ścieżki. Pierwsze przejście najlepiej potraktować jako odkrywanie świata.</div>
-        </section>
-
-        <section id="solucja" class="tab">
-          <h2>Solucja krok po kroku</h2>
-          <p class="lead">Poniżej bezpieczna ścieżka prowadząca do dobrego albo najlepszego zakończenia.</p>
-
-          <div class="mini-nav">
-            <a href="#ravenford">Ravenford</a>
-            <a href="#las">Mroczny Las</a>
-            <a href="#bagna">Bagna</a>
-            <a href="#krypta">Krypta</a>
-            <a href="#fort">Fort</a>
-            <a href="#wieza">Wieża</a>
-            <a href="#ruiny">Ruiny</a>
-          </div>
-
-          <h3 id="ravenford">1. Ravenford</h3>
-          <div class="card">
-            <p>Na początku przeszukaj pokój i zabierz Małą Miksturę. Potem zejdź do sali gospody, pomóż rannemu strażnikowi i porozmawiaj z kronikarzem Edrinem.</p>
-            <ul>
-              <li>Weź zadanie główne o trzech artefaktach.</li>
-              <li>W sklepie kup Miksturę Leczenia, jeśli masz złoto.</li>
-              <li>U kowala weź zadanie odzyskania skrzyni narzędzi.</li>
-              <li>W kaplicy porozmawiaj z Siostrą Aleną.</li>
-            </ul>
-          </div>
-
-          <h3 id="las">2. Mroczny Las</h3>
-          <div class="card">
-            <p>W lesie najważniejszy jest ranny kupiec. Pomóż mu, nawet jeśli musisz zużyć miksturę. Dzięki temu dostaniesz zniżki i lepszą reputację.</p>
-            <ul>
-              <li>Zbadaj przewrócony wóz.</li>
-              <li>Pomóż kupcowi.</li>
-              <li>Nie okradaj wozu.</li>
-              <li>Pomódl się przy kapliczce albo złóż ofiarę.</li>
-              <li>Nie niszcz posągu.</li>
-              <li>Zdobądź Wilcze Futro z Wilka Cienia.</li>
-              <li>Znajdź skrzynię narzędzi kowala.</li>
-            </ul>
-          </div>
-
-          <h3 id="bagna">3. Bagna Umarłych</h3>
-          <div class="card">
-            <p>Na bagna najlepiej iść dopiero po kupieniu Mapy Bagien. Bez niej można stracić zdrowie albo trafić na dodatkową walkę.</p>
-            <ul>
-              <li>Użyj Mapy Bagien.</li>
-              <li>Odwiedź zatopioną chatę zielarki.</li>
-              <li>Oddaj Wilcze Futro za Eliksir Czystej Krwi.</li>
-              <li>Nie okradaj zielarki.</li>
-              <li>Unikaj zbędnych walk z Topielcami.</li>
-            </ul>
-          </div>
-
-          <h3 id="krypta">4. Krypta Milczących</h3>
-          <div class="card">
-            <p>Krypta nagradza ciszę i szacunek. Agresywne zachowania budzą strażników.</p>
-            <ul>
-              <li>Wejdź z Pochodnią albo magią.</li>
-              <li>W Korytarzu Bez Echa idź powoli.</li>
-              <li>Nie krzycz i nie biegnij.</li>
-              <li>W Sali Pustych Hełmów uklęknij przed posągiem.</li>
-              <li>Nie kradnij z grobowców.</li>
-              <li>Zdobądź Srebrny Klucz.</li>
-            </ul>
-          </div>
-
-          <h3 id="fort">5. Fort Zdrajców</h3>
-          <div class="card">
-            <p>Fort da się przejść walką, ale najlepsza droga to rozmowa z dowódcą Caelem.</p>
-            <ul>
-              <li>Przy bramie powiedz prawdę.</li>
-              <li>Pokaż Srebrny Klucz, jeśli masz taką opcję.</li>
-              <li>Nie atakuj strażników.</li>
-              <li>Przestudiuj mapę, ale jej nie kradnij.</li>
-              <li>Przekonaj Caela, że nie chcesz władzy.</li>
-              <li>Zdobądź Pieczęć Starego Króla.</li>
-            </ul>
-          </div>
-
-          <h3 id="wieza">6. Wieża Astromanty</h3>
-          <div class="card">
-            <p>Wieża jest kluczowa dla fabuły. Tutaj najlepiej odkryć prawdę o Elianie.</p>
-            <ul>
-              <li>Przy drzwiach powiedz, że chcesz poznać prawdę albo zakończyć cierpienie.</li>
-              <li>W Bibliotece przeczytaj księgi o Koronie, Arvandzie i Elianie.</li>
-              <li>Nie pal ksiąg.</li>
-              <li>Nie wybieraj pragnienia władzy.</li>
-              <li>W Sali Luster wybierz bohatera albo przejdź z zamkniętymi oczami.</li>
-              <li>Zdobądź Kryształ Świtu.</li>
-            </ul>
-          </div>
-
-          <h3 id="ruiny">7. Ruiny Valdorinu</h3>
-          <div class="card">
-            <p>Nie wchodź do ruin bez trzech głównych artefaktów. W ruinach gra rozlicza większość wcześniejszych decyzji.</p>
-            <ul>
-              <li>Użyj Srebrnego Klucza na Bramie Milczących.</li>
-              <li>Pieczęć Starego Króla ochroni cię przed pułapkami.</li>
-              <li>Kryształ Świtu ochroni przed utratą pamięci.</li>
-              <li>Na rynku nie przeszukuj chciwie straganów.</li>
-              <li>Znajdź dom medyka i przeczytaj dziennik.</li>
-              <li>Idź do pokoju Eliany.</li>
-              <li>Zdobądź Łzę Księżniczki, jeśli chcesz najlepsze zakończenie.</li>
-            </ul>
-          </div>
-        </section>
-
-        <section id="zakonczenia" class="tab">
-          <h2>Zakończenia</h2>
-          <p class="lead">Gra ma kilka zakończeń. Różnią się nie tylko ostatnim wyborem, ale też tym, jak gracz zachowywał się wcześniej.</p>
-
-          <div class="ending good">
-            <h3>Najlepsze: Świt dla umarłych</h3>
-            <p><strong>Wymagania:</strong> trzy główne artefakty, Łza Księżniczki Eliany, wiedza o Elianie, niska reputacja popiołu.</p>
-            <p><strong>Jak odblokować:</strong> pomagaj ludziom, nie niszcz kapliczki, przekonaj Caela pokojowo, w Wieży przeczytaj księgi o Elianie, w ruinach znajdź jej pokój i użyj Łzy w finale.</p>
-          </div>
-
-          <div class="ending good">
-            <h3>Dobre: Świt nad Valdorinem</h3>
-            <p><strong>Wymagania:</strong> trzy główne artefakty i pokonanie Popielnego Króla bez zakładania Korony.</p>
-            <p><strong>Jak odblokować:</strong> zdobądź Srebrny Klucz, Kryształ Świtu i Pieczęć, wejdź do ruin, pokonaj króla i zniszcz Koronę.</p>
-          </div>
-
-          <div class="ending blue">
-            <h3>Neutralne: Nowy Strażnik</h3>
-            <p><strong>Wymagania:</strong> trzy artefakty, brak pełnej wiedzy o Elianie albo brak Łzy, wybór zapieczętowania Korony.</p>
-            <p><strong>Efekt:</strong> klątwa słabnie, ale nie znika. Gracz zostaje strażnikiem Korony albo przekazuje ją nowym opiekunom.</p>
-          </div>
-
-          <div class="ending bad">
-            <h3>Złe: Władca Popiołu</h3>
-            <p><strong>Wymagania:</strong> wybierz w finale „Załóż Koronę” albo używaj zbyt często mocy Czarnego Odłamka.</p>
-            <p><strong>Efekt:</strong> gracz zostaje nowym Popielnym Królem, a Valdorin budzi się jako miasto posłusznych cieni.</p>
-          </div>
-
-          <div class="ending bad">
-            <h3>Tragiczne: Zgubiony w popiele</h3>
-            <p><strong>Wymagania:</strong> wejdź do Ruin Valdorinu bez kompletu artefaktów, szczególnie bez Kryształu Świtu.</p>
-            <p><strong>Efekt:</strong> gracz traci pamięć, imię i duszę, zostając jednym z cieni miasta.</p>
-          </div>
-
-          <div class="ending bad">
-            <h3>Mroczne: Zniszczenie bez świtu</h3>
-            <p><strong>Wymagania:</strong> trzy artefakty, Wola Zniszczenia, brak Łzy Eliany i brutalne zniszczenie Korony.</p>
-            <p><strong>Efekt:</strong> klątwa znika, ale dusze mieszkańców Valdorinu zostają rozerwane razem z Koroną.</p>
-          </div>
-        </section>
-
-        <section id="przedmioty" class="tab">
-          <h2>Przedmioty i artefakty</h2>
-          <p class="lead">Przedmioty otwierają dodatkowe wybory. Niektóre są zwykłym wyposażeniem, inne decydują o finale.</p>
-
-          <div class="search-box">
-            <input type="text" id="itemSearch" placeholder="Szukaj przedmiotu, np. Kryształ, Mapa, Mikstura..." />
-          </div>
-
-          <div class="item-list" id="itemsList">
-            <div class="item" data-name="srebrny klucz artefakt krypta">
-              <div class="type">Artefakt główny</div>
-              <h4>Srebrny Klucz</h4>
-              <p>Zdobywany w Krypcie Milczących. Otwiera Bramę Milczących prowadzącą do ruin Valdorinu.</p>
-              <div class="effect">Najlepiej zdobyć go z szacunkiem, bez hałasowania i kradzieży w krypcie.</div>
-            </div>
-
-            <div class="item" data-name="kryształ świtu artefakt wieża">
-              <div class="type">Artefakt główny</div>
-              <h4>Kryształ Świtu</h4>
-              <p>Zdobywany w Wieży Astromanty. Chroni przed klątwą Korony i utratą pamięci.</p>
-              <div class="effect">Zmniejsza siłę Popielnego Króla i pomaga w najlepszym zakończeniu.</div>
-            </div>
-
-            <div class="item" data-name="pieczęć starego króla artefakt fort">
-              <div class="type">Artefakt główny</div>
-              <h4>Pieczęć Starego Króla</h4>
-              <p>Zdobywana w Forcie Zdrajców. Wyłącza królewskie pułapki w pałacu.</p>
-              <div class="effect">Najlepiej zdobyć ją pokojowo od Caela.</div>
-            </div>
-
-            <div class="item" data-name="łza księżniczki eliany artefakt zakończenie">
-              <div class="type">Artefakt sekretny</div>
-              <h4>Łza Księżniczki Eliany</h4>
-              <p>Zdobywana w pokoju Eliany w ruinach. Wymaga wiedzy o jej historii i dobrej reputacji.</p>
-              <div class="effect">Odblokowuje najlepsze zakończenie „Świt dla umarłych”.</div>
-            </div>
-
-            <div class="item" data-name="stary list króla list prawda">
-              <div class="type">Przedmiot fabularny</div>
-              <h4>Stary List Króla</h4>
-              <p>Ujawnia, że król użył Korony, próbując ocalić córkę.</p>
-              <div class="effect">Odblokowuje opcję przebaczenia albo dodatkowy dialog w finale.</div>
-            </div>
-
-            <div class="item" data-name="czarny odłamek korony zły popiół">
-              <div class="type">Przeklęty artefakt</div>
-              <h4>Czarny Odłamek Korony</h4>
-              <p>Daje moc, ale zwiększa reputację popiołu.</p>
-              <div class="effect">Może ułatwić walki, ale grozi złym zakończeniem.</div>
-            </div>
-
-            <div class="item" data-name="mikstura leczenia zdrowie">
-              <div class="type">Przedmiot użytkowy</div>
-              <h4>Mikstura leczenia</h4>
-              <p>Przywraca 10 zdrowia.</p>
-              <div class="effect">Najlepiej oszczędzać ją na bossów i trudne walki.</div>
-            </div>
-
-            <div class="item" data-name="mała mikstura zdrowie">
-              <div class="type">Przedmiot użytkowy</div>
-              <h4>Mała mikstura</h4>
-              <p>Przywraca 6 zdrowia.</p>
-              <div class="effect">Dobra na początek gry albo do pomocy rannemu kupcowi.</div>
-            </div>
-
-            <div class="item" data-name="pochodnia krypta duchy">
-              <div class="type">Przedmiot użytkowy</div>
-              <h4>Pochodnia</h4>
-              <p>Pozwala wejść do ciemnych miejsc i osłabia część duchów.</p>
-              <div class="effect">Ważna w Krypcie Milczących i przy walce z nieumarłymi.</div>
-            </div>
-
-            <div class="item" data-name="mapa bagien bagna">
-              <div class="type">Przedmiot użytkowy</div>
-              <h4>Mapa Bagien</h4>
-              <p>Ułatwia przejście przez Bagna Umarłych.</p>
-              <div class="effect">Jeden z najlepszych zakupów we wczesnej fazie gry.</div>
-            </div>
-
-            <div class="item" data-name="wytrychy łotrzyk zamki fort">
-              <div class="type">Narzędzie</div>
-              <h4>Wytrychy</h4>
-              <p>Otwierają zamki, skrzynie i boczne wejścia.</p>
-              <div class="effect">Pozwalają wejść do fortu po cichu i zdobywać ukryte skarby.</div>
-            </div>
-
-            <div class="item" data-name="wilcze futro zielarka eliksir">
-              <div class="type">Łup</div>
-              <h4>Wilcze Futro</h4>
-              <p>Zdobywane po walce z Wilkiem Cienia.</p>
-              <div class="effect">Najlepiej oddać zielarce za Eliksir Czystej Krwi.</div>
-            </div>
-
-            <div class="item" data-name="eliksir czystej krwi trucizna bagna">
-              <div class="type">Eliksir</div>
-              <h4>Eliksir Czystej Krwi</h4>
-              <p>Chroni przed trucizną bagien i częścią efektów klątwy.</p>
-              <div class="effect">Bardzo przydatny przed Kryptą i ruinami.</div>
-            </div>
-
-            <div class="item" data-name="stary amulet pułapka klątwa">
-              <div class="type">Amulet</div>
-              <h4>Stary Amulet</h4>
-              <p>Chroni przed jedną pułapką albo przekleństwem.</p>
-              <div class="effect">Można go zdobyć w Krypcie, jeśli gracz zachowuje szacunek.</div>
-            </div>
-
-            <div class="item" data-name="żelazny pierścień kowal obrażenia">
-              <div class="type">Nagroda poboczna</div>
-              <h4>Żelazny Pierścień</h4>
-              <p>Nagroda od kowala za odzyskanie skrzyni narzędzi.</p>
-              <div class="effect">Zmniejsza obrażenia albo chroni przed częścią pułapek.</div>
-            </div>
-          </div>
-        </section>
-
-        <section id="bron" class="tab">
-          <h2>Broń</h2>
-          <p class="lead">Lepsza broń mocno ułatwia grę, ale nie każda broń pasuje do każdego przejścia.</p>
-
-          <div class="grid">
-            <div class="card">
-              <h4>Stary miecz</h4>
-              <p>Broń startowa Wojownika. Wystarczy na początek, ale później warto kupić Stalowy Miecz.</p>
-              <div class="tag-row"><span class="tag">start</span><span class="tag">bezpieczny</span></div>
-            </div>
-            <div class="card">
-              <h4>Sztylet</h4>
-              <p>Broń startowa Łotrzyka. Słaba w otwartej walce, ale pasuje do skradania i unikania konfliktów.</p>
-              <div class="tag-row"><span class="tag">łotrzyk</span><span class="tag">skradanie</span></div>
-            </div>
-            <div class="card gold">
-              <h4>Stalowy miecz</h4>
-              <p>Najlepszy uniwersalny zakup u kowala. Polecany do pierwszego przejścia gry.</p>
-              <div class="tag-row"><span class="tag">polecane</span><span class="tag">uniwersalne</span></div>
-            </div>
-            <div class="card gold">
-              <h4>Topór najemnika</h4>
-              <p>Mocna broń do walki z ludźmi i bossami. Dobry wybór dla Wojownika i Banity.</p>
-              <div class="tag-row"><span class="tag">duży atak</span><span class="tag">bossowie</span></div>
-            </div>
-            <div class="card blue">
-              <h4>Kostur Iskier</h4>
-              <p>Broń magiczna. Bardzo skuteczna przeciw nieumarłym, szkieletom i cieniom.</p>
-              <div class="tag-row"><span class="tag">magia</span><span class="tag">nieumarli</span></div>
-            </div>
-            <div class="card bad">
-              <h4>Ostrze Kości</h4>
-              <p>Silna, ale przeklęta broń z Wyspy Kości. Może ranić gracza po walce.</p>
-              <div class="tag-row"><span class="tag">ryzyko</span><span class="tag">mroczna ścieżka</span></div>
-            </div>
-          </div>
-        </section>
-
-        <section id="bossowie" class="tab">
-          <h2>Przeciwnicy i bossowie</h2>
-          <p class="lead">Nie każdą walkę trzeba przyjmować. W wielu przypadkach rozmowa, reputacja albo odpowiedni przedmiot są lepsze niż miecz.</p>
-
-          <div class="boss">
-            <h4>Wilk Cienia</h4>
-            <div class="boss-stats"><span class="stat">Zdrowie: 12</span><span class="stat">Atak: 3</span><span class="stat">Łup: Wilcze Futro</span></div>
-            <p>Prosty przeciwnik z lasu. Pokonaj go, żeby zdobyć Wilcze Futro dla zielarki.</p>
-          </div>
-
-          <div class="boss">
-            <h4>Topielec</h4>
-            <div class="boss-stats"><span class="stat">Zdrowie: 16</span><span class="stat">Atak: 4</span><span class="stat">Ryzyko: trucizna</span></div>
-            <p>Przeciwnik z bagien. Najlepiej walczyć z nim po zdobyciu Eliksiru Czystej Krwi.</p>
-          </div>
-
-          <div class="boss">
-            <h4>Szkielet Wartownik</h4>
-            <div class="boss-stats"><span class="stat">Zdrowie: 18</span><span class="stat">Atak: 5</span><span class="stat">Słabość: magia/pochodnia</span></div>
-            <p>Pojawia się w Krypcie, jeśli gracz hałasuje albo narusza grobowce. Najlepiej go w ogóle nie budzić.</p>
-          </div>
-
-          <div class="boss">
-            <h4>Dowódca Cael</h4>
-            <div class="boss-stats"><span class="stat">Zdrowie: 30</span><span class="stat">Atak: 7</span><span class="stat">Nagroda: Pieczęć</span></div>
-            <p>Silny przeciwnik, ale może być sojusznikiem. Najlepiej przekonać go rozmową i dobrą reputacją.</p>
-          </div>
-
-          <div class="boss">
-            <h4>Cień Gracza</h4>
-            <div class="boss-stats"><span class="stat">Statystyki: zależne od gracza</span><span class="stat">Miejsce: Wieża</span></div>
-            <p>Im więcej złych decyzji, tym silniejszy Cień. Błogosławieństwo Świtu i mikstury bardzo pomagają.</p>
-          </div>
-
-          <div class="boss">
-            <h4>Popielny Król</h4>
-            <div class="boss-stats"><span class="stat">Zdrowie: 45+</span><span class="stat">Atak: 8</span><span class="stat">Boss finałowy</span></div>
-            <p>Nie walcz bez trzech artefaktów. Kryształ Świtu osłabia jego moc, a Łza Eliany pozwala odblokować najlepszy finał.</p>
-          </div>
-        </section>
-
-        <section id="decyzje" class="tab">
-          <h2>Najważniejsze decyzje</h2>
-          <p class="lead">Te wybory powinny wracać później w fabule i wpływać na zakończenia.</p>
-
-          <div class="grid">
-            <div class="card good">
-              <h4>Pomoc rannemu kupcowi</h4>
-              <p>Daje dobrą reputację, zniżki w sklepie i ułatwia pokojowe rozmowy.</p>
-            </div>
-            <div class="card bad">
-              <h4>Okradzenie kupca</h4>
-              <p>Daje szybkie złoto, ale pogarsza reputację i może podnieść ceny.</p>
-            </div>
-            <div class="card good">
-              <h4>Modlitwa przy kapliczce</h4>
-              <p>Daje błogosławieństwo i wzmacnia ścieżkę dobrego zakończenia.</p>
-            </div>
-            <div class="card bad">
-              <h4>Zniszczenie kapliczki</h4>
-              <p>Daje złoto, ale wzmacnia Popielnego Króla i reputację popiołu.</p>
-            </div>
-            <div class="card good">
-              <h4>Szacunek w Krypcie</h4>
-              <p>Ułatwia zdobycie Srebrnego Klucza i może dać Stary Amulet.</p>
-            </div>
-            <div class="card bad">
-              <h4>Kradzież z grobowców</h4>
-              <p>Budzi strażników i pogarsza drogę do dobrego finału.</p>
-            </div>
-            <div class="card good">
-              <h4>Pokojowe przekonanie Caela</h4>
-              <p>Pozwala zdobyć Pieczęć bez walki i zachować szansę na najlepsze zakończenie.</p>
-            </div>
-            <div class="card bad">
-              <h4>Zabicie Caela</h4>
-              <p>Daje szybką Pieczęć, ale zamyka część pokojowych konsekwencji.</p>
-            </div>
-            <div class="card good">
-              <h4>Poznanie historii Eliany</h4>
-              <p>Odblokowuje Łzę Księżniczki i najlepsze zakończenie.</p>
-            </div>
-            <div class="card bad">
-              <h4>Założenie Korony</h4>
-              <p>Prowadzi do złego zakończenia „Władca Popiołu”.</p>
-            </div>
-          </div>
-        </section>
-
-        <section id="checklista" class="tab">
-          <h2>Checklista przed finałem</h2>
-          <p class="lead">Przed wejściem do Ruin Valdorinu warto sprawdzić, czy masz wszystko, co potrzebne.</p>
-
-          <div class="notice warning"><strong>Uwaga:</strong> wejście do ruin bez kompletu artefaktów może skończyć się zakończeniem „Zgubiony w popiele”.</div>
-
-          <h3>Minimum do normalnego finału</h3>
-          <div class="checklist">
-            <label class="check"><input type="checkbox" /> <span>Mam Srebrny Klucz z Krypty Milczących.</span></label>
-            <label class="check"><input type="checkbox" /> <span>Mam Kryształ Świtu z Wieży Astromanty.</span></label>
-            <label class="check"><input type="checkbox" /> <span>Mam Pieczęć Starego Króla z Fortu Zdrajców.</span></label>
-            <label class="check"><input type="checkbox" /> <span>Mam przynajmniej dwie Mikstury Leczenia.</span></label>
-            <label class="check"><input type="checkbox" /> <span>Mam dobrą broń, np. Stalowy Miecz, Topór Najemnika albo Kostur Iskier.</span></label>
-          </div>
-
-          <h3>Do najlepszego zakończenia</h3>
-          <div class="checklist">
-            <label class="check"><input type="checkbox" /> <span>Pomogłem rannemu kupcowi.</span></label>
-            <label class="check"><input type="checkbox" /> <span>Nie zniszczyłem kapliczki w lesie.</span></label>
-            <label class="check"><input type="checkbox" /> <span>Zdobyłem Pieczęć pokojowo albo bez zabijania Caela.</span></label>
-            <label class="check"><input type="checkbox" /> <span>W Wieży Astromanty przeczytałem księgi o Koronie, Arvandzie i Elianie.</span></label>
-            <label class="check"><input type="checkbox" /> <span>Znalazłem Stary List Króla albo dziennik medyka.</span></label>
-            <label class="check"><input type="checkbox" /> <span>Znalazłem pokój Eliany w ruinach.</span></label>
-            <label class="check"><input type="checkbox" /> <span>Zdobyłem Łzę Księżniczki Eliany.</span></label>
-            <label class="check"><input type="checkbox" /> <span>Nie używałem Czarnego Odłamka Korony albo nie mam wysokiej reputacji popiołu.</span></label>
-            <label class="check"><input type="checkbox" /> <span>Nie planuję zakładać Korony w finale.</span></label>
-          </div>
-        </section>
-      </main>
     </div>
-  </div>
-
-  <script>
-    const buttons = document.querySelectorAll('.tab-btn');
-    const tabs = document.querySelectorAll('.tab');
-
-    buttons.forEach(button => {
-      button.addEventListener('click', () => {
-        const target = button.dataset.tab;
-        buttons.forEach(btn => btn.classList.remove('active'));
-        tabs.forEach(tab => tab.classList.remove('active'));
-        button.classList.add('active');
-        document.getElementById(target).classList.add('active');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
-    });
-
-    const search = document.getElementById('itemSearch');
-    const itemCards = document.querySelectorAll('#itemsList .item');
-
-    if (search) {
-      search.addEventListener('input', () => {
-        const query = search.value.trim().toLowerCase();
-        itemCards.forEach(card => {
-          const text = (card.dataset.name + ' ' + card.innerText).toLowerCase();
-          card.style.display = text.includes(query) ? '' : 'none';
-        });
-      });
-    }
-
-    const checks = document.querySelectorAll('input[type="checkbox"]');
-    const savedChecks = JSON.parse(localStorage.getItem('koronaPoradnikChecks') || '{}');
-
-    checks.forEach((check, index) => {
-      check.checked = !!savedChecks[index];
-      check.addEventListener('change', () => {
-        savedChecks[index] = check.checked;
-        localStorage.setItem('koronaPoradnikChecks', JSON.stringify(savedChecks));
-      });
-    });
-  </script>
-</body>
+  </body>
 </html>
