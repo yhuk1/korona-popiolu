@@ -26,6 +26,8 @@
           </div>
         </div>
 
+        <button id="startLoadBtn" class="start-load" type="button">Wczytaj zapis</button>
+
         <div class="location-strip">
           <div>
             <p class="location-label">Aktualna lokacja</p>
@@ -77,6 +79,10 @@
               <span class="meter meter-xp"><span id="xpBar"></span></span>
             </dd>
           </div>
+          <div class="stat-row stat-plain">
+            <dt>Punkty</dt>
+            <dd id="skillPointsPanel">-</dd>
+          </div>
         </dl>
 
         <section class="panel-actions" aria-label="Menu postaci">
@@ -95,6 +101,14 @@
           <button id="journalOpenBtn" class="panel-action" type="button">
             <span>Dziennik</span>
             <small>Ważne tropy i decyzje</small>
+          </button>
+          <button id="mapOpenBtn" class="panel-action" type="button">
+            <span>Mapa</span>
+            <small>Podróż między lokacjami</small>
+          </button>
+          <button id="settingsOpenBtn" class="panel-action" type="button">
+            <span>Ustawienia</span>
+            <small>Zapis, wczytanie, muzyka</small>
           </button>
         </section>
 
@@ -152,6 +166,17 @@
             <p>Pomaga w skradaniu, zamkach i fortelach.</p>
           </article>
         </div>
+
+        <section class="skills-section">
+          <div class="skills-header">
+            <div>
+              <span>Rozwój postaci</span>
+              <h3>Umiejętności</h3>
+            </div>
+            <strong id="skillPoints">0 pkt</strong>
+          </div>
+          <div id="skillTree" class="skill-tree"></div>
+        </section>
       </div>
     </div>
 
@@ -224,6 +249,42 @@
         </div>
 
         <div id="journalEntries" class="journal-entries"></div>
+      </div>
+    </div>
+
+    <div id="mapModal" class="inventory-modal hidden" role="dialog" aria-modal="true" aria-labelledby="mapTitle">
+      <div class="inventory-window map-window">
+        <button id="mapCloseBtn" class="inventory-close" type="button" aria-label="Zamknij mapę">×</button>
+
+        <header class="inventory-window-header">
+          <p>Valdorin / drogi wyprawy</p>
+          <h2 id="mapTitle">Mapa</h2>
+          <p id="mapSummary">Szlaki otwierają się wraz z przedmiotami, tropami i artefaktami.</p>
+        </header>
+
+        <div id="mapGrid" class="map-grid"></div>
+      </div>
+    </div>
+
+    <div id="settingsModal" class="inventory-modal hidden" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
+      <div class="inventory-window settings-window">
+        <button id="settingsCloseBtn" class="inventory-close" type="button" aria-label="Zamknij ustawienia">×</button>
+
+        <header class="inventory-window-header">
+          <p>Valdorin / opcje gry</p>
+          <h2 id="settingsTitle">Ustawienia</h2>
+          <p id="settingsSummary">Muzyka, poradnik, zapis gry i nowa wyprawa.</p>
+        </header>
+
+        <div class="settings-grid">
+          <button id="settingsMusicBtn" type="button"></button>
+          <section class="save-slots" aria-label="Miejsca zapisu gry">
+            <h3>Miejsca zapisu</h3>
+            <div id="saveSlots" class="save-slot-grid"></div>
+          </section>
+          <button id="settingsGuideBtn" type="button">Poradnik</button>
+          <button id="settingsRestartBtn" type="button" class="danger">Nowa gra</button>
+        </div>
       </div>
     </div>
 

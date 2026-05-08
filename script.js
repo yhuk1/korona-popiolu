@@ -231,6 +231,8 @@ const SLOT_LABELS = {
   artifact: "Artefakt",
 };
 
+const EQUIPPABLE_SLOTS = new Set(["head", "armor", "amulet", "ring", "boots"]);
+
 const HERO_MARKS = {
   warrior: "WOJ",
   rogue: "LOT",
@@ -238,7 +240,40 @@ const HERO_MARKS = {
   outlaw: "BAN",
 };
 
+const HERO_ART = {
+  guide: "assets/ui/guide.svg",
+  warrior: "assets/ui/portrait-warrior.svg",
+  rogue: "assets/ui/portrait-rogue.svg",
+  mage: "assets/ui/portrait-mage.svg",
+  outlaw: "assets/ui/portrait-outlaw.svg",
+  sketch: "assets/ui/hero-sketch.svg",
+};
+
+const ITEM_ICON_ASSETS = {
+  sword: "assets/ui/items/icon-sword.svg",
+  axe: "assets/ui/items/icon-axe.svg",
+  staff: "assets/ui/items/icon-staff.svg",
+  armor: "assets/ui/items/icon-armor.svg",
+  helm: "assets/ui/items/icon-helm.svg",
+  ring: "assets/ui/items/icon-ring.svg",
+  amulet: "assets/ui/items/icon-amulet.svg",
+  boots: "assets/ui/items/icon-boots.svg",
+  potion: "assets/ui/items/icon-potion.svg",
+  book: "assets/ui/items/icon-book.svg",
+  scroll: "assets/ui/items/icon-scroll.svg",
+  key: "assets/ui/items/icon-key.svg",
+  torch: "assets/ui/items/icon-torch.svg",
+  map: "assets/ui/items/icon-map.svg",
+  crown: "assets/ui/items/icon-crown.svg",
+  crystal: "assets/ui/items/icon-crystal.svg",
+  material: "assets/ui/items/icon-material.svg",
+  gear: "assets/ui/items/icon-gear.svg",
+};
+
 const INVENTORY_GRID_SIZE = 24;
+const SAVE_SLOT_COUNT = 3;
+const AUTOSAVE_KEY = "koronaPopioluAutosaveV1";
+const SAVE_SLOT_PREFIX = "koronaPopioluSaveSlot";
 
 const HEROES = {
   warrior: {
@@ -322,10 +357,60 @@ const LOCATION_ATMOSPHERE = {
 };
 
 const XP_LEVELS = [0, 100, 250, 450, 700, 1000, 1350, 1750];
+const SKILL_POINTS_PER_LEVEL = 2;
+
+const SKILLS = {
+  strength: {
+    name: "Siła",
+    description: "Każdy punkt zwiększa atak o 1.",
+    bonus: "+1 Atak",
+    max: 5,
+  },
+  endurance: {
+    name: "Hart",
+    description: "Każdy punkt zwiększa obronę o 1 i maksymalne zdrowie o 2.",
+    bonus: "+1 Obrona, +2 zdrowia",
+    max: 5,
+  },
+  reflex: {
+    name: "Refleks",
+    description: "Każdy punkt zwiększa unik o 1.",
+    bonus: "+1 Unik",
+    max: 5,
+  },
+  will: {
+    name: "Wola",
+    description: "Każdy punkt wzmacnia odporność na klątwę, nieumarłych i finałowe próby.",
+    bonus: "+1 Wola",
+    max: 5,
+  },
+  knowledge: {
+    name: "Wiedza",
+    description: "Każdy punkt pomaga przy runach, magii, sekretach i rozmowach z duchami.",
+    bonus: "+1 Wiedza",
+    max: 5,
+  },
+  cunning: {
+    name: "Spryt",
+    description: "Każdy punkt pomaga przy skradaniu, zamkach, unikaniu zasadzek i fortelach.",
+    bonus: "+1 Spryt",
+    max: 5,
+  },
+};
 
 let state;
 let selectedInventoryItem = null;
 let selectedJournalTab = "quests";
+
+function defaultEquipmentSlots() {
+  return {
+    head: "",
+    armor: "",
+    amulet: "",
+    ring: "",
+    boots: "",
+  };
+}
 
 const els = {
   sceneName: document.querySelector("#sceneName"),
@@ -338,6 +423,7 @@ const els = {
   gold: document.querySelector("#gold"),
   level: document.querySelector("#level"),
   xp: document.querySelector("#xp"),
+  skillPointsPanel: document.querySelector("#skillPointsPanel"),
   healthBar: document.querySelector("#healthBar"),
   xpBar: document.querySelector("#xpBar"),
   attack: document.querySelector("#attack"),
@@ -355,6 +441,8 @@ const els = {
   statsModal: document.querySelector("#statsModal"),
   statsCloseBtn: document.querySelector("#statsCloseBtn"),
   statsHeroSummary: document.querySelector("#statsHeroSummary"),
+  skillPoints: document.querySelector("#skillPoints"),
+  skillTree: document.querySelector("#skillTree"),
   artifactsOpenBtn: document.querySelector("#artifactsOpenBtn"),
   artifactsModal: document.querySelector("#artifactsModal"),
   artifactsCloseBtn: document.querySelector("#artifactsCloseBtn"),
@@ -374,6 +462,19 @@ const els = {
   journalEntries: document.querySelector("#journalEntries"),
   journalPreview: document.querySelector("#journalPreview"),
   journalSummary: document.querySelector("#journalSummary"),
+  mapOpenBtn: document.querySelector("#mapOpenBtn"),
+  mapModal: document.querySelector("#mapModal"),
+  mapCloseBtn: document.querySelector("#mapCloseBtn"),
+  mapGrid: document.querySelector("#mapGrid"),
+  mapSummary: document.querySelector("#mapSummary"),
+  settingsOpenBtn: document.querySelector("#settingsOpenBtn"),
+  settingsModal: document.querySelector("#settingsModal"),
+  settingsCloseBtn: document.querySelector("#settingsCloseBtn"),
+  settingsMusicBtn: document.querySelector("#settingsMusicBtn"),
+  saveSlots: document.querySelector("#saveSlots"),
+  settingsGuideBtn: document.querySelector("#settingsGuideBtn"),
+  settingsRestartBtn: document.querySelector("#settingsRestartBtn"),
+  startLoadBtn: document.querySelector("#startLoadBtn"),
   audioBtn: document.querySelector("#audioBtn"),
   restartBtn: document.querySelector("#restartBtn"),
 };
@@ -401,8 +502,18 @@ function newGame() {
     gold: 0,
     level: 1,
     xp: 0,
+    skillPoints: 0,
+    skills: {
+      strength: 0,
+      endurance: 0,
+      reflex: 0,
+      will: 0,
+      knowledge: 0,
+      cunning: 0,
+    },
     baseAttack: 0,
     weapon: "-",
+    equipment: defaultEquipmentSlots(),
     inventory: [],
     artifacts: [],
     statuses: [],
@@ -421,6 +532,8 @@ function newGame() {
   closeStats();
   closeArtifacts();
   closeJournal();
+  closeMap();
+  closeSettings();
   renderScene("start");
 }
 
@@ -433,7 +546,9 @@ function chooseHero(heroKey) {
   state.gold = hero.gold;
   state.baseAttack = hero.attack;
   state.weapon = hero.weapon;
+  state.equipment = defaultEquipmentSlots();
   state.inventory = [...hero.inventory];
+  autoEquipStartingGear();
   addStatus(hero.trait);
   startMusic({ quiet: true, fromButton: true });
   renderScene("dream");
@@ -441,6 +556,143 @@ function chooseHero(heroKey) {
 
 function openGuide() {
   window.open("korona_popiolu_poradnik_www.html", "_blank", "noopener");
+}
+
+function canUseStorage() {
+  try {
+    return typeof localStorage !== "undefined";
+  } catch {
+    return false;
+  }
+}
+
+function saveSlotKey(slot) {
+  return slot === "auto" ? AUTOSAVE_KEY : `${SAVE_SLOT_PREFIX}${slot}`;
+}
+
+function readSaveData(slot) {
+  if (!canUseStorage()) return false;
+  const raw = localStorage.getItem(saveSlotKey(slot));
+  if (!raw) return null;
+  try {
+    return JSON.parse(raw);
+  } catch {
+    return null;
+  }
+}
+
+function hasSavedGame(slot = "auto") {
+  return Boolean(readSaveData(slot));
+}
+
+function saveSlotLabel(data) {
+  if (!data?.state) return "Puste miejsce";
+  const date = data.savedAt ? new Date(data.savedAt) : null;
+  const time = date && !Number.isNaN(date.getTime()) ? date.toLocaleString("pl-PL", { dateStyle: "short", timeStyle: "short" }) : "bez daty";
+  return `${data.state.heroClass || "Postać"} / poziom ${data.state.level || 1} / ${time}`;
+}
+
+function savePayload() {
+  return {
+    savedAt: new Date().toISOString(),
+    selectedJournalTab,
+    state,
+  };
+}
+
+function normalizeLoadedState(loadedState) {
+  state = {
+    ...state,
+    ...loadedState,
+    skills: {
+      strength: 0,
+      endurance: 0,
+      reflex: 0,
+      will: 0,
+      knowledge: 0,
+      cunning: 0,
+      ...(loadedState.skills || {}),
+    },
+    equipment: {
+      ...defaultEquipmentSlots(),
+      ...(loadedState.equipment || {}),
+    },
+    inventory: loadedState.inventory || [],
+    artifacts: loadedState.artifacts || [],
+    statuses: loadedState.statuses || [],
+    actionLog: loadedState.actionLog || [],
+    notifications: loadedState.notifications || [],
+    flags: loadedState.flags || {},
+    rep: {
+      good: 0,
+      greed: 0,
+      ash: 0,
+      ...(loadedState.rep || {}),
+    },
+    fightFlags: loadedState.fightFlags || {},
+    enemy: null,
+    afterFight: null,
+  };
+}
+
+function saveGame(manual = false, slot = "auto") {
+  if (!state?.maxHealth || state.enemy) {
+    if (manual) {
+      addNotification(state.enemy ? "Nie można zapisać gry w trakcie walki." : "Najpierw wybierz klasę postaci.", "info");
+      renderNotifications();
+      renderSettingsModal();
+    }
+    return false;
+  }
+  if (!canUseStorage()) {
+    if (manual) {
+      addNotification("Przeglądarka nie pozwala teraz zapisać gry.", "danger");
+      renderNotifications();
+    }
+    return false;
+  }
+  localStorage.setItem(saveSlotKey(slot), JSON.stringify(savePayload()));
+  if (manual) {
+    addNotification(slot === "auto" ? "Gra została zapisana." : `Gra została zapisana w slocie ${slot}.`, "good");
+    renderNotifications();
+    renderSettingsModal();
+  }
+  return true;
+}
+
+function loadGame(slot = "auto") {
+  const data = readSaveData(slot);
+  if (!data) {
+    addNotification("Brak zapisanego stanu gry.", "info");
+    renderNotifications();
+    renderSettingsModal();
+    return false;
+  }
+  try {
+    if (!data?.state) throw new Error("Brak danych zapisu");
+    normalizeLoadedState(data.state);
+    selectedJournalTab = data.selectedJournalTab || "quests";
+    selectedInventoryItem = null;
+    closeInventory();
+    closeStats();
+    closeArtifacts();
+    closeJournal();
+    closeMap();
+    closeSettings();
+    renderScene(SCENES[state.scene] ? state.scene : "village");
+    addNotification(slot === "auto" ? "Wczytano zapis gry." : `Wczytano slot ${slot}.`, "good");
+    renderNotifications();
+    return true;
+  } catch {
+    addNotification("Nie udało się wczytać zapisu gry.", "danger");
+    renderNotifications();
+    renderSettingsModal();
+    return false;
+  }
+}
+
+function autoSaveGame() {
+  saveGame(false, "auto");
 }
 
 function addStats(target, source = {}) {
@@ -452,27 +704,36 @@ function addStats(target, source = {}) {
   target.cunning += source.cunning || 0;
 }
 
+function equipmentSlots() {
+  if (!state.equipment) state.equipment = defaultEquipmentSlots();
+  return state.equipment;
+}
+
+function equippedSlotForItem(item) {
+  if (!item) return "";
+  if (state.weapon === item) return "weapon";
+  const entry = Object.entries(equipmentSlots()).find(([, equippedItem]) => equippedItem === item);
+  return entry ? entry[0] : "";
+}
+
+function isEquippedItem(item) {
+  return Boolean(equippedSlotForItem(item));
+}
+
+function equippedWearableItems() {
+  return Object.values(equipmentSlots()).filter(Boolean);
+}
+
 function equipmentStats() {
   const stats = { attack: 0, defense: 0, dodge: 0, will: 0, knowledge: 0, cunning: 0 };
-  const uniqueItems = [...new Set(state.inventory || [])];
-  let bestArmor = null;
-  let bestArmorScore = -Infinity;
+  equippedWearableItems().forEach((item) => addStats(stats, EQUIPMENT_STATS[item]));
 
-  uniqueItems.forEach((item) => {
+  const passiveItems = [...new Set(state.inventory || [])].filter((item) => {
     const itemStats = EQUIPMENT_STATS[item];
-    if (!itemStats) return;
-    if (itemStats.slot === "armor") {
-      const score = (itemStats.defense || 0) * 2 + (itemStats.dodge || 0) + (itemStats.will || 0) + (itemStats.knowledge || 0) + (itemStats.cunning || 0);
-      if (score > bestArmorScore) {
-        bestArmorScore = score;
-        bestArmor = itemStats;
-      }
-      return;
-    }
-    addStats(stats, itemStats);
+    return itemStats && !EQUIPPABLE_SLOTS.has(itemSlot(item));
   });
+  passiveItems.forEach((item) => addStats(stats, EQUIPMENT_STATS[item]));
 
-  if (bestArmor) addStats(stats, bestArmor);
   addStats(stats, WEAPON_STATS[state.weapon]);
   if (hasArtifact(ARTIFACTS.shard)) addStats(stats, { attack: 3, will: -1 });
   if (hasArtifact(ARTIFACTS.crystal)) addStats(stats, { will: 2 });
@@ -480,32 +741,45 @@ function equipmentStats() {
   return stats;
 }
 
+function skillStats() {
+  const skills = state?.skills || {};
+  return {
+    attack: skills.strength || 0,
+    defense: skills.endurance || 0,
+    dodge: skills.reflex || 0,
+    will: skills.will || 0,
+    knowledge: skills.knowledge || 0,
+    cunning: skills.cunning || 0,
+  };
+}
+
 function attackValue() {
-  return state.baseAttack + (WEAPONS[state.weapon] || 0) + equipmentStats().attack;
+  return state.baseAttack + (WEAPONS[state.weapon] || 0) + equipmentStats().attack + skillStats().attack;
 }
 
 function defenseValue() {
-  return Math.max(0, equipmentStats().defense);
+  return Math.max(0, equipmentStats().defense + skillStats().defense);
 }
 
 function dodgeValue() {
-  return equipmentStats().dodge;
+  return equipmentStats().dodge + skillStats().dodge;
 }
 
 function willValue() {
-  return equipmentStats().will;
+  return equipmentStats().will + skillStats().will;
 }
 
 function knowledgeValue() {
-  return equipmentStats().knowledge;
+  return equipmentStats().knowledge + skillStats().knowledge;
 }
 
 function cunningValue() {
-  return equipmentStats().cunning;
+  return equipmentStats().cunning + skillStats().cunning;
 }
 
 function has(item) {
-  return state.inventory.includes(item);
+  if (!item || !state) return false;
+  return state.inventory.includes(item) || state.weapon === item || Object.values(equipmentSlots()).includes(item);
 }
 
 function hasArtifact(artifact) {
@@ -526,7 +800,7 @@ function mainArtifactCount() {
 
 function addItem(item) {
   if (!item) return;
-  if (STACKABLE_ITEMS.has(item) || !state.inventory.includes(item)) {
+  if (STACKABLE_ITEMS.has(item) || !has(item)) {
     state.inventory.push(item);
     addNotification(`Otrzymujesz: ${item}.`, "item");
   }
@@ -541,7 +815,65 @@ function removeInventoryItem(item, notify = true) {
 }
 
 function removeItem(item) {
-  return removeInventoryItem(item, true);
+  if (removeInventoryItem(item, true)) return true;
+  const slot = equippedSlotForItem(item);
+  if (slot === "weapon") {
+    state.weapon = "Gołe ręce";
+    addNotification(`Tracisz: ${item}.`, "loss");
+    return true;
+  }
+  if (EQUIPPABLE_SLOTS.has(slot)) {
+    equipmentSlots()[slot] = "";
+    addNotification(`Tracisz: ${item}.`, "loss");
+    return true;
+  }
+  return false;
+}
+
+function equipEquipmentItem(item, silent = false) {
+  const slot = itemSlot(item);
+  if (!EQUIPPABLE_SLOTS.has(slot) || !state.inventory.includes(item)) return false;
+  removeInventoryItem(item, false);
+  const slots = equipmentSlots();
+  const previousItem = slots[slot];
+  if (previousItem && previousItem !== item) state.inventory.push(previousItem);
+  slots[slot] = item;
+  selectedInventoryItem = item;
+  if (!silent) {
+    addNotification(`Zakładasz: ${item}.`, "item");
+    renderStats();
+    renderNotifications();
+    renderInventoryModal();
+    autoSaveGame();
+  }
+  return true;
+}
+
+function unequipEquipmentItem(itemOrSlot, silent = false) {
+  const slot = EQUIPPABLE_SLOTS.has(itemOrSlot) ? itemOrSlot : equippedSlotForItem(itemOrSlot);
+  if (!EQUIPPABLE_SLOTS.has(slot)) return false;
+  const item = equipmentSlots()[slot];
+  if (!item) return false;
+  if (STACKABLE_ITEMS.has(item) || !state.inventory.includes(item)) state.inventory.push(item);
+  equipmentSlots()[slot] = "";
+  selectedInventoryItem = item;
+  if (!silent) {
+    addNotification(`Zdejmujesz: ${item}.`, "item");
+    renderStats();
+    renderNotifications();
+    renderInventoryModal();
+    autoSaveGame();
+  }
+  return true;
+}
+
+function autoEquipStartingGear() {
+  EQUIPPABLE_SLOTS.forEach((slot) => {
+    const candidate = [...new Set(state.inventory)]
+      .filter((item) => itemSlot(item) === slot)
+      .sort((a, b) => itemScore(b) - itemScore(a))[0];
+    if (candidate) equipEquipmentItem(candidate, true);
+  });
 }
 
 function addArtifact(artifact) {
@@ -605,14 +937,10 @@ function addXP(amount) {
 
   while (state.level < XP_LEVELS.length && state.xp >= XP_LEVELS[state.level]) {
     state.level += 1;
-    state.maxHealth += 5;
-    state.health = Math.min(state.maxHealth, state.health + 5);
-    if ([3, 5, 7].includes(state.level)) {
-      state.baseAttack += 1;
-      addNotification(`Awans na poziom ${state.level}: +5 maks. zdrowia i +1 ataku.`, "good");
-    } else {
-      addNotification(`Awans na poziom ${state.level}: +5 maks. zdrowia.`, "good");
-    }
+    state.maxHealth += 3;
+    state.health = Math.min(state.maxHealth, state.health + 3);
+    state.skillPoints += SKILL_POINTS_PER_LEVEL;
+    addNotification(`Awans na poziom ${state.level}: +3 maks. zdrowia i +${SKILL_POINTS_PER_LEVEL} punkty umiejętności.`, "good");
   }
 }
 
@@ -750,6 +1078,7 @@ function renderScene(id) {
     els.choices.appendChild(renderChoiceButton(choice, () => takeChoice(choice)));
   });
   renderStats();
+  autoSaveGame();
 }
 
 function renderNotice(title, text, backScene = state.scene) {
@@ -777,13 +1106,19 @@ function renderChoiceButton(choice, handler) {
   button.type = "button";
   const available = isAvailable(choice);
   if (choice.kind) button.classList.add(choice.kind);
-  if (choice.description || choice.meta || choice.icon) button.classList.add("choice-card");
+  if (choice.description || choice.meta || choice.icon || choice.asset) button.classList.add("choice-card");
   button.disabled = choice.disabled === true;
 
   const content = document.createElement("span");
   content.className = "choice-content";
 
-  if (choice.icon) {
+  if (choice.asset) {
+    const art = document.createElement("span");
+    art.className = "choice-art";
+    art.innerHTML = `<img src="${escapeHTML(choice.asset)}" alt="" loading="lazy" />`;
+    content.appendChild(art);
+    content.classList.add("has-choice-art");
+  } else if (choice.icon) {
     const icon = document.createElement("span");
     icon.className = "choice-icon";
     icon.textContent = choice.icon;
@@ -810,7 +1145,7 @@ function renderChoiceButton(choice, handler) {
     copy.appendChild(meta);
   }
 
-  if (!choice.icon && !choice.description && !choice.meta) {
+  if (!choice.icon && !choice.asset && !choice.description && !choice.meta) {
     button.textContent = title.textContent;
   } else {
     content.appendChild(copy);
@@ -827,6 +1162,7 @@ function renderStats() {
   els.gold.textContent = state.gold;
   if (els.level) els.level.textContent = state.maxHealth ? state.level : "-";
   if (els.xp) els.xp.textContent = xpLabel();
+  if (els.skillPointsPanel) els.skillPointsPanel.textContent = state.maxHealth ? state.skillPoints : "-";
   if (els.healthBar) els.healthBar.style.width = state.maxHealth ? `${Math.max(0, Math.min(100, (state.health / state.maxHealth) * 100))}%` : "0%";
   if (els.xpBar) els.xpBar.style.width = `${xpProgress()}%`;
   els.attack.textContent = state.maxHealth ? attackValue() : "-";
@@ -953,18 +1289,52 @@ function willValueFromItem(item) {
 
 function itemIcon(item) {
   const slot = itemSlot(item);
-  if (slot === "weapon") return "BR";
-  if (slot === "armor") return "ZR";
-  if (slot === "head") return "GL";
-  if (slot === "amulet") return "AM";
-  if (slot === "ring") return "PI";
-  if (slot === "boots") return "BT";
-  if (slot === "artifact") return "AR";
-  if (HEALING_ITEMS[item]) return "EL";
-  if (/mapa/i.test(item)) return "MP";
-  if (/księga|dziennik|list|notatnik/i.test(item)) return "KS";
-  if (/klucz|wytrych/i.test(item)) return "KL";
+  const lower = item.toLowerCase();
+  if (slot === "weapon") return "⚔";
+  if (slot === "armor") return "⬟";
+  if (slot === "head") return "◠";
+  if (slot === "amulet") return "◆";
+  if (slot === "ring") return "○";
+  if (slot === "boots") return "⌁";
+  if (slot === "artifact") return "✦";
+  if (HEALING_ITEMS[item]) return "✚";
+  if (/mapa/i.test(lower)) return "⌖";
+  if (/księga|dziennik|list|notatnik/i.test(lower)) return "▤";
+  if (/klucz|wytrych/i.test(lower)) return "⚿";
+  if (/pochodnia|świeca/i.test(lower)) return "♨";
+  if (/kość|kieł|futro|korzeń|mech|sól|proch|pył/i.test(lower)) return "✣";
   return item.slice(0, 2).toUpperCase();
+}
+
+function itemIconAsset(item) {
+  const slot = itemSlot(item);
+  const lower = item.toLowerCase();
+  if (item === ARTIFACTS.crystal || /kryształ|odłamek/.test(lower)) return ITEM_ICON_ASSETS.crystal;
+  if (isArtifactItem(item) || /korona/.test(lower)) return ITEM_ICON_ASSETS.crown;
+  if (slot === "weapon") {
+    if (/topór|toporek|młot|pałka|hak|łańcuch|siekiera/.test(lower)) return ITEM_ICON_ASSETS.axe;
+    if (/kostur|laska|iskra/.test(lower)) return ITEM_ICON_ASSETS.staff;
+    return ITEM_ICON_ASSETS.sword;
+  }
+  if (slot === "armor") return ITEM_ICON_ASSETS.armor;
+  if (slot === "head") return ITEM_ICON_ASSETS.helm;
+  if (slot === "amulet") return ITEM_ICON_ASSETS.amulet;
+  if (slot === "ring") return ITEM_ICON_ASSETS.ring;
+  if (slot === "boots") return ITEM_ICON_ASSETS.boots;
+  if (HEALING_ITEMS[item] || /eliksir|nalewka|fiolka|krople/.test(lower)) return ITEM_ICON_ASSETS.potion;
+  if (/mapa/.test(lower)) return ITEM_ICON_ASSETS.map;
+  if (/księga|dziennik|notatnik/.test(lower)) return ITEM_ICON_ASSETS.book;
+  if (/list|przesyłka|zwój/.test(lower)) return ITEM_ICON_ASSETS.scroll;
+  if (/klucz|wytrych/.test(lower)) return ITEM_ICON_ASSETS.key;
+  if (/pochodnia|świeca/.test(lower)) return ITEM_ICON_ASSETS.torch;
+  if (/kość|kości|kieł|futro|korzeń|mech|sól|proch|pył|olej|kreda|gwóźdź/.test(lower)) return ITEM_ICON_ASSETS.material;
+  return "";
+}
+
+function itemIconHTML(item, className) {
+  const asset = itemIconAsset(item);
+  if (asset) return `<img class="${className}" src="${escapeHTML(asset)}" alt="" loading="lazy" />`;
+  return `<span class="${className}">${escapeHTML(itemIcon(item))}</span>`;
 }
 
 function itemDescription(item) {
@@ -972,7 +1342,7 @@ function itemDescription(item) {
   if (HEALING_ITEMS[item]) return `Przywraca ${HEALING_ITEMS[item]} zdrowia poza walką. Mikstury możesz też wykorzystać w walce.`;
   const slot = itemSlot(item);
   if (slot === "weapon") return "Broń, którą można założyć jako główny oręż postaci.";
-  if (slot !== "bag") return `Element wyposażenia: ${SLOT_LABELS[slot]}. Bonus działa, gdy przedmiot jest przy bohaterze.`;
+  if (slot !== "bag") return `Element wyposażenia: ${SLOT_LABELS[slot]}. Bonus działa dopiero po założeniu.`;
   if (STACKABLE_ITEMS.has(item)) return "Przedmiot użytkowy, którego można użyć w odpowiedniej scenie albo walce.";
   return "Przedmiot zebrany podczas podróży przez Valdorin.";
 }
@@ -996,9 +1366,7 @@ function inventoryEntries() {
 function bestSlotItem(slot) {
   if (slot === "weapon") return state.weapon && state.weapon !== "-" ? state.weapon : "";
   if (slot === "artifact") return state.artifacts[0] || "";
-  const candidates = [...new Set(state.inventory)].filter((item) => itemSlot(item) === slot);
-  if (!candidates.length) return "";
-  return candidates.sort((a, b) => itemScore(b) - itemScore(a))[0];
+  return equipmentSlots()[slot] || "";
 }
 
 function activeEquipment() {
@@ -1031,9 +1399,54 @@ function renderStatsModal() {
   if (!els.statsModal || els.statsModal.classList.contains("hidden")) return;
   if (els.statsHeroSummary) {
     els.statsHeroSummary.textContent = state.maxHealth
-      ? `${state.heroClass} / poziom ${state.level} / ${state.health}/${state.maxHealth} zdrowia / ${state.gold} złota`
+      ? `${state.heroClass} / poziom ${state.level} / ${state.health}/${state.maxHealth} zdrowia / ${state.gold} złota / punkty: ${state.skillPoints}`
       : "Brak aktywnej postaci.";
   }
+  renderSkillTree();
+}
+
+function renderSkillTree() {
+  if (!els.skillTree) return;
+  if (els.skillPoints) {
+    els.skillPoints.textContent = state.maxHealth ? `${state.skillPoints} pkt` : "0 pkt";
+  }
+  els.skillTree.innerHTML = "";
+
+  Object.entries(SKILLS).forEach(([key, skill]) => {
+    const rank = state.skills?.[key] || 0;
+    const canSpend = state.maxHealth > 0 && state.skillPoints > 0 && rank < skill.max;
+    const card = document.createElement("article");
+    card.className = "skill-card";
+    card.innerHTML = `
+      <div>
+        <span>${escapeHTML(skill.bonus)}</span>
+        <strong>${escapeHTML(skill.name)} ${rank}/${skill.max}</strong>
+        <p>${escapeHTML(skill.description)}</p>
+      </div>
+      <button type="button" ${canSpend ? "" : "disabled"}>${rank >= skill.max ? "Maks." : "Dodaj"}</button>
+    `;
+    card.querySelector("button").addEventListener("click", () => spendSkillPoint(key));
+    els.skillTree.appendChild(card);
+  });
+}
+
+function spendSkillPoint(skillKey) {
+  const skill = SKILLS[skillKey];
+  if (!skill || !state.maxHealth || state.skillPoints <= 0) return;
+  if ((state.skills[skillKey] || 0) >= skill.max) return;
+
+  state.skills[skillKey] += 1;
+  state.skillPoints -= 1;
+
+  if (skillKey === "endurance") {
+    state.maxHealth += 2;
+    state.health = Math.min(state.maxHealth, state.health + 2);
+  }
+
+  addNotification(`Rozwój: ${skill.name} +1.`, "good");
+  renderStats();
+  renderNotifications();
+  autoSaveGame();
 }
 
 function artifactCatalog() {
@@ -1134,6 +1547,154 @@ function openJournal() {
 
 function closeJournal() {
   if (els.journalModal) els.journalModal.classList.add("hidden");
+}
+
+function mapDestinations() {
+  const hasHero = state.maxHealth > 0;
+  return [
+    {
+      title: "Ravenford",
+      art: "village",
+      scene: "village",
+      description: "Gospoda, sklep, kuźnia i tablica ogłoszeń.",
+      unlocked: hasHero,
+      requirement: "Wybierz klasę postaci.",
+    },
+    {
+      title: "Mroczny Las",
+      art: "forest",
+      scene: "forest",
+      description: "Kupiecki wóz, kapliczka, stara chata i pierwsze bestie.",
+      unlocked: hasHero,
+      requirement: "Wybierz klasę postaci.",
+    },
+    {
+      title: "Bagna Umarłych",
+      art: "swamp",
+      scene: () => (has(ITEMS.swampMap) || state.heroKey === "rogue" ? "swamp" : "swampRisk"),
+      description: "Mgła, przewoźnik, zielarka Mirna i zatrute ścieżki.",
+      unlocked: hasHero,
+      requirement: "Wybierz klasę postaci.",
+    },
+    {
+      title: "Krypta Milczących",
+      art: "crypt",
+      scene: "cryptStart",
+      description: "Próba ciszy i droga do Srebrnego Klucza.",
+      unlocked: hasHero && (has(ITEMS.torch) || state.heroKey === "mage"),
+      requirement: "Wymaga pochodni albo magii.",
+    },
+    {
+      title: "Fort Zdrajców",
+      art: "fort",
+      scene: "fortGate",
+      description: "Strażnicy Caela i Pieczęć Starego Króla.",
+      unlocked: hasHero,
+      requirement: "Wybierz klasę postaci.",
+    },
+    {
+      title: "Wieża Astromanty",
+      art: "tower",
+      scene: "towerDoor",
+      description: "Sala luster, runy i Kryształ Świtu.",
+      unlocked: hasHero && mainArtifactCount() > 0,
+      requirement: "Wymaga co najmniej jednego artefaktu.",
+    },
+    {
+      title: "Ruiny Valdorinu",
+      art: "ruins",
+      scene: "ruinsGate",
+      description: "Martwa stolica i droga do pałacu Korony.",
+      unlocked: hasHero,
+      requirement: "Wybierz klasę postaci.",
+    },
+    {
+      title: "Sala Korony",
+      art: "crown",
+      scene: "crownHall",
+      description: "Finałowa próba Popielnego Króla.",
+      unlocked: hasHero && mainArtifactCount() >= 3,
+      requirement: "Wymaga trzech głównych artefaktów.",
+    },
+  ];
+}
+
+function openMap() {
+  if (!els.mapModal) return;
+  els.mapModal.classList.remove("hidden");
+  renderMapModal();
+}
+
+function closeMap() {
+  if (els.mapModal) els.mapModal.classList.add("hidden");
+}
+
+function renderMapModal() {
+  if (!els.mapModal || els.mapModal.classList.contains("hidden") || !els.mapGrid) return;
+  const destinations = mapDestinations();
+  const unlockedCount = destinations.filter((destination) => destination.unlocked).length;
+  if (els.mapSummary) {
+    els.mapSummary.textContent = `Dostępne lokacje: ${unlockedCount} / ${destinations.length}. Artefakty główne: ${mainArtifactCount()} / 3.`;
+  }
+  els.mapGrid.innerHTML = "";
+  destinations.forEach((destination) => {
+    const card = document.createElement("button");
+    card.type = "button";
+    card.className = `map-card ${destination.unlocked ? "is-open" : "is-locked"} ${destination.art === document.body.dataset.scene ? "is-current" : ""}`;
+    card.disabled = !destination.unlocked;
+    card.style.setProperty("--map-card-art", `url("${sceneArt[destination.art]}")`);
+    card.innerHTML = `
+      <span>${destination.unlocked ? "Dostępne" : "Zablokowane"}</span>
+      <strong>${escapeHTML(destination.title)}</strong>
+      <p>${escapeHTML(destination.description)}</p>
+      <em>${escapeHTML(destination.unlocked ? "Przejdź" : destination.requirement)}</em>
+    `;
+    card.addEventListener("click", () => {
+      if (!destination.unlocked) return;
+      closeMap();
+      const target = typeof destination.scene === "function" ? destination.scene() : destination.scene;
+      renderScene(target);
+    });
+    els.mapGrid.appendChild(card);
+  });
+}
+
+function openSettings() {
+  if (!els.settingsModal) return;
+  els.settingsModal.classList.remove("hidden");
+  renderSettingsModal();
+}
+
+function closeSettings() {
+  if (els.settingsModal) els.settingsModal.classList.add("hidden");
+}
+
+function renderSettingsModal() {
+  if (!els.settingsModal || els.settingsModal.classList.contains("hidden")) return;
+  if (els.settingsMusicBtn) {
+    els.settingsMusicBtn.textContent = music.running ? "Wyłącz muzykę" : "Włącz muzykę";
+  }
+  if (els.saveSlots) renderSaveSlots();
+}
+
+function renderSaveSlots() {
+  els.saveSlots.innerHTML = "";
+  for (let slot = 1; slot <= SAVE_SLOT_COUNT; slot += 1) {
+    const data = readSaveData(slot);
+    const card = document.createElement("article");
+    card.className = "save-slot";
+    card.innerHTML = `
+      <div>
+        <span>Slot ${slot}</span>
+        <strong>${escapeHTML(saveSlotLabel(data))}</strong>
+      </div>
+      <div class="save-slot-actions">
+        <button type="button" data-save-slot="${slot}" ${!state.maxHealth || state.enemy ? "disabled" : ""}>Zapisz</button>
+        <button type="button" data-load-slot="${slot}" ${data ? "" : "disabled"}>Wczytaj</button>
+      </div>
+    `;
+    els.saveSlots.appendChild(card);
+  }
 }
 
 function questEntries() {
@@ -1375,7 +1936,11 @@ function renderInventoryModal() {
       ? `${state.heroClass} / poziom ${state.level} / ${state.gold} złota / ${state.health}/${state.maxHealth} zdrowia`
       : "Brak bohatera";
   }
-  if (els.inventoryHeroSketch) els.inventoryHeroSketch.textContent = HERO_MARKS[state.heroKey] || "?";
+  if (els.inventoryHeroSketch) {
+    els.inventoryHeroSketch.innerHTML = state.heroKey
+      ? `<img src="${escapeHTML(HERO_ART.sketch)}" alt="" loading="lazy" /><span>${escapeHTML(HERO_MARKS[state.heroKey] || "")}</span>`
+      : "?";
+  }
 
   document.querySelectorAll(".equip-slot").forEach((button) => {
     const slot = button.dataset.slot;
@@ -1386,7 +1951,11 @@ function renderInventoryModal() {
       if (selectedInventoryItem === item) button.classList.add("is-selected");
     }
     button.title = item ? itemTooltip(item) : `${SLOT_LABELS[slot]}: puste`;
-    button.innerHTML = `<span>${escapeHTML(SLOT_LABELS[slot])}</span><strong>${escapeHTML(item || "puste")}</strong>`;
+    button.innerHTML = `
+      <span>${escapeHTML(SLOT_LABELS[slot])}</span>
+      <i class="slot-icon">${item ? itemIconHTML(item, "slot-icon-img") : "·"}</i>
+      <strong>${escapeHTML(item || "puste")}</strong>
+    `;
     button.onclick = () => selectInventoryItem(item || null);
   });
 
@@ -1418,7 +1987,7 @@ function renderInventoryGrid() {
     if (selectedInventoryItem === entry.name) cell.classList.add("is-selected");
     cell.title = itemTooltip(entry.name);
     cell.setAttribute("aria-label", entry.name);
-    cell.innerHTML = `<span class="inventory-cell-icon">${escapeHTML(itemIcon(entry.name))}</span>${entry.count > 1 ? `<span class="inventory-cell-count">${entry.count}</span>` : ""}`;
+    cell.innerHTML = `<span class="inventory-cell-icon">${itemIconHTML(entry.name, "inventory-cell-img")}</span>${entry.count > 1 ? `<span class="inventory-cell-count">${entry.count}</span>` : ""}`;
     cell.addEventListener("click", () => selectInventoryItem(entry.name));
     els.inventoryGrid.appendChild(cell);
   }
@@ -1438,14 +2007,23 @@ function renderItemDetails(item) {
   const slot = itemSlot(item);
   const bonuses = itemBonusList(item);
   const actions = [];
-  if (HEALING_ITEMS[item] && has(item)) actions.push(`<button type="button" data-action="use">Użyj</button>`);
-  if (WEAPONS[item] !== undefined && has(item) && state.weapon !== item) actions.push(`<button type="button" data-action="equip">Załóż</button>`);
+  const inBag = state.inventory.includes(item);
+  const equippedSlot = equippedSlotForItem(item);
+  if (HEALING_ITEMS[item] && inBag) actions.push(`<button type="button" data-action="use">Użyj</button>`);
+  if (WEAPONS[item] !== undefined && inBag && state.weapon !== item) actions.push(`<button type="button" data-action="equip">Załóż</button>`);
   if (state.weapon === item && item !== "Gołe ręce") actions.push(`<button type="button" data-action="unequip">Zdejmij</button>`);
-  if (has(item) && !isArtifactItem(item)) actions.push(`<button type="button" class="danger" data-action="drop">Wyrzuć</button>`);
+  if (EQUIPPABLE_SLOTS.has(slot) && inBag && equippedSlot !== slot) actions.push(`<button type="button" data-action="wear">Załóż</button>`);
+  if (EQUIPPABLE_SLOTS.has(slot) && equippedSlot === slot) actions.push(`<button type="button" data-action="takeoff">Zdejmij</button>`);
+  if (inBag && !isArtifactItem(item)) actions.push(`<button type="button" class="danger" data-action="drop">Wyrzuć</button>`);
 
   els.itemDetails.innerHTML = `
-    <p class="item-details-kicker">${escapeHTML(SLOT_LABELS[slot] || "Plecak")} / ${escapeHTML(rarityLabel(itemRarity(item)))}</p>
-    <h4>${escapeHTML(item)}</h4>
+    <div class="item-details-title">
+      <span class="item-details-icon">${itemIconHTML(item, "item-details-img")}</span>
+      <div>
+        <p class="item-details-kicker">${escapeHTML(SLOT_LABELS[slot] || "Plecak")} / ${escapeHTML(rarityLabel(itemRarity(item)))}</p>
+        <h4>${escapeHTML(item)}</h4>
+      </div>
+    </div>
     <p>${escapeHTML(itemDescription(item))}</p>
     ${bonuses.length ? `<ul class="item-bonus-list">${bonuses.map((bonus) => `<li>${escapeHTML(bonus)}</li>`).join("")}</ul>` : ""}
     <p>Wartość: ${escapeHTML(itemValue(item))}</p>
@@ -1458,6 +2036,8 @@ function renderItemDetails(item) {
       if (action === "use") useInventoryItem(item);
       if (action === "equip") equipInventoryWeapon(item);
       if (action === "unequip") unequipInventoryWeapon();
+      if (action === "wear") equipEquipmentItem(item);
+      if (action === "takeoff") unequipEquipmentItem(item);
       if (action === "drop") dropInventoryItem(item);
     });
   });
@@ -1477,10 +2057,12 @@ function useInventoryItem(item) {
   if (!has(item)) selectedInventoryItem = state.inventory[0] || state.artifacts[0] || state.weapon || null;
   renderStats();
   renderNotifications();
+  renderInventoryModal();
+  autoSaveGame();
 }
 
 function equipInventoryWeapon(item) {
-  if (WEAPONS[item] === undefined || !has(item)) return;
+  if (WEAPONS[item] === undefined || !state.inventory.includes(item)) return;
   if (!removeInventoryItem(item, false)) return;
   const previousWeapon = state.weapon;
   if (previousWeapon && previousWeapon !== "-" && previousWeapon !== "Gołe ręce" && previousWeapon !== item && !state.inventory.includes(previousWeapon)) {
@@ -1491,6 +2073,8 @@ function equipInventoryWeapon(item) {
   addNotification(`Zakładasz broń: ${item}.`, "item");
   renderStats();
   renderNotifications();
+  renderInventoryModal();
+  autoSaveGame();
 }
 
 function unequipInventoryWeapon() {
@@ -1502,15 +2086,19 @@ function unequipInventoryWeapon() {
   addNotification(`Zdejmujesz broń: ${removedWeapon}.`, "item");
   renderStats();
   renderNotifications();
+  renderInventoryModal();
+  autoSaveGame();
 }
 
 function dropInventoryItem(item) {
-  if (!has(item) || isArtifactItem(item)) return;
+  if (!state.inventory.includes(item) || isArtifactItem(item)) return;
   removeInventoryItem(item, false);
   addNotification(`Wyrzucasz: ${item}.`, "loss");
   if (!has(item)) selectedInventoryItem = state.inventory[0] || state.artifacts[0] || state.weapon || null;
   renderStats();
   renderNotifications();
+  renderInventoryModal();
+  autoSaveGame();
 }
 
 function useHealingItem(item) {
@@ -1530,6 +2118,7 @@ function buy(item, price, back = "shop") {
 
 function startFight(enemyTemplate, winSceneOrFn, loseScene = "village") {
   const enemy = { ...enemyTemplate };
+  scaleEnemy(enemy);
   if (enemy.name === "Cień Gracza") {
     enemy.health = state.health + 5 + Math.max(0, state.rep.greed - 2) * 2;
     enemy.attack = Math.ceil(attackValue() / 2) + 3 + Math.max(0, state.rep.ash - 2);
@@ -1550,6 +2139,22 @@ function startFight(enemyTemplate, winSceneOrFn, loseScene = "village") {
   state.returnScene = loseScene;
   state.fightFlags = {};
   renderFight();
+}
+
+function scaleEnemy(enemy) {
+  const artifacts = mainArtifactCount();
+  const levelPressure = Math.max(0, state.level - 1) * 0.04;
+  let healthScale = 1.18 + artifacts * 0.08 + levelPressure;
+  let attackBonus = 1 + Math.floor(artifacts / 2);
+
+  if (enemy.finalBoss) {
+    healthScale += 0.18;
+    attackBonus += 2;
+  }
+
+  if (enemy.undead || enemy.ghost) healthScale += 0.06;
+  enemy.health = Math.max(1, Math.ceil(enemy.health * healthScale));
+  enemy.attack = Math.max(1, Math.ceil(enemy.attack + attackBonus));
 }
 
 function renderFight(message = "") {
@@ -1688,7 +2293,8 @@ function useBlindSmoke() {
 }
 
 function flee() {
-  if (Math.random() < 0.5) {
+  const fleeChance = Math.max(0.25, Math.min(0.5, 0.35 + Math.max(0, cunningValue()) * 0.02 + Math.max(0, dodgeValue()) * 0.01));
+  if (Math.random() < fleeChance) {
     state.enemy = null;
     return renderScene(state.returnScene || "village");
   }
@@ -1823,11 +2429,11 @@ const SCENES = {
     atmosphere: "Wybór klasy uruchamia muzykę i rozpoczyna historię w Ravenford.",
     text: () => "Valdorin budzi starą klątwę. Wybierz wędrowca, który przejdzie przez czarny deszcz, popiół i pamięć umarłego miasta.\nKażda klasa ma inny ekwipunek startowy, inne statystyki i własne sposoby rozwiązywania scen.",
     choices: [
-      c("Poradnik", { action: openGuide, kind: "good", icon: "KSI", description: "Solucja, zakończenia, misje poboczne, wyposażenie i taktyki.", meta: "Otwiera osobną stronę HTML" }),
-      c("Wojownik", { action: () => chooseHero("warrior"), icon: "WOJ", description: "Najwięcej zdrowia, cięższa broń i pancerz. Dobry w walce i zastraszaniu.", meta: "Zdrowie 38 / Złoto 8 / Broń: Stary miecz" }),
-      c("Łotrzyk", { action: () => chooseHero("rogue"), icon: "LOT", description: "Wytrychy, unik, spryt i ciche przejścia. Często omija walkę.", meta: "Zdrowie 30 / Złoto 16 / Broń: Sztylet" }),
-      c("Uczeń Maga", { action: () => chooseHero("mage"), icon: "MAG", description: "Słabszy fizycznie, ale czyta runy, rozprasza iluzje i rozmawia z duchami.", meta: "Zdrowie 26 / Złoto 10 / Broń: Kostur ucznia" }),
-      c("Banita", { action: () => chooseHero("outlaw"), icon: "BAN", description: "Brutalny spryt, kontakty z półświatkiem i lepsze rozmowy z dezerterami.", meta: "Zdrowie 32 / Złoto 5 / Broń: Toporek Banity" }),
+      c("Poradnik", { action: openGuide, kind: "good", asset: HERO_ART.guide, description: "Solucja, zakończenia, misje poboczne, wyposażenie i taktyki.", meta: "Otwiera osobną stronę HTML" }),
+      c("Wojownik", { action: () => chooseHero("warrior"), asset: HERO_ART.warrior, description: "Najwięcej zdrowia, cięższa broń i pancerz. Dobry w walce i zastraszaniu.", meta: "Zdrowie 38 / Złoto 8 / Broń: Stary miecz" }),
+      c("Łotrzyk", { action: () => chooseHero("rogue"), asset: HERO_ART.rogue, description: "Wytrychy, unik, spryt i ciche przejścia. Często omija walkę.", meta: "Zdrowie 30 / Złoto 16 / Broń: Sztylet" }),
+      c("Uczeń Maga", { action: () => chooseHero("mage"), asset: HERO_ART.mage, description: "Słabszy fizycznie, ale czyta runy, rozprasza iluzje i rozmawia z duchami.", meta: "Zdrowie 26 / Złoto 10 / Broń: Kostur ucznia" }),
+      c("Banita", { action: () => chooseHero("outlaw"), asset: HERO_ART.outlaw, description: "Brutalny spryt, kontakty z półświatkiem i lepsze rozmowy z dezerterami.", meta: "Zdrowie 32 / Złoto 5 / Broń: Toporek Banity" }),
     ],
   },
   dream: {
@@ -1886,15 +2492,9 @@ const SCENES = {
       c("Kuźnia Borena", { to: "forge" }),
       c("Kaplica Świtu", { to: "chapel" }),
       c("Tablica ogłoszeń", { to: "noticeBoard" }),
-      c("Mroczny Las", { to: "forest" }),
-      c("Bagna Umarłych", { action: () => (has(ITEMS.swampMap) ? renderScene("swamp") : renderScene("swampRisk")) }),
-      c("Krypta Milczących", { to: "cryptStart" }),
-      c("Fort Zdrajców", { to: "fortGate" }),
       c("Dezerter przy trakcie", { to: "raukQuest", when: () => mainArtifactCount() >= 1 && !hasFlag("raukQuestDone") }),
-      c("Wieża Astromanty", { to: "towerDoor" }),
       c("Nocny atak na Ravenford", { to: "nightAttack", when: () => mainArtifactCount() >= 1 && !hasFlag("nightAttackDone"), kind: "danger" }),
       c("Kronikarz przy studni", { to: "edrinWell", when: () => mainArtifactCount() >= 2 && !hasFlag("edrinWellDone") }),
-      c("Ruiny Valdorinu", { to: "ruinsGate", kind: "danger" }),
     ],
   },
   bellQuest: {
@@ -2898,6 +3498,7 @@ function updateAudioButton() {
   els.audioBtn.classList.toggle("is-playing", music.running);
   els.audioBtn.textContent = music.running ? "♫" : "♪";
   els.audioBtn.title = music.running ? "Wyłącz muzykę" : "Włącz muzykę";
+  renderSettingsModal();
 }
 
 els.audioBtn.addEventListener("click", toggleMusic);
@@ -2923,6 +3524,26 @@ els.journalCloseBtn?.addEventListener("click", closeJournal);
 els.journalModal?.addEventListener("click", (event) => {
   if (event.target === els.journalModal) closeJournal();
 });
+els.mapOpenBtn?.addEventListener("click", openMap);
+els.mapCloseBtn?.addEventListener("click", closeMap);
+els.mapModal?.addEventListener("click", (event) => {
+  if (event.target === els.mapModal) closeMap();
+});
+els.settingsOpenBtn?.addEventListener("click", openSettings);
+els.settingsCloseBtn?.addEventListener("click", closeSettings);
+els.settingsModal?.addEventListener("click", (event) => {
+  if (event.target === els.settingsModal) closeSettings();
+});
+els.settingsMusicBtn?.addEventListener("click", toggleMusic);
+els.saveSlots?.addEventListener("click", (event) => {
+  const saveButton = event.target.closest("[data-save-slot]");
+  const loadButton = event.target.closest("[data-load-slot]");
+  if (saveButton) saveGame(true, Number(saveButton.dataset.saveSlot));
+  if (loadButton) loadGame(Number(loadButton.dataset.loadSlot));
+});
+els.settingsGuideBtn?.addEventListener("click", openGuide);
+els.settingsRestartBtn?.addEventListener("click", newGame);
+els.startLoadBtn?.addEventListener("click", openSettings);
 document.querySelectorAll("[data-journal-tab]").forEach((button) => {
   button.addEventListener("click", () => {
     selectedJournalTab = button.dataset.journalTab;
@@ -2935,6 +3556,8 @@ window.addEventListener("keydown", (event) => {
     closeArtifacts();
     closeInventory();
     closeJournal();
+    closeMap();
+    closeSettings();
   }
 });
 setupAsh();
