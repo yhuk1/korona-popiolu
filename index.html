@@ -29,14 +29,27 @@
         <button id="startLoadBtn" class="start-load" type="button">Wczytaj zapis</button>
 
         <div class="location-strip">
-          <div>
-            <p class="location-label">Aktualna lokacja</p>
-            <p id="sceneName" class="scene-name"></p>
+          <div class="location-main">
+            <span id="sceneThumb" class="scene-thumb" aria-hidden="true"></span>
+            <div>
+              <p class="location-label">Aktualna lokacja</p>
+              <p id="sceneName" class="scene-name"></p>
+            </div>
           </div>
           <p id="sceneAtmosphere" class="scene-atmosphere"></p>
         </div>
 
+        <section id="sceneHero" class="scene-hero" aria-label="Kadr lokacji">
+          <div class="scene-hero-copy">
+            <span id="sceneHeroKicker"></span>
+            <strong id="sceneHeroTitle"></strong>
+            <p id="sceneHeroText"></p>
+          </div>
+          <div id="sceneHeroMarks" class="scene-hero-marks" aria-label="Cechy lokacji"></div>
+        </section>
+
         <div class="story-box">
+          <div id="combatPanel" class="combat-panel" hidden></div>
           <div id="storyText" class="story-text"></div>
           <div id="eventLog" class="event-log" aria-live="polite"></div>
         </div>
@@ -52,11 +65,16 @@
           </div>
         </div>
 
-        <dl class="stats">
-          <div class="stat-row stat-plain">
-            <dt>Klasa</dt>
-            <dd id="heroClass">-</dd>
+        <section class="hero-card" aria-label="Karta bohatera">
+          <div id="panelHeroPortrait" class="hero-card-portrait"></div>
+          <div class="hero-card-copy">
+            <span id="panelHeroLevel">Poziom -</span>
+            <strong id="panelHeroName">Nieznany wędrowiec</strong>
+            <p id="panelHeroMotto">Wybierz klasę, aby rozpocząć wyprawę.</p>
           </div>
+        </section>
+
+        <dl class="stats">
           <div class="stat-row stat-meter">
             <dt><span class="stat-icon">HP</span> Zdrowie</dt>
             <dd>
@@ -85,37 +103,55 @@
           </div>
         </dl>
 
+        <section class="journey-card" aria-label="Postęp wyprawy">
+          <div class="journey-card-head">
+            <span>Wyprawa</span>
+            <strong id="journeyProgress">0 / 3</strong>
+          </div>
+          <h2 id="currentQuestTitle">Aktualny cel</h2>
+          <p id="currentQuestObjective">Wybierz klasę postaci, aby rozpocząć zapiski wyprawy.</p>
+          <div id="artifactTrail" class="artifact-trail" aria-label="Główne artefakty"></div>
+          <button id="journalInlineBtn" class="journal-shortcut" type="button">Otwórz dziennik</button>
+        </section>
+
         <section class="panel-actions" aria-label="Menu postaci">
           <button id="statsOpenBtn" class="panel-action" type="button">
-            <span>Statystyki</span>
-            <small>Atak, obrona, wola</small>
+            <img src="assets/ui/items/icon-sword.svg" alt="" />
+            <span>
+              <strong>Statystyki</strong>
+              <small>Atak, obrona, wola</small>
+            </span>
           </button>
           <button id="inventoryOpenBtn" class="panel-action" type="button">
-            <span>Ekwipunek</span>
-            <small>Wyposażenie i plecak</small>
+            <img src="assets/ui/items/icon-armor.svg" alt="" />
+            <span>
+              <strong>Ekwipunek</strong>
+              <small>Wyposażenie i plecak</small>
+            </span>
           </button>
           <button id="artifactsOpenBtn" class="panel-action" type="button">
-            <span>Artefakty</span>
-            <small>Klucze, pieczęcie, relikty</small>
-          </button>
-          <button id="journalOpenBtn" class="panel-action" type="button">
-            <span>Dziennik</span>
-            <small>Ważne tropy i decyzje</small>
+            <img src="assets/ui/items/icon-crown.svg" alt="" />
+            <span>
+              <strong>Artefakty</strong>
+              <small>Klucze, pieczęcie, relikty</small>
+            </span>
           </button>
           <button id="mapOpenBtn" class="panel-action" type="button">
-            <span>Mapa</span>
-            <small>Podróż między lokacjami</small>
+            <img src="assets/ui/items/icon-map.svg" alt="" />
+            <span>
+              <strong>Mapa</strong>
+              <small>Podróż między lokacjami</small>
+            </span>
           </button>
           <button id="settingsOpenBtn" class="panel-action" type="button">
-            <span>Ustawienia</span>
-            <small>Zapis, wczytanie, muzyka</small>
+            <img src="assets/ui/items/icon-gear.svg" alt="" />
+            <span>
+              <strong>Ustawienia</strong>
+              <small>Zapis, wczytanie, muzyka</small>
+            </span>
           </button>
         </section>
 
-        <section>
-          <h2>Reputacja</h2>
-          <ul id="reputation" class="tag-list"></ul>
-        </section>
       </aside>
     </main>
 
@@ -166,6 +202,14 @@
             <p>Pomaga w skradaniu, zamkach i fortelach.</p>
           </article>
         </div>
+
+        <section class="reputation-card" aria-label="Reputacja bohatera">
+          <div class="reputation-head">
+            <h3>Reputacja</h3>
+            <span>Ślady decyzji</span>
+          </div>
+          <ul id="reputation" class="reputation-list"></ul>
+        </section>
 
         <section class="skills-section">
           <div class="skills-header">
@@ -242,6 +286,8 @@
           <p id="journalSummary">Ważne informacje, decyzje i tropy fabularne.</p>
         </header>
 
+        <div id="journalOverview" class="journal-overview" aria-label="Podsumowanie dziennika"></div>
+
         <div class="journal-tabs" role="tablist" aria-label="Zakładki dziennika">
           <button class="journal-tab is-active" type="button" data-journal-tab="quests">Zadania</button>
           <button class="journal-tab" type="button" data-journal-tab="info">Informacje</button>
@@ -262,6 +308,7 @@
           <p id="mapSummary">Szlaki otwierają się wraz z przedmiotami, tropami i artefaktami.</p>
         </header>
 
+        <div id="mapOverview" class="map-overview" aria-label="Legenda mapy"></div>
         <div id="mapGrid" class="map-grid"></div>
       </div>
     </div>
