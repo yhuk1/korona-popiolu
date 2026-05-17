@@ -249,6 +249,13 @@ const HERO_ART = {
   sketch: "assets/ui/hero-sketch.svg",
 };
 
+const HERO_PANEL_TEXT = {
+  warrior: "Ciężka broń, pancerz i proste rozwiązania w walce.",
+  rogue: "Wytrychy, unik i ciche ścieżki tam, gdzie inni muszą się bić.",
+  mage: "Runy, duchy i magia świtu zamiast czystej siły.",
+  outlaw: "Kontakty, brutalny spryt i rozmowy z ludźmi z cienia.",
+};
+
 const ITEM_ICON_ASSETS = {
   sword: "assets/ui/items/icon-sword.svg",
   axe: "assets/ui/items/icon-axe.svg",
@@ -356,6 +363,63 @@ const LOCATION_ATMOSPHERE = {
   crown: "Korona czeka tam, gdzie kończą się imiona i zaczyna popiół.",
 };
 
+const SCENE_VISUALS = {
+  village: {
+    kicker: "Valdorin / ostatnie światła",
+    title: "Ravenford",
+    text: "Karczma, kowal i targ są jeszcze bezpieczne, ale wieś czuje oddech mgły.",
+    marks: ["Handel", "Plotki", "Zadania"],
+  },
+  forest: {
+    kicker: "Szlak / czarne drzewa",
+    title: "Mroczny Las",
+    text: "Ścieżki prowadzą do rozbitego wozu, kapliczki i miejsc, gdzie polują cienie.",
+    marks: ["Zasadzki", "Tropy", "Futro"],
+  },
+  swamp: {
+    kicker: "Pogranicze / martwa woda",
+    title: "Bagna Umarłych",
+    text: "Błoto ukrywa topielców, zielarkę i drogi, które bez mapy potrafią pożreć dzień.",
+    marks: ["Trucizna", "Zielarka", "Mapa"],
+  },
+  crypt: {
+    kicker: "Podziemia / cisza",
+    title: "Krypta Milczących",
+    text: "Kamienne drzwi nie słuchają siły. Tutaj cisza jest próbą, a klucz nagrodą.",
+    marks: ["Pochodnia", "Nieumarli", "Klucz"],
+  },
+  fort: {
+    kicker: "Północ / zdradzone mury",
+    title: "Fort Zdrajców",
+    text: "Za czerwonymi chorągwiami czekają strażnicy, przysięgi i Pieczęć Starego Króla.",
+    marks: ["Negocjacje", "Skradanie", "Pieczęć"],
+  },
+  tower: {
+    kicker: "Runy / niebo bez świtu",
+    title: "Wieża Astromanty",
+    text: "Srebrne znaki badają twoją wolę, zanim pozwolą dotknąć Kryształu Świtu.",
+    marks: ["Magia", "Lustra", "Kryształ"],
+  },
+  ruins: {
+    kicker: "Stolica / popielny śnieg",
+    title: "Ruiny Valdorinu",
+    text: "Martwe ulice prowadzą ku pałacowi. Każde okno pamięta imię kogoś utraconego.",
+    marks: ["List króla", "Fontanna", "Finał"],
+  },
+  crown: {
+    kicker: "Sala tronu / koniec drogi",
+    title: "Sala Korony",
+    text: "Na tronie czeka Popielny Król, a Korona waży więcej niż całe królestwo.",
+    marks: ["Boss", "Korona", "Zakończenie"],
+  },
+  start: {
+    kicker: "Początek",
+    title: "Wybór postaci",
+    text: "Wybierz klasę i wejdź do Ravenford.",
+    marks: ["Klasa", "Start", "Muzyka"],
+  },
+};
+
 const XP_LEVELS = [0, 100, 250, 450, 700, 1000, 1350, 1750];
 const SKILL_POINTS_PER_LEVEL = 2;
 
@@ -414,6 +478,17 @@ function defaultEquipmentSlots() {
 
 const els = {
   sceneName: document.querySelector("#sceneName"),
+  sceneThumb: document.querySelector("#sceneThumb"),
+  sceneHero: document.querySelector("#sceneHero"),
+  sceneHeroKicker: document.querySelector("#sceneHeroKicker"),
+  sceneHeroTitle: document.querySelector("#sceneHeroTitle"),
+  sceneHeroText: document.querySelector("#sceneHeroText"),
+  sceneHeroMarks: document.querySelector("#sceneHeroMarks"),
+  dialoguePortrait: document.querySelector("#dialoguePortrait"),
+  dialoguePortraitImg: document.querySelector("#dialoguePortraitImg"),
+  dialogueSpeakerName: document.querySelector("#dialogueSpeakerName"),
+  dialogueSpeakerRole: document.querySelector("#dialogueSpeakerRole"),
+  combatPanel: document.querySelector("#combatPanel"),
   storyText: document.querySelector("#storyText"),
   eventLog: document.querySelector("#eventLog"),
   choices: document.querySelector("#choices"),
@@ -425,6 +500,16 @@ const els = {
   skillPointsPanel: document.querySelector("#skillPointsPanel"),
   healthBar: document.querySelector("#healthBar"),
   xpBar: document.querySelector("#xpBar"),
+  panelHeroPortrait: document.querySelector("#panelHeroPortrait"),
+  panelHeroLevel: document.querySelector("#panelHeroLevel"),
+  panelHeroName: document.querySelector("#panelHeroName"),
+  panelHeroMotto: document.querySelector("#panelHeroMotto"),
+  loadoutPreview: document.querySelector("#loadoutPreview"),
+  loadoutOpenBtn: document.querySelector("#loadoutOpenBtn"),
+  journeyProgress: document.querySelector("#journeyProgress"),
+  currentQuestTitle: document.querySelector("#currentQuestTitle"),
+  currentQuestObjective: document.querySelector("#currentQuestObjective"),
+  artifactTrail: document.querySelector("#artifactTrail"),
   attack: document.querySelector("#attack"),
   weapon: document.querySelector("#weapon"),
   defense: document.querySelector("#defense"),
@@ -445,26 +530,30 @@ const els = {
   artifactsOpenBtn: document.querySelector("#artifactsOpenBtn"),
   artifactsModal: document.querySelector("#artifactsModal"),
   artifactsCloseBtn: document.querySelector("#artifactsCloseBtn"),
+  artifactShowcase: document.querySelector("#artifactShowcase"),
   artifactGrid: document.querySelector("#artifactGrid"),
   artifactsSummary: document.querySelector("#artifactsSummary"),
-  inventoryOpenBtn: document.querySelector("#inventoryOpenBtn"),
   inventoryModal: document.querySelector("#inventoryModal"),
   inventoryCloseBtn: document.querySelector("#inventoryCloseBtn"),
+  inventoryOverview: document.querySelector("#inventoryOverview"),
   inventoryGrid: document.querySelector("#inventoryGrid"),
   itemDetails: document.querySelector("#itemDetails"),
   inventoryHeroSummary: document.querySelector("#inventoryHeroSummary"),
   inventoryHeroSketch: document.querySelector("#inventoryHeroSketch"),
-  journalOpenBtn: document.querySelector("#journalOpenBtn"),
   journalInlineBtn: document.querySelector("#journalInlineBtn"),
   journalModal: document.querySelector("#journalModal"),
   journalCloseBtn: document.querySelector("#journalCloseBtn"),
   journalEntries: document.querySelector("#journalEntries"),
+  journalOverview: document.querySelector("#journalOverview"),
+  journalFocus: document.querySelector("#journalFocus"),
   journalPreview: document.querySelector("#journalPreview"),
   journalSummary: document.querySelector("#journalSummary"),
   mapOpenBtn: document.querySelector("#mapOpenBtn"),
   mapModal: document.querySelector("#mapModal"),
   mapCloseBtn: document.querySelector("#mapCloseBtn"),
   mapGrid: document.querySelector("#mapGrid"),
+  mapOverview: document.querySelector("#mapOverview"),
+  mapRoute: document.querySelector("#mapRoute"),
   mapSummary: document.querySelector("#mapSummary"),
   settingsOpenBtn: document.querySelector("#settingsOpenBtn"),
   settingsModal: document.querySelector("#settingsModal"),
@@ -548,7 +637,7 @@ function chooseHero(heroKey) {
   state.equipment = defaultEquipmentSlots();
   state.inventory = [...hero.inventory];
   autoEquipStartingGear();
-  addStatus(hero.trait);
+  addStatus(hero.trait, { notify: false });
   startMusic({ quiet: true, fromButton: true });
   renderScene("dream");
 }
@@ -882,10 +971,12 @@ function addArtifact(artifact) {
   }
 }
 
-function addStatus(status) {
+function addStatus(status, options = {}) {
   if (status && !state.statuses.includes(status)) {
     state.statuses.push(status);
-    addNotification(`Ważna informacja: ${status}.`, "info");
+    if (options.notify !== false) {
+      addNotification(`Ważna informacja: ${status}.`, "info");
+    }
   }
 }
 
@@ -913,6 +1004,31 @@ function damage(amount) {
 
 function repLabel() {
   return `Dobro ${state.rep.good} / Chciwość ${state.rep.greed} / Popiół ${state.rep.ash}`;
+}
+
+function renderReputationPanel() {
+  if (!els.reputation) return;
+  const rows = [
+    { key: "good", label: "Dobro", tone: "good" },
+    { key: "greed", label: "Chciwość", tone: "greed" },
+    { key: "ash", label: "Popiół", tone: "ash" },
+  ];
+
+  els.reputation.innerHTML = "";
+  rows.forEach((row) => {
+    const value = Math.max(0, state.rep[row.key] || 0);
+    const width = Math.min(100, value * 12.5);
+    const li = document.createElement("li");
+    li.className = `reputation-row reputation-${row.tone}`;
+    li.innerHTML = `
+      <span>
+        <strong>${escapeHTML(row.label)}</strong>
+        <em>${value}</em>
+      </span>
+      <i><b style="width: ${width}%"></b></i>
+    `;
+    els.reputation.appendChild(li);
+  });
 }
 
 function xpLabel() {
@@ -947,22 +1063,29 @@ function addNotification(text, type = "info") {
   if (!state?.notifications) return;
   state.notifications.push({ text, type });
   if (state.notifications.length > 8) state.notifications.shift();
-  if (state.actionLog) {
+  if (state.actionLog && !isHeroTraitNotificationText(text)) {
     const sceneTitle = SCENES?.[state.scene]?.title || "Początek";
     state.actionLog.unshift({ text, type, scene: sceneTitle });
     if (state.actionLog.length > 40) state.actionLog.pop();
   }
 }
 
+function isHeroTraitNotificationText(text) {
+  return Object.values(HEROES).some((hero) => text === `Ważna informacja: ${hero.trait}.`);
+}
+
 function renderNotifications() {
   els.eventLog.innerHTML = "";
-  if (!state.notifications.length) {
+  const visibleNotifications = state.notifications.filter((entry) => !isHeroTraitNotificationText(entry.text));
+
+  if (!visibleNotifications.length) {
     els.eventLog.hidden = true;
+    state.notifications = [];
     return;
   }
 
   els.eventLog.hidden = false;
-  state.notifications.forEach((entry) => {
+  visibleNotifications.forEach((entry) => {
     const item = document.createElement("p");
     item.className = `event event-${entry.type}`;
     item.textContent = entry.text;
@@ -1058,6 +1181,561 @@ function takeChoice(choice) {
   if (choice.to) return renderScene(choice.to);
 }
 
+const SIDE_QUEST_DIALOGS = {
+  bellQuest: `Karczmarz Oren zatrzymuje cię przy zejściu do starej piwnicy pod gospodą.
+„Słyszysz to?” - pyta.
+„Dzwon?”
+„Ten na wieży dawno ucichł. Mówię o drugim. O tym spod ziemi.”
+
+Pod Ravenfordem wisi fragment ciemnego metalu. Drży, choć nic go nie dotyka.
+Szept spod kamieni mówi: „Raz dla tych, którzy uciekli. Raz dla tych, którzy zostali. Raz dla tych, którzy wrócą.”
+
+Oren ścisza głos. „Ojciec mówił, że tak bił pałacowy dzwon Valdorinu, kiedy miasto umierało. Jeśli odpowiada ruinom, to znaczy, że coś w ruinach wie, gdzie jesteśmy.”`,
+
+  edricQuest: `Edric leży przy kominku i patrzy na własne dłonie, jakby należały do kogoś obcego.
+„Jak masz na imię?” - pyta.
+„Już pytałeś.”
+„Wiem. Chciałem sprawdzić, czy to ja zapomniałem, czy świat zmienił odpowiedź.”
+
+Mgła tylko go musnęła, ale zostawiła dziurę w pamięci.
+„Zapomniałem twarzy żony. Mirna mówi, że krew trzeba oczyścić. Alena mówi, że duszę trzeba ogrzać. Ja mówię, że boję się zasnąć.”
+
+Jeśli klątwa pójdzie głębiej, Edric może stać się pierwszym żywym człowiekiem Ravenford, który zgubi własne imię.`,
+
+  edrinBookQuest: `Edrin zamyka drzwi gospody i długo milczy nad pustym miejscem na półce.
+„Zgubiłem księgę.”
+„Kronikarz zgubił księgę?”
+„Nie zgubiłem. Ukryłem. To różnica, która z wiekiem staje się coraz mniej wygodna.”
+
+W starszej wersji kroniki zapisał prawdę, zanim nauczył się ubierać ją w bezpieczne słowa. O Elianie, Koronie i ludziach, którzy po użyciu Korony żyli jeszcze kilka dni pod miastem.
+
+Ślad popiołu prowadzi za gospodę, a potem ku lasowi. Jakby sama księga próbowała wrócić do tego, co ją stworzyło.`,
+
+  lorianPackage: `Lorian kładzie na ladzie paczkę owiniętą w ceratę.
+„Gdyby nie ty, leżałbym teraz w lesie i karmił wilki. Nie lubię długów. Są gorsze niż podatki.”
+
+W paczce brzęczą stare monety, ale pod sznurkiem widać pieczęć rodziny, która uciekła z Valdorinu.
+„Trafiła do mnie od kobiety, której babka przeżyła pierwszą noc klątwy. Kazała dostarczyć ją komuś, kto jeszcze modli się za zmarłych.”
+
+„Czyli Alenie?”
+„Albo Edrinowi. On też modli się za zmarłych, tylko udaje, że nazywa to historią.”`,
+
+  candlesQuest: `Alena pokazuje kosz wosku, ziół i resztek knotów.
+„Potrzebuję wosku, srebrnego pyłu i ludzi, którzy jeszcze nie zapomnieli, po co zapala się świece.”
+„Dla światła?”
+„Nie. Dla tych, którzy go nie doczekali.”
+
+Świece nie zatrzymają mgły same z siebie. Mają zatrzymać strach, a strach jest drzwiami, przez które Korona najchętniej wchodzi.
+
+Alena nie potępia tych, którzy biorą światło dla siebie. Pyta tylko, czy wioska nie zostanie wtedy sama.`,
+
+  prayerQuest: `Alena stoi przy ołtarzu z miską popiołu i pustą księgą.
+„Valdorin nie ma grobów.”
+„Całe miasto jest grobem.”
+„Nie. Grób pozwala odejść. Valdorin trzyma.”
+
+Nie chce pogrzebu, tylko pamięci: imion, światła, popiołu z miasta i świadków, którzy nie odwrócą wzroku.
+Edrin mógłby napisać „przepraszam”. Mirna mogłaby wypowiedzieć twarze, o których milczała. Cael mógłby zrozumieć, że strażnik też musi czasem uklęknąć.
+
+Jeśli ten rytuał się powiedzie, wejdziesz do sali Korony nie tylko z bronią. Wejdziesz z imionami.`,
+
+  lostChild: `Mara chwyta cię za rękaw tak mocno, że bieleją jej palce.
+„Proszę, powiedz, że widziałeś chłopca w niebieskim płaszczu.”
+
+Nad ranem wyszedł za bladym światłem. Głos za oknem brzmiał jak jego zmarła siostra.
+Ślady prowadzą do lasu, potem ku bagnom. Ludzie mówią, że już po nim, ale Mara kręci głową.
+„Jestem matką. Dla mnie dziecko jest żywe, dopóki nie zobaczę jego ciała.”
+
+W mgle czekają ogniki. Nie tworzą tęsknoty. Powtarzają tylko to, co człowiek najbardziej chce usłyszeć.`,
+
+  woodcutterGhost: `W chacie drwala na stole stoi miska ciepłej zupy, choć palenisko jest zimne.
+Z kąta dobiega cichy głos: „Nie jedz.”
+
+„Kim jesteś?”
+„Kimś, kto kiedyś miał imię. Mgła najpierw zabiera twarz bliskich. Potem drogę do domu. Na końcu imię. Gdy nie masz imienia, nie masz powodu, by nie gryźć.”
+
+Duch pamięta topór, śmiech kobiety i psa, który bał się burzy. Na rękojeści topora są inicjały T.R.
+Jeśli wypowiesz prawdziwe imię, możesz oddać mu człowieczeństwo. Jeśli skłamiesz, las nauczy go być głodem.`,
+
+  deadFerry: `Przy zgniłym pomoście stoi prom bez przewoźnika.
+Z mgły odzywa się głos: „Trzy monety.”
+„Za przeprawę?”
+„Za ciało. Za imię. Za żal.”
+
+Przewoźnik był kiedyś człowiekiem, który brał zapłatę od uciekających z Valdorinu. Obiecał im drugi brzeg, a dopłynął sam.
+
+Zwykłe złoto przewiezie zwykłego człowieka. Ty nie idziesz w zwykłe miejsce.`,
+
+  rootHeartQuest: `Mirna wskazuje korzeń wyrastający z bagna jak ciemne serce.
+„Rośnie na kościach uciekinierów z Valdorinu. Jeśli wyrwiesz go jak chwast, obudzisz ludzi, którzy próbowali tylko przeżyć.”
+
+Możesz poprosić duchy o zgodę, zostawić korzeń w spokoju albo wziąć go siłą.
+Mirna nie mówi, co jest łatwiejsze. Tylko co zostaje z człowieka po łatwiejszych decyzjach.`,
+
+  raukQuest: `Na trakcie między Ravenford a fortem klęczy Rauk, strażnik bez płaszcza.
+„Nie podchodź. Mam kuszę i wystarczająco mało rozsądku, żeby jej użyć.”
+
+Był ze Straży Pieczęci. Teraz mówi, że uciekł nie przed Caelem, tylko przed głosem.
+„Moim. Tylko odważniejszym. Mówił, że nie muszę już pilnować drzwi. Mogę przez nie przejść.”
+
+Rauk boi się Korony, ale jeszcze bardziej boi się tego, że jej głos brzmiał jak jego własne pragnienie.`,
+
+  elianaRoom: `W pokoju księżniczki stoi drewniany koń na biegunach. Jedna płoza jest pęknięta.
+Cichy głos mówi: „Nie dotykaj go, jeśli chcesz go zabrać.”
+
+Eliana pamięta, że ojciec obiecał jej prawdziwego konia, kiedy wyzdrowieje. Pamięta też Koronę.
+„Ona nie patrzyła na mnie jak na dziecko. Patrzyła jak na drzwi.”
+
+Naprawienie zabawki nie cofnie śmierci, ale może ocalić jedno spokojne wspomnienie przed popiołem.`,
+
+  burnedTheater: `Aktor Bez Twarzy kłania się przed pustą widownią.
+„Proszę zająć miejsce. Spektakl trwa od stu lat, ale finał wciąż się spóźnia.”
+
+Na scenie odgrywa ostatni dzień Valdorinu. Król pyta, czy jedno dziecko może kosztować tysiąc istnień. Kapłanka pyta, czy nazwanie zbrodni miłością cokolwiek zmienia. Eliana mówi najciszej: „A jeśli ja nie chcę?”
+
+Twoja odpowiedź pokaże, czy usłyszałeś najważniejszą kwestię w całej sztuce.`,
+
+  ashenKnightQuest: `Popielny Rycerz zastępuje ci drogę.
+„Rozkaz królewski: bramy zamknięte. Nikt nie opuszcza Valdorinu.”
+
+Minęło sto lat, ale rozkaz nie ma daty końca. Rycerz nie pamięta imienia, tylko obowiązek.
+Kiedy pytasz, kogo zatrzymał przy bramie, odpowiada: „Cywilów. Dzieci. Rannych. Zdrajców. Nie. Nie zdrajców. Ludzi.”
+
+Możesz zmienić jego rozkaz, uwolnić go albo podporządkować sobie to, co zostało z jego woli.`,
+};
+
+const MAIN_QUEST_DIALOGS = {
+  dream: `Stoisz w sali tronowej, której nigdy wcześniej nie widziałeś. Na czarnym tronie leży korona. Nie błyszczy. Oddycha popiołem.
+Głos mówi twoim własnym tonem: „Podejdź.”
+
+Kiedy pytasz, kim jest, odpowiada: „Tym, co zostaje, kiedy człowiekowi zabierze się wszystko oprócz pragnienia.”
+Budzi cię chłód i zapach dymu. Ravenford jeszcze śpi, ale sen nie chce odejść.`,
+
+  innHall: `W gospodzie „Pod Krukiem” Oren barykaduje drzwi stołem. Na zewnątrz czarny deszcz klei się do szyb jak sadza.
+Ktoś z dołu krzyczy, że cienie stoją na rynku. Ktoś inny modli się do bogów, którzy dawno przestali odpowiadać.
+
+Edrin mówi cicho: „To nie jest pogoda. To pamięć Valdorinu. I wygląda na to, że przypomniała sobie drogę do nas.”`,
+
+  edrinIntro: `Edrin rozkłada na stole starą mapę. Valdorin jest na niej tylko ciemną plamą, jakby atrament odmówił rysowania ulic.
+„Król Arvand III chciał ocalić córkę. Korona Popiołu obiecała mu cud, a potem zażądała miasta.”
+
+Żeby otworzyć drogę do Valdorinu, potrzebujesz trzech rzeczy: Srebrnego Klucza z Krypty Milczących, Pieczęci Starego Króla z Fortu Zdrajców i Kryształu Świtu z Wieży Astromanty.
+Alena dodaje: „Artefakty nie są kluczami. Są próbami. Każdy sprawdzi, czy naprawdę powinieneś iść dalej.”`,
+
+  cryptStart: `Schody pod Ravenford schodzą niżej, niż powinny. Kamień jest zimny, a cisza ma ciężar zamkniętych powiek.
+Na ścianach wyryto imiona ludzi, którzy przysięgali pilnować bramy do Valdorinu.
+
+Szept dochodzi spod ziemi: „Ciszej.”
+Drugi odpowiada: „Ci, którzy zamknęli bramę, wciąż słyszą każdy krok.”`,
+
+  cryptEcho: `Przed tobą stoją drzwi z napisem: „Wejdzie ten, kto nie boi się ciszy.”
+Kiedy zbliżasz dłoń, korytarz powtarza twoje oddechy z opóźnieniem, jakby ktoś oddychał za tobą.
+
+Strażnicy krypty nie chcą krwi. Chcą szacunku. W tym miejscu hałas jest bluźnierstwem, a pycha budzi zmarłych szybciej niż stal.`,
+
+  cryptHelmets: `W niszy leżą hełmy dawnych strażników. Każdy jest odwrócony w stronę bramy.
+Na jednym widać ślad palców, jakby ktoś próbował go zdjąć w ostatniej chwili.
+
+Głos mówi: „To byli ludzie, którzy stali, gdy inni uciekali.”
+Srebrny Klucz nie należy do tego, kto umie go zabrać. Należy do tego, kto rozumie, po co był ukryty.`,
+
+  silverKeyRoom: `Srebrny Klucz wisi nad kamienną misą bez łańcucha. Nie spada. Czeka.
+Strażnik bez twarzy pyta: „Po co otwierasz bramę?”
+
+Nie wystarczy powiedzieć, że chcesz ocalić Ravenford. Brama otwiera się w obie strony.
+Jeśli zabierzesz klucz, Valdorin też znajdzie drogę do ciebie.`,
+
+  fortGate: `Fort Zdrajców stoi na wzgórzu jak zaciśnięta pięść. Nad bramą nie ma chorągwi, tylko ślady po hakach.
+Strażnik mierzy do ciebie z kuszy. „Tu nie ma bandytów. Są ludzie, którzy pamiętają, czemu zdrada bywa ostatnią formą wierności.”
+
+Pieczęć Starego Króla nie została zgubiona. Została odebrana tym, którzy uznali, że rozkaz króla przestał być prawem, gdy zaczął karmić Koronę ludźmi.`,
+
+  mapRoom: `W sali map czerwone znaki nie oznaczają miast. Oznaczają miejsca, gdzie wcześniejsi bohaterowie umarli albo wrócili z cudzym głosem w gardle.
+Cael pokazuje na Valdorin. „Korona przyciąga głupców, desperatów i przyszłych tyranów. Najgorzej, kiedy ktoś jest wszystkim naraz.”
+
+Pieczęć nie otworzy ci drogi dlatego, że jesteś silny. Otworzy ją tylko wtedy, gdy udźwigniesz odpowiedzialność za to, co wypuścisz.`,
+
+  cael: `Cael nie brzmi jak wróg. To gorsze, bo brzmi jak człowiek zmęczony pilnowaniem drzwi, których nikt nie powinien otwierać.
+„Arvand też mówił, że robi to dla innych. Każdy tyran zaczyna od zdania, które brzmi jak ofiara.”
+
+Jeśli chcesz Pieczęci, musisz przekonać Caela czynem, nie hasłem. Fort pamięta obietnice. I pamięta, ile kosztowały.`,
+
+  towerDoor: `Wieża Astromanty nie ma strażników. Ma pytania.
+Drzwi z białego kamienia pytają: „Dlaczego idziesz do Korony?”
+
+Odpowiedzi odbijają się od gwiazd na suficie. Zemsta brzmi tu pusto. Chwała brzmi śmiesznie. Strach brzmi najuczciwiej, ale sam strach nie prowadzi daleko.`,
+
+  starLibrary: `W bibliotece gwiazdy zapisano w księgach, a księgi patrzą na ciebie bez oczu.
+Jedna pokazuje Arvanda, który klęczy przy łóżku Eliany. Druga pokazuje Valdorin, gdy na ulicach zaczyna padać popiół.
+
+Korona nie tworzy pragnień. Ona je powiększa, aż człowiek przestaje widzieć granicę między miłością a własnością.`,
+
+  crystalRoof: `Na szczycie wieży Kryształ Świtu świeci światłem, które nie daje ciepła.
+Pokazuje nie zwycięstwo, lecz cenę: ludzi bez imion, córkę używaną jak zaklęcie i króla, który nazwał katastrofę ratunkiem.
+
+Jeśli zabierzesz Kryształ, dostaniesz broń przeciw Koronie. Dostaniesz też prawdę, której nie da się już wygodnie zapomnieć.`,
+
+  ruinsGate: `Przed bramą Valdorinu trzy artefakty odpowiadają sobie światłem. Klucz drży, Pieczęć ciemnieje, Kryształ świtu blednie.
+Na murze pojawia się napis: „Miasto otwiera się tylko przed tym, kto przynosi własne imię.”
+
+Kiedy brama rusza, słyszysz tysiące szeptów. Nie wołają o pomoc. Sprawdzają, czy można cię nazwać.`,
+
+  ruinsMarket: `Rynek Valdorinu nie jest pusty. Cienie stoją przy straganach, jakby nadal czekały na poranek, który nigdy nie przyszedł.
+Każdy ma miejsce, gest, zawód. Nikt nie ma twarzy.
+
+Miasto bez imion nie prosi, żebyś je zwiedził. Prosi, żebyś pamiętał, że zanim stało się legendą, było domem.`,
+
+  ashBridge: `Most z popiołu prowadzi do pałacu. Pod stopami nie trzeszczy kamień, tylko wspomnienia.
+Mgła układa się w twarze ludzi, których nie znasz, ale którzy patrzą tak, jakbyś był ostatnią osobą mogącą powiedzieć, że istnieli.
+
+Pałac nie wpuszcza zwycięzców. Wpuszcza tych, którzy potrafią wejść bez udawania, że wszystko da się naprawić.`,
+
+  crownHall: `Stoisz w sali tronowej, choć nigdy wcześniej jej nie widziałeś. Na tronie leży Korona z czarnego metalu. Wokół stoją ludzie bez twarzy, każdy z garścią popiołu.
+Głos mówi: „Wszystko, co umiera, może zostać zatrzymane. Wystarczy zapłacić.”
+
+Król Arvand nie wygląda jak potwór. Wygląda jak ojciec, który uwierzył złemu cudowi.
+Korona czeka, aż nazwiesz swoje pragnienie. Dopiero wtedy pokaże, czy jesteś tu po to, żeby ją zniszczyć, oddać albo założyć.`,
+};
+
+const EXTRA_SCENE_DIALOGS = {
+  innRoom: `Pokój nad gospodą jest za mały na sen, który właśnie z niego wyszedł. Deski skrzypią pod bosymi stopami, a ślad popiołu prowadzi od łóżka do drzwi.
+Za oknem Ravenford leży w czarnym deszczu. W dole ktoś przewraca ławę, ktoś inny płacze tak cicho, jakby bał się obudzić coś większego od strachu.
+
+Na stoliku leży twój ekwipunek. Wszystko wygląda zwyczajnie, ale po śnie zwyczajne rzeczy wydają się tylko przebraniem.`,
+
+  village: `Ravenford próbuje wyglądać jak wieś, która przetrwa jeszcze jeden dzień. Dym z kominów jest niski, psy nie szczekają, a ludzie patrzą na drogę do Valdorinu tak, jak patrzy się na ranę.
+Na placu stoją ci, którzy chcą handlować, modlić się albo udawać, że handel i modlitwa wystarczą.
+
+Każda rozmowa kończy się tym samym milczeniem: wszyscy wiedzą, że mgła nie zatrzyma się sama.`,
+
+  tavern: `Gospoda „Pod Krukiem” pachnie mokrym drewnem, kwaśnym piwem i strachem, który przestał udawać ostrożność.
+Oren wyciera ten sam kufel od kilku minut. Edrin siedzi przy ścianie, jak człowiek, który zna zakończenie opowieści i modli się, żeby tym razem ktoś zmienił środek.
+
+Przy stołach zbierają się prośby, plotki i drobne zlecenia. W Ravenford nawet szept może być początkiem misji.`,
+
+  shop: `Sklep Loriana jest ciasny, ale uporządkowany z uporem człowieka, który wierzy, że porządek może zatrzymać koniec świata.
+Na półkach leżą bandaże, suchary, stare mapy i kilka rzeczy, których kupiec nie wystawia, dopóki nie uzna, że klient wie, po co idzie do ruin.
+
+Lorian mówi bez uśmiechu: „Nie sprzedaję bohaterstwa. Tylko narzędzia, które czasem pozwalają je przeżyć.”`,
+
+  blackMarket: `Za sklepem Loriana stoi człowiek w mokrym kapturze. Nie zaprasza cię gestem. Po prostu odsuwa płachtę i pozwala, żeby przedmioty same przemówiły.
+Fałszywe monety, trucizny, pęknięte medaliony i kości do gry leżą obok siebie jak dowody z procesu, którego nikt nie odważył się rozpocząć.
+
+„W Ravenford moralność jest tania tylko do pierwszego głodu” - mówi handlarz. „Potem każdy pyta o cenę.”`,
+
+  forge: `Kuźnia Borena bije czerwonym światłem w mokry plac. Każde uderzenie młota brzmi jak odpowiedź na pytanie, którego nikt nie zadał na głos.
+Boren jest zmęczony, osmolony i wściekły na własną bezradność. Na ścianie wiszą narzędzia jego ucznia, równo jak po pogrzebie.
+
+„Stal nie pokona klątwy” - mówi kowal. „Ale może dać ci sekundę dłużej. Czasem sekunda to cała różnica między legendą a zwłokami.”`,
+
+  chapel: `Kaplica Świtu jest mała, zbyt mała na wszystkie winy, które ludzie próbują tu zostawić.
+Siostra Alena klęczy przy świecy, której płomień stoi nieruchomo mimo przeciągu. Na ławach leżą mokre płaszcze, połamane różańce i karteczki z imionami.
+
+Alena podnosi wzrok. „Nie obiecuję cudu. Obiecuję, że ciemność nie dostanie wszystkiego bez oporu.”`,
+
+  noticeBoard: `Tablica ogłoszeń nasiąkła deszczem tak mocno, że część próśb trzeba odczytywać palcami.
+Ktoś szuka narzędzi. Ktoś dziecka. Ktoś jedzenia. Ktoś prosi, żeby nie śmiać się z opowieści o duchu w lesie, bo śmiech nie wrócił razem z jego bratem.
+
+To nie są wielkie legendy. To małe pęknięcia w świecie, przez które wchodzi prawdziwa rozpacz.`,
+
+  forest: `Mroczny Las zaczyna się bez ostrzeżenia. Pola kończą się równo, jakby ktoś przeciął krainę nożem i jedną połowę oddał drzewom.
+Gałęzie są mokre, ale pod stopami trzeszczą suche liście. Gdzieś daleko woła człowiek albo coś, co nauczyło się używać ludzkiego głosu.
+
+Las nie broni drogi do Valdorinu. On sprawdza, ile jesteś gotów zgubić, zanim tam dojdziesz.`,
+
+  cart: `Przewrócony wóz leży w błocie jak rozbite zwierzę. Jedno koło obraca się powoli, choć nikt go nie dotyka.
+Ranny kupiec próbuje docisnąć płaszcz do boku, a obok skrzyń widać ślady kilku par stóp. Jedne prowadzą w stronę lasu. Drugie kończą się nagle przy rowie.
+
+Pomoc, rabunek albo obojętność będą tu wyglądały mało efektownie. Ale właśnie takie decyzje najdłużej chodzą za człowiekiem.`,
+
+  forestShrine: `Leśna kapliczka stoi na polanie, której deszcz nie umie znaleźć. Pęknięta twarz kamiennej kobiety trzymającej słońce patrzy łagodniej, niż powinna.
+W misie leży popiół, stare monety i świeże kwiaty. Ktoś był tu niedawno. Ktoś wierzył jeszcze przed tobą.
+
+Kiedy klękasz albo tylko stoisz w ciszy, las na chwilę przestaje udawać, że nie słucha.`,
+
+  heraldlessKnight: `Rycerz bez herbu stoi przy drodze do fortu, pusty w środku, ale prosty jak przysięga.
+Na jego napierśniku zostało jasne miejsce po znaku, który ktoś zerwał dawno temu. Głos wydobywa się z hełmu spokojnie: „Herb nie czyni rycerza. Ale bez niego trudno pamiętać, komu się służyło.”
+
+Nie prosi o zemstę. Prosi o sens. To czasem trudniejsze do oddania niż broń.`,
+
+  woodcutterHut: `Chata drwala wygląda, jakby gospodarz wyszedł tylko po drewno. Zupa w misce nadal paruje, a mokre buty stoją przy piecu.
+Na ścianie wyryto paznokciami zdanie: „Las odda ciało, ale zabierze imię.”
+
+W piwnicy coś porusza się za zamkniętymi drzwiami. Nie brzmi groźnie. Brzmi samotnie.`,
+
+  stoneCircle: `Kamienny krąg jest starszy niż ścieżki wokół niego. Mchy omijają znak Korony, jakby nawet rośliny wiedziały, czego nie dotykać.
+W środku nie pada deszcz. Popiół leży tam w idealnym kole, czarny i suchy.
+
+Kiedy zbliżasz dłoń do znaku, przez chwilę czujesz nie moc, tylko zaproszenie. To bardziej niebezpieczne.`,
+
+  swampRisk: `Przed tobą rozlewa się bagno bez ścieżki. Mgła zasłania drzewa, wodę i własne myśli.
+Każdy krok może być gruntem albo tylko obietnicą gruntu. W oddali coś pluska zbyt regularnie, jakby szło obok ciebie pod powierzchnią.
+
+Bez mapy bagna nie są skrótem. Są rozmową z miejscem, które lubi odpowiadać cudzym głosem.`,
+
+  swamp: `Bagna oddychają powoli. Błoto pracuje pod butami, trzciny szepczą o imionach, które dawno temu wpadły do wody i nie wypłynęły.
+Mirna, przewoźnik i błędne ogniki są tu mniej obcy niż ty. To ich królestwo: mokre, cierpliwe i pełne pamięci.
+
+Droga przez bagno nie pyta, czy jesteś odważny. Pyta, czy potrafisz nie brać wszystkiego, co znajdziesz.`,
+
+  herbalist: `Zatopiona chata Mirny stoi na palach, które powinny już zgnić. W środku suszą się zioła, korzenie i rzeczy, których rozsądny człowiek nie nazywa roślinami.
+Zielarka patrzy na ciebie tak, jakby najpierw liczyła twoje rany, a dopiero potem słuchała słów.
+
+„Lekarstwo i trucizna różnią się dawką” - mówi. „Ludzie i potwory czasem też.”`,
+
+  boneIsland: `Wyspa Kości wynurza się z mgły bez plusku. Nie jest z ziemi, tylko z tego, co zostało po ludziach, którzy szukali drogi przez bagno.
+Pośrodku czarny kamień trzyma miecz jak cierń. Ostrze wygląda na czyste, choć wszystko wokół niego gnije.
+
+Nie każda broń czeka na właściciela. Niektóre czekają na kogoś, kto będzie wystarczająco zmęczony, żeby nie zadawać pytań.`,
+
+  willOWisps: `Trzy światła unoszą się nad wodą: niebieskie, złote i blade jak kość. Każde oddala się, kiedy próbujesz patrzeć na nie zbyt długo.
+W ich ruchu jest rytm dziecięcej zabawy i okrucieństwo pułapki. Bagno lubi prowadzić ludzi dokładnie tam, gdzie sami chcą iść.
+
+Wybór ognika nie jest tylko wyborem drogi. To wybór tego, któremu kłamstwu zaufasz na chwilę.`,
+
+  whisperWell: `Studnia Szeptów nie ma wody. Ma głębokość, która zdaje się zaczynać pod twoimi stopami, a kończyć za myślami.
+Głosy mówią naraz: jedne proszą o monetę, inne o imię, jeszcze inne powtarzają zdania, których nigdy nikomu nie powiedziałeś.
+
+Tu można kupić wskazówkę, ale zapłata nigdy nie jest tylko złotem. Studnia zapamiętuje każdego, kto do niej przemówi.`,
+
+  mirrors: `Sala luster w Wieży Astromanty nie odbija twarzy. Odbija wersje człowieka, które mogłyby z niej wyrosnąć.
+W jednym szkle stoisz jako bohater, w drugim jako król, w trzecim jako ktoś, kto przestał pytać innych o zgodę.
+
+Najstraszniejsze nie jest to, że jedno odbicie kłamie. Najstraszniejsze jest to, że każde ma w sobie odrobinę prawdy.`,
+
+  nightAttack: `Noc przed Valdorinem nie daje odpoczynku. Mgła podchodzi pod okna Ravenford, a pierwsze cienie pojawiają się przy studni.
+Ludzie chwytają za widły, noże i modlitwy. Każdy sojusznik, którego zdobyłeś, każde drobne dobro i każda zlekceważona prośba wracają teraz na plac.
+
+To nie jest wielka bitwa z pieśni. To wieś próbująca dożyć świtu.`,
+
+  edrinWell: `Edrin stoi przy starej studni i wrzuca do niej wyrwane kartki. Każda znika bez dźwięku.
+„Są prawdy, które powinny przetrwać” - mówi. „I są takie, które zapisane zbyt dokładnie stają się instrukcją.”
+
+Kiedy pada imię Eliany, kronikarz wygląda starzej niż przed chwilą. Jakby nosił nie sekret, tylko współwinę.`,
+
+  royalArmory: `Królewska zbrojownia pachnie rdzą, popiołem i dawną dyscypliną.
+Na stojakach leżą ostrza straży, tarcze z pękniętym herbem i pancerze złożone tak równo, jakby żołnierze mieli po nie wrócić po alarmie.
+
+Niektóre przedmioty nadal pamiętają rozkazy. Kiedy je podnosisz, przez chwilę słyszysz kroki oddziału, którego już nie ma.`,
+
+  medicHouse: `Dom medyka jest nietknięty w sposób, który boli bardziej niż ruina. Na stole leżą fiolki, notatki i dziecięca wstążka przyciśnięta kamieniem.
+Dziennik opisuje chorobę Eliany bez patosu: gorączka, słabość, krwawienie z nosa, kolejne nieskuteczne mikstury.
+
+Ostatni wpis urywa się w pół zdania. Dalej atrament miesza się z popiołem, jakby nawet medycyna musiała przyznać, że król zaczął szukać cudu gdzie indziej.`,
+
+  cradleAshQuest: `Kołyska w zrujnowanym domu porusza się powoli, choć nie ma wiatru. Cień matki stoi przy ścianie i trzyma palec przy ustach.
+„Nie budź go” - szepcze. „Śni mu się świat, w którym zdążyliśmy uciec.”
+
+Grzechotka leży pod deskami. Mała rzecz, prawie nic. W Valdorinie prawie nic bywa ostatnim dowodem, że ktoś był kochany.`,
+
+  blackShardChild: `Na moście stoi dziecko z popiołu. Nie płacze. Płacz wymaga oddechu.
+W dłoni trzyma czarny odłamek metalu, który drży tak samo jak Korona w twoim śnie.
+
+„To nie moje” - mówi dziecko. „Ale kiedy puszczam, słyszę wszystkich naraz.”
+Możesz zabrać ciężar, oddać go ciemności albo spróbować przekonać małą dłoń, że nie musi już trzymać końca świata.`,
+};
+
+const DIALOGUE_CHARACTERS = {
+  edrin: {
+    name: "Edrin",
+    role: "Kronikarz Ravenford",
+    image: "assets/characters/portrait-edrin.png",
+  },
+  alena: {
+    name: "Siostra Alena",
+    role: "Kaplica Świtu",
+    image: "assets/characters/portrait-alena.png",
+  },
+  cael: {
+    name: "Cael",
+    role: "Dowódca Straży Pieczęci",
+    image: "assets/characters/portrait-cael.png",
+  },
+  eliana: {
+    name: "Eliana",
+    role: "Księżniczka Valdorinu",
+    image: "assets/characters/portrait-eliana.png",
+  },
+  oren: {
+    name: "Oren",
+    role: "Karczmarz „Pod Krukiem”",
+    image: "assets/characters/portrait-oren.png",
+  },
+  lorian: {
+    name: "Lorian",
+    role: "Kupiec Ravenford",
+    image: "assets/characters/portrait-lorian.png",
+  },
+  edric: {
+    name: "Edric",
+    role: "Ranny strażnik",
+    image: "assets/characters/portrait-edric.png",
+  },
+  boren: {
+    name: "Boren",
+    role: "Kowal Ravenford",
+    image: "assets/characters/portrait-boren.png",
+  },
+  mirna: {
+    name: "Mirna",
+    role: "Zielarka z bagien",
+    image: "assets/characters/portrait-mirna.png",
+  },
+  rauk: {
+    name: "Rauk",
+    role: "Dezerter Straży Pieczęci",
+    image: "assets/characters/portrait-rauk.png",
+  },
+  ivara: {
+    name: "Ivara",
+    role: "Zwiadowczyni fortu",
+    image: "assets/characters/portrait-ivara.png",
+  },
+  ashKnight: {
+    name: "Popielny Rycerz",
+    role: "Strażnik rozkazu",
+    image: "assets/characters/portrait-ash-knight.png",
+  },
+  lostChild: {
+    name: "Zagubione dziecko",
+    role: "Granica Mrocznego Lasu",
+    image: "assets/characters/portrait-lost-child.png",
+  },
+  heraldlessKnight: {
+    name: "Rycerz bez herbu",
+    role: "Zapomniana przysięga",
+    image: "assets/characters/portrait-heraldless-knight.png",
+  },
+  woodcutterGhost: {
+    name: "Tomasz Rana",
+    role: "Duch drwala",
+    image: "assets/characters/portrait-woodcutter-ghost.png",
+  },
+  deadFerryman: {
+    name: "Bagienny Przewoźnik",
+    role: "Martwy prom",
+    image: "assets/characters/portrait-dead-ferryman.png",
+  },
+  silverGuardian: {
+    name: "Strażnik Srebrnego Klucza",
+    role: "Krypta Milczących",
+    image: "assets/characters/portrait-silver-guardian.png",
+  },
+  ashKing: {
+    name: "Arvand III",
+    role: "Popielny Król",
+    image: "assets/characters/portrait-ash-king.png",
+  },
+  woundedMerchant: {
+    name: "Ranny kupiec",
+    role: "Przewrócony wóz",
+    image: "assets/characters/portrait-wounded-merchant.png",
+  },
+  dawnSaint: {
+    name: "Święta Świtu",
+    role: "Stara kapliczka",
+    image: "assets/characters/portrait-dawn-saint.png",
+  },
+  facelessActor: {
+    name: "Aktor Bez Twarzy",
+    role: "Spalony teatr",
+    image: "assets/characters/portrait-faceless-actor.png",
+  },
+  marketShade: {
+    name: "Cień rynku",
+    role: "Rynek bez głosów",
+    image: "assets/characters/portrait-market-shade.png",
+  },
+  armoryGuard: {
+    name: "Strażnik zbrojowni",
+    role: "Pamięć królewskiej straży",
+    image: "assets/characters/portrait-armory-guard.png",
+  },
+  nera: {
+    name: "Nera",
+    role: "Służąca Eliany",
+    image: "assets/characters/portrait-nera.png",
+  },
+};
+
+const SCENE_SPEAKERS = {
+  dream: "eliana",
+  bellQuest: "oren",
+  tavern: "oren",
+  innHall: "edric",
+  edricQuest: "edric",
+  edrinIntro: "edrin",
+  edrinBookQuest: "edrin",
+  edrinWell: "edrin",
+  shop: "lorian",
+  blackMarket: "lorian",
+  lorianPackage: "lorian",
+  forge: "boren",
+  woodcutterHut: "boren",
+  lostChild: "lostChild",
+  heraldlessKnight: "heraldlessKnight",
+  woodcutterGhost: "woodcutterGhost",
+  deadFerry: "deadFerryman",
+  cart: "woundedMerchant",
+  forestShrine: "dawnSaint",
+  chapel: "alena",
+  candlesQuest: "alena",
+  prayerQuest: "alena",
+  herbalist: "mirna",
+  rootHeartQuest: "mirna",
+  swamp: "mirna",
+  fortGate: "cael",
+  mapRoom: "ivara",
+  cael: "cael",
+  raukQuest: "rauk",
+  whisperWell: "silverGuardian",
+  silverKeyRoom: "silverGuardian",
+  ruinsGate: "eliana",
+  ruinsMarket: "marketShade",
+  royalArmory: "armoryGuard",
+  medicHouse: "eliana",
+  cradleAshQuest: "eliana",
+  burnedTheater: "facelessActor",
+  elianaRoom: "eliana",
+  ashBridge: "eliana",
+  blackShardChild: "lostChild",
+  ashenKnightQuest: "ashKnight",
+  crownHall: "ashKing",
+};
+
+function renderDialoguePortrait(id) {
+  if (!els.dialoguePortrait) return;
+  const speakerKey = SCENE_SPEAKERS[id];
+  const speaker = speakerKey ? DIALOGUE_CHARACTERS[speakerKey] : null;
+  els.dialoguePortrait.hidden = !speaker;
+  if (!speaker) return;
+
+  if (els.dialoguePortraitImg) {
+    els.dialoguePortraitImg.src = speaker.image;
+    els.dialoguePortraitImg.alt = speaker.name;
+  }
+  if (els.dialogueSpeakerName) els.dialogueSpeakerName.textContent = speaker.name;
+  if (els.dialogueSpeakerRole) els.dialogueSpeakerRole.textContent = speaker.role;
+}
+
+function renderSceneHero(title, art, atmosphere = "") {
+  if (!els.sceneHero) return;
+  const visual = SCENE_VISUALS[art] || SCENE_VISUALS.village;
+  const isStart = document.body.classList.contains("is-start");
+  els.sceneHero.hidden = isStart;
+  if (isStart) return;
+
+  els.sceneHero.style.setProperty("--scene-hero-art", `url("${sceneArt[art] || sceneArt.village}")`);
+  if (els.sceneHeroKicker) els.sceneHeroKicker.textContent = visual.kicker;
+  if (els.sceneHeroTitle) els.sceneHeroTitle.textContent = visual.title || title;
+  if (els.sceneHeroText) els.sceneHeroText.textContent = atmosphere || visual.text;
+  if (els.sceneHeroMarks) {
+    els.sceneHeroMarks.innerHTML = (visual.marks || [])
+      .map((mark) => `<span>${escapeHTML(mark)}</span>`)
+      .join("");
+  }
+}
+
 function renderScene(id) {
   const scene = SCENES[id];
   state.scene = id;
@@ -1067,8 +1745,17 @@ function renderScene(id) {
   document.body.dataset.scene = art;
   document.body.classList.toggle("is-start", id === "start");
   setMusicMood(art);
+  if (els.combatPanel) {
+    els.combatPanel.hidden = true;
+    els.combatPanel.innerHTML = "";
+  }
+  if (els.sceneThumb) els.sceneThumb.style.setProperty("--scene-thumb-art", `url("${sceneArt[art]}")`);
   els.sceneName.textContent = scene.title;
-  els.storyText.innerHTML = scene.text().split("\n").map((p) => `<p>${p}</p>`).join("");
+  const atmosphere = scene.atmosphere || LOCATION_ATMOSPHERE[art] || "";
+  renderSceneHero(scene.title, art, atmosphere);
+  renderDialoguePortrait(id);
+  const storyText = SIDE_QUEST_DIALOGS[id] || MAIN_QUEST_DIALOGS[id] || EXTRA_SCENE_DIALOGS[id] || scene.text();
+  els.storyText.innerHTML = storyText.split("\n").map((p) => `<p>${p}</p>`).join("");
   renderNotifications();
   els.choices.innerHTML = "";
 
@@ -1088,7 +1775,15 @@ function renderCustom(title, text, choices, art = "village") {
   document.body.dataset.scene = art;
   document.body.classList.toggle("is-start", false);
   setMusicMood(art);
+  if (els.combatPanel) {
+    els.combatPanel.hidden = true;
+    els.combatPanel.innerHTML = "";
+  }
+  if (els.sceneThumb) els.sceneThumb.style.setProperty("--scene-thumb-art", `url("${sceneArt[art]}")`);
   els.sceneName.textContent = title;
+  const atmosphere = LOCATION_ATMOSPHERE[art] || "";
+  renderSceneHero(title, art, atmosphere);
+  renderDialoguePortrait(null);
   els.storyText.innerHTML = text.split("\n").map((p) => `<p>${p}</p>`).join("");
   renderNotifications();
   els.choices.innerHTML = "";
@@ -1098,12 +1793,51 @@ function renderCustom(title, text, choices, art = "village") {
   renderStats();
 }
 
+function automaticChoiceVisual(choice) {
+  if (document.body.classList.contains("is-start") || choice.asset || choice.icon) return {};
+  const label = `${choice.label} ${choice.description || ""} ${choice.meta || ""}`.toLowerCase();
+
+  if (/atak|zaatak|walcz|wilk|topielec|szkielet|cień|upi[oó]r|rycerz|najemnik|boss|kr[oó]l|polana|bandyt/.test(label)) {
+    return { iconAsset: ITEM_ICON_ASSETS.sword, visualClass: "choice-risk" };
+  }
+  if (/kup|sprzedaj|sklep|kowal|targ|handl|zapłać|złot/.test(label)) {
+    return { iconAsset: ITEM_ICON_ASSETS.material, visualClass: "choice-trade" };
+  }
+  if (/porozmawiaj|zapytaj|przekonaj|przemów|dialog|dow[oó]dca|kronikarz|zielark|kupc/.test(label)) {
+    return { iconAsset: ITEM_ICON_ASSETS.scroll, visualClass: "choice-lore" };
+  }
+  if (/zbadaj|przeszukaj|szukaj|sprawdź|odczytaj|ukryty|ślad|list|tablic|run/.test(label)) {
+    return { iconAsset: ITEM_ICON_ASSETS.book, visualClass: "choice-search" };
+  }
+  if (/mag|mana|zaklę|run|kryształ|świt|modl|kaplicz|duch|wizj/.test(label)) {
+    return { iconAsset: ITEM_ICON_ASSETS.crystal, visualClass: "choice-magic" };
+  }
+  if (/lecz|mikstur|odpocznij|fontann|wypij|rana|zdrow/.test(label)) {
+    return { iconAsset: ITEM_ICON_ASSETS.potion, visualClass: "choice-heal" };
+  }
+  if (/klucz|zamek|otw[oó]rz|wytrych|drzwi|bram/.test(label)) {
+    return { iconAsset: ITEM_ICON_ASSETS.key, visualClass: "choice-key" };
+  }
+  if (/korona|artefakt|pieczęć|relikt|sala tron/.test(label)) {
+    return { iconAsset: ITEM_ICON_ASSETS.crown, visualClass: "choice-artifact" };
+  }
+  if (/wr[oó]ć|idź|wejdź|zejdź|przejdź|podejdź|wyrusz|droga|las|bagna|krypt|fort|wieża|ruiny|ravenford|gospoda/.test(label)) {
+    return { iconAsset: ITEM_ICON_ASSETS.map, visualClass: "choice-travel" };
+  }
+
+  return { iconAsset: ITEM_ICON_ASSETS.scroll, visualClass: "choice-story" };
+}
+
 function renderChoiceButton(choice, handler) {
   const button = document.createElement("button");
   button.type = "button";
   const available = isAvailable(choice);
+  const autoVisual = automaticChoiceVisual(choice);
   if (choice.kind) button.classList.add(choice.kind);
-  if (choice.description || choice.meta || choice.icon || choice.asset) button.classList.add("choice-card");
+  if (autoVisual.visualClass) button.classList.add(autoVisual.visualClass);
+  if (choice.description || choice.meta || choice.icon || choice.asset || autoVisual.iconAsset) {
+    button.classList.add("choice-card");
+  }
   button.disabled = choice.disabled === true;
 
   const content = document.createElement("span");
@@ -1120,6 +1854,11 @@ function renderChoiceButton(choice, handler) {
     icon.className = "choice-icon";
     icon.textContent = choice.icon;
     content.appendChild(icon);
+  } else if (autoVisual.iconAsset) {
+    const icon = document.createElement("span");
+    icon.className = "choice-icon choice-icon-image";
+    icon.innerHTML = `<img src="${escapeHTML(autoVisual.iconAsset)}" alt="" loading="lazy" />`;
+    content.appendChild(icon);
   }
 
   const copy = document.createElement("span");
@@ -1128,21 +1867,23 @@ function renderChoiceButton(choice, handler) {
   title.textContent = available ? choice.label : `${choice.label} (${describeRequirement(choice)})`;
   copy.appendChild(title);
 
-  if (choice.description) {
+  const descriptionText = choice.description;
+  if (descriptionText) {
     const description = document.createElement("span");
     description.className = "choice-desc";
-    description.textContent = choice.description;
+    description.textContent = descriptionText;
     copy.appendChild(description);
   }
 
-  if (choice.meta) {
+  const metaText = choice.meta;
+  if (metaText) {
     const meta = document.createElement("span");
     meta.className = "choice-meta";
-    meta.textContent = choice.meta;
+    meta.textContent = metaText;
     copy.appendChild(meta);
   }
 
-  if (!choice.icon && !choice.asset && !choice.description && !choice.meta) {
+  if (!choice.icon && !choice.asset && !autoVisual.iconAsset && !descriptionText && !metaText) {
     button.textContent = title.textContent;
   } else {
     content.appendChild(copy);
@@ -1153,8 +1894,95 @@ function renderChoiceButton(choice, handler) {
   return button;
 }
 
+function mainArtifactTrail() {
+  return [
+    {
+      name: ARTIFACTS.key,
+      label: "Klucz",
+      icon: ITEM_ICON_ASSETS.key,
+      hint: "Krypta Milczących",
+    },
+    {
+      name: ARTIFACTS.crystal,
+      label: "Kryształ",
+      icon: ITEM_ICON_ASSETS.crystal,
+      hint: "Wieża Astromanty",
+    },
+    {
+      name: ARTIFACTS.seal,
+      label: "Pieczęć",
+      icon: ITEM_ICON_ASSETS.crown,
+      hint: "Fort Zdrajców",
+    },
+  ];
+}
+
+function renderJourneyPanel() {
+  if (els.journeyProgress) els.journeyProgress.textContent = `${mainArtifactCount()} / 3`;
+  if (els.currentQuestTitle || els.currentQuestObjective) {
+    const quests = questEntries();
+    const activeQuest = quests.find((quest) => !quest.completed);
+    if (els.currentQuestTitle) {
+      els.currentQuestTitle.textContent = activeQuest ? activeQuest.title : state.maxHealth ? "Droga do finału otwarta" : "Aktualny cel";
+    }
+    if (els.currentQuestObjective) {
+      els.currentQuestObjective.textContent = activeQuest
+        ? activeQuest.objective
+        : state.maxHealth
+          ? "Masz najważniejsze tropy. Rusz do Ruin Valdorinu albo domknij poboczne historie."
+          : "Wybierz klasę postaci, aby rozpocząć zapiski wyprawy.";
+    }
+  }
+  if (els.artifactTrail) {
+    els.artifactTrail.innerHTML = "";
+    mainArtifactTrail().forEach((artifact) => {
+      const owned = hasArtifact(artifact.name);
+      const slot = document.createElement("span");
+      slot.className = `artifact-slot ${owned ? "is-owned" : ""}`;
+      slot.title = owned ? artifact.name : artifact.hint;
+      slot.innerHTML = `
+        <img src="${escapeHTML(artifact.icon)}" alt="" loading="lazy" />
+        <small>${escapeHTML(owned ? artifact.label : "?")}</small>
+      `;
+      els.artifactTrail.appendChild(slot);
+    });
+  }
+}
+
+function renderLoadoutPreview() {
+  if (!els.loadoutPreview) return;
+  const entries = [
+    { slot: "weapon", label: "Broń", item: bestSlotItem("weapon") },
+    { slot: "armor", label: "Pancerz", item: bestSlotItem("armor") || bestSlotItem("head") },
+    { slot: "amulet", label: "Talizman", item: bestSlotItem("amulet") || bestSlotItem("ring") },
+    { slot: "artifact", label: "Relikt", item: bestSlotItem("artifact") },
+  ];
+
+  els.loadoutPreview.innerHTML = entries
+    .map(({ slot, label, item }) => {
+      const hasItem = Boolean(item);
+      const bonus = hasItem ? itemBonusList(item)[0] || rarityLabel(itemRarity(item)) : "Puste miejsce";
+      const icon = hasItem ? itemIconHTML(item, "loadout-icon-img") : `<span class="loadout-icon-img">·</span>`;
+      return `
+        <button class="loadout-slot ${hasItem ? "has-item" : "is-empty"}" type="button" data-slot="${escapeHTML(slot)}">
+          <i>${icon}</i>
+          <span>
+            <small>${escapeHTML(label)}</small>
+            <strong>${escapeHTML(hasItem ? item : "Puste")}</strong>
+            <em>${escapeHTML(bonus)}</em>
+          </span>
+        </button>
+      `;
+    })
+    .join("");
+
+  els.loadoutPreview.querySelectorAll(".loadout-slot").forEach((slotButton) => {
+    slotButton.addEventListener("click", openInventory);
+  });
+}
+
 function renderStats() {
-  els.heroClass.textContent = state.heroClass;
+  if (els.heroClass) els.heroClass.textContent = state.heroClass;
   els.health.textContent = state.maxHealth ? `${state.health}/${state.maxHealth}` : "-";
   els.gold.textContent = state.gold;
   if (els.level) els.level.textContent = state.maxHealth ? state.level : "-";
@@ -1162,6 +1990,15 @@ function renderStats() {
   if (els.skillPointsPanel) els.skillPointsPanel.textContent = state.maxHealth ? state.skillPoints : "-";
   if (els.healthBar) els.healthBar.style.width = state.maxHealth ? `${Math.max(0, Math.min(100, (state.health / state.maxHealth) * 100))}%` : "0%";
   if (els.xpBar) els.xpBar.style.width = `${xpProgress()}%`;
+  if (els.panelHeroPortrait) {
+    const portrait = HERO_ART[state.heroKey] || "assets/crown.svg";
+    els.panelHeroPortrait.innerHTML = `<img src="${escapeHTML(portrait)}" alt="" loading="lazy" />`;
+  }
+  if (els.panelHeroLevel) els.panelHeroLevel.textContent = state.maxHealth ? `Poziom ${state.level}` : "Poziom -";
+  if (els.panelHeroName) els.panelHeroName.textContent = state.maxHealth ? state.heroClass : "Nieznany wędrowiec";
+  if (els.panelHeroMotto) {
+    els.panelHeroMotto.textContent = state.maxHealth ? HERO_PANEL_TEXT[state.heroKey] || "Wędrowiec Valdorinu." : "Wybierz klasę, aby rozpocząć wyprawę.";
+  }
   els.attack.textContent = state.maxHealth ? attackValue() : "-";
   els.weapon.textContent = state.weapon;
   if (els.defense) els.defense.textContent = state.maxHealth ? defenseValue() : "-";
@@ -1172,7 +2009,9 @@ function renderStats() {
   fillList(els.inventory, state.inventory);
   fillList(els.artifacts, state.artifacts);
   if (els.statuses) fillList(els.statuses, state.statuses);
-  if (els.reputation) fillList(els.reputation, [repLabel()]);
+  renderReputationPanel();
+  renderLoadoutPreview();
+  renderJourneyPanel();
   renderJournalPreview();
   renderStatsModal();
   renderArtifactsModal();
@@ -1503,20 +2342,54 @@ function closeArtifacts() {
   if (els.artifactsModal) els.artifactsModal.classList.add("hidden");
 }
 
+function renderArtifactShowcase() {
+  if (!els.artifactShowcase) return;
+  const mainArtifacts = mainArtifactTrail();
+  const ownedMain = mainArtifactCount();
+  const ready = ownedMain >= 3;
+  els.artifactShowcase.innerHTML = `
+    <div class="artifact-gate ${ready ? "is-open" : "is-sealed"}">
+      <span>Brama Korony</span>
+      <strong>${ready ? "Otwarta" : "Zapieczętowana"}</strong>
+      <p>${ready ? "Masz komplet reliktów. Sala Korony czeka." : `Brakuje ${3 - ownedMain} ${3 - ownedMain === 1 ? "artefaktu" : "artefaktów"} do prawdziwego finału.`}</p>
+    </div>
+    <div class="artifact-mainline">
+      ${mainArtifacts.map((artifact, index) => {
+        const owned = hasArtifact(artifact.name);
+        return `
+          <article class="artifact-main-slot ${owned ? "is-owned" : "is-missing"}">
+            <i>${String(index + 1).padStart(2, "0")}</i>
+            <span>${owned ? "Zdobyty" : "Nie zdobyto"}</span>
+            <img src="${escapeHTML(artifact.icon)}" alt="" loading="lazy" />
+            <strong>${escapeHTML(artifact.name)}</strong>
+            <p>${escapeHTML(owned ? artifact.label : artifact.hint)}</p>
+          </article>
+        `;
+      }).join("")}
+    </div>
+  `;
+}
+
 function renderArtifactsModal() {
   if (!els.artifactsModal || els.artifactsModal.classList.contains("hidden") || !els.artifactGrid) return;
   const owned = artifactCatalog().filter((artifact) => hasArtifact(artifact.name)).length;
   if (els.artifactsSummary) {
     els.artifactsSummary.textContent = `Główne artefakty: ${mainArtifactCount()} / 3. Wszystkie relikty: ${owned} / ${artifactCatalog().length}.`;
   }
+  renderArtifactShowcase();
   els.artifactGrid.innerHTML = "";
   artifactCatalog().forEach((artifact) => {
     const isOwned = hasArtifact(artifact.name);
     const card = document.createElement("article");
     card.className = `artifact-card ${isOwned ? "is-owned" : "is-missing"}`;
     card.innerHTML = `
-      <span>${escapeHTML(artifact.type)}</span>
-      <strong>${escapeHTML(artifact.name)}</strong>
+      <div class="artifact-card-head">
+        <i>${itemIconHTML(artifact.name, "artifact-card-img")}</i>
+        <div>
+          <span>${escapeHTML(artifact.type)}</span>
+          <strong>${escapeHTML(artifact.name)}</strong>
+        </div>
+      </div>
       <p>${escapeHTML(isOwned ? artifact.description : artifact.hint)}</p>
       <em>${isOwned ? "Zdobyty" : "Nie zdobyto"}</em>
     `;
@@ -1626,6 +2499,64 @@ function closeMap() {
   if (els.mapModal) els.mapModal.classList.add("hidden");
 }
 
+function renderMapOverview(destinations) {
+  if (!els.mapOverview) return;
+  const unlocked = destinations.filter((destination) => destination.unlocked).length;
+  const locked = destinations.length - unlocked;
+  const current = destinations.find((destination) => destination.art === document.body.dataset.scene);
+  els.mapOverview.innerHTML = `
+    <article>
+      <span>Aktualnie</span>
+      <strong>${escapeHTML(current?.title || "Nieznany trakt")}</strong>
+    </article>
+    <article>
+      <span>Dostępne</span>
+      <strong>${unlocked}</strong>
+    </article>
+    <article>
+      <span>Zablokowane</span>
+      <strong>${locked}</strong>
+    </article>
+    <article>
+      <span>Artefakty</span>
+      <strong>${mainArtifactCount()} / 3</strong>
+    </article>
+  `;
+}
+
+function travelToDestination(destination) {
+  if (!destination.unlocked) return;
+  closeMap();
+  const target = typeof destination.scene === "function" ? destination.scene() : destination.scene;
+  renderScene(target);
+}
+
+function renderMapRoute(destinations) {
+  if (!els.mapRoute) return;
+  const currentArt = document.body.dataset.scene;
+  els.mapRoute.innerHTML = destinations.map((destination, index) => {
+    const isCurrent = destination.art === currentArt;
+    const stateLabel = isCurrent ? "Tu jesteś" : destination.unlocked ? "Dostępne" : "Zamknięte";
+    return `
+      <button
+        class="map-route-node ${destination.unlocked ? "is-open" : "is-locked"} ${isCurrent ? "is-current" : ""}"
+        type="button"
+        data-route-index="${index}"
+        ${destination.unlocked ? "" : "disabled"}
+      >
+        <i>${String(index + 1).padStart(2, "0")}</i>
+        <span>${escapeHTML(stateLabel)}</span>
+        <strong>${escapeHTML(destination.title)}</strong>
+      </button>
+    `;
+  }).join("");
+
+  els.mapRoute.querySelectorAll(".map-route-node").forEach((node) => {
+    const destination = destinations[Number(node.dataset.routeIndex)];
+    node.addEventListener("click", () => travelToDestination(destination));
+  });
+}
+
 function renderMapModal() {
   if (!els.mapModal || els.mapModal.classList.contains("hidden") || !els.mapGrid) return;
   const destinations = mapDestinations();
@@ -1634,24 +2565,20 @@ function renderMapModal() {
     els.mapSummary.textContent = `Dostępne lokacje: ${unlockedCount} / ${destinations.length}. Artefakty główne: ${mainArtifactCount()} / 3.`;
   }
   els.mapGrid.innerHTML = "";
-  destinations.forEach((destination) => {
+  destinations.forEach((destination, index) => {
     const card = document.createElement("button");
     card.type = "button";
     card.className = `map-card ${destination.unlocked ? "is-open" : "is-locked"} ${destination.art === document.body.dataset.scene ? "is-current" : ""}`;
     card.disabled = !destination.unlocked;
     card.style.setProperty("--map-card-art", `url("${sceneArt[destination.art]}")`);
     card.innerHTML = `
-      <span>${destination.unlocked ? "Dostępne" : "Zablokowane"}</span>
+      <i>${String(index + 1).padStart(2, "0")}</i>
+      <span>${destination.art === document.body.dataset.scene ? "Tu jesteś" : destination.unlocked ? "Dostępne" : "Zablokowane"}</span>
       <strong>${escapeHTML(destination.title)}</strong>
       <p>${escapeHTML(destination.description)}</p>
       <em>${escapeHTML(destination.unlocked ? "Przejdź" : destination.requirement)}</em>
     `;
-    card.addEventListener("click", () => {
-      if (!destination.unlocked) return;
-      closeMap();
-      const target = typeof destination.scene === "function" ? destination.scene() : destination.scene;
-      renderScene(target);
-    });
+    card.addEventListener("click", () => travelToDestination(destination));
     els.mapGrid.appendChild(card);
   });
 }
@@ -1844,10 +2771,11 @@ function journalInfoEntries() {
 }
 
 function journalRecentEntries() {
-  if (!state.actionLog?.length) {
+  const entries = (state.actionLog || []).filter((entry) => !isHeroTraitNotificationText(entry.text));
+  if (!entries.length) {
     return [{ label: "Pusta karta", text: "Nie ma jeszcze ostatnich działań do zapisania." }];
   }
-  return state.actionLog.map((entry, index) => ({
+  return entries.map((entry, index) => ({
     label: `${index + 1}. ${entry.scene}`,
     text: entry.text,
     type: entry.type,
@@ -1871,6 +2799,62 @@ function renderJournalPreview() {
   els.journalPreview.textContent = `${activeQuests} aktywnych zadań / ${journalCountLabel(state.statuses.length)}${lastEntry ? `. Ostatni: ${lastEntry}` : "."}`;
 }
 
+function renderJournalOverview(quests) {
+  if (!els.journalOverview) return;
+  const active = quests.filter((quest) => !quest.completed).length;
+  const completed = quests.filter((quest) => quest.completed).length;
+  const info = state.statuses.length;
+  const recent = state.actionLog?.length || 0;
+  const cards = [
+    { label: "Aktywne", value: active, tone: "active" },
+    { label: "Ukończone", value: completed, tone: "done" },
+    { label: "Informacje", value: info, tone: "info" },
+    { label: "Ostatnie", value: recent, tone: "recent" },
+  ];
+  els.journalOverview.innerHTML = cards.map((card) => `
+    <article class="journal-overview-card journal-overview-${card.tone}">
+      <span>${escapeHTML(card.label)}</span>
+      <strong>${card.value}</strong>
+    </article>
+  `).join("");
+}
+
+function renderJournalFocus(quests) {
+  if (!els.journalFocus) return;
+  const activeQuest = quests.find((quest) => !quest.completed);
+  const completed = quests.filter((quest) => quest.completed).length;
+  const progress = quests.length ? Math.round((completed / quests.length) * 100) : 0;
+  const focusQuest = activeQuest || quests[quests.length - 1];
+
+  if (!focusQuest) {
+    els.journalFocus.innerHTML = `
+      <div class="journal-focus-seal">?</div>
+      <div class="journal-focus-copy">
+        <span>Brak aktywnych zapisków</span>
+        <strong>Pusta kronika</strong>
+        <p>Wybierz klasę postaci i rusz do Ravenford, aby rozpocząć zapiski wyprawy.</p>
+        <div class="journal-progress-track"><b style="width: 0%"></b></div>
+      </div>
+    `;
+    return;
+  }
+
+  els.journalFocus.innerHTML = `
+    <div class="journal-focus-seal">${activeQuest ? "!" : "✓"}</div>
+    <div class="journal-focus-copy">
+      <span>${activeQuest ? "Aktualny trop" : "Zadania ukończone"}</span>
+      <strong>${escapeHTML(focusQuest.title)}</strong>
+      <p>${escapeHTML(focusQuest.objective)}</p>
+      <div class="journal-progress-track"><b style="width: ${progress}%"></b></div>
+      <em>${completed} / ${quests.length || 0} ukończonych wpisów</em>
+    </div>
+    <aside class="journal-focus-clue">
+      <span>Trop</span>
+      <p>${escapeHTML(focusQuest.details)}</p>
+    </aside>
+  `;
+}
+
 function renderJournalModal() {
   if (!els.journalModal || els.journalModal.classList.contains("hidden") || !els.journalEntries) return;
   const quests = questEntries();
@@ -1878,6 +2862,8 @@ function renderJournalModal() {
   if (els.journalSummary) {
     els.journalSummary.textContent = `${activeQuests} aktywnych zadań / ${mainArtifactCount()} z 3 głównych artefaktów / ${repLabel()}`;
   }
+  renderJournalOverview(quests);
+  renderJournalFocus(quests);
   document.querySelectorAll("[data-journal-tab]").forEach((button) => {
     button.classList.toggle("is-active", button.dataset.journalTab === selectedJournalTab);
   });
@@ -1888,15 +2874,18 @@ function renderJournalModal() {
       els.journalEntries.innerHTML = `<article class="journal-entry"><span>Pusta karta</span><p>Nie masz jeszcze żadnego zadania.</p></article>`;
       return;
     }
-    quests.forEach((quest) => {
+    quests.forEach((quest, index) => {
       const node = document.createElement("article");
       node.className = `journal-entry ${quest.completed ? "is-completed" : "is-active"}`;
       node.innerHTML = `
-        <span>${quest.completed ? "Ukończone" : "Aktywne"}</span>
+        <i>${String(index + 1).padStart(2, "0")}</i>
+        <div class="journal-entry-top">
+          <span>${quest.completed ? "Ukończone" : "Aktywne"}</span>
+          <em class="quest-state">${quest.completed ? "Zakończone" : "Do wykonania"}</em>
+        </div>
         <strong>${escapeHTML(quest.title)}</strong>
-        <p>${escapeHTML(quest.objective)}</p>
-        <p>${escapeHTML(quest.details)}</p>
-        <em class="quest-state">${quest.completed ? "Zakończone" : "Do wykonania"}</em>
+        <p><b>Cel:</b> ${escapeHTML(quest.objective)}</p>
+        <p><b>Trop:</b> ${escapeHTML(quest.details)}</p>
       `;
       els.journalEntries.appendChild(node);
     });
@@ -1904,10 +2893,16 @@ function renderJournalModal() {
   }
 
   const entries = selectedJournalTab === "recent" ? journalRecentEntries() : journalInfoEntries();
-  entries.forEach((entry) => {
+  entries.forEach((entry, index) => {
     const node = document.createElement("article");
-    node.className = "journal-entry";
-    node.innerHTML = `<span>${escapeHTML(entry.label)}</span><p>${escapeHTML(entry.text)}</p>`;
+    node.className = `journal-entry journal-entry-note ${entry.type ? `event-${entry.type}` : ""}`;
+    node.innerHTML = `
+      <i>${String(index + 1).padStart(2, "0")}</i>
+      <div class="journal-entry-top">
+        <span>${escapeHTML(entry.label)}</span>
+      </div>
+      <p>${escapeHTML(entry.text)}</p>
+    `;
     els.journalEntries.appendChild(node);
   });
 }
@@ -1921,12 +2916,45 @@ function selectInventoryItem(item) {
   renderInventoryModal();
 }
 
+function renderInventoryOverview(equipment, selectedItem) {
+  if (!els.inventoryOverview) return;
+  const equippedCount = Object.values(equipment).filter(Boolean).length;
+  const bagCount = state.inventory.length;
+  const selectedLabel = selectedItem ? rarityLabel(itemRarity(selectedItem)) : "brak";
+  const selectedValue = selectedItem ? itemValue(selectedItem) : "wybierz przedmiot";
+  const selectedBonus = selectedItem ? itemBonusList(selectedItem)[0] || itemDescription(selectedItem) : "kliknij slot lub kratkę plecaka";
+
+  els.inventoryOverview.innerHTML = `
+    <article>
+      <span>Założone</span>
+      <strong>${equippedCount} / ${Object.keys(SLOT_LABELS).length}</strong>
+      <p>Aktywne sloty postaci</p>
+    </article>
+    <article>
+      <span>Plecak</span>
+      <strong>${bagCount} / ${INVENTORY_GRID_SIZE}</strong>
+      <p>Przedmioty w podróży</p>
+    </article>
+    <article class="${selectedItem ? `rarity-${itemRarity(selectedItem)}` : ""}">
+      <span>Wybrany</span>
+      <strong>${escapeHTML(selectedItem || "Pusta karta")}</strong>
+      <p>${escapeHTML(selectedLabel)} / ${escapeHTML(selectedValue)}</p>
+    </article>
+    <article>
+      <span>Efekt</span>
+      <strong>${escapeHTML(selectedItem ? "Aktywny opis" : "Podgląd")}</strong>
+      <p>${escapeHTML(selectedBonus)}</p>
+    </article>
+  `;
+}
+
 function renderInventoryModal() {
   if (!els.inventoryModal || els.inventoryModal.classList.contains("hidden")) return;
   if (selectedInventoryItem && selectedInventoryItem !== state.weapon && !has(selectedInventoryItem) && !hasArtifact(selectedInventoryItem)) {
     selectedInventoryItem = state.weapon && state.weapon !== "-" ? state.weapon : state.inventory[0] || state.artifacts[0] || null;
   }
   const equipment = activeEquipment();
+  renderInventoryOverview(equipment, selectedInventoryItem);
 
   if (els.inventoryHeroSummary) {
     els.inventoryHeroSummary.textContent = state.maxHealth
@@ -2139,6 +3167,7 @@ function startFight(enemyTemplate, winSceneOrFn, loseScene = "village") {
 }
 
 function scaleEnemy(enemy) {
+  enemy.maxHealth = enemy.maxHealth || enemy.health;
   const artifacts = mainArtifactCount();
   const levelPressure = Math.max(0, state.level - 1) * 0.04;
   let healthScale = 1.18 + artifacts * 0.08 + levelPressure;
@@ -2151,7 +3180,68 @@ function scaleEnemy(enemy) {
 
   if (enemy.undead || enemy.ghost) healthScale += 0.06;
   enemy.health = Math.max(1, Math.ceil(enemy.health * healthScale));
+  enemy.maxHealth = enemy.health;
   enemy.attack = Math.max(1, Math.ceil(enemy.attack + attackBonus));
+}
+
+function enemyTypeLabel(enemy) {
+  if (enemy.finalBoss) return "Boss finałowy";
+  if (enemy.undead) return "Nieumarły";
+  if (enemy.ghost) return "Duch";
+  if (/wil|best|topiel|upiór|cień/i.test(enemy.name)) return "Bestia klątwy";
+  return "Przeciwnik";
+}
+
+function enemyPortraitGlyph(enemy) {
+  if (enemy.finalBoss) return "KRÓL";
+  if (/cień/i.test(enemy.name)) return "CIEŃ";
+  if (/wil/i.test(enemy.name)) return "WILK";
+  if (/szkielet|strażnik/i.test(enemy.name)) return "KOŚĆ";
+  if (/topiel/i.test(enemy.name)) return "BAG";
+  if (/rycerz|cael|dowódca/i.test(enemy.name)) return "FORT";
+  if (/duch|upiór|widmo|zjawa/i.test(enemy.name)) return "DUCH";
+  return "WRÓG";
+}
+
+function renderCombatPanel() {
+  if (!els.combatPanel || !state.enemy) return;
+  const enemy = state.enemy;
+  const enemyMaxHealth = Math.max(1, enemy.maxHealth || enemy.health);
+  const enemyHealthPercent = Math.max(0, Math.min(100, (enemy.health / enemyMaxHealth) * 100));
+  const heroHealthPercent = state.maxHealth ? Math.max(0, Math.min(100, (state.health / state.maxHealth) * 100)) : 0;
+  const portrait = HERO_ART[state.heroKey] || "assets/crown.svg";
+  els.combatPanel.hidden = false;
+  els.combatPanel.innerHTML = `
+    <article class="combatant combatant-hero">
+      <div class="combat-portrait">
+        <img src="${escapeHTML(portrait)}" alt="" loading="lazy" />
+      </div>
+      <div class="combatant-copy">
+        <span>Bohater</span>
+        <strong>${escapeHTML(state.heroClass || "Wędrowiec")}</strong>
+        <div class="enemy-stats">
+          <small>Broń: ${escapeHTML(state.weapon || "brak")}</small>
+          <small>Atak ${attackValue()}</small>
+        </div>
+        <div class="combat-meter combat-meter-hero"><b style="width: ${heroHealthPercent}%"></b></div>
+        <em>${Math.max(0, state.health)} / ${state.maxHealth || 0} zdrowia</em>
+      </div>
+    </article>
+    <div class="combat-versus">VS</div>
+    <article class="combatant combatant-enemy">
+      <div class="combat-portrait enemy-portrait">${escapeHTML(enemyPortraitGlyph(enemy))}</div>
+      <div class="combatant-copy enemy-card-copy">
+        <span>${escapeHTML(enemyTypeLabel(enemy))}</span>
+        <strong>${escapeHTML(enemy.name)}</strong>
+        <div class="enemy-stats">
+          <small>Atak ${enemy.attack}</small>
+          <small>Zdrowie ${Math.max(0, enemy.health)} / ${enemyMaxHealth}</small>
+        </div>
+        <div class="combat-meter enemy-meter"><b style="width: ${enemyHealthPercent}%"></b></div>
+        <em>${enemy.finalBoss ? "Finałowa próba" : "Próba wyprawy"}</em>
+      </div>
+    </article>
+  `;
 }
 
 function renderFight(message = "") {
@@ -2194,6 +3284,7 @@ function renderFight(message = "") {
     options,
     enemy.finalBoss ? "crown" : SCENES[state.scene]?.art || "forest",
   );
+  renderCombatPanel();
   document.body.classList.add("combat-pulse");
   window.setTimeout(() => document.body.classList.remove("combat-pulse"), 220);
 }
@@ -2361,12 +3452,22 @@ function completeArtifactEvent() {
 
 function crownFinalChoice(mode) {
   if (mode === "wear") return endingBad();
+  const knowsEliana = hasArtifact(ARTIFACTS.letter) || hasFlag("readElianaBook") || hasFlag("readElianaLetter");
+  const choseMercy = hasFlag("vowMercy") || hasFlag("vowSaveEliana") || hasFlag("promisedElianaNotWeapon");
+  const choseTruth = hasFlag("vowTruth") || hasFlag("confrontedArvandTruth") || hasFlag("promisedNames");
+  const rejectsCrown = hasFlag("vowRejectCrown") || hasFlag("vowReturnArtifacts");
+  const temptedByPower = hasFlag("vowUseCrown") || hasFlag("claimedRightToRule") || state.rep.greed >= 6;
+  if (temptedByPower && mode !== "destroy" && mode !== "tear" && state.rep.ash >= 4) return endingBad();
   if (hasArtifact(ARTIFACTS.tear) && state.rep.ash < 6 && (hasArtifact(ARTIFACTS.letter) || hasFlag("readElianaBook"))) return endingBest();
   if (mode === "forgive" && (hasArtifact(ARTIFACTS.letter) || hasFlag("readElianaBook") || hasFlag("prayedForKing")) && state.rep.good >= 5) return endingBest();
+  if (mode === "forgive" && choseMercy && knowsEliana && state.rep.good >= 4 && state.rep.ash < 6) return endingMercy();
   if (mode === "destroy" && hasStatus("Wola Zniszczenia") && !hasArtifact(ARTIFACTS.tear)) return endingDark();
+  if (mode === "destroy" && choseTruth && hasFlag("shadowsSupport") && state.rep.ash < 5) return endingGood();
+  if (mode === "seal" && rejectsCrown && hasFlag("caelAlly") && hasFlag("shadowsSupport")) return endingGuardian();
   if (mode === "seal") return endingNeutral();
   return startFight(ENEMIES.ashKing, () => {
     if (hasStatus("Wola Zniszczenia") && !hasArtifact(ARTIFACTS.tear)) return endingDark();
+    if (choseTruth && hasFlag("shadowsSupport") && state.rep.ash < 5) return endingGood();
     return endingGood();
   }, "crownHall");
 }
@@ -2389,10 +3490,24 @@ function endingGood() {
   );
 }
 
+function endingMercy() {
+  renderEnding(
+    "Sąd nad królem",
+    "Nie przebaczasz Arvandowi za miasto. Przebaczasz mu tylko kłamstwo, że cierpienie daje prawo do posiadania drugiego człowieka.\nKorona traci głos, kiedy wypowiadasz imię Eliany bez żądania i bez rozkazu. Król zostaje w sali tronowej sam, już nie jako władca, lecz jako strażnik własnej winy.\nValdorin budzi się powoli. Nie wszystkie cienie odchodzą, ale po raz pierwszy mogą wybrać, czy chcą zostać.",
+  );
+}
+
 function endingNeutral() {
   renderEnding(
     "Nowy Strażnik",
     "Nie potrafisz zniszczyć Korony. Nie potrafisz jej też założyć. Zamykasz ją więc tam, gdzie spoczywała przez sto lat. Tym razem zostajesz przy niej.\nMijają lata. Ludzie zapominają twoje imię, ale pamiętają, że ktoś pilnuje ruin.",
+  );
+}
+
+function endingGuardian() {
+  renderEnding(
+    "Przysięga ostatniej bramy",
+    "Nie bierzesz Korony i nie rozbijasz jej w gniewie. Oddajesz artefakty tym, którzy mają siłę pilnować ich osobno: Caelowi, Alenie i głosom Valdorinu.\nBrama zostaje zamknięta, ale nie jak więzienie. Jak rana opatrzona przed długim leczeniem.\nRavenford pamięta twoje imię. Valdorin jeszcze nie jest wolny, ale Korona nie ma już jednej dłoni, którą mogłaby skusić.",
   );
 }
 
@@ -2475,6 +3590,9 @@ const SCENES = {
       c("Zapytaj o Koronę", { to: "edrinIntro", effects: [{ status: "Zna legendę Korony" }] }),
       c("Zapytaj o Popielnego Króla", { to: "edrinIntro", effects: [{ status: "Zna imię Arvanda III" }] }),
       c("Zapytaj, skąd tyle wie", { to: "edrinIntro", effects: [{ status: "Podejrzewa Edrina" }] }),
+      c("Powiedz: nigdy jej nie założę", { to: "edrinIntro", unless: () => hasFlag("vowRejectCrown"), effects: [{ flag: "vowRejectCrown" }, { status: "Przysięga odmowy Korony" }, { rep: { good: 1 } }], kind: "good" }),
+      c("Powiedz: najpierw chcę poznać prawdę", { to: "edrinIntro", unless: () => hasFlag("vowTruth"), effects: [{ flag: "vowTruth" }, { status: "Wybór prawdy przed legendą" }, { rep: { good: 1 } }], kind: "good" }),
+      c("Powiedz: jeśli ocali żywych, użyję jej", { to: "edrinIntro", unless: () => hasFlag("vowUseCrown"), effects: [{ flag: "vowUseCrown" }, { status: "Korona zapamiętała twoją zgodę" }, { rep: { ash: 1 } }], kind: "danger" }),
       c("Weź zadanie i wyjdź do Ravenford", { to: "village", effects: [{ item: ITEMS.torch }, { flag: "mainQuestKnown" }] }),
     ],
   },
@@ -2621,7 +3739,8 @@ const SCENES = {
     choices: [
       c("Poproś o błogosławieństwo", { to: "chapel", effects: [{ artifact: ARTIFACTS.dawn }, { bonus: 2 }, { rep: { good: 1 } }, { status: "Błogosławieństwo Świtu" }], kind: "good" }),
       c("Zapytaj o Popielnego Króla", { to: "chapel", effects: [{ flag: "alenaForgiveness" }, { status: "Alena wierzy w przebaczenie" }] }),
-      c("Powiedz, że król zasłużył na potępienie", { to: "chapel", effects: [{ status: "Wola Zniszczenia" }, { rep: { ash: 1 } }] }),
+      c("Obiecaj, że spróbujesz ocalić Elianę", { to: "chapel", unless: () => hasFlag("vowSaveEliana"), effects: [{ flag: "vowSaveEliana" }, { status: "Obietnica dla Eliany" }, { rep: { good: 1 } }], kind: "good" }),
+      c("Powiedz, że król zasłużył na potępienie", { to: "chapel", unless: () => hasFlag("vowDestroyCrown"), effects: [{ flag: "vowDestroyCrown" }, { status: "Wola Zniszczenia" }, { rep: { ash: 1 } }], kind: "danger" }),
       c("Ofiaruj 5 złota kaplicy", { requireGold: 5, to: "chapel", effects: [{ rep: { good: 1 } }] }),
       c("Sprawdź księgę zmarłych drwala", { requireFlag: "woodcutterInitials", to: "chapel", unless: () => hasFlag("woodcutterNameKnown"), effects: [{ flag: "woodcutterNameKnown" }, { status: "Zna imię drwala: Tomasz Rana" }] }),
       c("Świece dla Kaplicy Świtu", { to: "candlesQuest", unless: () => hasFlag("candlesQuestDone") }),
@@ -2972,6 +4091,8 @@ const SCENES = {
       c("Przekonaj go dowodami przebudzenia Korony", { when: () => hasFlag("cleansedBell") || hasFlag("healedEdric") || hasArtifact(ARTIFACTS.key) || hasFlag("trueRebellionProof"), action: () => { addXP(180); addArtifact(ARTIFACTS.seal); addItem(ITEMS.sealGuardArmor); state.weapon = "Młot Przysięgi"; addNotification("Nowa broń: Młot Przysięgi.", "item"); setFlag("convincedCael"); setFlag("caelAlly"); addStatus("Cael jako sojusznik"); state.rep.good += 2; addNotification("Reputacja: dobro +2.", "good"); completeArtifactEvent(); }, kind: "good" }),
       c("Przekonaj go, że nie chcesz władzy", { requireGood: 3, action: () => { addXP(120); addArtifact(ARTIFACTS.seal); setFlag("convincedCael"); addStatus("Przekonał Caela"); state.rep.good += 1; addNotification("Reputacja: dobro +1.", "good"); completeArtifactEvent(); }, kind: "good" }),
       c("Poproś o prawdę", { to: "cael", effects: [{ status: "Wie, że zdrajcy byli pierwszymi obrońcami" }] }),
+      c("Przysięgnij, że oddasz artefakty po wszystkim", { requireGood: 3, unless: () => hasFlag("vowReturnArtifacts"), to: "cael", effects: [{ flag: "vowReturnArtifacts" }, { status: "Przysięga ostatniej bramy" }, { rep: { good: 1 } }], kind: "good" }),
+      c("Powiedz, że zwycięzca ma prawo rozkazywać", { unless: () => hasFlag("claimedRightToRule"), to: "cael", effects: [{ flag: "claimedRightToRule" }, { status: "Cael widzi w tobie cień Arvanda" }, { rep: { ash: 1 } }], kind: "danger" }),
       c("Pokaż Stary List Króla", { requireArtifact: ARTIFACTS.letter, action: () => { addXP(130); addArtifact(ARTIFACTS.seal); setFlag("convincedCael"); setFlag("caelAlly"); completeArtifactEvent(); }, kind: "good" }),
       c("Zastrasz Caela", { requireClass: "warrior", action: () => { addXP(100); addArtifact(ARTIFACTS.seal); setFlag("convincedCael"); addStatus("Złamana przysięga przez strach"); state.rep.ash += 1; addNotification("Reputacja: popiół +1.", "danger"); completeArtifactEvent(); }, kind: "danger" }),
       c("Zaoferuj 20 złota", { requireGold: 20, action: () => { addXP(80); addArtifact(ARTIFACTS.seal); completeArtifactEvent(); } }),
@@ -3173,6 +4294,7 @@ const SCENES = {
       c("Zniszcz zabawkowego konia", { to: "elianaRoom", unless: () => hasFlag("elianaToyDone"), effects: [{ xp: 60 }, { status: "Wola Zniszczenia" }, { flag: "destroyedElianaToy" }, { flag: "elianaToyDone" }, { rep: { ash: 1 } }], kind: "danger" }),
       c("Zostaw własny przedmiot na łóżku", { requireItem: ITEMS.childAmulet, to: "elianaRoom", effects: [{ removeItem: ITEMS.childAmulet }, { artifact: ARTIFACTS.tear }, { rep: { good: 2 } }], kind: "good" }),
       c("Zawołaj Elianę po imieniu", { to: "elianaRoom", when: () => hasFlag("readElianaBook") || hasFlag("knowsElianaPath") || hasFlag("readElianaLetter"), effects: [{ artifact: ARTIFACTS.tear }, { rep: { good: 2 } }], kind: "good" }),
+      c("Obiecaj, że nie użyjesz jej jako broni", { to: "elianaRoom", when: () => hasFlag("readElianaBook") || hasFlag("readElianaLetter") || hasArtifact(ARTIFACTS.tear), unless: () => hasFlag("promisedElianaNotWeapon"), effects: [{ flag: "promisedElianaNotWeapon" }, { status: "Eliana nie będzie narzędziem" }, { rep: { good: 1 } }], kind: "good" }),
       c("Wróć", { to: "ruinsMarket" }),
     ],
   },
@@ -3183,6 +4305,7 @@ const SCENES = {
     choices: [
       c("Idź prosto do pałacu", { to: "crownHall" }),
       c("Przemów do cieni", { to: "crownHall", effects: [{ flag: "shadowsSupport" }, { rep: { good: 1 } }] }),
+      c("Obiecaj cieniom pamięć zamiast zemsty", { to: "crownHall", unless: () => hasFlag("promisedNames"), effects: [{ flag: "promisedNames" }, { flag: "shadowsSupport" }, { status: "Obietnica pamięci Valdorinu" }, { rep: { good: 1 } }], kind: "good" }),
       c("Uklęknij i poproś o przebaczenie", { requireGood: 5, to: "crownHall", effects: [{ flag: "shadowsSupport" }, { heal: 10 }], kind: "good" }),
       c("Rozkaż cieniom się usunąć", { to: "crownHall", effects: [{ rep: { ash: 1 } }], kind: "danger" }),
       c("Użyj Kryształu Świtu", { requireArtifact: ARTIFACTS.crystal, to: "crownHall", effects: [{ heal: 10 }, { damage: 2 }] }),
@@ -3219,6 +4342,9 @@ const SCENES = {
     art: "crown",
     text: () => "Sala tronowa jest ogromna i martwa. Na tronie siedzi postać w spalonej zbroi. Na jej głowie spoczywa Korona Popiołu. Król pyta: „Przyszedłeś mnie osądzić, po władzę, czy jak wszyscy udajesz bohatera?”",
     choices: [
+      c("Powiedz: Eliana nie była twoją własnością", { to: "crownHall", unless: () => hasFlag("confrontedArvandTruth"), effects: [{ flag: "confrontedArvandTruth" }, { status: "Król usłyszał prawdę o Elianie" }, { rep: { good: 1 } }], kind: "good" }),
+      c("Powiedz: oddaj głos tym, których spaliłeś", { to: "crownHall", when: () => hasFlag("shadowsSupport") || hasFlag("marketVoicesRestored"), unless: () => hasFlag("vowMercy"), effects: [{ flag: "vowMercy" }, { status: "Sala Korony słucha umarłych" }, { rep: { good: 1 } }], kind: "good" }),
+      c("Powiedz: zrobiłbym to lepiej od ciebie", { to: "crownHall", unless: () => hasFlag("claimedRightToRule"), effects: [{ flag: "claimedRightToRule" }, { status: "Korona śmieje się twoim głosem" }, { rep: { ash: 2 } }], kind: "danger" }),
       c("Użyj Łzy Eliany", { when: () => hasArtifact(ARTIFACTS.tear), ending: () => crownFinalChoice("tear"), kind: "good" }),
       c("Przebacz królowi", { ending: () => crownFinalChoice("forgive"), kind: "good" }),
       c("Zniszcz Koronę", { ending: () => crownFinalChoice("destroy"), kind: "danger" }),
@@ -3510,12 +4636,11 @@ els.artifactsCloseBtn?.addEventListener("click", closeArtifacts);
 els.artifactsModal?.addEventListener("click", (event) => {
   if (event.target === els.artifactsModal) closeArtifacts();
 });
-els.inventoryOpenBtn?.addEventListener("click", openInventory);
+els.loadoutOpenBtn?.addEventListener("click", openInventory);
 els.inventoryCloseBtn?.addEventListener("click", closeInventory);
 els.inventoryModal?.addEventListener("click", (event) => {
   if (event.target === els.inventoryModal) closeInventory();
 });
-els.journalOpenBtn?.addEventListener("click", openJournal);
 els.journalInlineBtn?.addEventListener("click", openJournal);
 els.journalCloseBtn?.addEventListener("click", closeJournal);
 els.journalModal?.addEventListener("click", (event) => {

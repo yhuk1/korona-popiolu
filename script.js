@@ -484,6 +484,10 @@ const els = {
   sceneHeroTitle: document.querySelector("#sceneHeroTitle"),
   sceneHeroText: document.querySelector("#sceneHeroText"),
   sceneHeroMarks: document.querySelector("#sceneHeroMarks"),
+  dialoguePortrait: document.querySelector("#dialoguePortrait"),
+  dialoguePortraitImg: document.querySelector("#dialoguePortraitImg"),
+  dialogueSpeakerName: document.querySelector("#dialogueSpeakerName"),
+  dialogueSpeakerRole: document.querySelector("#dialogueSpeakerRole"),
   combatPanel: document.querySelector("#combatPanel"),
   storyText: document.querySelector("#storyText"),
   eventLog: document.querySelector("#eventLog"),
@@ -1393,6 +1397,327 @@ Król Arvand nie wygląda jak potwór. Wygląda jak ojciec, który uwierzył zł
 Korona czeka, aż nazwiesz swoje pragnienie. Dopiero wtedy pokaże, czy jesteś tu po to, żeby ją zniszczyć, oddać albo założyć.`,
 };
 
+const EXTRA_SCENE_DIALOGS = {
+  innRoom: `Pokój nad gospodą jest za mały na sen, który właśnie z niego wyszedł. Deski skrzypią pod bosymi stopami, a ślad popiołu prowadzi od łóżka do drzwi.
+Za oknem Ravenford leży w czarnym deszczu. W dole ktoś przewraca ławę, ktoś inny płacze tak cicho, jakby bał się obudzić coś większego od strachu.
+
+Na stoliku leży twój ekwipunek. Wszystko wygląda zwyczajnie, ale po śnie zwyczajne rzeczy wydają się tylko przebraniem.`,
+
+  village: `Ravenford próbuje wyglądać jak wieś, która przetrwa jeszcze jeden dzień. Dym z kominów jest niski, psy nie szczekają, a ludzie patrzą na drogę do Valdorinu tak, jak patrzy się na ranę.
+Na placu stoją ci, którzy chcą handlować, modlić się albo udawać, że handel i modlitwa wystarczą.
+
+Każda rozmowa kończy się tym samym milczeniem: wszyscy wiedzą, że mgła nie zatrzyma się sama.`,
+
+  tavern: `Gospoda „Pod Krukiem” pachnie mokrym drewnem, kwaśnym piwem i strachem, który przestał udawać ostrożność.
+Oren wyciera ten sam kufel od kilku minut. Edrin siedzi przy ścianie, jak człowiek, który zna zakończenie opowieści i modli się, żeby tym razem ktoś zmienił środek.
+
+Przy stołach zbierają się prośby, plotki i drobne zlecenia. W Ravenford nawet szept może być początkiem misji.`,
+
+  shop: `Sklep Loriana jest ciasny, ale uporządkowany z uporem człowieka, który wierzy, że porządek może zatrzymać koniec świata.
+Na półkach leżą bandaże, suchary, stare mapy i kilka rzeczy, których kupiec nie wystawia, dopóki nie uzna, że klient wie, po co idzie do ruin.
+
+Lorian mówi bez uśmiechu: „Nie sprzedaję bohaterstwa. Tylko narzędzia, które czasem pozwalają je przeżyć.”`,
+
+  blackMarket: `Za sklepem Loriana stoi człowiek w mokrym kapturze. Nie zaprasza cię gestem. Po prostu odsuwa płachtę i pozwala, żeby przedmioty same przemówiły.
+Fałszywe monety, trucizny, pęknięte medaliony i kości do gry leżą obok siebie jak dowody z procesu, którego nikt nie odważył się rozpocząć.
+
+„W Ravenford moralność jest tania tylko do pierwszego głodu” - mówi handlarz. „Potem każdy pyta o cenę.”`,
+
+  forge: `Kuźnia Borena bije czerwonym światłem w mokry plac. Każde uderzenie młota brzmi jak odpowiedź na pytanie, którego nikt nie zadał na głos.
+Boren jest zmęczony, osmolony i wściekły na własną bezradność. Na ścianie wiszą narzędzia jego ucznia, równo jak po pogrzebie.
+
+„Stal nie pokona klątwy” - mówi kowal. „Ale może dać ci sekundę dłużej. Czasem sekunda to cała różnica między legendą a zwłokami.”`,
+
+  chapel: `Kaplica Świtu jest mała, zbyt mała na wszystkie winy, które ludzie próbują tu zostawić.
+Siostra Alena klęczy przy świecy, której płomień stoi nieruchomo mimo przeciągu. Na ławach leżą mokre płaszcze, połamane różańce i karteczki z imionami.
+
+Alena podnosi wzrok. „Nie obiecuję cudu. Obiecuję, że ciemność nie dostanie wszystkiego bez oporu.”`,
+
+  noticeBoard: `Tablica ogłoszeń nasiąkła deszczem tak mocno, że część próśb trzeba odczytywać palcami.
+Ktoś szuka narzędzi. Ktoś dziecka. Ktoś jedzenia. Ktoś prosi, żeby nie śmiać się z opowieści o duchu w lesie, bo śmiech nie wrócił razem z jego bratem.
+
+To nie są wielkie legendy. To małe pęknięcia w świecie, przez które wchodzi prawdziwa rozpacz.`,
+
+  forest: `Mroczny Las zaczyna się bez ostrzeżenia. Pola kończą się równo, jakby ktoś przeciął krainę nożem i jedną połowę oddał drzewom.
+Gałęzie są mokre, ale pod stopami trzeszczą suche liście. Gdzieś daleko woła człowiek albo coś, co nauczyło się używać ludzkiego głosu.
+
+Las nie broni drogi do Valdorinu. On sprawdza, ile jesteś gotów zgubić, zanim tam dojdziesz.`,
+
+  cart: `Przewrócony wóz leży w błocie jak rozbite zwierzę. Jedno koło obraca się powoli, choć nikt go nie dotyka.
+Ranny kupiec próbuje docisnąć płaszcz do boku, a obok skrzyń widać ślady kilku par stóp. Jedne prowadzą w stronę lasu. Drugie kończą się nagle przy rowie.
+
+Pomoc, rabunek albo obojętność będą tu wyglądały mało efektownie. Ale właśnie takie decyzje najdłużej chodzą za człowiekiem.`,
+
+  forestShrine: `Leśna kapliczka stoi na polanie, której deszcz nie umie znaleźć. Pęknięta twarz kamiennej kobiety trzymającej słońce patrzy łagodniej, niż powinna.
+W misie leży popiół, stare monety i świeże kwiaty. Ktoś był tu niedawno. Ktoś wierzył jeszcze przed tobą.
+
+Kiedy klękasz albo tylko stoisz w ciszy, las na chwilę przestaje udawać, że nie słucha.`,
+
+  heraldlessKnight: `Rycerz bez herbu stoi przy drodze do fortu, pusty w środku, ale prosty jak przysięga.
+Na jego napierśniku zostało jasne miejsce po znaku, który ktoś zerwał dawno temu. Głos wydobywa się z hełmu spokojnie: „Herb nie czyni rycerza. Ale bez niego trudno pamiętać, komu się służyło.”
+
+Nie prosi o zemstę. Prosi o sens. To czasem trudniejsze do oddania niż broń.`,
+
+  woodcutterHut: `Chata drwala wygląda, jakby gospodarz wyszedł tylko po drewno. Zupa w misce nadal paruje, a mokre buty stoją przy piecu.
+Na ścianie wyryto paznokciami zdanie: „Las odda ciało, ale zabierze imię.”
+
+W piwnicy coś porusza się za zamkniętymi drzwiami. Nie brzmi groźnie. Brzmi samotnie.`,
+
+  stoneCircle: `Kamienny krąg jest starszy niż ścieżki wokół niego. Mchy omijają znak Korony, jakby nawet rośliny wiedziały, czego nie dotykać.
+W środku nie pada deszcz. Popiół leży tam w idealnym kole, czarny i suchy.
+
+Kiedy zbliżasz dłoń do znaku, przez chwilę czujesz nie moc, tylko zaproszenie. To bardziej niebezpieczne.`,
+
+  swampRisk: `Przed tobą rozlewa się bagno bez ścieżki. Mgła zasłania drzewa, wodę i własne myśli.
+Każdy krok może być gruntem albo tylko obietnicą gruntu. W oddali coś pluska zbyt regularnie, jakby szło obok ciebie pod powierzchnią.
+
+Bez mapy bagna nie są skrótem. Są rozmową z miejscem, które lubi odpowiadać cudzym głosem.`,
+
+  swamp: `Bagna oddychają powoli. Błoto pracuje pod butami, trzciny szepczą o imionach, które dawno temu wpadły do wody i nie wypłynęły.
+Mirna, przewoźnik i błędne ogniki są tu mniej obcy niż ty. To ich królestwo: mokre, cierpliwe i pełne pamięci.
+
+Droga przez bagno nie pyta, czy jesteś odważny. Pyta, czy potrafisz nie brać wszystkiego, co znajdziesz.`,
+
+  herbalist: `Zatopiona chata Mirny stoi na palach, które powinny już zgnić. W środku suszą się zioła, korzenie i rzeczy, których rozsądny człowiek nie nazywa roślinami.
+Zielarka patrzy na ciebie tak, jakby najpierw liczyła twoje rany, a dopiero potem słuchała słów.
+
+„Lekarstwo i trucizna różnią się dawką” - mówi. „Ludzie i potwory czasem też.”`,
+
+  boneIsland: `Wyspa Kości wynurza się z mgły bez plusku. Nie jest z ziemi, tylko z tego, co zostało po ludziach, którzy szukali drogi przez bagno.
+Pośrodku czarny kamień trzyma miecz jak cierń. Ostrze wygląda na czyste, choć wszystko wokół niego gnije.
+
+Nie każda broń czeka na właściciela. Niektóre czekają na kogoś, kto będzie wystarczająco zmęczony, żeby nie zadawać pytań.`,
+
+  willOWisps: `Trzy światła unoszą się nad wodą: niebieskie, złote i blade jak kość. Każde oddala się, kiedy próbujesz patrzeć na nie zbyt długo.
+W ich ruchu jest rytm dziecięcej zabawy i okrucieństwo pułapki. Bagno lubi prowadzić ludzi dokładnie tam, gdzie sami chcą iść.
+
+Wybór ognika nie jest tylko wyborem drogi. To wybór tego, któremu kłamstwu zaufasz na chwilę.`,
+
+  whisperWell: `Studnia Szeptów nie ma wody. Ma głębokość, która zdaje się zaczynać pod twoimi stopami, a kończyć za myślami.
+Głosy mówią naraz: jedne proszą o monetę, inne o imię, jeszcze inne powtarzają zdania, których nigdy nikomu nie powiedziałeś.
+
+Tu można kupić wskazówkę, ale zapłata nigdy nie jest tylko złotem. Studnia zapamiętuje każdego, kto do niej przemówi.`,
+
+  mirrors: `Sala luster w Wieży Astromanty nie odbija twarzy. Odbija wersje człowieka, które mogłyby z niej wyrosnąć.
+W jednym szkle stoisz jako bohater, w drugim jako król, w trzecim jako ktoś, kto przestał pytać innych o zgodę.
+
+Najstraszniejsze nie jest to, że jedno odbicie kłamie. Najstraszniejsze jest to, że każde ma w sobie odrobinę prawdy.`,
+
+  nightAttack: `Noc przed Valdorinem nie daje odpoczynku. Mgła podchodzi pod okna Ravenford, a pierwsze cienie pojawiają się przy studni.
+Ludzie chwytają za widły, noże i modlitwy. Każdy sojusznik, którego zdobyłeś, każde drobne dobro i każda zlekceważona prośba wracają teraz na plac.
+
+To nie jest wielka bitwa z pieśni. To wieś próbująca dożyć świtu.`,
+
+  edrinWell: `Edrin stoi przy starej studni i wrzuca do niej wyrwane kartki. Każda znika bez dźwięku.
+„Są prawdy, które powinny przetrwać” - mówi. „I są takie, które zapisane zbyt dokładnie stają się instrukcją.”
+
+Kiedy pada imię Eliany, kronikarz wygląda starzej niż przed chwilą. Jakby nosił nie sekret, tylko współwinę.`,
+
+  royalArmory: `Królewska zbrojownia pachnie rdzą, popiołem i dawną dyscypliną.
+Na stojakach leżą ostrza straży, tarcze z pękniętym herbem i pancerze złożone tak równo, jakby żołnierze mieli po nie wrócić po alarmie.
+
+Niektóre przedmioty nadal pamiętają rozkazy. Kiedy je podnosisz, przez chwilę słyszysz kroki oddziału, którego już nie ma.`,
+
+  medicHouse: `Dom medyka jest nietknięty w sposób, który boli bardziej niż ruina. Na stole leżą fiolki, notatki i dziecięca wstążka przyciśnięta kamieniem.
+Dziennik opisuje chorobę Eliany bez patosu: gorączka, słabość, krwawienie z nosa, kolejne nieskuteczne mikstury.
+
+Ostatni wpis urywa się w pół zdania. Dalej atrament miesza się z popiołem, jakby nawet medycyna musiała przyznać, że król zaczął szukać cudu gdzie indziej.`,
+
+  cradleAshQuest: `Kołyska w zrujnowanym domu porusza się powoli, choć nie ma wiatru. Cień matki stoi przy ścianie i trzyma palec przy ustach.
+„Nie budź go” - szepcze. „Śni mu się świat, w którym zdążyliśmy uciec.”
+
+Grzechotka leży pod deskami. Mała rzecz, prawie nic. W Valdorinie prawie nic bywa ostatnim dowodem, że ktoś był kochany.`,
+
+  blackShardChild: `Na moście stoi dziecko z popiołu. Nie płacze. Płacz wymaga oddechu.
+W dłoni trzyma czarny odłamek metalu, który drży tak samo jak Korona w twoim śnie.
+
+„To nie moje” - mówi dziecko. „Ale kiedy puszczam, słyszę wszystkich naraz.”
+Możesz zabrać ciężar, oddać go ciemności albo spróbować przekonać małą dłoń, że nie musi już trzymać końca świata.`,
+};
+
+const DIALOGUE_CHARACTERS = {
+  edrin: {
+    name: "Edrin",
+    role: "Kronikarz Ravenford",
+    image: "assets/characters/portrait-edrin.png",
+  },
+  alena: {
+    name: "Siostra Alena",
+    role: "Kaplica Świtu",
+    image: "assets/characters/portrait-alena.png",
+  },
+  cael: {
+    name: "Cael",
+    role: "Dowódca Straży Pieczęci",
+    image: "assets/characters/portrait-cael.png",
+  },
+  eliana: {
+    name: "Eliana",
+    role: "Księżniczka Valdorinu",
+    image: "assets/characters/portrait-eliana.png",
+  },
+  oren: {
+    name: "Oren",
+    role: "Karczmarz „Pod Krukiem”",
+    image: "assets/characters/portrait-oren.png",
+  },
+  lorian: {
+    name: "Lorian",
+    role: "Kupiec Ravenford",
+    image: "assets/characters/portrait-lorian.png",
+  },
+  edric: {
+    name: "Edric",
+    role: "Ranny strażnik",
+    image: "assets/characters/portrait-edric.png",
+  },
+  boren: {
+    name: "Boren",
+    role: "Kowal Ravenford",
+    image: "assets/characters/portrait-boren.png",
+  },
+  mirna: {
+    name: "Mirna",
+    role: "Zielarka z bagien",
+    image: "assets/characters/portrait-mirna.png",
+  },
+  rauk: {
+    name: "Rauk",
+    role: "Dezerter Straży Pieczęci",
+    image: "assets/characters/portrait-rauk.png",
+  },
+  ivara: {
+    name: "Ivara",
+    role: "Zwiadowczyni fortu",
+    image: "assets/characters/portrait-ivara.png",
+  },
+  ashKnight: {
+    name: "Popielny Rycerz",
+    role: "Strażnik rozkazu",
+    image: "assets/characters/portrait-ash-knight.png",
+  },
+  lostChild: {
+    name: "Zagubione dziecko",
+    role: "Granica Mrocznego Lasu",
+    image: "assets/characters/portrait-lost-child.png",
+  },
+  heraldlessKnight: {
+    name: "Rycerz bez herbu",
+    role: "Zapomniana przysięga",
+    image: "assets/characters/portrait-heraldless-knight.png",
+  },
+  woodcutterGhost: {
+    name: "Tomasz Rana",
+    role: "Duch drwala",
+    image: "assets/characters/portrait-woodcutter-ghost.png",
+  },
+  deadFerryman: {
+    name: "Bagienny Przewoźnik",
+    role: "Martwy prom",
+    image: "assets/characters/portrait-dead-ferryman.png",
+  },
+  silverGuardian: {
+    name: "Strażnik Srebrnego Klucza",
+    role: "Krypta Milczących",
+    image: "assets/characters/portrait-silver-guardian.png",
+  },
+  ashKing: {
+    name: "Arvand III",
+    role: "Popielny Król",
+    image: "assets/characters/portrait-ash-king.png",
+  },
+  woundedMerchant: {
+    name: "Ranny kupiec",
+    role: "Przewrócony wóz",
+    image: "assets/characters/portrait-wounded-merchant.png",
+  },
+  dawnSaint: {
+    name: "Święta Świtu",
+    role: "Stara kapliczka",
+    image: "assets/characters/portrait-dawn-saint.png",
+  },
+  facelessActor: {
+    name: "Aktor Bez Twarzy",
+    role: "Spalony teatr",
+    image: "assets/characters/portrait-faceless-actor.png",
+  },
+  marketShade: {
+    name: "Cień rynku",
+    role: "Rynek bez głosów",
+    image: "assets/characters/portrait-market-shade.png",
+  },
+  armoryGuard: {
+    name: "Strażnik zbrojowni",
+    role: "Pamięć królewskiej straży",
+    image: "assets/characters/portrait-armory-guard.png",
+  },
+  nera: {
+    name: "Nera",
+    role: "Służąca Eliany",
+    image: "assets/characters/portrait-nera.png",
+  },
+};
+
+const SCENE_SPEAKERS = {
+  dream: "eliana",
+  bellQuest: "oren",
+  tavern: "oren",
+  innHall: "edric",
+  edricQuest: "edric",
+  edrinIntro: "edrin",
+  edrinBookQuest: "edrin",
+  edrinWell: "edrin",
+  shop: "lorian",
+  blackMarket: "lorian",
+  lorianPackage: "lorian",
+  forge: "boren",
+  woodcutterHut: "boren",
+  lostChild: "lostChild",
+  heraldlessKnight: "heraldlessKnight",
+  woodcutterGhost: "woodcutterGhost",
+  deadFerry: "deadFerryman",
+  cart: "woundedMerchant",
+  forestShrine: "dawnSaint",
+  chapel: "alena",
+  candlesQuest: "alena",
+  prayerQuest: "alena",
+  herbalist: "mirna",
+  rootHeartQuest: "mirna",
+  swamp: "mirna",
+  fortGate: "cael",
+  mapRoom: "ivara",
+  cael: "cael",
+  raukQuest: "rauk",
+  whisperWell: "silverGuardian",
+  silverKeyRoom: "silverGuardian",
+  ruinsGate: "eliana",
+  ruinsMarket: "marketShade",
+  royalArmory: "armoryGuard",
+  medicHouse: "eliana",
+  cradleAshQuest: "eliana",
+  burnedTheater: "facelessActor",
+  elianaRoom: "eliana",
+  ashBridge: "eliana",
+  blackShardChild: "lostChild",
+  ashenKnightQuest: "ashKnight",
+  crownHall: "ashKing",
+};
+
+function renderDialoguePortrait(id) {
+  if (!els.dialoguePortrait) return;
+  const speakerKey = SCENE_SPEAKERS[id];
+  const speaker = speakerKey ? DIALOGUE_CHARACTERS[speakerKey] : null;
+  els.dialoguePortrait.hidden = !speaker;
+  if (!speaker) return;
+
+  if (els.dialoguePortraitImg) {
+    els.dialoguePortraitImg.src = speaker.image;
+    els.dialoguePortraitImg.alt = speaker.name;
+  }
+  if (els.dialogueSpeakerName) els.dialogueSpeakerName.textContent = speaker.name;
+  if (els.dialogueSpeakerRole) els.dialogueSpeakerRole.textContent = speaker.role;
+}
+
 function renderSceneHero(title, art, atmosphere = "") {
   if (!els.sceneHero) return;
   const visual = SCENE_VISUALS[art] || SCENE_VISUALS.village;
@@ -1428,7 +1753,8 @@ function renderScene(id) {
   els.sceneName.textContent = scene.title;
   const atmosphere = scene.atmosphere || LOCATION_ATMOSPHERE[art] || "";
   renderSceneHero(scene.title, art, atmosphere);
-  const storyText = SIDE_QUEST_DIALOGS[id] || MAIN_QUEST_DIALOGS[id] || scene.text();
+  renderDialoguePortrait(id);
+  const storyText = SIDE_QUEST_DIALOGS[id] || MAIN_QUEST_DIALOGS[id] || EXTRA_SCENE_DIALOGS[id] || scene.text();
   els.storyText.innerHTML = storyText.split("\n").map((p) => `<p>${p}</p>`).join("");
   renderNotifications();
   els.choices.innerHTML = "";
@@ -1457,6 +1783,7 @@ function renderCustom(title, text, choices, art = "village") {
   els.sceneName.textContent = title;
   const atmosphere = LOCATION_ATMOSPHERE[art] || "";
   renderSceneHero(title, art, atmosphere);
+  renderDialoguePortrait(null);
   els.storyText.innerHTML = text.split("\n").map((p) => `<p>${p}</p>`).join("");
   renderNotifications();
   els.choices.innerHTML = "";
@@ -3125,12 +3452,22 @@ function completeArtifactEvent() {
 
 function crownFinalChoice(mode) {
   if (mode === "wear") return endingBad();
+  const knowsEliana = hasArtifact(ARTIFACTS.letter) || hasFlag("readElianaBook") || hasFlag("readElianaLetter");
+  const choseMercy = hasFlag("vowMercy") || hasFlag("vowSaveEliana") || hasFlag("promisedElianaNotWeapon");
+  const choseTruth = hasFlag("vowTruth") || hasFlag("confrontedArvandTruth") || hasFlag("promisedNames");
+  const rejectsCrown = hasFlag("vowRejectCrown") || hasFlag("vowReturnArtifacts");
+  const temptedByPower = hasFlag("vowUseCrown") || hasFlag("claimedRightToRule") || state.rep.greed >= 6;
+  if (temptedByPower && mode !== "destroy" && mode !== "tear" && state.rep.ash >= 4) return endingBad();
   if (hasArtifact(ARTIFACTS.tear) && state.rep.ash < 6 && (hasArtifact(ARTIFACTS.letter) || hasFlag("readElianaBook"))) return endingBest();
   if (mode === "forgive" && (hasArtifact(ARTIFACTS.letter) || hasFlag("readElianaBook") || hasFlag("prayedForKing")) && state.rep.good >= 5) return endingBest();
+  if (mode === "forgive" && choseMercy && knowsEliana && state.rep.good >= 4 && state.rep.ash < 6) return endingMercy();
   if (mode === "destroy" && hasStatus("Wola Zniszczenia") && !hasArtifact(ARTIFACTS.tear)) return endingDark();
+  if (mode === "destroy" && choseTruth && hasFlag("shadowsSupport") && state.rep.ash < 5) return endingGood();
+  if (mode === "seal" && rejectsCrown && hasFlag("caelAlly") && hasFlag("shadowsSupport")) return endingGuardian();
   if (mode === "seal") return endingNeutral();
   return startFight(ENEMIES.ashKing, () => {
     if (hasStatus("Wola Zniszczenia") && !hasArtifact(ARTIFACTS.tear)) return endingDark();
+    if (choseTruth && hasFlag("shadowsSupport") && state.rep.ash < 5) return endingGood();
     return endingGood();
   }, "crownHall");
 }
@@ -3153,10 +3490,24 @@ function endingGood() {
   );
 }
 
+function endingMercy() {
+  renderEnding(
+    "Sąd nad królem",
+    "Nie przebaczasz Arvandowi za miasto. Przebaczasz mu tylko kłamstwo, że cierpienie daje prawo do posiadania drugiego człowieka.\nKorona traci głos, kiedy wypowiadasz imię Eliany bez żądania i bez rozkazu. Król zostaje w sali tronowej sam, już nie jako władca, lecz jako strażnik własnej winy.\nValdorin budzi się powoli. Nie wszystkie cienie odchodzą, ale po raz pierwszy mogą wybrać, czy chcą zostać.",
+  );
+}
+
 function endingNeutral() {
   renderEnding(
     "Nowy Strażnik",
     "Nie potrafisz zniszczyć Korony. Nie potrafisz jej też założyć. Zamykasz ją więc tam, gdzie spoczywała przez sto lat. Tym razem zostajesz przy niej.\nMijają lata. Ludzie zapominają twoje imię, ale pamiętają, że ktoś pilnuje ruin.",
+  );
+}
+
+function endingGuardian() {
+  renderEnding(
+    "Przysięga ostatniej bramy",
+    "Nie bierzesz Korony i nie rozbijasz jej w gniewie. Oddajesz artefakty tym, którzy mają siłę pilnować ich osobno: Caelowi, Alenie i głosom Valdorinu.\nBrama zostaje zamknięta, ale nie jak więzienie. Jak rana opatrzona przed długim leczeniem.\nRavenford pamięta twoje imię. Valdorin jeszcze nie jest wolny, ale Korona nie ma już jednej dłoni, którą mogłaby skusić.",
   );
 }
 
@@ -3239,6 +3590,9 @@ const SCENES = {
       c("Zapytaj o Koronę", { to: "edrinIntro", effects: [{ status: "Zna legendę Korony" }] }),
       c("Zapytaj o Popielnego Króla", { to: "edrinIntro", effects: [{ status: "Zna imię Arvanda III" }] }),
       c("Zapytaj, skąd tyle wie", { to: "edrinIntro", effects: [{ status: "Podejrzewa Edrina" }] }),
+      c("Powiedz: nigdy jej nie założę", { to: "edrinIntro", unless: () => hasFlag("vowRejectCrown"), effects: [{ flag: "vowRejectCrown" }, { status: "Przysięga odmowy Korony" }, { rep: { good: 1 } }], kind: "good" }),
+      c("Powiedz: najpierw chcę poznać prawdę", { to: "edrinIntro", unless: () => hasFlag("vowTruth"), effects: [{ flag: "vowTruth" }, { status: "Wybór prawdy przed legendą" }, { rep: { good: 1 } }], kind: "good" }),
+      c("Powiedz: jeśli ocali żywych, użyję jej", { to: "edrinIntro", unless: () => hasFlag("vowUseCrown"), effects: [{ flag: "vowUseCrown" }, { status: "Korona zapamiętała twoją zgodę" }, { rep: { ash: 1 } }], kind: "danger" }),
       c("Weź zadanie i wyjdź do Ravenford", { to: "village", effects: [{ item: ITEMS.torch }, { flag: "mainQuestKnown" }] }),
     ],
   },
@@ -3385,7 +3739,8 @@ const SCENES = {
     choices: [
       c("Poproś o błogosławieństwo", { to: "chapel", effects: [{ artifact: ARTIFACTS.dawn }, { bonus: 2 }, { rep: { good: 1 } }, { status: "Błogosławieństwo Świtu" }], kind: "good" }),
       c("Zapytaj o Popielnego Króla", { to: "chapel", effects: [{ flag: "alenaForgiveness" }, { status: "Alena wierzy w przebaczenie" }] }),
-      c("Powiedz, że król zasłużył na potępienie", { to: "chapel", effects: [{ status: "Wola Zniszczenia" }, { rep: { ash: 1 } }] }),
+      c("Obiecaj, że spróbujesz ocalić Elianę", { to: "chapel", unless: () => hasFlag("vowSaveEliana"), effects: [{ flag: "vowSaveEliana" }, { status: "Obietnica dla Eliany" }, { rep: { good: 1 } }], kind: "good" }),
+      c("Powiedz, że król zasłużył na potępienie", { to: "chapel", unless: () => hasFlag("vowDestroyCrown"), effects: [{ flag: "vowDestroyCrown" }, { status: "Wola Zniszczenia" }, { rep: { ash: 1 } }], kind: "danger" }),
       c("Ofiaruj 5 złota kaplicy", { requireGold: 5, to: "chapel", effects: [{ rep: { good: 1 } }] }),
       c("Sprawdź księgę zmarłych drwala", { requireFlag: "woodcutterInitials", to: "chapel", unless: () => hasFlag("woodcutterNameKnown"), effects: [{ flag: "woodcutterNameKnown" }, { status: "Zna imię drwala: Tomasz Rana" }] }),
       c("Świece dla Kaplicy Świtu", { to: "candlesQuest", unless: () => hasFlag("candlesQuestDone") }),
@@ -3736,6 +4091,8 @@ const SCENES = {
       c("Przekonaj go dowodami przebudzenia Korony", { when: () => hasFlag("cleansedBell") || hasFlag("healedEdric") || hasArtifact(ARTIFACTS.key) || hasFlag("trueRebellionProof"), action: () => { addXP(180); addArtifact(ARTIFACTS.seal); addItem(ITEMS.sealGuardArmor); state.weapon = "Młot Przysięgi"; addNotification("Nowa broń: Młot Przysięgi.", "item"); setFlag("convincedCael"); setFlag("caelAlly"); addStatus("Cael jako sojusznik"); state.rep.good += 2; addNotification("Reputacja: dobro +2.", "good"); completeArtifactEvent(); }, kind: "good" }),
       c("Przekonaj go, że nie chcesz władzy", { requireGood: 3, action: () => { addXP(120); addArtifact(ARTIFACTS.seal); setFlag("convincedCael"); addStatus("Przekonał Caela"); state.rep.good += 1; addNotification("Reputacja: dobro +1.", "good"); completeArtifactEvent(); }, kind: "good" }),
       c("Poproś o prawdę", { to: "cael", effects: [{ status: "Wie, że zdrajcy byli pierwszymi obrońcami" }] }),
+      c("Przysięgnij, że oddasz artefakty po wszystkim", { requireGood: 3, unless: () => hasFlag("vowReturnArtifacts"), to: "cael", effects: [{ flag: "vowReturnArtifacts" }, { status: "Przysięga ostatniej bramy" }, { rep: { good: 1 } }], kind: "good" }),
+      c("Powiedz, że zwycięzca ma prawo rozkazywać", { unless: () => hasFlag("claimedRightToRule"), to: "cael", effects: [{ flag: "claimedRightToRule" }, { status: "Cael widzi w tobie cień Arvanda" }, { rep: { ash: 1 } }], kind: "danger" }),
       c("Pokaż Stary List Króla", { requireArtifact: ARTIFACTS.letter, action: () => { addXP(130); addArtifact(ARTIFACTS.seal); setFlag("convincedCael"); setFlag("caelAlly"); completeArtifactEvent(); }, kind: "good" }),
       c("Zastrasz Caela", { requireClass: "warrior", action: () => { addXP(100); addArtifact(ARTIFACTS.seal); setFlag("convincedCael"); addStatus("Złamana przysięga przez strach"); state.rep.ash += 1; addNotification("Reputacja: popiół +1.", "danger"); completeArtifactEvent(); }, kind: "danger" }),
       c("Zaoferuj 20 złota", { requireGold: 20, action: () => { addXP(80); addArtifact(ARTIFACTS.seal); completeArtifactEvent(); } }),
@@ -3937,6 +4294,7 @@ const SCENES = {
       c("Zniszcz zabawkowego konia", { to: "elianaRoom", unless: () => hasFlag("elianaToyDone"), effects: [{ xp: 60 }, { status: "Wola Zniszczenia" }, { flag: "destroyedElianaToy" }, { flag: "elianaToyDone" }, { rep: { ash: 1 } }], kind: "danger" }),
       c("Zostaw własny przedmiot na łóżku", { requireItem: ITEMS.childAmulet, to: "elianaRoom", effects: [{ removeItem: ITEMS.childAmulet }, { artifact: ARTIFACTS.tear }, { rep: { good: 2 } }], kind: "good" }),
       c("Zawołaj Elianę po imieniu", { to: "elianaRoom", when: () => hasFlag("readElianaBook") || hasFlag("knowsElianaPath") || hasFlag("readElianaLetter"), effects: [{ artifact: ARTIFACTS.tear }, { rep: { good: 2 } }], kind: "good" }),
+      c("Obiecaj, że nie użyjesz jej jako broni", { to: "elianaRoom", when: () => hasFlag("readElianaBook") || hasFlag("readElianaLetter") || hasArtifact(ARTIFACTS.tear), unless: () => hasFlag("promisedElianaNotWeapon"), effects: [{ flag: "promisedElianaNotWeapon" }, { status: "Eliana nie będzie narzędziem" }, { rep: { good: 1 } }], kind: "good" }),
       c("Wróć", { to: "ruinsMarket" }),
     ],
   },
@@ -3947,6 +4305,7 @@ const SCENES = {
     choices: [
       c("Idź prosto do pałacu", { to: "crownHall" }),
       c("Przemów do cieni", { to: "crownHall", effects: [{ flag: "shadowsSupport" }, { rep: { good: 1 } }] }),
+      c("Obiecaj cieniom pamięć zamiast zemsty", { to: "crownHall", unless: () => hasFlag("promisedNames"), effects: [{ flag: "promisedNames" }, { flag: "shadowsSupport" }, { status: "Obietnica pamięci Valdorinu" }, { rep: { good: 1 } }], kind: "good" }),
       c("Uklęknij i poproś o przebaczenie", { requireGood: 5, to: "crownHall", effects: [{ flag: "shadowsSupport" }, { heal: 10 }], kind: "good" }),
       c("Rozkaż cieniom się usunąć", { to: "crownHall", effects: [{ rep: { ash: 1 } }], kind: "danger" }),
       c("Użyj Kryształu Świtu", { requireArtifact: ARTIFACTS.crystal, to: "crownHall", effects: [{ heal: 10 }, { damage: 2 }] }),
@@ -3983,6 +4342,9 @@ const SCENES = {
     art: "crown",
     text: () => "Sala tronowa jest ogromna i martwa. Na tronie siedzi postać w spalonej zbroi. Na jej głowie spoczywa Korona Popiołu. Król pyta: „Przyszedłeś mnie osądzić, po władzę, czy jak wszyscy udajesz bohatera?”",
     choices: [
+      c("Powiedz: Eliana nie była twoją własnością", { to: "crownHall", unless: () => hasFlag("confrontedArvandTruth"), effects: [{ flag: "confrontedArvandTruth" }, { status: "Król usłyszał prawdę o Elianie" }, { rep: { good: 1 } }], kind: "good" }),
+      c("Powiedz: oddaj głos tym, których spaliłeś", { to: "crownHall", when: () => hasFlag("shadowsSupport") || hasFlag("marketVoicesRestored"), unless: () => hasFlag("vowMercy"), effects: [{ flag: "vowMercy" }, { status: "Sala Korony słucha umarłych" }, { rep: { good: 1 } }], kind: "good" }),
+      c("Powiedz: zrobiłbym to lepiej od ciebie", { to: "crownHall", unless: () => hasFlag("claimedRightToRule"), effects: [{ flag: "claimedRightToRule" }, { status: "Korona śmieje się twoim głosem" }, { rep: { ash: 2 } }], kind: "danger" }),
       c("Użyj Łzy Eliany", { when: () => hasArtifact(ARTIFACTS.tear), ending: () => crownFinalChoice("tear"), kind: "good" }),
       c("Przebacz królowi", { ending: () => crownFinalChoice("forgive"), kind: "good" }),
       c("Zniszcz Koronę", { ending: () => crownFinalChoice("destroy"), kind: "danger" }),
