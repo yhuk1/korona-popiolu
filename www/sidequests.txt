@@ -1,0 +1,2000 @@
+# Korona Popiołu — dodatek scenariuszowy: misje poboczne
+
+Dodatek do gry przygodowej wyboru RPG fantasy.
+Zawiera poboczne zadania powiązane z głównym lore: Koroną Popiołu, upadkiem Valdorinu, Popielnym Królem, Elianą, Strażnikami Pieczęci, Ravenford, Mrocznym Lasem, Bagnami Umarłych, Kryptą Milczących, Fortem Zdrajców, Wieżą Astromanty i Ruinami Valdorinu.
+
+Każda misja zawiera:
+
+* miejsce rozpoczęcia,
+* NPC lub źródło zadania,
+* powiązanie z lore,
+* dialog startowy,
+* przebieg,
+* możliwe wybory,
+* konsekwencje,
+* nagrody,
+* doświadczenie,
+* wpływ na główną fabułę.
+
+---
+
+# 1. System doświadczenia dla misji pobocznych
+
+Proponowany prosty system poziomów:
+
+* Poziom 1: 0 XP
+* Poziom 2: 100 XP
+* Poziom 3: 250 XP
+* Poziom 4: 450 XP
+* Poziom 5: 700 XP
+* Poziom 6: 1000 XP
+* Poziom 7: 1350 XP
+* Poziom 8: 1750 XP
+
+Nagroda za awans:
+
+* +5 maksymalnego zdrowia albo
+* +1 do ataku albo
+* +1 miejsce na specjalny przedmiot / bonus klasowy
+
+Misje poboczne powinny dawać zwykle od 40 do 180 XP. Największe zadania, związane z Elianą, Koroną albo dawnymi mieszkańcami Valdorinu, mogą dawać 200–250 XP.
+
+---
+
+# 2. Lista misji pobocznych
+
+1. Dzwon, który bije pod ziemią
+2. Imię drwala
+3. Dziecko za bladym światłem
+4. Ostatnia przesyłka kupca Loriana
+5. Skrzynia narzędzi Borena
+6. Świece dla Kaplicy Świtu
+7. Chory strażnik Ravenford
+8. Zaginiona księga kronikarza
+9. Trzy monety dla przewoźnika
+10. Serce Bagiennego Korzenia
+11. Rycerz bez herbu
+12. Hełm, którego nie wolno założyć
+13. Płacz w Studni Szeptów
+14. Złamana przysięga Caela
+15. Czerwone znaki na mapie
+16. Dezerter ze Straży Pieczęci
+17. Księga gwiazd bez tytułu
+18. Lustro, które nie pokazuje twarzy
+19. Popiół w kołysce
+20. Teatr ostatniego dnia
+21. Imiona na rynku
+22. Zabawkowy koń Eliany
+23. Czarny odłamek w dłoni dziecka
+24. Ostatni rozkaz Popielnego Rycerza
+25. Modlitwa za miasto bez grobów
+
+---
+
+# MISJA 1: Dzwon, który bije pod ziemią
+
+## Miejsce rozpoczęcia
+
+Ravenford, plac przy studni. Misja dostępna po pierwszej rozmowie z Kronikarzem Edrinem.
+
+## NPC
+
+Karczmarz Oren.
+
+## Powiązanie z lore
+
+Dzwon alarmowy Ravenford został odlany z metalu pochodzącego z Valdorinu. W rzeczywistości zawiera drobny fragment dawnego dzwonu pałacowego, który bił w dniu upadku miasta. Gdy klątwa się budzi, dzwon zaczyna odpowiadać na wezwanie ruin.
+
+## Dialog startowy
+
+Oren stoi przy studni i nerwowo patrzy na wieżę z dzwonem.
+
+> **Oren:** Słyszysz to?
+> **Gracz:** Dzwon? Przecież już przestał bić.
+> **Oren:** Ten na wieży tak. Ale ja słyszę drugi. Spod ziemi. Co noc, trzy uderzenia. Jakby coś pod Ravenford odpowiadało ruinom.
+
+## Cele
+
+1. Porozmawiaj z Orenem.
+2. Zbadaj wieżę dzwonniczą.
+3. Zejdź do starej piwnicy pod gospodą.
+4. Znajdź fragment pałacowego dzwonu.
+5. Zdecyduj, co zrobić z metalem.
+
+## Przebieg
+
+Pod gospodą znajduje się stara piwnica, starsza niż sama wioska. Na jednej ze ścian widać znak Valdorinu. Gracz odkrywa mały fragment czarnego metalu zawieszony na sznurze. Gdy go dotknie, słyszy krzyk tłumu z dnia upadku miasta.
+
+## Wybory
+
+### Zabierz fragment do kronikarza
+
+Edrin rozpoznaje metal i ujawnia, że Ravenford powstało na dawnym trakcie ewakuacyjnym z Valdorinu.
+
+### Oddaj fragment Siostrze Alenie
+
+Kaplica może oczyścić dzwon. Dzwon później pomaga podczas nocnego ataku na Ravenford.
+
+### Sprzedaj fragment kupcowi
+
+Gracz otrzymuje złoto, ale dzwon nadal przyciąga mgłę.
+
+### Zniszcz fragment
+
+Gracz zdobywa reputację zniszczenia. Mgła przestaje reagować na dzwon, ale traci się możliwość dodatkowej ochrony wioski.
+
+## Nagrody
+
+Pokojowe oczyszczenie fragmentu:
+
+* 80 XP
+* 5 złota
+* status: **Oczyszczony Dzwon Ravenford**
+* podczas ataku na Ravenford pierwsza fala cieni jest słabsza
+
+Sprzedaż fragmentu:
+
+* 40 XP
+* 15 złota
+* status: **Sprzedał fragment dzwonu**
+* później kupiec może mieć przeklęty towar
+
+Zniszczenie fragmentu:
+
+* 60 XP
+* status: **Przerwał głos dzwonu**
+* lekki wzrost reputacji popiołu lub zniszczenia
+
+---
+
+# MISJA 2: Imię drwala
+
+## Miejsce rozpoczęcia
+
+Mroczny Las, zarośnięta chata drwala.
+
+## NPC
+
+Duch drwala.
+
+## Powiązanie z lore
+
+Klątwa Valdorinu nie tylko zabija. Ona odbiera imiona. Duch drwala jest jedną z pierwszych ofiar mgły poza murami miasta. Jeśli gracz pomoże mu odzyskać imię, lepiej zrozumie mechanizm klątwy.
+
+## Dialog startowy
+
+W chacie jest zimno, ale na stole stoi ciepła zupa. Z kąta dochodzi głos.
+
+> **Duch:** Nie jedz, jeśli nie znasz mojego imienia.
+> **Gracz:** Kim jesteś?
+> **Duch:** Właśnie tego nie wiem. Miałem żonę. Miałem topór. Miałem dom. Teraz mam tylko las i głód.
+
+## Cele
+
+1. Zbadaj chatę drwala.
+2. Znajdź stary topór.
+3. Odczytaj inicjały na rękojeści.
+4. Sprawdź księgę zmarłych w kaplicy Ravenford albo zapytaj zielarkę Mirnę.
+5. Wróć do ducha i wypowiedz jego imię.
+
+## Przebieg
+
+Na toporze widnieją inicjały „T.R.”. W kaplicy można znaleźć wpis o Tomaszu Ranie, drwalu, który zaginął podczas pierwszego pojawienia się popielatej mgły.
+
+## Wybory
+
+### Powiedz prawdziwe imię
+
+Duch odzyskuje pamięć i odchodzi.
+
+### Skłam i podaj fałszywe imię
+
+Duch wpada w gniew i zamienia się w Leśnego Upiora.
+
+### Zignoruj ducha i zabierz topór
+
+Gracz dostaje Siekierę Drwala, ale duch pojawi się później jako przeciwnik.
+
+## Nagrody
+
+Prawdziwe imię:
+
+* 100 XP
+* przedmiot: **Mapa ukrytych ścieżek**
+* dobra reputacja
+* duch pokazuje skrót do Bagien Umarłych
+
+Fałszywe imię i walka:
+
+* 60 XP
+* łup: **Siekiera Drwala**
+* reputacja popiołu +1
+
+Kradzież topora:
+
+* 30 XP
+* broń: **Siekiera Drwala**
+* późniejszy atak ducha
+
+---
+
+# MISJA 3: Dziecko za bladym światłem
+
+## Miejsce rozpoczęcia
+
+Ravenford, po powrocie z Mrocznego Lasu albo po pierwszym wejściu na Bagna Umarłych.
+
+## NPC
+
+Mara, matka zaginionego chłopca.
+
+## Powiązanie z lore
+
+Błędne ogniki na bagnach są resztkami dziecięcych wspomnień z Valdorinu. Korona używa ich, by wabić żywych do mgły.
+
+## Dialog startowy
+
+Mara stoi na placu i trzyma mały drewniany gwizdek.
+
+> **Mara:** Widziałeś może chłopca? Dziesięć lat, rude włosy, niebieski płaszcz.
+> **Gracz:** Poszedł do lasu?
+> **Mara:** Mówił, że widzi światło. Blade, piękne. Powiedział, że tam ktoś go woła po imieniu.
+
+## Cele
+
+1. Przyjmij prośbę Mary.
+2. Idź na Bagna Umarłych.
+3. Znajdź trzy błędne ogniki.
+4. Wybierz właściwe światło.
+5. Uratuj chłopca albo zdecyduj się na skarb.
+
+## Przebieg
+
+Na bagnach gracz widzi trzy światła: złote, niebieskie i blade. Złote prowadzi do skrzyni, niebieskie do zielarki, blade do chłopca stojącego na cienkiej wysepce. Wyspa zaczyna tonąć, gdy gracz się zbliża.
+
+## Wybory
+
+### Ratuj chłopca natychmiast
+
+Gracz traci trochę zdrowia, ale ratuje dziecko.
+
+### Najpierw zabierz skarb
+
+Skrzynia zawiera złoto, ale chłopiec może zginąć albo zostać porwany przez mgłę.
+
+### Spróbuj uratować chłopca i zabrać skarb
+
+Pojawia się walka z Błędnikiem.
+
+### Użyj Kryształu Świtu
+
+Jeśli gracz ma Kryształ, ogniki gasną, a chłopiec bezpiecznie wychodzi.
+
+## Nagrody
+
+Uratowanie chłopca:
+
+* 140 XP
+* 8 złota od Mary
+* przedmiot: **Amulet Dziecka**
+* dobra reputacja
+* podczas finału cienie dzieci nie atakują gracza
+
+Skarb zamiast dziecka:
+
+* 50 XP
+* 30 złota
+* reputacja popiołu +2
+* Cień Gracza jest silniejszy
+
+Uratowanie obu po walce:
+
+* 170 XP
+* 20 złota
+* Amulet Dziecka
+* walka z Błędnikiem
+
+---
+
+# MISJA 4: Ostatnia przesyłka kupca Loriana
+
+## Miejsce rozpoczęcia
+
+Sklep kupca Loriana w Ravenford. Misja dostępna tylko, jeśli gracz pomógł rannemu kupcowi w lesie.
+
+## NPC
+
+Kupiec Lorian.
+
+## Powiązanie z lore
+
+Przesyłka zawiera stare monety z Valdorinu oraz zapieczętowany list od rodziny, która kiedyś uciekła z miasta. List wskazuje, że nie wszyscy mieszkańcy zginęli natychmiast — część żyła jeszcze kilka dni w podziemiach.
+
+## Dialog startowy
+
+> **Lorian:** Uratowałeś mi życie. Nie powinienem prosić o więcej, ale mam przesyłkę, która nie może trafić w złe ręce.
+> **Gracz:** Co jest w środku?
+> **Lorian:** Gdybym wiedział, spałbym jeszcze gorzej.
+
+## Cele
+
+1. Odbierz zapieczętowaną paczkę.
+2. Dostarcz ją Siostrze Alenie albo Kronikarzowi Edrinowi.
+3. Opcjonalnie: otwórz paczkę.
+4. Zdecyduj, komu przekazać list.
+
+## Wybory
+
+### Dostarcz paczkę bez otwierania
+
+Najlepszy wariant reputacyjny. Alena ufa graczowi bardziej.
+
+### Otwórz paczkę
+
+Gracz poznaje treść listu wcześniej, ale Lorian traci do niego zaufanie.
+
+### Sprzedaj monety
+
+Dużo złota, ale utrata ważnej informacji o podziemiach Valdorinu.
+
+### Oddaj list Edrinowi
+
+Edrin ujawnia fragment prawdy o ocalałych.
+
+### Oddaj list Alenie
+
+Kaplica odprawia modlitwę za zmarłych, co pomaga w finale.
+
+## Nagrody
+
+Dostarczenie bez otwierania:
+
+* 90 XP
+* 10 złota
+* status: **Zaufanie Loriana**
+
+Oddanie listu Alenie:
+
+* 120 XP
+* dobra reputacja
+* status: **Modlitwa za podziemia Valdorinu**
+
+Sprzedaż monet:
+
+* 40 XP
+* 35 złota
+* reputacja chciwości +1
+
+---
+
+# MISJA 5: Skrzynia narzędzi Borena
+
+## Miejsce rozpoczęcia
+
+Kuźnia w Ravenford.
+
+## NPC
+
+Boren, kowal.
+
+## Powiązanie z lore
+
+Skrzynia Borena zawiera narzędzia wykonane z metalu wydobytego spod ruin Valdorinu. Dzięki nim można później naprawić pękniętą Pieczęć albo wzmocnić broń przed finałem.
+
+## Dialog startowy
+
+> **Boren:** Nie proszę cię o bohaterstwo. Proszę o skrzynię. Bez niej nie naprawię nawet zawiasu, a co dopiero broni dla ludzi, którzy mają bronić wioski.
+> **Gracz:** Gdzie ją zostawiłeś?
+> **Boren:** Nie ja. Mój uczeń. Poszedł do lasu i wrócił tylko jego pies.
+
+## Cele
+
+1. Przyjmij zadanie od Borena.
+2. Idź do Mrocznego Lasu.
+3. Znajdź ślady ucznia.
+4. Odzyskaj skrzynię narzędzi.
+5. Opcjonalnie: odnajdź ucznia.
+6. Wróć do Borena.
+
+## Wybory
+
+### Zabierz tylko skrzynię
+
+Szybsze zakończenie zadania.
+
+### Szukaj ucznia
+
+Dłuższy wariant. Uczeń jest ukryty w chacie drwala albo pojmany przez leśnego upiora.
+
+### Zachowaj skrzynię dla siebie
+
+Gracz może później użyć narzędzi, ale Boren odmawia usług.
+
+## Nagrody
+
+Sama skrzynia:
+
+* 80 XP
+* Żelazny Pierścień
+* zniżka u kowala
+
+Skrzynia i uratowany uczeń:
+
+* 150 XP
+* Stalowy Miecz za darmo albo ulepszenie broni
+* dobra reputacja
+* Boren może naprawić Pieczęć w późniejszym etapie
+
+Zatrzymanie skrzyni:
+
+* 40 XP
+* przedmiot: **Narzędzia Valdorińskie**
+* utrata usług kowala
+
+---
+
+# MISJA 6: Świece dla Kaplicy Świtu
+
+## Miejsce rozpoczęcia
+
+Kaplica Świtu w Ravenford.
+
+## NPC
+
+Siostra Alena.
+
+## Powiązanie z lore
+
+Świece kapliczne są robione z wosku i srebrnego pyłu. Ich światło osłabia mgłę z Valdorinu. To drobny, ale realny sposób obrony przed klątwą.
+
+## Dialog startowy
+
+> **Alena:** W ciemności ludzie zaczynają wierzyć, że światło jest bajką. Potrzebuję świec. Nie do ozdoby. Do walki.
+> **Gracz:** Świecami chcesz walczyć z klątwą?
+> **Alena:** Czasem płomień wystarczy, żeby człowiek przypomniał sobie własne imię.
+
+## Cele
+
+1. Zdobądź 3 bryły wosku z lasu lub kup je u kupca.
+2. Zdobądź srebrny pył z Krypty albo od kowala.
+3. Przynieś składniki Alenie.
+4. Zdecyduj, ile świec zostawić kaplicy, a ile zabrać.
+
+## Wybory
+
+### Oddaj wszystkie świece kaplicy
+
+Wioska jest lepiej chroniona podczas ataku mgły.
+
+### Weź część świec dla siebie
+
+Gracz otrzymuje przedmioty użytkowe przeciw duchom.
+
+### Sprzedaj składniki
+
+Zysk złota, brak ochrony kaplicy.
+
+## Nagrody
+
+Oddanie wszystkiego:
+
+* 100 XP
+* dobra reputacja
+* status: **Światło w Kaplicy**
+* słabszy atak mgły na Ravenford
+
+Podział świec:
+
+* 80 XP
+* 2 przedmioty: **Świeca Świtu**
+* umiarkowana dobra reputacja
+
+Sprzedaż składników:
+
+* 30 XP
+* 20 złota
+* reputacja chciwości +1
+
+---
+
+# MISJA 7: Chory strażnik Ravenford
+
+## Miejsce rozpoczęcia
+
+Gospoda albo kaplica w Ravenford.
+
+## NPC
+
+Ranny strażnik Edric.
+
+## Powiązanie z lore
+
+Edric został dotknięty przez mgłę i powoli zapomina imiona ludzi. Jego stan pokazuje, co stanie się z graczem, jeśli wejdzie do ruin bez ochrony.
+
+## Dialog startowy
+
+> **Edric:** Miałem żonę. Pamiętam, że ją kochałem. Nie pamiętam jej twarzy.
+> **Gracz:** Mgła ci to zrobiła?
+> **Edric:** Mgła tylko zabiera to, czego człowiek boi się stracić najbardziej.
+
+## Cele
+
+1. Porozmawiaj z Edriciem.
+2. Zdobądź Eliksir Czystej Krwi od zielarki.
+3. Przynieś świecę z Kaplicy Świtu albo błogosławieństwo Aleny.
+4. Zdecyduj, czy leczyć Edrica, czy zachować eliksir dla siebie.
+
+## Wybory
+
+### Wylecz Edrica
+
+Edric przeżywa i pomaga podczas obrony Ravenford.
+
+### Zachowaj eliksir
+
+Gracz ma cenny przedmiot dla siebie, ale Edric traci pamięć.
+
+### Użyj magii zamiast eliksiru
+
+Uczeń Maga może częściowo zatrzymać postęp klątwy, ale nie wyleczy strażnika całkowicie.
+
+## Nagrody
+
+Wyleczenie:
+
+* 130 XP
+* dobra reputacja
+* Edric pomaga w nocnym ataku
+* przedmiot: **Gwizdek Straży**
+
+Zachowanie eliksiru:
+
+* 30 XP
+* brak nagrody moralnej
+* później cień Edrica może pojawić się w ruinach
+
+Magiczne spowolnienie:
+
+* 80 XP
+* Edric daje informację o dawnym trakcie do fortu
+
+---
+
+# MISJA 8: Zaginiona księga kronikarza
+
+## Miejsce rozpoczęcia
+
+Gospoda w Ravenford albo dom Edrina.
+
+## NPC
+
+Kronikarz Edrin.
+
+## Powiązanie z lore
+
+Księga zawiera wcześniejszą, mniej ocenzurowaną wersję historii Popielnego Króla. Edrin boi się, że ktoś użyje tej wiedzy, by sięgnąć po Koronę.
+
+## Dialog startowy
+
+> **Edrin:** Księgi są niebezpieczne, jeśli ktoś czyta tylko to, co chce usłyszeć.
+> **Gracz:** Zgubiłeś księgę?
+> **Edrin:** Nie. Ukryłem ją tak dobrze, że nawet ja zacząłem się bać ją odnaleźć.
+
+## Cele
+
+1. Porozmawiaj z Edrinem.
+2. Przeszukaj stary magazyn za gospodą.
+3. Znajdź ślad popiołu prowadzący do lasu.
+4. Pokonaj albo omiń Cienia Skryby.
+5. Odzyskaj księgę.
+6. Zdecyduj, czy oddać ją Edrinowi, Alenie, Caelowi czy zachować.
+
+## Wybory
+
+### Oddaj księgę Edrinowi
+
+Edrin ufa graczowi, ale nadal ukrywa część prawdy.
+
+### Oddaj księgę Alenie
+
+Kaplica poznaje pełniejszą historię Eliany.
+
+### Oddaj księgę Caelowi
+
+Strażnicy Pieczęci zyskują dowód, że ich przodkowie nie byli zdrajcami.
+
+### Zachowaj księgę
+
+Gracz może sam odkrywać sekrety, ale Edrin przestaje ufać.
+
+## Nagrody
+
+Edrin:
+
+* 90 XP
+* 10 złota
+* status: **Zaufanie Kronikarza**
+
+Alena:
+
+* 120 XP
+* dobra reputacja
+* odblokowanie dodatkowej modlitwy za Elianę
+
+Cael:
+
+* 130 XP
+* łatwiejsze pokojowe zdobycie Pieczęci
+* status: **Prawda o Zdrajcach**
+
+Zachowanie księgi:
+
+* 70 XP
+* przedmiot: **Księga Zakazanej Kroniki**
+* ryzyko wzrostu reputacji popiołu przy czytaniu zakazanych fragmentów
+
+---
+
+# MISJA 9: Trzy monety dla przewoźnika
+
+## Miejsce rozpoczęcia
+
+Bagna Umarłych, Martwy Prom.
+
+## NPC
+
+Bagienny Przewoźnik. Widać tylko jego ręce i mokry kaptur.
+
+## Powiązanie z lore
+
+Przewoźnik był kiedyś poborcą podatkowym Valdorinu, który po upadku miasta przewoził uciekających przez bagna. Wziął zapłatę od ludzi, których nie zdołał ocalić. Teraz za każdą przeprawę żąda trzech monet: za ciało, imię i żal.
+
+## Dialog startowy
+
+> **Przewoźnik:** Trzy monety.
+> **Gracz:** Za przeprawę?
+> **Przewoźnik:** Za ciało, które wieziesz. Za imię, które możesz stracić. Za żal, który jeszcze nie wie, że będzie twój.
+
+## Cele
+
+1. Spotkaj Przewoźnika.
+2. Zdobądź trzy stare monety Valdorinu.
+3. Poznaj znaczenie każdej monety.
+4. Zapłać, oszukaj albo odmów.
+
+## Gdzie znaleźć monety
+
+* jedna w przewróconym wozie kupca,
+* jedna w Krypcie Milczących,
+* jedna w domu medyka w ruinach albo u Edrina.
+
+## Wybory
+
+### Zapłać trzema monetami
+
+Przewoźnik pokazuje bezpieczny skrót i opowiada o ostatnich uciekinierach z Valdorinu.
+
+### Zapłać zwykłym złotem
+
+Przewoźnik przewozi gracza, ale bez informacji.
+
+### Oszukaj Przewoźnika
+
+Łotrzyk może spróbować. Jeśli się nie uda, walka z Topielcami.
+
+### Odmów i przepłyń samemu
+
+Ryzyko obrażeń i walki.
+
+## Nagrody
+
+Prawdziwa zapłata:
+
+* 120 XP
+* bezpieczny skrót przez bagna
+* wiedza: **Ostatni uciekinierzy Valdorinu**
+* dobra reputacja wobec duchów
+
+Oszustwo:
+
+* 50 XP
+* zachowanie monet
+* reputacja chciwości +1
+
+Odmowa:
+
+* 30 XP
+* możliwa walka
+
+---
+
+# MISJA 10: Serce Bagiennego Korzenia
+
+## Miejsce rozpoczęcia
+
+Chata zielarki Mirny na Bagnach Umarłych.
+
+## NPC
+
+Zielarka Mirna.
+
+## Powiązanie z lore
+
+Bagienny Korzeń wyrósł na miejscu, gdzie pochowano ludzi uciekających z Valdorinu. Jego serce może leczyć skutki klątwy, ale wyrwanie go budzi ich wspomnienia.
+
+## Dialog startowy
+
+> **Mirna:** Potrzebuję korzenia, który rośnie tam, gdzie ziemia nie chce pamiętać kości.
+> **Gracz:** Brzmi jak coś, czego nie powinno się dotykać.
+> **Mirna:** Właśnie dlatego trzeba poprosić, zanim się wyrwie.
+
+## Cele
+
+1. Przyjmij zadanie od Mirny.
+2. Idź na Wyspę Kości.
+3. Znajdź Bagienny Korzeń.
+4. Zdecyduj, czy wyrwać go siłą, poprosić duchy, czy zostawić.
+5. Wróć do Mirny.
+
+## Wybory
+
+### Poproś duchy o zgodę
+
+Wymaga dobrej reputacji albo Księgi Imion Umarłych.
+
+### Wyrwij korzeń siłą
+
+Szybkie, ale budzi Upiora Uciekiniera.
+
+### Zostaw korzeń
+
+Mirna jest rozczarowana, ale gracz zyskuje szacunek duchów.
+
+## Nagrody
+
+Zgoda duchów:
+
+* 150 XP
+* Eliksir Czystej Krwi ulepszony do **Eliksiru Pamięci**
+* dobra reputacja
+
+Siłowe wyrwanie:
+
+* 90 XP
+* Bagienny Korzeń
+* walka z Upiorem Uciekiniera
+* reputacja popiołu +1
+
+Odmowa wyrwania:
+
+* 60 XP
+* status: **Szacunek dla Uciekinierów**
+* duchy bagien rzadziej atakują
+
+---
+
+# MISJA 11: Rycerz bez herbu
+
+## Miejsce rozpoczęcia
+
+Mroczny Las albo droga do Fortu Zdrajców.
+
+## NPC
+
+Bezherbowy Rycerz, duch dawnego obrońcy Valdorinu.
+
+## Powiązanie z lore
+
+Rycerz wyrzekł się herbu, gdy zobaczył, że król użył Korony. Jego historia pokazuje, że bunt przeciw Arvandowi nie był zdradą, lecz próbą ratunku.
+
+## Dialog startowy
+
+> **Rycerz:** Znasz herb króla?
+> **Gracz:** Znam.
+> **Rycerz:** To dobrze. Naucz się też rozpoznawać chwilę, w której herb przestaje oznaczać honor.
+
+## Cele
+
+1. Spotkaj Rycerza bez herbu.
+2. Wysłuchaj jego historii.
+3. Znajdź porzucony herb w Krypcie albo Forcie.
+4. Zdecyduj, czy zwrócić mu herb, zniszczyć go, czy oddać Caelowi.
+
+## Wybory
+
+### Zwróć herb rycerzowi
+
+Rycerz odzyskuje spokój.
+
+### Oddaj herb Caelowi
+
+Cael otrzymuje dowód na prawdziwą historię buntu.
+
+### Zniszcz herb
+
+Rycerz uznaje, że gracz rozumie, iż symbole mogą kłamać.
+
+### Sprzedaj herb
+
+Złoto, ale utrata wątku lore.
+
+## Nagrody
+
+Zwrócenie herbu:
+
+* 130 XP
+* przedmiot: **Pas Rycerskiej Przysięgi**
+* dobra reputacja wobec duchów
+
+Oddanie Caelowi:
+
+* 150 XP
+* łatwiejsza rozmowa w Forcie
+* status: **Dowód prawdziwego buntu**
+
+Zniszczenie herbu:
+
+* 100 XP
+* status: **Odrzucił fałszywy honor**
+
+Sprzedaż:
+
+* 40 XP
+* 25 złota
+* reputacja chciwości +1
+
+---
+
+# MISJA 12: Hełm, którego nie wolno założyć
+
+## Miejsce rozpoczęcia
+
+Krypta Milczących, Sala Pustych Hełmów.
+
+## NPC
+
+Szept strażnika krypty.
+
+## Powiązanie z lore
+
+Jeden z hełmów należał do kapitana straży, który jako pierwszy zobaczył przemianę króla. Założenie hełmu pokazuje ostatnią chwilę przed masakrą.
+
+## Dialog / opis startowy
+
+> Gdy dotykasz hełmu, wewnątrz rozlega się szept: „Nie zakładaj pamięci, której nie uniesiesz.”
+
+## Cele
+
+1. Zbadaj Salę Pustych Hełmów.
+2. Znajdź hełm kapitana.
+3. Zdecyduj, czy go założyć, oddać zmarłym, zabrać, czy zniszczyć.
+
+## Wybory
+
+### Załóż hełm
+
+Gracz przeżywa wizję upadku Valdorinu. Traci zdrowie, ale zdobywa wiedzę.
+
+### Uklęknij i zostaw hełm
+
+Najbezpieczniejsze duchowo rozwiązanie.
+
+### Zabierz hełm
+
+Można go sprzedać albo używać jako pancerza, ale krypta się gniewa.
+
+### Zniszcz hełm
+
+Wzrost Woli Zniszczenia.
+
+## Nagrody
+
+Założenie hełmu:
+
+* 120 XP
+* wiedza: **Pierwsza przemiana króla**
+* strata 4 zdrowia
+
+Zostawienie hełmu:
+
+* 90 XP
+* Stary Amulet
+* dobra reputacja
+
+Zabranie hełmu:
+
+* 50 XP
+* przedmiot: **Hełm Kapitana**
+* dodatkowa walka przy wyjściu z Krypty
+
+Zniszczenie:
+
+* 60 XP
+* status: **Wola Zniszczenia +1**
+
+---
+
+# MISJA 13: Płacz w Studni Szeptów
+
+## Miejsce rozpoczęcia
+
+Krypta Milczących, Studnia Szeptów.
+
+## NPC
+
+Głosy zmarłych.
+
+## Powiązanie z lore
+
+Studnia nie zawiera wody, tylko imiona tych, których Korona próbowała wymazać. Jedno z imion należy do służącej Eliany, która jako ostatnia widziała księżniczkę przed użyciem Korony.
+
+## Dialog startowy
+
+> **Głosy:** Oddaj imię. Weź prawdę. Oddaj imię. Weź prawdę.
+> **Gracz:** Czyje imię?
+> **Głosy:** Twoje. Albo cudze.
+
+## Cele
+
+1. Zbadaj Studnię Szeptów.
+2. Wybierz sposób kontaktu z głosami.
+3. Poznaj imię służącej Eliany.
+4. Zdecyduj, czy zapisać je w Księdze Imion.
+
+## Wybory
+
+### Wrzuć monetę
+
+Bezpieczna wskazówka.
+
+### Wypowiedz własne imię
+
+Gracz otrzymuje prawdę, ale ryzykuje utratę części zdrowia lub status „Naznaczony przez Studnię”.
+
+### Wypowiedz imię kogoś innego
+
+Jeśli gracz poświęci cudze imię, rośnie reputacja popiołu.
+
+### Użyj Księgi Imion Umarłych
+
+Najlepsze rozwiązanie. Studnia oddaje wspomnienie bez szkody.
+
+## Nagrody
+
+Własne imię:
+
+* 130 XP
+* wiedza: **Służąca Eliany — Nera**
+* strata 3 zdrowia
+
+Księga Imion:
+
+* 160 XP
+* wiedza bez straty zdrowia
+* dobra reputacja wobec duchów
+
+Cudze imię:
+
+* 100 XP
+* reputacja popiołu +2
+* późniejszy cień tej osoby może pojawić się w ruinach
+
+---
+
+# MISJA 14: Złamana przysięga Caela
+
+## Miejsce rozpoczęcia
+
+Fort Zdrajców, po pierwszej rozmowie z dowódcą Caelem.
+
+## NPC
+
+Dowódca Cael.
+
+## Powiązanie z lore
+
+Cael przysiągł nigdy nie oddać Pieczęci. Misja pozwala poznać ciężar jego rodu i odblokować pokojowe przekazanie Pieczęci.
+
+## Dialog startowy
+
+> **Cael:** Mój ojciec umarł z tą przysięgą na ustach. Jego ojciec też. A ty przychodzisz i każesz mi ją złamać w jeden dzień.
+> **Gracz:** Jeśli przysięga chroni klątwę, może sama stała się częścią klątwy.
+> **Cael:** Uważaj. Tak mówią ludzie, którzy chcą usprawiedliwić własną chciwość.
+
+## Cele
+
+1. Porozmawiaj z Caelem.
+2. Znajdź trzy dowody, że Korona znowu się budzi.
+3. Przynieś dowody Caelowi.
+4. Pomóż mu zdecydować, czy przysięga nadal ma sens.
+
+## Dowody
+
+* oczyszczony albo przeklęty fragment dzwonu z Ravenford,
+* świadectwo chorego strażnika Edrica,
+* znak mgły na mapie fortu,
+* fragment księgi kronikarza,
+* Srebrny Klucz z Krypty.
+
+## Wybory
+
+### Przekonaj Caela spokojnie
+
+Cael oddaje Pieczęć i może pomóc w finale.
+
+### Zastrasz Caela
+
+Można zdobyć Pieczęć, ale bez jego wsparcia.
+
+### Skłam, tworząc fałszywy dowód
+
+Łotrzyk lub Banita może to zrobić. Jeśli kłamstwo wyjdzie na jaw, fort staje się wrogi.
+
+## Nagrody
+
+Pokojowe przekonanie:
+
+* 180 XP
+* Pieczęć Starego Króla
+* status: **Cael jako sojusznik**
+* dobra reputacja
+
+Zastraszenie:
+
+* 100 XP
+* Pieczęć
+* status: **Złamana przysięga przez strach**
+
+Kłamstwo:
+
+* 80 XP
+* Pieczęć, jeśli się uda
+* ryzyko utraty dostępu do Fortu
+
+---
+
+# MISJA 15: Czerwone znaki na mapie
+
+## Miejsce rozpoczęcia
+
+Fort Zdrajców, sala map.
+
+## NPC
+
+Strażniczka Ivara.
+
+## Powiązanie z lore
+
+Czerwone znaki na mapie wskazują miejsca, gdzie poprzedni śmiałkowie ginęli albo wracali odmienieni. Misja pomaga zrozumieć, dlaczego ruiny są tak niebezpieczne.
+
+## Dialog startowy
+
+> **Ivara:** Nie patrz na główną drogę. Wszyscy patrzą na główną drogę. I wszyscy tam giną.
+> **Gracz:** Więc po co ją zaznaczyliście?
+> **Ivara:** Żeby zobaczyć, kto jest na tyle głupi, by nią iść.
+
+## Cele
+
+1. Zbadaj mapę w Forcie.
+2. Porozmawiaj z Ivarą.
+3. Odnajdź trzy miejsca oznaczone czerwienią.
+4. Zaktualizuj mapę ruin.
+
+## Miejsca
+
+* fałszywa brama pałacu,
+* most, który pojawia się tylko dla chciwych,
+* ulica, gdzie gracz słyszy własne imię.
+
+## Wybory
+
+### Zaufaj Ivarze
+
+Otrzymujesz bezpieczniejszą trasę przez ruiny.
+
+### Ukradnij mapę
+
+Masz mapę, ale fort traci zaufanie.
+
+### Zignoruj ostrzeżenia
+
+W ruinach pojawią się dodatkowe pułapki.
+
+## Nagrody
+
+Zaufanie:
+
+* 120 XP
+* przedmiot: **Mapa Martwych Ulic**
+* mniej pułapek w Valdorinie
+
+Kradzież:
+
+* 60 XP
+* Mapa Martwych Ulic
+* relacje z Fortem pogorszone
+
+Ignorowanie:
+
+* brak natychmiastowej nagrody
+* trudniejsze ruiny
+
+---
+
+# MISJA 16: Dezerter ze Straży Pieczęci
+
+## Miejsce rozpoczęcia
+
+Droga między Fortem Zdrajców a Ravenford.
+
+## NPC
+
+Dezerter Rauk.
+
+## Powiązanie z lore
+
+Rauk uciekł z Fortu, bo usłyszał głos Korony. Misja pokazuje, że Korona potrafi kusić nawet tych, którzy całe życie jej pilnowali.
+
+## Dialog startowy
+
+> **Rauk:** Nie wracam tam. Nie będę pilnował drzwi, za którymi coś zna moje sny.
+> **Gracz:** Co słyszałeś?
+> **Rauk:** Głos, który mówił moim własnym głosem. Obiecał mi życie, którego nigdy nie miałem.
+
+## Cele
+
+1. Spotkaj Rauka.
+2. Wysłuchaj go.
+3. Zdecyduj, czy odprowadzić go do Fortu, ukryć w Ravenford, zabić jako zdrajcę, czy pozwolić mu odejść.
+4. Opcjonalnie: zbadaj, co dokładnie usłyszał.
+
+## Wybory
+
+### Odprowadź go do Fortu
+
+Cael docenia uczciwość, ale Rauk może zostać surowo ukarany.
+
+### Ukryj go w Ravenford
+
+Rauk przeżywa i później ostrzega przed jedną pułapką w ruinach.
+
+### Zabij go
+
+Szybkie rozwiązanie, złe konsekwencje moralne.
+
+### Pozwól mu odejść
+
+Neutralne, ale Rauk może wrócić jako sługa Korony.
+
+## Nagrody
+
+Ukrycie Rauka:
+
+* 140 XP
+* informacja: **Szept Korony**
+* Rauk ostrzega przed pułapką w pałacu
+
+Powrót do Fortu:
+
+* 100 XP
+* lepsze relacje z Caelem
+* Rauk może zniknąć z fabuły
+
+Zabicie:
+
+* 50 XP
+* 10 złota
+* reputacja popiołu +1
+
+Pozwolenie odejść:
+
+* 70 XP
+* możliwy późniejszy przeciwnik
+
+---
+
+# MISJA 17: Księga gwiazd bez tytułu
+
+## Miejsce rozpoczęcia
+
+Wieża Astromanty, Biblioteka Gwiazd.
+
+## NPC
+
+Głos Astromanty.
+
+## Powiązanie z lore
+
+Księga bez tytułu opisuje nie Koronę, lecz osobę, która ją założy. Jej treść zmienia się w zależności od decyzji gracza.
+
+## Dialog startowy
+
+> **Głos Astromanty:** Nie każda księga opisuje przeszłość. Niektóre próbują ostrzec przyszłość.
+> **Gracz:** Czyją przyszłość?
+> **Głos:** Twoją, jeśli będziesz udawać, że jej nie piszesz.
+
+## Cele
+
+1. Znajdź księgę bez tytułu.
+2. Przeczytaj pierwszą stronę.
+3. Zobacz opis swoich dotychczasowych decyzji.
+4. Wybierz, czy kontynuować lekturę.
+5. Zdecyduj, czy zamknąć księgę, spalić ją, czy zabrać.
+
+## Wybory
+
+### Czytaj do końca
+
+Gracz widzi możliwe zakończenie zależne od aktualnej reputacji.
+
+### Zamknij księgę
+
+Odrzucenie przeznaczenia. Dobra opcja dla wolnej woli.
+
+### Spal księgę
+
+Wola Zniszczenia wzrasta.
+
+### Zabierz księgę
+
+Księga może ostrzegać przed finałem, ale szepta w ekwipunku.
+
+## Nagrody
+
+Czytanie do końca:
+
+* 150 XP
+* wiedza o jednym możliwym zakończeniu
+* ryzyko straty 3 zdrowia psychicznego / zdrowia
+
+Zamknięcie:
+
+* 100 XP
+* status: **Odmówił przeznaczeniu**
+* Cień Gracza lekko słabszy
+
+Spalenie:
+
+* 80 XP
+* Wola Zniszczenia +1
+
+Zabranie:
+
+* 120 XP
+* przedmiot: **Księga Nienapisanej Drogi**
+* okresowe szepty Korony
+
+---
+
+# MISJA 18: Lustro, które nie pokazuje twarzy
+
+## Miejsce rozpoczęcia
+
+Wieża Astromanty, Sala Luster.
+
+## NPC
+
+Odbicie bez twarzy.
+
+## Powiązanie z lore
+
+Lustro pokazuje nie wygląd gracza, ale to, co Korona mogłaby z niego zrobić. Misja jest osobistym testem przed finałem.
+
+## Dialog startowy
+
+> **Odbicie:** Nie mam twarzy, bo jeszcze jej nie wybrałeś.
+> **Gracz:** Kim jesteś?
+> **Odbicie:** Królem. Bohaterem. Potworem. Pustym miejscem po tobie.
+
+## Cele
+
+1. Podejdź do bezimiennego lustra.
+2. Wybierz, jakie pytanie zadasz odbiciu.
+3. Przejdź próbę prawdy, władzy albo strachu.
+4. Zdecyduj, czy rozbić lustro.
+
+## Wybory
+
+### Zapytaj, czego się boisz
+
+Gracz poznaje osobisty lęk. Cień Gracza słabnie.
+
+### Zapytaj, czego pragniesz
+
+Możesz otrzymać bonus, ale rośnie pokusa Korony.
+
+### Zapytaj, kim będziesz po finale
+
+Lustro pokazuje zakończenie zgodne z aktualną ścieżką.
+
+### Rozbij lustro
+
+Walka z Odbiciem bez Twarzy.
+
+## Nagrody
+
+Prawda o strachu:
+
+* 130 XP
+* status: **Zna własny lęk**
+* Cień Gracza -10% zdrowia
+
+Prawda o pragnieniu:
+
+* 120 XP
+* +1 ataku do następnej walki
+* reputacja popiołu +1
+
+Walka:
+
+* 150 XP
+* przedmiot: **Odłamek Szczerego Lustra**
+
+---
+
+# MISJA 19: Popiół w kołysce
+
+## Miejsce rozpoczęcia
+
+Ruiny Valdorinu, dom królewskiego medyka albo opuszczony dom mieszkalny.
+
+## NPC
+
+Cień matki z Valdorinu.
+
+## Powiązanie z lore
+
+Misja pokazuje zwykłych mieszkańców Valdorinu i cenę decyzji króla. Nie dotyczy wielkich artefaktów, ale ludzkiej tragedii.
+
+## Dialog startowy
+
+W zrujnowanym domu stoi kołyska pełna popiołu. Obok niej pojawia się cień kobiety.
+
+> **Cień matki:** Proszę, nie budź jej. Całą noc płakała.
+> **Gracz:** Tu nie ma dziecka.
+> **Cień matki:** Jest. Tylko świat nauczył się jej nie widzieć.
+
+## Cele
+
+1. Zbadaj dom.
+2. Porozmawiaj z cieniem matki.
+3. Znajdź grzechotkę dziecka.
+4. Zdecyduj, czy oddać ją matce, zabrać, czy położyć w kaplicy.
+
+## Wybory
+
+### Oddaj grzechotkę matce
+
+Cień odzyskuje spokój.
+
+### Zanieś grzechotkę do kaplicy
+
+Kaplica odprawia modlitwę za dzieci Valdorinu.
+
+### Zabierz grzechotkę
+
+Gracz może ją sprzedać jako antyk, ale cienie dzieci są wrogie.
+
+## Nagrody
+
+Oddanie matce:
+
+* 120 XP
+* dobra reputacja wobec cieni
+* cienie dzieci nie przeszkadzają w ruinach
+
+Kaplica:
+
+* 150 XP
+* status: **Modlitwa za dzieci Valdorinu**
+* osłabienie Korony w pokojowym finale
+
+Kradzież:
+
+* 40 XP
+* 20 złota
+* reputacja popiołu +1
+
+---
+
+# MISJA 20: Teatr ostatniego dnia
+
+## Miejsce rozpoczęcia
+
+Ruiny Valdorinu, spalony teatr.
+
+## NPC
+
+Aktor Bez Twarzy.
+
+## Powiązanie z lore
+
+Teatr odgrywa ostatni dzień Valdorinu w symbolicznej formie. Gracz może poznać prawdę o nastrojach mieszkańców przed założeniem Korony.
+
+## Dialog startowy
+
+Kurtyna sama się podnosi. Na scenie stoi aktor bez twarzy.
+
+> **Aktor:** Witaj na ostatnim przedstawieniu. Publiczność przyszła sto lat temu i wciąż czeka na zakończenie.
+> **Gracz:** Co gracie?
+> **Aktor:** Ciebie. Króla. Dziecko. Każdego, kto myli miłość z posiadaniem.
+
+## Cele
+
+1. Wejdź do spalonego teatru.
+2. Obejrzyj pierwszy akt.
+3. Odpowiedz na pytanie aktora.
+4. Wejdź na scenę albo opuść teatr.
+5. Zdecyduj, jak zakończyć przedstawienie.
+
+## Kluczowe pytanie
+
+> Czy jedno życie jest warte całego królestwa?
+
+## Wybory
+
+### „Nie, jeśli to życie nie wyraziło zgody”
+
+Najlepsza odpowiedź związana z Elianą.
+
+### „Tak, jeśli to ktoś, kogo kocham”
+
+Korona reaguje mocniej na gracza.
+
+### „Nie wiem”
+
+Aktor pokazuje dodatkową scenę.
+
+### Przerwij przedstawienie
+
+Walka z Aktorem Bez Twarzy.
+
+## Nagrody
+
+Dobra odpowiedź:
+
+* 180 XP
+* wiedza: **Eliana bała się Korony**
+* łatwiejsze zdobycie Łzy Eliany
+
+Nie wiem:
+
+* 120 XP
+* dodatkowa wizja
+
+Walka:
+
+* 140 XP
+* przedmiot: **Maska Teatru**
+
+Zła odpowiedź:
+
+* 80 XP
+* reputacja popiołu +1
+* Korona ma dodatkowy dialog w finale
+
+---
+
+# MISJA 21: Imiona na rynku
+
+## Miejsce rozpoczęcia
+
+Ruiny Valdorinu, Rynek bez głosów.
+
+## NPC
+
+Cienie mieszkańców.
+
+## Powiązanie z lore
+
+Korona odebrała mieszkańcom imiona, przez co nie mogą odejść. Gracz może zebrać część imion i zapisać je w Księdze Imion Umarłych.
+
+## Dialog startowy
+
+Na rynku stoi cień sprzedawcy. Porusza ustami, ale nie wydaje dźwięku. Na jego straganie leżą tabliczki bez liter.
+
+> **Cień sprzedawcy:** ...
+> **Gracz:** Nie możesz mówić?
+> Cień wskazuje na pustą tabliczkę i dotyka własnej piersi.
+
+## Cele
+
+1. Znajdź Księgę Imion Umarłych albo zdobądź ją wcześniej.
+2. Porozmawiaj z trzema cieniami na rynku.
+3. Odnajdź ich imiona w domach, listach albo na tablicach.
+4. Zapisz imiona w księdze.
+5. Wróć na rynek.
+
+## Wybory
+
+### Zapisz prawdziwe imiona
+
+Cienie odzyskują głos i pomagają w finale.
+
+### Wpisz losowe imiona
+
+Cienie zamieniają się w przeciwników.
+
+### Zignoruj cienie i przeszukaj stragany
+
+Złoto, ale większy gniew miasta.
+
+## Nagrody
+
+Prawdziwe imiona:
+
+* 220 XP
+* status: **Głosy Rynku**
+* cienie pomagają w finale lub osłabiają Popielnego Króla
+
+Fałszywe imiona:
+
+* 80 XP
+* walka z trzema Cieniami Rynku
+
+Kradzież ze straganów:
+
+* 50 XP
+* 30 złota
+* reputacja popiołu +2
+
+---
+
+# MISJA 22: Zabawkowy koń Eliany
+
+## Miejsce rozpoczęcia
+
+Ruiny Valdorinu, pokój księżniczki Eliany.
+
+## NPC
+
+Cień Eliany albo wspomnienie pokoju.
+
+## Powiązanie z lore
+
+Zabawkowy koń był ulubioną zabawką Eliany. Król kazał go naprawiać za każdym razem, gdy choroba dziewczynki się pogarszała. Przedmiot pozwala zrozumieć, że Eliana była dzieckiem, a nie symbolem.
+
+## Dialog startowy
+
+Koń na biegunach porusza się lekko, choć nie ma wiatru.
+
+> **Cichy głos:** Tata mówił, że jak wyzdrowieję, pojadę na prawdziwym koniu.
+> **Gracz:** Eliano?
+> **Głos:** Nie zabieraj go. On się boi ciemności.
+
+## Cele
+
+1. Wejdź do pokoju Eliany.
+2. Zbadaj zabawkowego konia.
+3. Znajdź pękniętą płozę zabawki.
+4. Napraw konia narzędziami Borena albo zostaw przy nim świecę.
+5. Zdecyduj, czy zabrać konia, zostawić go, czy oddać jego fragment królowi w finale.
+
+## Wybory
+
+### Napraw konia
+
+Najlepsze rozwiązanie. Eliana pojawia się spokojniej.
+
+### Zostaw świecę
+
+Dobra alternatywa, jeśli gracz nie ma narzędzi.
+
+### Zabierz konia
+
+Blokuje najlepsze zakończenie albo utrudnia zdobycie Łzy.
+
+### Zniszcz konia
+
+Wola Zniszczenia +1, Eliana nie zaufa graczowi.
+
+## Nagrody
+
+Naprawa:
+
+* 200 XP
+* łatwiejsze zdobycie Łzy Eliany
+* status: **Naprawił wspomnienie Eliany**
+
+Świeca:
+
+* 140 XP
+* dobra reputacja
+* Eliana pojawia się, ale nie w pełni
+
+Zabranie:
+
+* 40 XP
+* przedmiot do sprzedaży
+* blokada pokojowej sceny z Elianą
+
+Zniszczenie:
+
+* 60 XP
+* Wola Zniszczenia +1
+* brak najlepszego zakończenia
+
+---
+
+# MISJA 23: Czarny odłamek w dłoni dziecka
+
+## Miejsce rozpoczęcia
+
+Ruiny Valdorinu albo wizja po użyciu Czarnego Odłamka.
+
+## NPC
+
+Cień dziecka trzymającego fragment Korony.
+
+## Powiązanie z lore
+
+Czarny Odłamek jest fragmentem Korony, który oderwał się w chwili, gdy Arvand próbował odrzucić jej moc. Korona chce, by wrócił do całości.
+
+## Dialog startowy
+
+> **Dziecko:** To nie moje. Ale nie mogę puścić.
+> **Gracz:** Co trzymasz?
+> **Dziecko:** Obietnicę, której nikt nie powinien składać.
+
+## Cele
+
+1. Spotkaj cień dziecka.
+2. Dowiedz się, czym jest odłamek.
+3. Zdecyduj, czy zabrać go, oczyścić, zniszczyć, czy zostawić.
+
+## Wybory
+
+### Zabierz odłamek
+
+Gracz otrzymuje potężny, ale przeklęty przedmiot.
+
+### Oczyść odłamek Kryształem Świtu
+
+Trudniejsze, ale daje bezpieczniejszy artefakt.
+
+### Zniszcz odłamek
+
+Wzrost Woli Zniszczenia, ale osłabienie Korony.
+
+### Zostaw dziecku
+
+Cień pozostaje uwięziony.
+
+## Nagrody
+
+Zabranie:
+
+* 120 XP
+* przedmiot: **Czarny Odłamek Korony**
+* reputacja popiołu +2
+
+Oczyszczenie:
+
+* 220 XP
+* przedmiot: **Jasny Odłamek Woli**
+* możliwość jednorazowej ochrony przed pokusą Korony
+
+Zniszczenie:
+
+* 160 XP
+* Wola Zniszczenia +1
+* Popielny Król ma mniej opcji kuszenia
+
+Zostawienie:
+
+* 40 XP
+* brak zmiany
+
+---
+
+# MISJA 24: Ostatni rozkaz Popielnego Rycerza
+
+## Miejsce rozpoczęcia
+
+Ruiny Valdorinu, Most Popielnych Cieni albo nocny atak na Ravenford.
+
+## NPC
+
+Popielny Rycerz.
+
+## Powiązanie z lore
+
+Rycerz nadal wykonuje ostatni rozkaz króla: „Nie pozwolić nikomu opuścić miasta”. Nie wie, że od rozkazu minęło sto lat.
+
+## Dialog startowy
+
+> **Rycerz:** Rozkaz królewski: bramy zamknięte. Nikt nie opuszcza Valdorinu.
+> **Gracz:** Miasto upadło sto lat temu.
+> **Rycerz:** Rozkaz nie ma daty końca.
+
+## Cele
+
+1. Spotkaj Popielnego Rycerza.
+2. Dowiedz się, jaki rozkaz wykonuje.
+3. Znajdź dokument anulujący rozkaz albo Pieczęć Starego Króla.
+4. Zdecyduj, czy uwolnić rycerza, pokonać go, czy przejąć jego posłuszeństwo.
+
+## Wybory
+
+### Pokaż Pieczęć Starego Króla
+
+Rycerz uznaje autorytet pieczęci.
+
+### Znajdź ostatni rozkaz księżniczki
+
+Jeśli gracz zna historię Eliany, może pokazać, że ona prosiła o otwarcie bram.
+
+### Pokonaj rycerza
+
+Standardowa walka.
+
+### Użyj Czarnego Odłamka
+
+Gracz może podporządkować rycerza sobie, ale rośnie reputacja popiołu.
+
+## Nagrody
+
+Uwolnienie rycerza:
+
+* 200 XP
+* przedmiot: **Popielna Ostroga**
+* rycerz pomaga w finale jako duch obrońcy
+
+Pokonanie:
+
+* 130 XP
+* łup: **Popielna Zbroja**
+
+Podporządkowanie:
+
+* 150 XP
+* tymczasowy sojusznik w walce
+* reputacja popiołu +3
+* większe ryzyko złego zakończenia
+
+---
+
+# MISJA 25: Modlitwa za miasto bez grobów
+
+## Miejsce rozpoczęcia
+
+Kaplica Świtu w Ravenford po odwiedzeniu Ruin Valdorinu albo po zdobyciu Starego Listu Króla.
+
+## NPC
+
+Siostra Alena, Kronikarz Edrin, ewentualnie Cael i Mirna.
+
+## Powiązanie z lore
+
+Valdorin nie ma prawdziwych grobów, bo jego mieszkańcy nie odeszli. Misja pozwala przygotować rytuał pamięci, który osłabia Koronę w finale.
+
+## Dialog startowy
+
+> **Alena:** Miasta nie grzebie się kamieniem. Miasto grzebie się imionami.
+> **Gracz:** Chcesz odprawić pogrzeb dla całego Valdorinu?
+> **Alena:** Nie pogrzeb. Przypomnienie. Dopóki ktoś ich pamięta, Korona nie ma ich całych.
+
+## Cele
+
+1. Porozmawiaj z Aleną po zdobyciu informacji o Valdorinie.
+2. Zbierz trzy elementy rytuału:
+
+   * imiona mieszkańców,
+   * świecę Świtu,
+   * ziemię lub popiół z Valdorinu.
+3. Zaproś świadków: Edrina, Mirnę, Caela albo uratowanych mieszkańców Ravenford.
+4. Odpraw modlitwę.
+5. Zdecyduj, czy modlitwa ma być za mieszkańców, za króla, za Elianę, czy za wszystkich.
+
+## Wybory
+
+### Modlitwa za mieszkańców
+
+Cienie mieszkańców są spokojniejsze.
+
+### Modlitwa za Elianę
+
+Łatwiejsze zdobycie albo użycie Łzy Eliany.
+
+### Modlitwa za króla
+
+Odblokowuje opcję przebaczenia nawet bez części wiedzy, jeśli gracz ma dobrą reputację.
+
+### Modlitwa za wszystkich
+
+Najlepszy, najtrudniejszy wariant. Wymaga wysokiej dobrej reputacji i kilku świadków.
+
+## Nagrody
+
+Za mieszkańców:
+
+* 180 XP
+* status: **Pamięć Valdorinu**
+* mniej wrogich cieni w ruinach
+
+Za Elianę:
+
+* 200 XP
+* status: **Modlitwa za Elianę**
+* łatwiejsze najlepsze zakończenie
+
+Za króla:
+
+* 180 XP
+* status: **Modlitwa za Arvanda**
+* dodatkowy dialog w Sali Korony
+
+Za wszystkich:
+
+* 250 XP
+* status: **Rytuał Miasta bez Grobów**
+* Popielny Król osłabiony w finale
+* najlepsze zakończenie ma rozszerzony epilog
+
+---
+
+# 3. Misje poboczne według lokacji
+
+## Ravenford
+
+* Dzwon, który bije pod ziemią
+* Ostatnia przesyłka kupca Loriana
+* Skrzynia narzędzi Borena
+* Świece dla Kaplicy Świtu
+* Chory strażnik Ravenford
+* Zaginiona księga kronikarza
+* Modlitwa za miasto bez grobów
+
+## Mroczny Las
+
+* Imię drwala
+* Dziecko za bladym światłem
+* Rycerz bez herbu
+
+## Bagna Umarłych
+
+* Trzy monety dla przewoźnika
+* Serce Bagiennego Korzenia
+
+## Krypta Milczących
+
+* Hełm, którego nie wolno założyć
+* Płacz w Studni Szeptów
+
+## Fort Zdrajców
+
+* Złamana przysięga Caela
+* Czerwone znaki na mapie
+* Dezerter ze Straży Pieczęci
+
+## Wieża Astromanty
+
+* Księga gwiazd bez tytułu
+* Lustro, które nie pokazuje twarzy
+
+## Ruiny Valdorinu
+
+* Popiół w kołysce
+* Teatr ostatniego dnia
+* Imiona na rynku
+* Zabawkowy koń Eliany
+* Czarny odłamek w dłoni dziecka
+* Ostatni rozkaz Popielnego Rycerza
+
+---
+
+# 4. Misje poboczne a zakończenia
+
+## Misje najmocniej wspierające najlepsze zakończenie
+
+* Dziecko za bladym światłem
+* Świece dla Kaplicy Świtu
+* Chory strażnik Ravenford
+* Zaginiona księga kronikarza
+* Serce Bagiennego Korzenia
+* Płacz w Studni Szeptów
+* Teatr ostatniego dnia
+* Popiół w kołysce
+* Imiona na rynku
+* Zabawkowy koń Eliany
+* Modlitwa za miasto bez grobów
+
+## Misje wspierające zakończenie neutralne
+
+* Złamana przysięga Caela
+* Czerwone znaki na mapie
+* Rycerz bez herbu
+* Ostatni rozkaz Popielnego Rycerza
+
+## Misje mogące prowadzić do złego zakończenia
+
+* Czarny odłamek w dłoni dziecka
+* Lustro, które nie pokazuje twarzy
+* Hełm, którego nie wolno założyć
+* Trzy monety dla przewoźnika, jeśli gracz oszukuje
+* Dziecko za bladym światłem, jeśli gracz wybiera skarb zamiast dziecka
+
+---
+
+# 5. Przykładowe flagi techniczne do gry
+
+Poniżej przykładowe flagi, które można zapisywać w kodzie gry:
+
+```js
+flags: {
+  helpedMerchant: true,
+  cleansedBell: true,
+  foundDrifterName: true,
+  savedChild: true,
+  gaveCandlesToChapel: true,
+  healedEdric: true,
+  gaveBookToAlena: true,
+  paidFerrymanProperly: true,
+  gainedSpiritRespect: true,
+  convincedCael: true,
+  caelAlly: true,
+  hasDeadStreetsMap: true,
+  sparedRauk: true,
+  rejectedFateBook: true,
+  knowsOwnFear: true,
+  prayedForValdorin: true,
+  repairedElianaToy: true,
+  cleansedBlackShard: true,
+  freedAshenKnight: true,
+  marketVoicesRestored: true
+}
+```
+
+Przykładowe wartości reputacji:
+
+```js
+reputation: {
+  good: 0,
+  greed: 0,
+  ash: 0,
+  destruction: 0,
+  spirits: 0
+}
+```
+
+---
+
+# 6. Propozycja nagród XP według trudności
+
+## Małe misje
+
+40–80 XP
+
+Przykłady:
+
+* krótka dostawa,
+* prosta rozmowa,
+* mała decyzja moralna,
+* odnalezienie drobnego przedmiotu.
+
+## Średnie misje
+
+90–150 XP
+
+Przykłady:
+
+* misja z kilkoma etapami,
+* walka z przeciwnikiem,
+* wybór moralny,
+* zdobycie ważnej informacji lore.
+
+## Duże misje
+
+160–250 XP
+
+Przykłady:
+
+* misje związane z Elianą,
+* misje wpływające na zakończenie,
+* rytuały,
+* duchy mieszkańców Valdorinu,
+* zadania zmieniające finałowego bossa.
+
+---
+
+Te misje najlepiej wspierają główną fabułę, rozwijają lore i dają graczowi powody, żeby wracać do wcześniejszych lokacji.

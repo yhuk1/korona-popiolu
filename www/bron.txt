@@ -1,0 +1,2355 @@
+# Korona Popiołu — dodatek: bronie, ekwipunek i przedmioty klasowe
+
+Dodatek do gry przygodowej RPG fantasy.
+Zawiera rozbudowaną listę broni, pancerzy, narzędzi, amuletów, reliktów, mikstur i specjalnego ekwipunku dla klas:
+
+* Wojownik
+* Łotrzyk
+* Uczeń Maga
+* Banita
+
+Przedmioty są powiązane z lore Korony Popiołu, Valdorinu, Ravenford, Mrocznego Lasu, Bagien Umarłych, Krypty Milczących, Fortu Zdrajców, Wieży Astromanty i Ruin Valdorinu.
+
+---
+
+# 1. Założenia systemu ekwipunku
+
+Każda klasa może używać większości podstawowych przedmiotów, ale część wyposażenia działa lepiej u konkretnej klasy albo odblokowuje dodatkowe wybory.
+
+## Typy przedmiotów
+
+* Broń główna
+* Broń pomocnicza
+* Pancerz / ubranie
+* Amulety i pierścienie
+* Narzędzia
+* Przedmioty użytkowe
+* Relikty fabularne
+* Przedmioty klasowe
+* Przeklęte przedmioty
+* Przedmioty jednorazowe
+
+## Rzadkość przedmiotów
+
+### Zwykłe
+
+Łatwe do kupienia albo znalezienia. Dają małe bonusy.
+
+### Dobre
+
+Nagrody za misje poboczne albo zakup u specjalnych NPC.
+
+### Rzadkie
+
+Ukryte w lokacjach, wymagają decyzji albo konkretnego przedmiotu.
+
+### Reliktowe
+
+Silnie związane z lore. Często wpływają na zakończenie, dialogi albo finał.
+
+### Przeklęte
+
+Dają moc, ale zwiększają reputację popiołu, chciwości albo zniszczenia.
+
+---
+
+# 2. Prosty system statystyk przedmiotów
+
+Proponowane statystyki:
+
+* Atak — zwiększa obrażenia.
+* Obrona — zmniejsza obrażenia.
+* Unik — szansa uniknięcia obrażeń.
+* Wola — odporność na klątwę i pokusę Korony.
+* Wiedza — lepsze odczytywanie run, ksiąg i symboli.
+* Spryt — skradanie, zamki, pułapki, kłamstwo.
+* Reputacja — niektóre przedmioty wpływają na reakcje NPC.
+
+Przykład:
+
+**Stalowy miecz**
+Atak +5
+Rzadkość: zwykły/dobry
+Klasa polecana: Wojownik, Banita
+Efekt: brak skutków ubocznych
+
+---
+
+# 3. Ekwipunek startowy klas
+
+---
+
+## Wojownik — ekwipunek startowy
+
+* Stary miecz
+* Wytarta kolczuga
+* Chleb
+* Pochodnia
+* Mały bandaż
+
+### Efekt klasy
+
+Wojownik lepiej wykorzystuje ciężką broń i pancerze. Może odblokować wybory typu:
+
+* „Wyważ drzwi”
+* „Zastrasz przeciwnika”
+* „Przyjmij cios na tarczę”
+* „Stań w obronie słabszego”
+
+---
+
+## Łotrzyk — ekwipunek startowy
+
+* Sztylet
+* Wytrychy
+* Lekki płaszcz
+* Mała sakiewka złota
+* Linka z hakiem
+
+### Efekt klasy
+
+Łotrzyk lepiej używa lekkiej broni, narzędzi i przedmiotów do skradania. Może odblokować wybory typu:
+
+* „Otwórz zamek”
+* „Rozbrój pułapkę”
+* „Zakradnij się”
+* „Ukradnij sakiewkę”
+* „Podsłuchaj rozmowę”
+
+---
+
+## Uczeń Maga — ekwipunek startowy
+
+* Iskra many
+* Kostur ucznia
+* Mała mikstura
+* Pochodnia
+* Notatnik runiczny
+
+### Efekt klasy
+
+Uczeń Maga odczytuje runy, rozprasza iluzje i odkrywa ukryte znaczenia. Może odblokować wybory typu:
+
+* „Odczytaj runy”
+* „Rozprosz iluzję”
+* „Porozmawiaj z duchem”
+* „Zbadaj magiczny ślad”
+* „Użyj iskry many”
+
+---
+
+## Banita — ekwipunek startowy
+
+* Toporek
+* Kaptur banity
+* Suszone mięso
+* Kościane kości do gry
+* Stary znak bandy
+
+### Efekt klasy
+
+Banita zna ludzi z marginesu i umie rozmawiać z bandytami, dezerterami i najemnikami. Może odblokować wybory typu:
+
+* „Porozmawiaj językiem bandytów”
+* „Udawaj sługę Popiołu”
+* „Rozpoznaj zasadzkę”
+* „Zaproponuj podział łupu”
+* „Wymuś okup”
+
+---
+
+# 4. Broń dla Wojownika
+
+Wojownik jest najlepszy w bezpośredniej walce. Jego przedmioty powinny dawać dużo ataku, obrony i opcji honorowych pojedynków.
+
+---
+
+## 4.1 Stary miecz
+
+Rzadkość: zwykły
+Atak: +3
+Gdzie zdobyć: start Wojownika albo zakup u kowala
+Efekt: brak
+
+Opis:
+
+Podstawowa broń. Zardzewiała, ale nadal skuteczna przeciw słabym przeciwnikom.
+
+Dialog specjalny:
+
+Boren może powiedzieć:
+
+> „To nie jest dobry miecz. To jest wspomnienie miecza. Ale jak mocno machniesz, nadal kogoś przekonasz.”
+
+---
+
+## 4.2 Stalowy miecz Borena
+
+Rzadkość: dobra
+Atak: +5
+Gdzie zdobyć: kuźnia Borena
+Koszt: 15 złota albo nagroda za misję „Skrzynia narzędzi Borena”
+
+Efekt:
+
+Uniwersalna, bezpieczna broń. Nie ma klątwy ani skutków ubocznych.
+
+Dodatkowy wybór:
+
+W Forcie Zdrajców gracz z tym mieczem może wybrać:
+
+* „Wyzwij strażnika na uczciwy pojedynek”
+
+---
+
+## 4.3 Miecz Strażnika Bramy
+
+Rzadkość: rzadka
+Atak: +6
+Obrona: +1
+Gdzie zdobyć: Krypta Milczących albo po pokonaniu Strażnika Krypty
+
+Efekt specjalny:
+
+Przeciw nieumarłym zadaje +2 obrażenia.
+
+Lore:
+
+Miecz należał do strażnika, który zamykał drogę do Valdorinu po upadku miasta.
+
+---
+
+## 4.4 Topór Najemnika
+
+Rzadkość: dobra
+Atak: +7
+Gdzie zdobyć: kowal, fort, łup po najemniku
+
+Efekt:
+
++2 obrażenia przeciw ludziom i bandytom.
+
+Minus:
+
+Nie daje bonusu w rozmowach honorowych. Strażnicy i rycerze mogą patrzeć na gracza mniej przychylnie.
+
+---
+
+## 4.5 Młot Przysięgi
+
+Rzadkość: rzadka
+Atak: +8
+Obrona: +1
+Gdzie zdobyć: misja „Złamana przysięga Caela”
+
+Efekt specjalny:
+
+Może raz na walkę ogłuszyć przeciwnika i pominąć jego turę.
+
+Dialog specjalny:
+
+Przy Popielnym Rycerzu pojawia się opcja:
+
+* „Uderz młotem w ziemię i przywołaj dawną przysięgę”
+
+Może to osłabić rycerza bez walki.
+
+---
+
+## 4.6 Tarcza Ostatniej Bramy
+
+Rzadkość: reliktowa
+Obrona: +3
+Wola: +1
+Gdzie zdobyć: Ruiny Valdorinu, Brama Milczących
+
+Efekt:
+
+Raz na walkę może zablokować cały atak przeciwnika.
+
+Lore:
+
+Tarcza należała do żołnierza, który zamknął bramę miasta, choć po drugiej stronie została jego rodzina.
+
+Wpływ na zakończenie:
+
+Jeśli gracz ma tę tarczę i wybierze poświęcenie w finale, może przeżyć scenę, która normalnie kończyłaby się śmiercią.
+
+---
+
+## 4.7 Ostrze Królewskiej Straży
+
+Rzadkość: reliktowa
+Atak: +9
+Wola: +1
+Gdzie zdobyć: Pałac królewski w ruinach
+
+Efekt:
+
++3 obrażenia przeciw Popielnym Rycerzom i strażnikom pałacu.
+
+Minus:
+
+Popielny Król rozpoznaje broń i ma dodatkowy dialog:
+
+> „Nawet moja straż wraca dziś przeciw mnie?”
+
+Może to rozpocząć walkę szybciej, jeśli gracz prowadzi agresywną ścieżkę.
+
+---
+
+## 4.8 Popielna Zbroja
+
+Rzadkość: przeklęta
+Obrona: +4
+Wola: -1
+Gdzie zdobyć: po pokonaniu Popielnego Rycerza
+
+Efekt:
+
+Zmniejsza obrażenia fizyczne, ale zwiększa podatność na szepty Korony.
+
+Ryzyko:
+
+Przy każdym użyciu Czarnego Odłamka reputacja popiołu rośnie dodatkowo.
+
+---
+
+## 4.9 Rękawice Bramnika
+
+Rzadkość: rzadka
+Atak: +1
+Obrona: +1
+Gdzie zdobyć: misja „Dzwon, który bije pod ziemią” albo Krypta
+
+Efekt:
+
+Pozwalają wyważać drzwi bez utraty zdrowia.
+
+Wybory odblokowane:
+
+* „Podnieś kratę siłą”
+* „Przytrzymaj zawalający się strop”
+* „Zablokuj przejście przed cieniami”
+
+---
+
+## 4.10 Pas Rycerskiej Przysięgi
+
+Rzadkość: rzadka
+Wola: +2
+Gdzie zdobyć: misja „Rycerz bez herbu”
+
+Efekt:
+
+Chroni przed jedną próbą zastraszenia albo pokusy Korony.
+
+Dodatkowo:
+
+W Forcie Zdrajców ułatwia rozmowę z Caelem.
+
+---
+
+# 5. Broń i narzędzia dla Łotrzyka
+
+Łotrzyk powinien mieć dużo opcji skradania, pułapek, trucizn, szybkich ataków i przedmiotów do eksploracji.
+
+---
+
+## 5.1 Sztylet
+
+Rzadkość: zwykła
+Atak: +2
+Unik: +1
+Gdzie zdobyć: start Łotrzyka
+
+Efekt:
+
+Słaby w otwartej walce, ale daje opcje cichego ataku.
+
+---
+
+## 5.2 Para Cienkich Ostrzy
+
+Rzadkość: dobra
+Atak: +4
+Unik: +2
+Gdzie zdobyć: sklep, bandycki obóz, nagroda od dezertera
+
+Efekt:
+
+W pierwszej turze walki Łotrzyk może zadać dodatkowe +2 obrażenia.
+
+Wybór specjalny:
+
+* „Zaatakuj z zaskoczenia”
+
+---
+
+## 5.3 Sztylet Milczącego Dzwonu
+
+Rzadkość: rzadka
+Atak: +5
+Spryt: +2
+Gdzie zdobyć: misja „Dzwon, który bije pod ziemią”, jeśli gracz zachowa fragment metalu i zaniesie go do Borena
+
+Efekt:
+
+Pierwszy atak w walce nie budzi dodatkowych przeciwników.
+
+Lore:
+
+Ostrze wykonane z metalu dzwonu Valdorinu. Nie wydaje dźwięku, gdy trafia w kamień albo zbroję.
+
+---
+
+## 5.4 Wytrychy
+
+Rzadkość: zwykła
+Gdzie zdobyć: start Łotrzyka, sklep
+
+Efekt:
+
+Otwierają skrzynie i zamknięte drzwi.
+
+Możliwe użycia:
+
+* wejście boczne do Fortu Zdrajców,
+* otwarcie skrzyni w domu medyka,
+* rozbrojenie mechanizmu w Krypcie,
+* otwarcie zamkniętego pokoju w gospodzie.
+
+---
+
+## 5.5 Zestaw Precyzyjnych Wytrychów
+
+Rzadkość: rzadka
+Spryt: +2
+Gdzie zdobyć: kupiec Lorian po uratowaniu albo misja „Ostatnia przesyłka kupca Loriana”
+
+Efekt:
+
+Pozwala otwierać trudniejsze zamki bez ryzyka złamania narzędzia.
+
+Specjalne:
+
+W ruinach można otworzyć skrzynię królewskiego medyka bez uruchamiania pułapki.
+
+---
+
+## 5.6 Linka z hakiem
+
+Rzadkość: zwykła/dobra
+Gdzie zdobyć: start Łotrzyka albo sklep
+
+Efekt:
+
+Pozwala przechodzić przez zawalone miejsca, mury i przepaście.
+
+Odblokowane wybory:
+
+* „Wejdź na mur fortu”
+* „Zejdź do studni”
+* „Przejdź przez zawalony most”
+* „Wyciągnij przedmiot z bagna”
+
+---
+
+## 5.7 Płaszcz Bez Cienia
+
+Rzadkość: rzadka
+Unik: +3
+Spryt: +2
+Wola: -1
+Gdzie zdobyć: Wieża Astromanty, Sala Luster
+
+Efekt:
+
+Ułatwia skradanie i ucieczkę z walki.
+
+Minus:
+
+W lustrzanych i magicznych scenach gracz trudniej rozpoznaje samego siebie. Cień Gracza może być silniejszy.
+
+---
+
+## 5.8 Igły z Jadem Topielca
+
+Rzadkość: dobra/przeklęta
+Gdzie zdobyć: Bagna Umarłych, po walce z Topielcem albo od Mirny
+
+Efekt:
+
+Jednorazowy przedmiot. Zadaje przeciwnikowi 6 obrażeń i zatruwa go na 2 tury.
+
+Nie działa na:
+
+* duchy,
+* szkielety,
+* Popielnego Króla.
+
+Ryzyko:
+
+Jeśli gracz nie ma Eliksiru Czystej Krwi, może sam się skaleczyć i stracić 2 zdrowia.
+
+---
+
+## 5.9 Sakiewka Fałszywych Monet
+
+Rzadkość: dobra
+Spryt: +1
+Gdzie zdobyć: Banita albo Łotrzyk, obóz bandytów, sklep podejrzanego handlarza
+
+Efekt:
+
+Pozwala oszukać niektórych NPC przy płatnościach.
+
+Ryzyko:
+
+Jeśli oszustwo wyjdzie na jaw, relacje z daną frakcją spadają.
+
+Najważniejsze użycia:
+
+* Przewoźnik na bagnach,
+* strażnik fortu,
+* handlarz czarnym towarem.
+
+---
+
+## 5.10 Nóż do Przecinania Pieczęci
+
+Rzadkość: reliktowa
+Atak: +4
+Spryt: +3
+Gdzie zdobyć: Fort Zdrajców, ukryty skarbiec
+
+Efekt:
+
+Pozwala otworzyć niektóre magiczne pieczęcie bez posiadania klucza.
+
+Minus:
+
+Każde użycie zwiększa reputację popiołu albo uszkadza fabularną pieczęć.
+
+Wpływ na fabułę:
+
+Można nim wejść do części ruin wcześniej, ale grozi to tragicznym zakończeniem.
+
+---
+
+## 5.11 Rękawiczki Kieszonkowca
+
+Rzadkość: dobra
+Spryt: +2
+Gdzie zdobyć: sklep albo misja poboczna z kupcem
+
+Efekt:
+
+Zwiększają szansę kradzieży bez wykrycia.
+
+Specjalne:
+
+Uczciwi NPC mogą zauważyć rękawiczki i mniej ufać graczowi.
+
+---
+
+## 5.12 Gwizdek Straży
+
+Rzadkość: rzadka
+Gdzie zdobyć: misja „Chory strażnik Ravenford”
+
+Efekt:
+
+Jednorazowo przyzywa pomoc strażnika EdRica albo odciąga przeciwnika.
+
+Zastosowania:
+
+* ucieczka z zasadzki,
+* rozproszenie bandytów,
+* wezwanie pomocy podczas nocnego ataku.
+
+---
+
+# 6. Broń i relikty dla Ucznia Maga
+
+Uczeń Maga powinien mieć mniej brutalne, ale bardziej elastyczne wyposażenie. Jego przedmioty powinny otwierać wiedzę, dialogi z duchami, ochronę przed klątwą i ataki magiczne.
+
+---
+
+## 6.1 Iskra many
+
+Rzadkość: startowa
+Atak magiczny: +2
+Wiedza: +1
+Gdzie zdobyć: start Ucznia Maga
+
+Efekt:
+
+Pozwala odczytywać proste runy i używać światła w ciemnych lokacjach.
+
+Przykładowe wybory:
+
+* „Rozświetl korytarz iskrą”
+* „Dotknij runy maną”
+* „Sprawdź, czy ślad jest magiczny”
+
+---
+
+## 6.2 Kostur Ucznia
+
+Rzadkość: startowa
+Atak: +2
+Wiedza: +1
+
+Efekt:
+
+Podstawowa broń magiczna. Słaba fizycznie, ale pozwala kanalizować proste zaklęcia.
+
+---
+
+## 6.3 Kostur Iskier
+
+Rzadkość: dobra
+Atak: +4
+Wiedza: +2
+Gdzie zdobyć: Wieża Astromanty albo kupiec po misji z dzwonem
+
+Efekt:
+
++3 obrażenia przeciw nieumarłym i cieniom.
+
+Bardzo dobry w:
+
+* Krypcie Milczących,
+* ruinach Valdorinu,
+* walce ze Szkieletem Wartownikiem,
+* walce z Cieniem Gracza.
+
+---
+
+## 6.4 Laska Astromanty
+
+Rzadkość: reliktowa
+Atak: +6
+Wiedza: +3
+Wola: +1
+Gdzie zdobyć: Wieża Astromanty, ukryta komnata po przeczytaniu księgi bez tytułu
+
+Efekt:
+
+Raz na walkę może zredukować obrażenia magiczne albo klątwę o połowę.
+
+Dialog specjalny:
+
+W finale Korona mówi:
+
+> „To drewno pamięta dłonie człowieka, który bał się mnie bardziej niż śmierci.”
+
+---
+
+## 6.5 Notatnik Runiczny
+
+Rzadkość: startowa/dobra
+Wiedza: +1
+Gdzie zdobyć: start Ucznia Maga albo Wieża
+
+Efekt:
+
+Pozwala zapisywać runy i później używać ich jako wskazówek.
+
+Zastosowania:
+
+* Krypta Milczących,
+* Wieża Astromanty,
+* pałacowe drzwi w ruinach,
+* studnia szeptów.
+
+---
+
+## 6.6 Księga Nienapisanej Drogi
+
+Rzadkość: reliktowa/przeklęta
+Wiedza: +4
+Wola: -1
+Gdzie zdobyć: misja „Księga gwiazd bez tytułu”
+
+Efekt:
+
+Pokazuje możliwe konsekwencje niektórych wyborów.
+
+Ryzyko:
+
+Po każdym użyciu gracz może dostać wizję złego zakończenia. Zbyt częste czytanie zwiększa podatność na Koronę.
+
+---
+
+## 6.7 Soczewka Astromanty
+
+Rzadkość: rzadka
+Wiedza: +2
+Gdzie zdobyć: Biblioteka Gwiazd
+
+Efekt:
+
+Pozwala widzieć ukryte runy, iluzje i fałszywe ściany.
+
+Odblokowuje:
+
+* tajne przejście w Wieży,
+* prawdziwy napis w Krypcie,
+* ukryte imiona na rynku Valdorinu.
+
+---
+
+## 6.8 Pierścień Cichej Many
+
+Rzadkość: rzadka
+Wola: +2
+Wiedza: +1
+Gdzie zdobyć: Studnia Szeptów albo nagroda od Aleny
+
+Efekt:
+
+Używanie magii nie budzi niektórych duchów.
+
+Szczególnie przydatny w Krypcie.
+
+---
+
+## 6.9 Kreda Runiczna
+
+Rzadkość: zwykła/dobra
+Gdzie zdobyć: sklep, Wieża, Edrin
+
+Efekt:
+
+Przedmiot jednorazowy lub z 3 użyciami. Pozwala narysować znak ochronny.
+
+Zastosowania:
+
+* zabezpieczenie wejścia przed cieniami,
+* ochrona podczas odpoczynku,
+* osłabienie ducha,
+* oznaczenie drogi w ruinach.
+
+---
+
+## 6.10 Fiolka Gwiezdnego Pyłu
+
+Rzadkość: rzadka
+Gdzie zdobyć: Wieża Astromanty
+
+Efekt:
+
+Jednorazowo rozprasza iluzję albo ujawnia prawdziwą formę przeciwnika.
+
+Najlepsze użycia:
+
+* Lustro bez twarzy,
+* Cień Gracza,
+* fałszywa brama w ruinach,
+* teatr ostatniego dnia.
+
+---
+
+## 6.11 Amulet Ostatniego Snu
+
+Rzadkość: reliktowa
+Wola: +3
+Gdzie zdobyć: pokój Eliany albo misja „Popiół w kołysce”
+
+Efekt:
+
+Chroni przed jedną wizją Korony i pozwala wejść do snu Eliany.
+
+Wpływ na zakończenie:
+
+Ułatwia zdobycie Łzy Eliany i pokojowe zakończenie.
+
+---
+
+## 6.12 Zapisane Imię
+
+Rzadkość: fabularna
+Gdzie zdobyć: Studnia Szeptów, Księga Imion Umarłych
+
+Efekt:
+
+Pozwala przywołać konkretnego ducha i poprosić go o pomoc.
+
+Możliwe użycia:
+
+* przywołanie służącej Eliany,
+* uspokojenie cienia na rynku,
+* osłabienie Popielnego Króla przez przypomnienie mu ofiar.
+
+---
+
+# 7. Broń i ekwipunek dla Banity
+
+Banita jest pomiędzy Wojownikiem i Łotrzykiem. Ma brutalniejsze, bardziej uliczne wyposażenie, opcje zastraszania i kontakty z półświatkiem.
+
+---
+
+## 7.1 Toporek Banity
+
+Rzadkość: startowa
+Atak: +4
+Gdzie zdobyć: start Banity
+
+Efekt:
+
+Dobra broń na początek, szczególnie przeciw ludziom i zwierzętom.
+
+---
+
+## 7.2 Pałka Poborcy
+
+Rzadkość: zwykła/dobra
+Atak: +4
+Spryt: +1
+Gdzie zdobyć: bandyci, podejrzany handlarz, misja Przewoźnika
+
+Efekt:
+
+Pozwala ogłuszyć człowieka zamiast go zabić.
+
+Wybór specjalny:
+
+* „Ogłusz przeciwnika”
+
+Dobre do przejścia neutralnego.
+
+---
+
+## 7.3 Hak Łupieżcy
+
+Rzadkość: dobra
+Atak: +5
+Spryt: +1
+Gdzie zdobyć: obóz bandytów albo Bagna Umarłych
+
+Efekt:
+
+Pozwala ściągnąć przeciwnika z dystansu albo wyciągnąć przedmiot z niebezpiecznego miejsca.
+
+Zastosowania:
+
+* wyciągnięcie skrzyni z bagna,
+* przerwanie ataku kusznika,
+* otwarcie kraty z drugiej strony.
+
+---
+
+## 7.4 Płaszcz Banity
+
+Rzadkość: startowa/dobra
+Spryt: +1
+Unik: +1
+Gdzie zdobyć: start Banity
+
+Efekt:
+
+Bandyci i dezerterzy częściej zaczynają rozmowę zamiast walki.
+
+Minus:
+
+Strażnicy i kapłani mniej ufają graczowi.
+
+---
+
+## 7.5 Stary Znak Bandy
+
+Rzadkość: startowa/fabularna
+Gdzie zdobyć: start Banity
+
+Efekt:
+
+Odblokowuje dialogi z przestępcami, przemytnikami i dezerterami.
+
+Przykładowe wybory:
+
+* „Pokaż znak bandy”
+* „Zapytaj o czarny szlak”
+* „Zaproponuj podział łupu”
+
+Ryzyko:
+
+Niektóre uczciwe NPC mogą zareagować źle, jeśli zobaczą znak.
+
+---
+
+## 7.6 Kości Oszusta
+
+Rzadkość: startowa/dobra
+Spryt: +2
+Gdzie zdobyć: start Banity, karczma, bandyci
+
+Efekt:
+
+Pozwalają wygrać albo oszukać w grach hazardowych.
+
+Zastosowania:
+
+* zdobycie złota w gospodzie,
+* wygranie informacji od najemnika,
+* odciągnięcie strażnika fortu.
+
+Ryzyko:
+
+Jeśli oszustwo zostanie wykryte, zaczyna się bójka.
+
+---
+
+## 7.7 Nóż Dłużnika
+
+Rzadkość: rzadka
+Atak: +5
+Spryt: +2
+Gdzie zdobyć: misja z kupcem albo podejrzany handlarz
+
+Efekt:
+
+Zadaje dodatkowe obrażenia przeciwnikom, którzy są przestraszeni albo zastraszeni.
+
+Dialog specjalny:
+
+Wobec niektórych bandytów można wybrać:
+
+* „Przypomnij mu o długu”
+
+---
+
+## 7.8 Łańcuch z Czarnego Targu
+
+Rzadkość: dobra
+Atak: +5
+Obrona: +1
+Gdzie zdobyć: czarny handlarz, obóz bandytów
+
+Efekt:
+
+Może unieruchomić przeciwnika na jedną turę.
+
+Minus:
+
+Nie działa na duchy i istoty bez ciała.
+
+---
+
+## 7.9 Maska Fałszywego Kultysty
+
+Rzadkość: rzadka/przeklęta
+Spryt: +3
+Wola: -1
+Gdzie zdobyć: ruiny, czarny kult, misja „Czarny odłamek w dłoni dziecka”
+
+Efekt:
+
+Pozwala udawać sługę Popiołu.
+
+Zastosowania:
+
+* przejście obok niektórych cieni,
+* rozmowa z kultystami,
+* wejście do przeklętych komnat.
+
+Ryzyko:
+
+Długie noszenie maski zwiększa reputację popiołu.
+
+---
+
+## 7.10 Kaptur Bezdomnego Króla
+
+Rzadkość: reliktowa/przeklęta
+Spryt: +3
+Wola: -2
+Gdzie zdobyć: Ruiny Valdorinu, opuszczona dzielnica żebraków
+
+Efekt:
+
+NPC biedni, wykluczeni i duchy żebraków ufają graczowi bardziej.
+
+Minus:
+
+Korona częściej szepcze o władzy nad „tymi, którzy zawsze byli deptani”.
+
+Wpływ na zakończenie:
+
+Może odblokować specjalne złe zakończenie Banity: **Król Bez Tronu**.
+
+---
+
+## 7.11 Fiolka Ślepego Dymu
+
+Rzadkość: dobra
+Gdzie zdobyć: czarny handlarz albo Łotrzyk/Banita
+
+Efekt:
+
+Jednorazowo pozwala uciec z walki albo rozpocząć atak z zaskoczenia.
+
+Nie działa dobrze w:
+
+* silnym wietrze,
+* otwartej sali tronowej,
+* przeciw niektórym duchom.
+
+---
+
+## 7.12 Gwóźdź z Szubienicy
+
+Rzadkość: przeklęta
+Atak: +2
+Wola: -1
+Gdzie zdobyć: stara szubienica przy drodze do Fortu
+
+Efekt:
+
+Może odstraszać bandytów i wisielcze duchy.
+
+Ryzyko:
+
+Podnosi reputację popiołu. W kaplicy Alena reaguje niepokojem.
+
+---
+
+# 8. Przedmioty uniwersalne dla wszystkich klas
+
+---
+
+## 8.1 Mikstura Leczenia
+
+Rzadkość: zwykła
+Efekt: przywraca 10 zdrowia
+Gdzie zdobyć: sklep, zielarka, skrzynie
+
+Najważniejszy podstawowy przedmiot przetrwania.
+
+---
+
+## 8.2 Duża Mikstura Leczenia
+
+Rzadkość: dobra/rzadka
+Efekt: przywraca 20 zdrowia
+Gdzie zdobyć: zielarka Mirna, nagroda za większą misję
+
+Dobra przed bossami.
+
+---
+
+## 8.3 Chleb
+
+Rzadkość: zwykła
+Efekt: przywraca 3 zdrowia poza walką
+
+Dobry na początek.
+
+---
+
+## 8.4 Suszone Mięso
+
+Rzadkość: zwykła/dobra
+Efekt: przywraca 5 zdrowia poza walką
+
+Banita może zaczynać z tym przedmiotem.
+
+---
+
+## 8.5 Pochodnia
+
+Rzadkość: zwykła
+Efekt: pozwala wejść do ciemnych lokacji, odstrasza słabe duchy
+
+Ważna w Krypcie i lesie.
+
+---
+
+## 8.6 Latarnia Świtu
+
+Rzadkość: rzadka
+Wola: +2
+Gdzie zdobyć: misja „Świece dla Kaplicy Świtu”
+
+Efekt:
+
+Działa jak pochodnia, ale nie gaśnie od mgły i osłabia cienie.
+
+---
+
+## 8.7 Mapa Bagien
+
+Rzadkość: zwykła/dobra
+Efekt: bezpieczne poruszanie się po Bagnach Umarłych
+
+Jeden z najlepszych zakupów na początku.
+
+---
+
+## 8.8 Mapa Martwych Ulic
+
+Rzadkość: rzadka
+Gdzie zdobyć: misja „Czerwone znaki na mapie”
+
+Efekt:
+
+Zmniejsza liczbę pułapek i błędnych przejść w ruinach Valdorinu.
+
+---
+
+## 8.9 Eliksir Czystej Krwi
+
+Rzadkość: dobra
+Efekt: chroni przed trucizną i częścią klątwy
+
+Zdobywany u zielarki.
+
+---
+
+## 8.10 Eliksir Pamięci
+
+Rzadkość: rzadka/reliktowa
+Efekt: chroni przed utratą imienia i pamięci w ruinach
+
+Zdobywany po misji „Serce Bagiennego Korzenia”.
+
+W finale może pozwolić graczowi zachować wybór, który normalnie zostałby zablokowany przez Koronę.
+
+---
+
+## 8.11 Świeca Świtu
+
+Rzadkość: dobra
+Efekt: jednorazowo odstrasza ducha albo osłabia cienie w scenie
+
+Dobra dla każdej klasy.
+
+---
+
+## 8.12 Bandaże
+
+Rzadkość: zwykła
+Efekt: przywracają 4 zdrowia poza walką albo zatrzymują krwawienie
+
+Mogą być użyte na rannych NPC.
+
+---
+
+## 8.13 Zestaw Obozowy
+
+Rzadkość: dobra
+Efekt: pozwala odpocząć poza wioską raz na wyprawę
+
+Ryzyko:
+
+W przeklętych lokacjach odpoczynek może wywołać sen Korony.
+
+---
+
+## 8.14 Księga Imion Umarłych
+
+Rzadkość: reliktowa
+Wiedza: +2
+Wola: +1
+Gdzie zdobyć: Mirna, Krypta, Ruiny
+
+Efekt:
+
+Pozwala rozmawiać z niektórymi cieniami i przywracać imiona zmarłym.
+
+Kluczowa do misji:
+
+* Imiona na rynku,
+* Płacz w Studni Szeptów,
+* Modlitwa za miasto bez grobów.
+
+---
+
+## 8.15 Stary Amulet
+
+Rzadkość: dobra/rzadka
+Efekt: chroni przed jedną pułapką lub przekleństwem
+
+Dobry przed wejściem do Krypty albo ruin.
+
+---
+
+## 8.16 Amulet Dziecka
+
+Rzadkość: rzadka
+Wola: +2
+Gdzie zdobyć: misja „Dziecko za bladym światłem”
+
+Efekt:
+
+Cienie dzieci nie atakują gracza. Ułatwia sceny z Elianą.
+
+---
+
+## 8.17 Odłamek Szczerego Lustra
+
+Rzadkość: rzadka
+Gdzie zdobyć: misja „Lustro, które nie pokazuje twarzy”
+
+Efekt:
+
+Raz pokazuje, która opcja dialogowa jest kłamstwem albo pułapką.
+
+Może być użyty w finale, by wykryć, kiedy Korona udaje Elianę.
+
+---
+
+## 8.18 Jasny Odłamek Woli
+
+Rzadkość: reliktowa
+Wola: +3
+Gdzie zdobyć: oczyszczenie Czarnego Odłamka
+
+Efekt:
+
+Chroni przed jedną próbą przejęcia przez Koronę.
+
+Bardzo dobry do dobrego zakończenia.
+
+---
+
+## 8.19 Czarny Odłamek Korony
+
+Rzadkość: przeklęta/reliktowa
+Atak: +3
+Wola: -2
+
+Efekt:
+
+Daje potężne opcje w walce i dialogach, ale zwiększa reputację popiołu.
+
+Możliwe akcje:
+
+* „Rozkaż cieniowi ustąpić”
+* „Złam wolę przeciwnika”
+* „Wzmocnij atak popiołem”
+
+Ryzyko:
+
+Może zablokować najlepsze zakończenie.
+
+---
+
+## 8.20 Pieczęć Zaufania Ravenford
+
+Rzadkość: fabularna
+Gdzie zdobyć: pomagając mieszkańcom Ravenford
+
+Efekt:
+
+Mieszkańcy pomagają graczowi: niższe ceny, darmowy nocleg, dodatkowe informacje.
+
+W finale:
+
+Modlitwa mieszkańców może osłabić Koronę.
+
+---
+
+# 9. Pancerze i ubrania
+
+---
+
+## 9.1 Wytarta Kolczuga
+
+Klasa polecana: Wojownik
+Obrona: +2
+Unik: -1
+Rzadkość: startowa/zwykła
+
+Dobra na początek, ale utrudnia skradanie.
+
+---
+
+## 9.2 Skórzana Kurtka Najemnika
+
+Klasa polecana: Banita, Łotrzyk
+Obrona: +1
+Unik: +1
+
+Uniwersalna lekka ochrona.
+
+---
+
+## 9.3 Płaszcz Podróżnika
+
+Klasa polecana: wszyscy
+Obrona: 0
+Wola: +1
+
+Chroni przed zimnem, deszczem i pierwszym efektem zmęczenia.
+
+---
+
+## 9.4 Szata Ucznia
+
+Klasa polecana: Uczeń Maga
+Wiedza: +1
+Wola: +1
+
+Pozwala lepiej odczytywać runy.
+
+---
+
+## 9.5 Szata Astromanty
+
+Klasa polecana: Uczeń Maga
+Wiedza: +3
+Wola: +2
+Obrona: +1
+
+Zdobywana w Wieży Astromanty.
+
+Efekt:
+
+Chroni przed iluzjami i fałszywymi wizjami.
+
+---
+
+## 9.6 Pancerz Strażnika Pieczęci
+
+Klasa polecana: Wojownik, Banita
+Obrona: +3
+Wola: +1
+
+Zdobywany w Forcie Zdrajców pokojowo lub po walce.
+
+Jeśli zdobyty pokojowo, nie ma skutków ubocznych. Jeśli zdjęty z zabitego strażnika, Cael i jego ludzie reagują gorzej.
+
+---
+
+## 9.7 Płaszcz Bez Cienia
+
+Klasa polecana: Łotrzyk
+Unik: +3
+Spryt: +2
+Wola: -1
+
+Świetny do skradania, ale ryzykowny przy lustrzanych próbach.
+
+---
+
+## 9.8 Popielna Zbroja
+
+Klasa polecana: Wojownik, Banita
+Obrona: +4
+Wola: -2
+Rzadkość: przeklęta
+
+Silna, ale niebezpieczna. Ułatwia walkę, utrudnia dobre zakończenia.
+
+---
+
+## 9.9 Płaszcz Żałobnika
+
+Klasa polecana: wszyscy
+Wola: +2
+Duchy ufają graczowi bardziej
+
+Zdobywany w ruinach po misji „Popiół w kołysce” albo „Imiona na rynku”.
+
+---
+
+## 9.10 Królewski Płaszcz z Popiołu
+
+Klasa polecana: nikt / zła ścieżka
+Wola: -3
+Reputacja popiołu: +3
+Atak: +2
+
+Zdobywany w pałacu. Daje potężne opcje dominacji, ale mocno pcha ku złemu zakończeniu.
+
+---
+
+# 10. Pierścienie i amulety
+
+---
+
+## 10.1 Żelazny Pierścień
+
+Efekt: zmniejsza obrażenia od pułapek albo fizyczne obrażenia o 1
+Gdzie zdobyć: Boren
+
+---
+
+## 10.2 Pierścień Cichej Many
+
+Efekt: magia nie budzi części duchów
+Polecany: Uczeń Maga
+
+---
+
+## 10.3 Pierścień Uczciwego Długu
+
+Efekt: lepsze ceny u kupców, jeśli gracz pomagał ludziom
+Gdzie zdobyć: Lorian
+
+Jeśli gracz okrada NPC, pierścień pęka.
+
+---
+
+## 10.4 Amulet Dziecka
+
+Efekt: cienie dzieci są spokojne
+Gdzie zdobyć: uratowanie dziecka na bagnach
+
+---
+
+## 10.5 Amulet Ostatniego Snu
+
+Efekt: chroni przed wizją Korony
+Polecany: dobre zakończenie
+
+---
+
+## 10.6 Medalion Zdrajcy
+
+Efekt: Strażnicy Pieczęci rozpoznają w graczu sojusznika
+Gdzie zdobyć: Cael albo Rycerz bez herbu
+
+Nazwa jest obraźliwa dla ludzi z fortu, ale sami noszą ją jako znak pamięci.
+
+---
+
+## 10.7 Wisior Popielnego Szeptu
+
+Efekt: raz pozwala poznać ukrytą myśl przeciwnika
+Minus: reputacja popiołu +1 przy użyciu
+
+---
+
+## 10.8 Oko Astromanty
+
+Efekt: wykrywa iluzje
+Gdzie zdobyć: Wieża Astromanty
+
+Dobre dla każdej klasy, szczególnie przed ruinami.
+
+---
+
+## 10.9 Znak Świtu
+
+Efekt: +2 Wola, cienie słabiej kuszą gracza
+Gdzie zdobyć: Kaplica Świtu po misjach Aleny
+
+---
+
+## 10.10 Pęknięty Medalion Arvanda
+
+Efekt: odblokowuje dodatkowy dialog z Popielnym Królem
+Gdzie zdobyć: pałac albo dom medyka
+
+Może pomóc w zakończeniu z przebaczeniem.
+
+---
+
+# 11. Mikstury, eliksiry i jednorazowe przedmioty
+
+---
+
+## 11.1 Mikstura Leczenia
+
+Efekt: +10 zdrowia
+
+---
+
+## 11.2 Duża Mikstura Leczenia
+
+Efekt: +20 zdrowia
+
+---
+
+## 11.3 Eliksir Czystej Krwi
+
+Efekt: odporność na truciznę bagien i część klątw
+
+---
+
+## 11.4 Eliksir Pamięci
+
+Efekt: chroni przed utratą imienia w ruinach
+
+---
+
+## 11.5 Nalewka Mirny
+
+Efekt: +5 zdrowia i +1 Wola na następną scenę
+Minus: -1 Spryt przez senność
+
+---
+
+## 11.6 Krople Przeciw Mgłom
+
+Efekt: pozwalają zobaczyć prawdziwą drogę w mgle
+
+Przydatne na:
+
+* Bagna Umarłych,
+* Mroczny Las,
+* Ruiny Valdorinu.
+
+---
+
+## 11.7 Proszek Srebrnego Mchu
+
+Efekt: osłabia nieumarłego przeciwnika o 3 zdrowia na początku walki
+
+---
+
+## 11.8 Olej na Ostrze: Świt
+
+Efekt: przez jedną walkę broń zadaje +2 obrażenia cieniom i nieumarłym
+
+---
+
+## 11.9 Olej na Ostrze: Rdza
+
+Efekt: przez jedną walkę obniża obronę przeciwnika
+
+Nie działa na duchy.
+
+---
+
+## 11.10 Popielny Proch
+
+Efekt: zadaje duże obrażenia albo przerywa zaklęcie
+Minus: reputacja popiołu +1
+
+---
+
+## 11.11 Fiolka Ślepego Dymu
+
+Efekt: ucieczka z walki albo atak z zaskoczenia
+
+---
+
+## 11.12 Sól Grobowa
+
+Efekt: zabezpiecza jedno przejście przed duchami
+
+Dobra w Krypcie i ruinach.
+
+---
+
+## 11.13 Kreda Runiczna
+
+Efekt: rysuje znak ochronny
+
+---
+
+## 11.14 Gwiezdny Pył
+
+Efekt: rozprasza iluzję
+
+---
+
+## 11.15 Zgnieciony Bagienny Korzeń
+
+Efekt: leczy 8 zdrowia, ale może wywołać wizję zmarłych
+
+---
+
+# 12. Przedmioty fabularne i relikty lore
+
+---
+
+## 12.1 Srebrny Klucz
+
+Otwiera Bramę Milczących. Główny artefakt.
+
+---
+
+## 12.2 Kryształ Świtu
+
+Chroni przed Koroną. Główny artefakt.
+
+---
+
+## 12.3 Pieczęć Starego Króla
+
+Wyłącza pułapki pałacu. Główny artefakt.
+
+---
+
+## 12.4 Łza Księżniczki Eliany
+
+Odblokowuje najlepsze zakończenie.
+
+---
+
+## 12.5 Stary List Króla
+
+Ujawnia motywację Arvanda.
+
+---
+
+## 12.6 Dziennik Królewskiego Medyka
+
+Ujawnia chorobę Eliany i ostatnie dni pałacu.
+
+---
+
+## 12.7 Kwiatowa Korona Eliany
+
+Przedmiot z pokoju księżniczki.
+
+Efekt:
+
+Ułatwia rozmowę z Elianą. Jeśli gracz ją zabierze dla zysku, najlepsze zakończenie może zostać zablokowane.
+
+---
+
+## 12.8 Zabawkowy Koń Eliany
+
+Przedmiot z misji „Zabawkowy koń Eliany”.
+
+Efekt:
+
+Naprawiony koń zwiększa szansę na zdobycie Łzy Eliany.
+
+---
+
+## 12.9 Fragment Pałacowego Dzwonu
+
+Przedmiot z misji „Dzwon, który bije pod ziemią”.
+
+Można:
+
+* oczyścić,
+* sprzedać,
+* przekuć na broń,
+* zniszczyć.
+
+---
+
+## 12.10 Herb Bezherbowego Rycerza
+
+Przedmiot z misji „Rycerz bez herbu”.
+
+Może pomóc w Forcie albo zostać zwrócony duchowi.
+
+---
+
+## 12.11 Grzechotka z Popiołu
+
+Przedmiot z misji „Popiół w kołysce”.
+
+Można oddać matce, zanieść do kaplicy albo sprzedać.
+
+---
+
+## 12.12 Maska Teatru
+
+Przedmiot z misji „Teatr ostatniego dnia”.
+
+Efekt:
+
+Pozwala raz zadać przeciwnikowi pytanie, na które musi odpowiedzieć prawdą.
+
+Ryzyko:
+
+Jeśli gracz użyje jej na Koronie, maska może pęknąć i zadać obrażenia.
+
+---
+
+## 12.13 Popielna Ostroga
+
+Przedmiot z misji „Ostatni rozkaz Popielnego Rycerza”.
+
+Efekt:
+
+Przyzywa ducha rycerza do pomocy raz w finale albo w walce z cieniami.
+
+---
+
+## 12.14 Rytualna Świeca Miasta bez Grobów
+
+Przedmiot z misji „Modlitwa za miasto bez grobów”.
+
+Efekt:
+
+W finale osłabia Koronę albo odblokowuje rozszerzony epilog.
+
+---
+
+# 13. Unikalne zestawy klasowe
+
+Zestawy działają jako bonus, jeśli gracz zbierze kilka powiązanych przedmiotów.
+
+---
+
+## 13.1 Zestaw Wojownika: Strażnik Ostatniej Bramy
+
+Elementy:
+
+* Miecz Strażnika Bramy
+* Tarcza Ostatniej Bramy
+* Pas Rycerskiej Przysięgi
+
+Bonus za 2 elementy:
+
+* +1 Obrona
+* większa szansa zablokowania ataku
+
+Bonus za 3 elementy:
+
+* w finale można wybrać: „Stań między Koroną a cieniami”
+* gracz może ochronić sojusznika przed śmiercią
+
+Lore:
+
+Zestaw symbolizuje obronę bez żądzy władzy.
+
+---
+
+## 13.2 Zestaw Łotrzyka: Milczący Ślad
+
+Elementy:
+
+* Sztylet Milczącego Dzwonu
+* Płaszcz Bez Cienia
+* Zestaw Precyzyjnych Wytrychów
+
+Bonus za 2 elementy:
+
+* łatwiejsza ucieczka z walki
+* +1 Spryt
+
+Bonus za 3 elementy:
+
+* można przejść przez jedną strzeżoną lokację bez walki
+* w ruinach można ominąć jedną śmiertelną pułapkę
+
+Ryzyko:
+
+Jeśli gracz ma wysoką reputację chciwości, zestaw może odblokować pokusę kradzieży Korony.
+
+---
+
+## 13.3 Zestaw Maga: Uczeń Astromanty
+
+Elementy:
+
+* Laska Astromanty
+* Soczewka Astromanty
+* Szata Astromanty
+
+Bonus za 2 elementy:
+
+* +2 Wiedza
+* łatwiejsze odczytywanie run
+
+Bonus za 3 elementy:
+
+* w finale można rozpoznać prawdziwy głos Eliany pośród szeptów Korony
+* Cień Gracza jest słabszy
+
+Lore:
+
+Zestaw należał do ostatniego maga, który próbował zrozumieć Koronę zamiast ją po prostu zniszczyć.
+
+---
+
+## 13.4 Zestaw Banity: Król Czarnego Szlaku
+
+Elementy:
+
+* Nóż Dłużnika
+* Kaptur Bezdomnego Króla
+* Kości Oszusta
+
+Bonus za 2 elementy:
+
+* +2 Spryt
+* lepsze dialogi z bandytami i dezerterami
+
+Bonus za 3 elementy:
+
+* można zebrać grupę wyrzutków jako pomoc w obronie Ravenford
+
+Ryzyko:
+
+Jeśli gracz wybiera chciwe opcje, zestaw może prowadzić do złego zakończenia: **Król Bez Tronu**.
+
+---
+
+# 14. Przeklęte przedmioty
+
+Przeklęte przedmioty powinny być kuszące. Dają realną przewagę, ale wprowadzają ryzyko fabularne.
+
+---
+
+## 14.1 Czarny Odłamek Korony
+
+Efekt:
+
+* +3 atak
+* specjalne opcje dominacji
+* reputacja popiołu rośnie przy użyciu
+
+Ryzyko:
+
+Może zablokować najlepsze zakończenie.
+
+---
+
+## 14.2 Popielna Zbroja
+
+Efekt:
+
+* +4 obrona
+* odporność na zwykłych przeciwników
+
+Ryzyko:
+
+* -2 Wola
+* Korona łatwiej przemawia do gracza
+
+---
+
+## 14.3 Wisior Popielnego Szeptu
+
+Efekt:
+
+Pozwala poznać ukrytą myśl przeciwnika.
+
+Ryzyko:
+
+Czasem pokazuje nie prawdę, lecz najgorszą możliwą interpretację.
+
+---
+
+## 14.4 Nóż do Przecinania Pieczęci
+
+Efekt:
+
+Otwiera magiczne zabezpieczenia.
+
+Ryzyko:
+
+Może uszkodzić ochronę, która była potrzebna do bezpiecznego finału.
+
+---
+
+## 14.5 Kaptur Bezdomnego Króla
+
+Efekt:
+
+Daje wpływ nad wyrzutkami i cieniami biedoty.
+
+Ryzyko:
+
+Korona kusi gracza wizją sprawiedliwości przez zemstę.
+
+---
+
+## 14.6 Hełm Kapitana
+
+Efekt:
+
++2 Obrona, wizje z przeszłości.
+
+Ryzyko:
+
+Po każdej wizji gracz może stracić zdrowie albo zyskać Wola Zniszczenia.
+
+---
+
+## 14.7 Gwóźdź z Szubienicy
+
+Efekt:
+
+Odstrasza niektóre duchy.
+
+Ryzyko:
+
+Kaplica i dobre duchy reagują źle.
+
+---
+
+## 14.8 Królewski Płaszcz z Popiołu
+
+Efekt:
+
++2 Atak, dodatkowe opcje rozkazów wobec cieni.
+
+Ryzyko:
+
+Bardzo mocno zwiększa ryzyko zakończenia „Władca Popiołu”.
+
+---
+
+# 15. Przedmioty od NPC
+
+---
+
+## Od Borena, kowala
+
+* Stalowy Miecz
+* Żelazny Pierścień
+* Naprawiona broń
+* Młot Przysięgi, jeśli gracz pomoże Caelowi
+* Przekuty Fragment Dzwonu
+
+---
+
+## Od Loriana, kupca
+
+* Zniżki
+* Zestaw Precyzyjnych Wytrychów
+* Pierścień Uczciwego Długu
+* Mapa Bagien
+* Tajna sakiewka kupiecka
+
+---
+
+## Od Mirny, zielarki
+
+* Eliksir Czystej Krwi
+* Eliksir Pamięci
+* Nalewka Mirny
+* Krople Przeciw Mgłom
+* Proszek Srebrnego Mchu
+
+---
+
+## Od Siostry Aleny
+
+* Znak Świtu
+* Świeca Świtu
+* Latarnia Świtu
+* Błogosławiona sól
+* Rytualna Świeca Miasta bez Grobów
+
+---
+
+## Od Caela
+
+* Pieczęć Starego Króla
+* Medalion Zdrajcy
+* Pancerz Strażnika Pieczęci
+* Mapa Martwych Ulic
+* Młot Przysięgi
+
+---
+
+## Od Edrina
+
+* Fragment Kroniki
+* Notatnik runiczny
+* Stare monety Valdorinu
+* Księga Zakazanej Kroniki
+* wskazówki dotyczące Eliany
+
+---
+
+# 16. Przedmioty jako nagrody za moralne wybory
+
+## Pomoc kupcowi
+
+Możliwe nagrody:
+
+* zniżka w sklepie,
+* Pierścień Uczciwego Długu,
+* Precyzyjne Wytrychy,
+* dodatkowa mapa.
+
+## Uratowanie dziecka
+
+Możliwe nagrody:
+
+* Amulet Dziecka,
+* dobra reputacja,
+* pomoc cieni dzieci w ruinach.
+
+## Szacunek w Krypcie
+
+Możliwe nagrody:
+
+* Stary Amulet,
+* Miecz Strażnika Bramy,
+* wiedza o zmarłych.
+
+## Pokojowe przekonanie Caela
+
+Możliwe nagrody:
+
+* Pieczęć bez walki,
+* Medalion Zdrajcy,
+* Cael jako sojusznik,
+* Mapa Martwych Ulic.
+
+## Naprawienie zabawki Eliany
+
+Możliwe nagrody:
+
+* Łza Eliany łatwiejsza do zdobycia,
+* Amulet Ostatniego Snu,
+* spokojniejszy finał.
+
+---
+
+# 17. Przedmioty do sklepów
+
+## Sklep Loriana — standardowa oferta
+
+* Mikstura Leczenia — 5 złota
+* Mała Mikstura — 3 złota
+* Chleb — 1 złoto
+* Pochodnia — 3 złota
+* Mapa Bagien — 8 złota
+* Wytrychy — 10 złota
+* Bandaże — 4 złota
+* Zestaw Obozowy — 12 złota
+
+## Sklep Loriana po uratowaniu kupca
+
+* ceny niższe o 30–50%
+* Precyzyjne Wytrychy
+* Pierścień Uczciwego Długu
+* Krople Przeciw Mgłom
+
+## Kuźnia Borena
+
+* Stalowy Miecz — 15 złota
+* Topór Najemnika — 22 złota
+* Naprawa broni — 6 złota
+* Skórzana Kurtka Najemnika — 12 złota
+* Wytarta Kolczuga — 14 złota
+
+## Chata Mirny
+
+* Mikstura Leczenia — 5 złota
+* Nalewka Mirny — 7 złota
+* Krople Przeciw Mgłom — 10 złota
+* Proszek Srebrnego Mchu — 8 złota
+* Eliksir Czystej Krwi — tylko za składniki albo przysługę
+
+## Czarny handlarz
+
+* Sakiewka Fałszywych Monet — 12 złota
+* Fiolka Ślepego Dymu — 9 złota
+* Igły z Jadem Topielca — 14 złota
+* Gwóźdź z Szubienicy — 7 złota
+* Maska Fałszywego Kultysty — 25 złota
+
+---
+
+# 18. Przykładowe ukryte skrzynie i łupy
+
+## Skrzynia w chacie drwala
+
+Możliwe przedmioty:
+
+* Siekiera Drwala
+* Chleb
+* stary list do żony
+* 4 złota
+
+## Skrzynia w Krypcie Milczących
+
+Możliwe przedmioty:
+
+* Stary Amulet
+* Sól Grobowa
+* Miecz Strażnika Bramy
+* stara moneta Valdorinu
+
+Kradzież może obudzić strażnika.
+
+## Skrzynia w Forcie Zdrajców
+
+Możliwe przedmioty:
+
+* Pancerz Strażnika Pieczęci
+* Mapa Martwych Ulic
+* Medalion Zdrajcy
+* 12 złota
+
+Jeśli gracz kradnie, relacje z Caelem spadają.
+
+## Skrzynia w Bibliotece Gwiazd
+
+Możliwe przedmioty:
+
+* Soczewka Astromanty
+* Kreda Runiczna
+* Fiolka Gwiezdnego Pyłu
+* Księga Nienapisanej Drogi
+
+## Skrzynia w pokoju Eliany
+
+Nie powinna być typowym skarbem. To raczej wybór moralny.
+
+Możliwe przedmioty:
+
+* Kwiatowa Korona Eliany
+* Zabawkowy Koń Eliany
+* Amulet Ostatniego Snu
+* list Eliany
+
+Zabieranie rzeczy dla zysku powinno blokować najlepsze zakończenie.
+
+---
+
+# 19. Balans klas przez ekwipunek
+
+## Wojownik
+
+Najlepszy w:
+
+* walce,
+* obronie NPC,
+* honorowych pojedynkach,
+* blokowaniu obrażeń.
+
+Słabszy w:
+
+* skradaniu,
+* runach,
+* subtelnych ścieżkach.
+
+## Łotrzyk
+
+Najlepszy w:
+
+* otwieraniu zamków,
+* skradaniu,
+* unikaniu walk,
+* zdobywaniu złota.
+
+Słabszy w:
+
+* długich walkach,
+* rozmowach honorowych,
+* odporności na klątwę.
+
+## Uczeń Maga
+
+Najlepszy w:
+
+* odkrywaniu sekretów,
+* dialogach z duchami,
+* runach,
+* dobrym zakończeniu.
+
+Słabszy w:
+
+* początkowej walce,
+* dużych obrażeniach fizycznych,
+* odporności bez przygotowania.
+
+## Banita
+
+Najlepszy w:
+
+* dialogach z półświatkiem,
+* zastraszaniu,
+* elastycznej walce,
+* szarych moralnie wyborach.
+
+Słabszy w:
+
+* zaufaniu kapłanów i strażników,
+* czystej ścieżce dobrego zakończenia,
+* walce z duchami bez specjalnych przedmiotów.
+
+---
+
+# 20. Najciekawsze kombinacje ekwipunku
+
+## Bezpieczna ścieżka dobrego zakończenia
+
+Polecane:
+
+* Stalowy Miecz albo Kostur Iskier
+* Kryształ Świtu
+* Znak Świtu
+* Eliksir Pamięci
+* Księga Imion Umarłych
+* Amulet Dziecka
+* Latarnia Świtu
+
+Unikać:
+
+* Czarnego Odłamka
+* Popielnej Zbroi
+* Królewskiego Płaszcza z Popiołu
+
+## Ścieżka wojownika-bohatera
+
+Polecane:
+
+* Miecz Strażnika Bramy
+* Tarcza Ostatniej Bramy
+* Pas Rycerskiej Przysięgi
+* Pancerz Strażnika Pieczęci
+* Olej na Ostrze: Świt
+
+## Ścieżka łotrzyka-odkupienia
+
+Polecane:
+
+* Sztylet Milczącego Dzwonu
+* Precyzyjne Wytrychy
+* Odłamek Szczerego Lustra
+* Amulet Dziecka
+* Mapa Martwych Ulic
+
+Cel:
+
+Łotrzyk może zacząć jako ktoś chciwy, ale potem wybrać odkupienie przez pomoc duchom.
+
+## Ścieżka maga-prawdy
+
+Polecane:
+
+* Laska Astromanty
+* Soczewka Astromanty
+* Szata Astromanty
+* Księga Imion Umarłych
+* Amulet Ostatniego Snu
+* Jasny Odłamek Woli
+
+## Ścieżka banity-mrocznego władcy
+
+Polecane:
+
+* Nóż Dłużnika
+* Maska Fałszywego Kultysty
+* Kaptur Bezdomnego Króla
+* Czarny Odłamek Korony
+* Królewski Płaszcz z Popiołu
+
+Ryzyko:
+
+Bardzo duża szansa złego zakończenia.
+
+---
+
+# 21. Dodatkowe pomysły na przedmioty kosmetyczne i fabularne
+
+Te przedmioty nie muszą dawać dużych statystyk, ale wzmacniają klimat.
+
+## Pierścień z Ravenford
+
+Mały znak wdzięczności mieszkańców. Daje dodatkowy dialog z Aleną.
+
+## Spalona Strona Kroniki
+
+Fragment historii Valdorinu. Po zebraniu kilku stron odblokowuje dodatkową scenę Edrina.
+
+## Mała Figurka Słońca
+
+Dziecięcy amulet. Pomaga w scenach z cieniami dzieci.
+
+## Klucz bez zębów
+
+Pozornie bezużyteczny klucz. Otwiera jedną szufladę w domu medyka.
+
+## Pusta Fiolka po Lekarstwie Eliany
+
+Dowód choroby księżniczki. Może być pokazany Popielnemu Królowi.
+
+## Złamana Struna z Teatru
+
+Użyta w Teatrze ostatniego dnia pozwala zmienić scenę przedstawienia.
+
+## Srebrny Gwóźdź z Bramy
+
+Może zostać przekuty w grot strzały albo mały amulet.
+
+## Zapisany Szept
+
+Magiczny przedmiot. Po użyciu odtwarza ostatnie słowa zmarłej osoby.
+
+## Popielny Kwiat
+
+Rośnie tylko w ruinach. Można go oddać Alenie, Mirnie albo Elianie.
+
+## Pęknięta Filiżanka Królowej
+
+Pokazuje, że pałac był kiedyś zwykłym domem dla ludzi, nie tylko miejscem władzy.
+
+---
+
+# 22. Przedmioty wpływające na dialog finałowy
+
+## Pęknięty Medalion Arvanda
+
+Odblokowuje dialog:
+
+* „Pamiętasz, kim byłeś przed Koroną?”
+
+## Łza Księżniczki Eliany
+
+Odblokowuje dialog:
+
+* „Ona nie chciała takiego życia.”
+
+## Dziennik Królewskiego Medyka
+
+Odblokowuje dialog:
+
+* „Wiedziałeś, że nie da się jej ocalić w ten sposób.”
+
+## Księga Imion Umarłych
+
+Odblokowuje dialog:
+
+* „Oni nadal mają imiona.”
+
+## Rytualna Świeca Miasta bez Grobów
+
+Odblokowuje dialog:
+
+* „Valdorin nie potrzebuje króla. Potrzebuje pogrzebu.”
+
+## Czarny Odłamek Korony
+
+Odblokowuje dialog:
+
+* „Daj mi ją. Ja zrobię z nią to, czego ty nie potrafiłeś.”
+
+Prowadzi w stronę złego zakończenia.
+
+---
+
+# 23. Propozycja limitów ekwipunku
+
+Aby gra była prosta, można zrobić lekki system limitów.
+
+## Prosty wariant
+
+Gracz może nosić:
+
+* 1 broń główną,
+* 1 pancerz,
+* 2 amulety/pierścienie,
+* dowolną liczbę przedmiotów fabularnych,
+* maksymalnie 5 przedmiotów użytkowych.
+
+## Bardziej RPG-owy wariant
+
+Każdy przedmiot ma wagę:
+
+* lekki: 1
+* średni: 2
+* ciężki: 3
+* relikt: 0 albo 1
+
+Udźwig:
+
+* Wojownik: 12
+* Banita: 10
+* Łotrzyk: 8
+* Uczeń Maga: 7
+
+Można jednak na start pominąć wagę, żeby gra była łatwiejsza w implementacji.
+
+

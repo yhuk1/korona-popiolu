@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Korona Popiolu</string>
+    <string name="title_activity_main">Korona Popiolu</string>
+    <string name="package_name">pl.yhuk1.koronapopiolu</string>
+    <string name="custom_url_scheme">pl.yhuk1.koronapopiolu</string>
+</resources>

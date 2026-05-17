@@ -1,0 +1,2372 @@
+KORONA POPIOŁU — PORADNIK GRACZA
+Wersja rozszerzona: solucja, zakończenia, misje poboczne, wyposażenie i system doświadczenia
+
+============================================================
+SPIS TREŚCI
+============================================================
+
+1. Wprowadzenie bez spoilerów
+2. Podstawowe zasady gry
+3. System doświadczenia i poziomów
+4. Klasy postaci
+5. Solucja główna — bezpieczna ścieżka
+6. Zakończenia i warunki odblokowania
+7. Misje poboczne — lista i opis przejścia
+8. Nowe wyposażenie klasowe
+9. Przedmioty uniwersalne
+10. Pancerze, amulety i relikty
+11. Sklepy i nagrody od NPC
+12. Przeciwnicy i taktyki
+13. Checklista przed finałem
+14. Najlepsze zestawy wyposażenia
+15. Szybkie ścieżki przejścia
+
+
+============================================================
+1. WPROWADZENIE BEZ SPOILERÓW
+============================================================
+
+Korona Popiołu to tekstowa przygodówka fantasy z elementami RPG. Gracz czyta opisy sytuacji, wybiera akcje przyciskami, zbiera przedmioty, zarządza zdrowiem i złotem, walczy z przeciwnikami, zdobywa doświadczenie oraz odblokowuje różne zakończenia zależne od decyzji.
+
+Najważniejsze ogólne zasady:
+
+- Nie każda walka jest obowiązkowa.
+- Rozmowa często daje lepszy efekt niż atak.
+- Warto pomagać ludziom, jeśli chcesz dobre zakończenie.
+- Kradzież i używanie przeklętej mocy może ułatwić grę na początku, ale utrudnić finał.
+- Nie wchodź do bardzo niebezpiecznych lokacji bez przygotowania.
+- Przed finałem warto mieć kilka mikstur, dobrą broń, ochronę przed klątwą i informacje fabularne.
+- Gra powinna zapamiętywać ważne decyzje gracza.
+
+Najważniejsza rada na pierwsze przejście:
+Graj naturalnie. Nie próbuj od razu robić idealnej ścieżki. Najlepiej odkrywać świat, rozmawiać z NPC i wracać do wcześniejszych lokacji po zdobyciu nowych przedmiotów.
+
+
+============================================================
+2. PODSTAWOWE ZASADY GRY
+============================================================
+
+ZDROWIE
+
+Zdrowie spada przez walkę, pułapki, trucizny, klątwy i złe decyzje. Jeśli spadnie do zera, gracz ginie.
+
+Leczenie:
+
+- Mikstura Leczenia: +10 zdrowia
+- Duża Mikstura Leczenia: +20 zdrowia
+- Mała Mikstura: +6 zdrowia
+- Chleb: +3 zdrowia poza walką
+- Suszone mięso: +5 zdrowia poza walką
+- Odpoczynek w gospodzie
+- Specjalne wydarzenia fabularne
+- Błogosławieństwo albo światło Kaplicy Świtu
+
+ZŁOTO
+
+Złoto służy do kupowania:
+
+- mikstur,
+- map,
+- wytrychów,
+- broni,
+- pancerzy,
+- informacji,
+- łapówek,
+- składników do eliksirów.
+
+Chciwe decyzje często dają dużo złota, ale mogą zwiększać reputację chciwości lub popiołu.
+
+ATAK
+
+Atak zależy od klasy, broni i bonusów. Niektóre bronie działają lepiej przeciw konkretnym przeciwnikom.
+
+Przykłady:
+
+- Kostur Iskier lepszy przeciw nieumarłym.
+- Topór Najemnika lepszy przeciw ludziom.
+- Miecz Strażnika Bramy lepszy przeciw duchom i strażnikom krypty.
+- Czarny Odłamek Korony zwiększa moc, ale jest niebezpieczny fabularnie.
+
+REPUTACJA
+
+Gra może liczyć ukryte wartości reputacji:
+
+- dobra reputacja,
+- chciwość,
+- popiół,
+- zniszczenie,
+- szacunek duchów.
+
+Dobra reputacja pomaga w rozmowach, cenach i pokojowych zakończeniach.
+
+Chciwość daje więcej złota, ale pogarsza relacje.
+
+Popiół oznacza podatność na Koronę. Wysoka reputacja popiołu może prowadzić do złego zakończenia.
+
+Zniszczenie pomaga w brutalnych rozwiązaniach, ale może zablokować najczystszy finał.
+
+Szacunek duchów pomaga w Krypcie, ruinach i misjach związanych z imionami zmarłych.
+
+
+============================================================
+3. SYSTEM DOŚWIADCZENIA I POZIOMÓW
+============================================================
+
+Doświadczenie zdobywa się za:
+
+- ukończone misje poboczne,
+- ważne decyzje fabularne,
+- pokonanych przeciwników,
+- odkrywanie sekretów,
+- pokojowe rozwiązanie trudnych konfliktów,
+- odnajdywanie informacji o głównym lore.
+
+PROPONOWANE PROGI POZIOMÓW
+
+Poziom 1: 0 XP
+Poziom 2: 100 XP
+Poziom 3: 250 XP
+Poziom 4: 450 XP
+Poziom 5: 700 XP
+Poziom 6: 1000 XP
+Poziom 7: 1350 XP
+Poziom 8: 1750 XP
+
+NAGRODA ZA AWANS
+
+Przy awansie gracz wybiera jedną nagrodę:
+
+- +5 maksymalnego zdrowia,
+- +1 do ataku,
+- +1 do obrony,
+- +1 do woli,
+- +1 do sprytu,
+- +1 do wiedzy,
+- dodatkowe miejsce na przedmiot użytkowy.
+
+PROPONOWANE XP ZA AKCJE
+
+Mała walka: 15–30 XP
+Trudna walka: 40–70 XP
+Boss poboczny: 80–150 XP
+Mała misja: 40–80 XP
+Średnia misja: 90–150 XP
+Duża misja lore: 160–250 XP
+Pokojowe rozwiązanie trudnego konfliktu: +20–60 XP bonusu
+Odkrycie ważnej prawdy fabularnej: +50–100 XP
+
+PRZYKŁADY
+
+Pomoc rannemu kupcowi: 40 XP
+Pokonanie Wilka Cienia: 25 XP
+Ukończenie misji „Imię drwala”: 100 XP
+Pokojowe przekonanie Caela: 180 XP
+Ukończenie „Modlitwy za miasto bez grobów”: 250 XP
+
+
+============================================================
+4. KLASY POSTACI
+============================================================
+
+WOJOWNIK
+
+Start:
+
+- Zdrowie: 38
+- Złoto: 8
+- Atak: 7
+- Przedmioty: Stary miecz, Wytarta kolczuga, Chleb, Pochodnia, Mały bandaż
+
+Mocne strony:
+
+- bezpośrednia walka,
+- ciężka broń,
+- pancerze,
+- ochrona NPC,
+- honorowe pojedynki.
+
+Słabe strony:
+
+- mniej sekretów,
+- słabsze skradanie,
+- trudniejsze obchodzenie pułapek.
+
+Specjalne akcje:
+
+- Wyważ drzwi.
+- Zastrasz przeciwnika.
+- Przyjmij cios na tarczę.
+- Stań w obronie słabszego.
+- Wyzwij przeciwnika na pojedynek.
+
+
+ŁOTRZYK
+
+Start:
+
+- Zdrowie: 30
+- Złoto: 16
+- Atak: 5
+- Przedmioty: Sztylet, Wytrychy, Lekki płaszcz, Mała sakiewka złota, Linka z hakiem
+
+Mocne strony:
+
+- zamki,
+- pułapki,
+- skradanie,
+- unikanie walk,
+- zdobywanie złota.
+
+Słabe strony:
+
+- słabszy w otwartej walce,
+- łatwo wejść w ścieżkę chciwości,
+- mniejsza odporność na klątwę.
+
+Specjalne akcje:
+
+- Otwórz zamek.
+- Rozbrój pułapkę.
+- Zakradnij się.
+- Podsłuchaj rozmowę.
+- Ukradnij sakiewkę.
+
+
+UCZEŃ MAGA
+
+Start:
+
+- Zdrowie: 26
+- Złoto: 10
+- Atak: 4
+- Przedmioty: Iskra many, Kostur ucznia, Mała mikstura, Pochodnia, Notatnik runiczny
+
+Mocne strony:
+
+- runy,
+- duchy,
+- sekrety,
+- iluzje,
+- najlepsze zakończenie.
+
+Słabe strony:
+
+- mało zdrowia,
+- słabszy początek,
+- wymaga ostrożności.
+
+Specjalne akcje:
+
+- Odczytaj runy.
+- Rozprosz iluzję.
+- Porozmawiaj z duchem.
+- Zbadaj magiczny ślad.
+- Użyj iskry many.
+
+
+BANITA
+
+Start:
+
+- Zdrowie: 32
+- Złoto: 5
+- Atak: 6
+- Przedmioty: Toporek, Kaptur banity, Suszone mięso, Kości oszusta, Stary znak bandy
+
+Mocne strony:
+
+- rozmowy z bandytami,
+- zastraszanie,
+- szare moralnie wybory,
+- elastyczna walka,
+- półświatek.
+
+Słabe strony:
+
+- kapłani i strażnicy mniej ufają,
+- łatwiej wejść w mroczną ścieżkę,
+- słabszy przeciw duchom bez specjalnych przedmiotów.
+
+Specjalne akcje:
+
+- Porozmawiaj językiem bandytów.
+- Udawaj sługę Popiołu.
+- Rozpoznaj zasadzkę.
+- Wymuś okup.
+- Zaproponuj podział łupu.
+
+
+============================================================
+5. SOLUCJA GŁÓWNA — BEZPIECZNA ŚCIEŻKA
+============================================================
+
+To ścieżka dla gracza, który chce dojść do dobrego albo najlepszego zakończenia.
+
+ETAP 1: GOSPODA W RAVENFORD
+
+Zalecane kroki:
+
+1. Przeszukaj pokój.
+2. Zabierz Małą Miksturę.
+3. Zejdź do sali głównej.
+4. Pomóż rannemu strażnikowi.
+5. Porozmawiaj z Kronikarzem Edrinem.
+6. Przyjmij główne zadanie o artefaktach.
+7. Nie ignoruj pierwszych ostrzeżeń o Koronie.
+
+Warto:
+Pomoc strażnikowi zwiększa dobrą reputację i może odblokować późniejszą misję „Chory strażnik Ravenford”.
+
+ETAP 2: WIOSKA RAVENFORD
+
+Zalecane kroki:
+
+1. Odwiedź sklep Loriana.
+2. Kup Miksturę Leczenia, jeśli masz złoto.
+3. Odwiedź kowala Borena.
+4. Weź misję „Skrzynia narzędzi Borena”.
+5. Idź do Kaplicy Świtu.
+6. Porozmawiaj z Siostrą Aleną.
+7. Sprawdź tablicę ogłoszeń.
+8. Dopiero potem idź do Mrocznego Lasu.
+
+ETAP 3: MROCZNY LAS
+
+Zalecane kroki:
+
+1. Zbadaj przewrócony wóz.
+2. Pomóż rannemu kupcowi.
+3. Nie okradaj wozu.
+4. Idź do starej kapliczki.
+5. Pomódl się albo złóż ofiarę.
+6. Nie niszcz posągu.
+7. Pokonaj Wilka Cienia.
+8. Zabierz Wilcze Futro.
+9. Poszukaj skrzyni narzędzi kowala.
+10. Jeśli znajdziesz chatę drwala, rozpocznij misję „Imię drwala”.
+
+ETAP 4: POWRÓT DO RAVENFORD
+
+Zalecane kroki:
+
+1. Oddaj skrzynię Borenowi.
+2. Odbierz Żelazny Pierścień albo zniżkę.
+3. Kup Stalowy Miecz lub inną broń.
+4. Kup Mapę Bagien.
+5. Porozmawiaj z Lorianem po uratowaniu.
+6. Wykonaj misję „Ostatnia przesyłka kupca Loriana”, jeśli jest dostępna.
+
+ETAP 5: BAGNA UMARŁYCH
+
+Zalecane kroki:
+
+1. Wejdź z Mapą Bagien.
+2. Odwiedź Zielarkę Mirnę.
+3. Oddaj Wilcze Futro.
+4. Zdobądź Eliksir Czystej Krwi.
+5. Nie okradaj zielarki.
+6. Wykonaj misję „Trzy monety dla przewoźnika” albo „Serce Bagiennego Korzenia”, jeśli chcesz lepsze przygotowanie.
+7. Unikaj niepotrzebnych walk z Topielcami.
+
+ETAP 6: KRYPTA MILCZĄCYCH
+
+Zalecane kroki:
+
+1. Wejdź z Pochodnią albo magią.
+2. W Korytarzu Bez Echa idź powoli.
+3. Nie krzycz.
+4. Nie biegnij.
+5. W Sali Pustych Hełmów okaż szacunek.
+6. Nie kradnij z grobowców.
+7. Przy Studni Szeptów użyj monety, Księgi Imion albo ostrożnej rozmowy.
+8. Zdobądź Srebrny Klucz.
+9. Jeśli zachowałeś szacunek, możesz zdobyć Stary Amulet.
+
+ETAP 7: FORT ZDRAJCÓW
+
+Zalecane kroki:
+
+1. Nie zaczynaj od ataku.
+2. Powiedz prawdę strażnikom.
+3. Pokaż Srebrny Klucz, jeśli masz wybór.
+4. Przestudiuj mapę, ale jej nie kradnij.
+5. Porozmawiaj z Caelem.
+6. Wykonaj misję „Złamana przysięga Caela”, jeśli chcesz pokojowo zdobyć Pieczęć.
+7. Przekonaj Caela, że nie chcesz władzy.
+8. Zdobądź Pieczęć Starego Króla.
+
+ETAP 8: WIEŻA ASTROMANTY
+
+Zalecane kroki:
+
+1. Przy drzwiach powiedz, że chcesz poznać prawdę albo zakończyć cierpienie.
+2. W Bibliotece Gwiazd czytaj księgi.
+3. Przeczytaj księgę o Koronie.
+4. Przeczytaj księgę o królu Arvandzie.
+5. Przeczytaj księgę o Elianie.
+6. Nie pal ksiąg.
+7. Nie wybieraj pragnienia władzy.
+8. W Sali Luster wybieraj prawdę, strach albo bohatera.
+9. Zdobądź Kryształ Świtu.
+
+ETAP 9: RAVENFORD PO ARTEFAKTACH
+
+Po zdobyciu pierwszych artefaktów mogą odblokować się ważne misje:
+
+- Nocny atak na Ravenford,
+- Chory strażnik Ravenford,
+- Zaginiona księga kronikarza,
+- Modlitwa za miasto bez grobów.
+
+Warto je wykonać przed finałem, bo mogą osłabić Koronę i pomóc w najlepszym zakończeniu.
+
+ETAP 10: RUINY VALDORINU
+
+Nie wchodź bez kompletu głównych artefaktów.
+
+Zalecane kroki:
+
+1. Użyj Srebrnego Klucza.
+2. Użyj Pieczęci Starego Króla.
+3. Trzymaj Kryształ Świtu.
+4. Na rynku okazuj szacunek cieniom.
+5. Nie kradnij bez potrzeby.
+6. Znajdź dom królewskiego medyka.
+7. Przeczytaj Dziennik Królewskiego Medyka.
+8. Znajdź pokój Eliany.
+9. Napraw Zabawkowego Konia Eliany, jeśli masz narzędzia.
+10. Zdobądź Łzę Księżniczki Eliany.
+11. Wykonaj „Imiona na rynku” i „Modlitwę za miasto bez grobów”, jeśli chcesz najlepsze zakończenie.
+
+ETAP 11: SALA KORONY
+
+Zalecane kroki:
+
+1. Nie zakładaj Korony.
+2. Nie atakuj bez rozmowy, jeśli chcesz najlepsze zakończenie.
+3. Użyj Łzy Eliany.
+4. Pokaż Stary List Króla lub Dziennik Medyka.
+5. Jeśli masz Rytualną Świecę Miasta bez Grobów, użyj jej.
+6. Wybierz przebaczenie albo uwolnienie Eliany.
+7. Jeśli musisz walczyć, użyj Kryształu Świtu, mikstur i dobrego wyposażenia.
+
+
+============================================================
+6. ZAKOŃCZENIA I WARUNKI ODBLOKOWANIA
+============================================================
+
+ZAKOŃCZENIE NAJLEPSZE: ŚWIT DLA UMARŁYCH
+
+Wymagania:
+
+- Srebrny Klucz,
+- Kryształ Świtu,
+- Pieczęć Starego Króla,
+- Łza Księżniczki Eliany,
+- wiedza o Elianie,
+- niska reputacja popiołu,
+- najlepiej dobra reputacja i szacunek duchów.
+
+Pomocne misje:
+
+- Dziecko za bladym światłem,
+- Chory strażnik Ravenford,
+- Zaginiona księga kronikarza,
+- Płacz w Studni Szeptów,
+- Teatr ostatniego dnia,
+- Imiona na rynku,
+- Zabawkowy koń Eliany,
+- Modlitwa za miasto bez grobów.
+
+W finale:
+
+- nie zakładaj Korony,
+- nie używaj Czarnego Odłamka,
+- użyj Łzy Eliany,
+- wybierz przebaczenie lub uwolnienie.
+
+
+ZAKOŃCZENIE DOBRE: ŚWIT NAD VALDORINEM
+
+Wymagania:
+
+- trzy główne artefakty,
+- pokonanie Popielnego Króla,
+- zniszczenie Korony,
+- brak wyboru „Załóż Koronę”.
+
+Nie wymaga Łzy Eliany, ale jest mniej pełne fabularnie.
+
+
+ZAKOŃCZENIE NEUTRALNE: NOWY STRAŻNIK
+
+Wymagania:
+
+- trzy główne artefakty,
+- brak pełnej prawdy albo brak Łzy Eliany,
+- wybór zapieczętowania Korony zamiast jej zniszczenia.
+
+Efekt:
+Klątwa słabnie, ale nie znika. Gracz zostaje strażnikiem albo powierza Koronę nowym opiekunom.
+
+
+ZAKOŃCZENIE ZŁE: WŁADCA POPIOŁU
+
+Wymagania:
+
+- w finale wybierz „Załóż Koronę”,
+albo:
+- wysoka reputacja popiołu,
+- używanie Czarnego Odłamka,
+- wybory oparte na władzy, chciwości i dominacji.
+
+Efekt:
+Gracz zostaje nowym Popielnym Królem.
+
+
+ZAKOŃCZENIE TRAGICZNE: ZGUBIONY W POPIELE
+
+Wymagania:
+
+- wejście do Ruin Valdorinu bez kompletu artefaktów,
+- szczególnie bez Kryształu Świtu.
+
+Efekt:
+Gracz traci pamięć, imię i duszę.
+
+
+ZAKOŃCZENIE MROCZNE: ZNISZCZENIE BEZ ŚWITU
+
+Wymagania:
+
+- trzy główne artefakty,
+- Wola Zniszczenia,
+- brak Łzy Eliany,
+- brutalne zniszczenie Korony.
+
+Efekt:
+Klątwa znika, ale dusze mieszkańców Valdorinu zostają zniszczone razem z nią.
+
+
+DODATKOWE ZAKOŃCZENIE BANITY: KRÓL BEZ TRONU
+
+Wymagania:
+
+- Banita,
+- Kaptur Bezdomnego Króla,
+- wysoka chciwość albo popiół,
+- zebranie wyrzutków i użycie ich do przejęcia władzy,
+- odrzucenie przebaczenia w finale.
+
+Efekt:
+Gracz nie zostaje klasycznym Popielnym Królem, ale tworzy własne królestwo wyrzutków, oparte na zemście i strachu.
+
+
+============================================================
+7. MISJE POBOCZNE — LISTA I OPIS PRZEJŚCIA
+============================================================
+
+W tej wersji poradnika opisano 25 misji pobocznych związanych z głównym lore.
+
+------------------------------------------------------------
+MISJA 1: DZWON, KTÓRY BIJE POD ZIEMIĄ
+------------------------------------------------------------
+
+Miejsce: Ravenford, plac przy studni
+NPC: Karczmarz Oren
+XP: 40–80 XP
+
+Lore:
+Dzwon Ravenford zawiera fragment dawnego dzwonu pałacowego Valdorinu. Gdy Korona się budzi, dzwon odpowiada ruinom.
+
+Dialog startowy:
+
+Oren:
+„Słyszysz to? Dzwon na wieży przestał bić, ale ja słyszę drugi. Spod ziemi. Trzy uderzenia każdej nocy.”
+
+Cele:
+
+1. Porozmawiaj z Orenem.
+2. Zbadaj dzwonnicę.
+3. Zejdź do piwnicy pod gospodą.
+4. Znajdź Fragment Pałacowego Dzwonu.
+5. Zdecyduj, co z nim zrobić.
+
+Wybory i nagrody:
+
+Oczyść fragment u Aleny:
+- 80 XP
+- status: Oczyszczony Dzwon Ravenford
+- słabsza pierwsza fala cieni podczas ataku na wioskę
+
+Oddaj fragment Edrinowi:
+- 70 XP
+- więcej informacji o Valdorinie
+
+Sprzedaj fragment:
+- 40 XP
+- 15 złota
+- ryzyko przeklętego towaru u kupca
+
+Zniszcz fragment:
+- 60 XP
+- Wola Zniszczenia +1
+
+
+------------------------------------------------------------
+MISJA 2: IMIĘ DRWALA
+------------------------------------------------------------
+
+Miejsce: Mroczny Las, chata drwala
+NPC: Duch drwala
+XP: 30–100 XP
+
+Lore:
+Klątwa odbiera ludziom imiona. Duch drwala jest pierwszym przykładem tego, co może stać się z żywymi.
+
+Dialog:
+
+Duch:
+„Nie jedz, jeśli nie znasz mojego imienia.”
+
+Cele:
+
+1. Zbadaj chatę.
+2. Znajdź stary topór z inicjałami T.R.
+3. Sprawdź księgę zmarłych w kaplicy.
+4. Poznaj imię: Tomasz Rana.
+5. Wróć do ducha.
+
+Wybory:
+
+Powiedz prawdziwe imię:
+- 100 XP
+- Mapa ukrytych ścieżek
+- duch pokazuje skrót do bagien
+- dobra reputacja
+
+Skłam:
+- 60 XP
+- walka z Leśnym Upiorem
+- możliwy łup: Siekiera Drwala
+
+Zabierz topór i odejdź:
+- 30 XP
+- Siekiera Drwala
+- duch wraca później jako przeciwnik
+
+
+------------------------------------------------------------
+MISJA 3: DZIECKO ZA BLADYM ŚWIATŁEM
+------------------------------------------------------------
+
+Miejsce: Ravenford, potem Bagna Umarłych
+NPC: Mara, matka chłopca
+XP: 50–170 XP
+
+Lore:
+Błędne ogniki to resztki dziecięcych wspomnień z Valdorinu. Korona używa ich jako przynęty.
+
+Dialog:
+
+Mara:
+„Mówił, że widzi światło. Blade, piękne. Powiedział, że ktoś woła go po imieniu.”
+
+Cele:
+
+1. Przyjmij prośbę Mary.
+2. Idź na Bagna.
+3. Znajdź trzy ogniki.
+4. Wybierz blade światło.
+5. Uratuj chłopca.
+
+Wybory:
+
+Ratuj chłopca:
+- 140 XP
+- Amulet Dziecka
+- 8 złota
+- cienie dzieci nie atakują w ruinach
+
+Zabierz skarb zamiast dziecka:
+- 50 XP
+- 30 złota
+- reputacja popiołu +2
+- Cień Gracza silniejszy
+
+Spróbuj uratować dziecko i skarb:
+- 170 XP
+- Amulet Dziecka
+- 20 złota
+- walka z Błędnikiem
+
+
+------------------------------------------------------------
+MISJA 4: OSTATNIA PRZESYŁKA KUPCA LORIANA
+------------------------------------------------------------
+
+Miejsce: Sklep Loriana
+Warunek: pomogłeś rannemu kupcowi
+XP: 40–120 XP
+
+Lore:
+Paczka zawiera monety Valdorinu i list rodziny, która uciekła z miasta.
+
+Dialog:
+
+Lorian:
+„Uratowałeś mi życie. Nie powinienem prosić o więcej, ale ta przesyłka nie może trafić w złe ręce.”
+
+Cele:
+
+1. Odbierz paczkę.
+2. Dostarcz ją Alenie albo Edrinowi.
+3. Zdecyduj, czy ją otworzyć.
+
+Wybory:
+
+Dostarcz bez otwierania:
+- 90 XP
+- 10 złota
+- Zaufanie Loriana
+
+Oddaj Alenie:
+- 120 XP
+- Modlitwa za podziemia Valdorinu
+- dobra reputacja
+
+Sprzedaj monety:
+- 40 XP
+- 35 złota
+- chciwość +1
+
+
+------------------------------------------------------------
+MISJA 5: SKRZYNIA NARZĘDZI BORENA
+------------------------------------------------------------
+
+Miejsce: Kuźnia
+NPC: Boren
+XP: 40–150 XP
+
+Lore:
+Narzędzia Borena są zrobione z metalu spod Valdorinu i mogą później pomóc przy Pieczęci albo zabawce Eliany.
+
+Dialog:
+
+Boren:
+„Nie proszę cię o bohaterstwo. Proszę o skrzynię. Bez niej nie naprawię nawet zawiasu.”
+
+Cele:
+
+1. Weź zadanie.
+2. Idź do Mrocznego Lasu.
+3. Znajdź skrzynię.
+4. Opcjonalnie znajdź ucznia kowala.
+5. Wróć do Borena.
+
+Nagrody:
+
+Tylko skrzynia:
+- 80 XP
+- Żelazny Pierścień
+- zniżka u kowala
+
+Skrzynia i uratowany uczeń:
+- 150 XP
+- Stalowy Miecz albo ulepszenie broni
+- dobra reputacja
+
+Zatrzymanie skrzyni:
+- 40 XP
+- Narzędzia Valdorińskie
+- Boren odmawia usług
+
+
+------------------------------------------------------------
+MISJA 6: ŚWIECE DLA KAPLICY ŚWITU
+------------------------------------------------------------
+
+Miejsce: Kaplica Świtu
+NPC: Siostra Alena
+XP: 30–100 XP
+
+Lore:
+Świece Świtu osłabiają mgłę i pomagają ludziom zachować imiona.
+
+Dialog:
+
+Alena:
+„Czasem płomień wystarczy, żeby człowiek przypomniał sobie własne imię.”
+
+Cele:
+
+1. Zdobądź wosk.
+2. Zdobądź srebrny pył.
+3. Przynieś składniki Alenie.
+4. Zdecyduj, czy oddać świece kaplicy, czy zabrać część.
+
+Nagrody:
+
+Oddaj wszystko:
+- 100 XP
+- status: Światło w Kaplicy
+- słabszy atak mgły na Ravenford
+
+Zabierz część:
+- 80 XP
+- 2x Świeca Świtu
+
+Sprzedaj składniki:
+- 30 XP
+- 20 złota
+- chciwość +1
+
+
+------------------------------------------------------------
+MISJA 7: CHORY STRAŻNIK RAVENFORD
+------------------------------------------------------------
+
+Miejsce: Gospoda albo kaplica
+NPC: Strażnik Edric
+XP: 30–130 XP
+
+Lore:
+Edric został dotknięty mgłą i traci wspomnienia. Pokazuje, co robi klątwa.
+
+Dialog:
+
+Edric:
+„Miałem żonę. Pamiętam, że ją kochałem. Nie pamiętam jej twarzy.”
+
+Cele:
+
+1. Porozmawiaj z Edriciem.
+2. Zdobądź Eliksir Czystej Krwi.
+3. Zdobądź błogosławieństwo albo Świecę Świtu.
+4. Zdecyduj, czy leczyć Edrica.
+
+Nagrody:
+
+Wylecz:
+- 130 XP
+- Gwizdek Straży
+- Edric pomaga podczas ataku
+- dobra reputacja
+
+Zachowaj eliksir:
+- 30 XP
+- Edric może pojawić się później jako cień
+
+Magiczne spowolnienie choroby:
+- 80 XP
+- informacja o dawnym trakcie do fortu
+
+
+------------------------------------------------------------
+MISJA 8: ZAGINIONA KSIĘGA KRONIKARZA
+------------------------------------------------------------
+
+Miejsce: Ravenford
+NPC: Edrin
+XP: 70–130 XP
+
+Lore:
+Księga zawiera nieocenzurowaną historię Popielnego Króla.
+
+Dialog:
+
+Edrin:
+„Nie zgubiłem jej. Ukryłem tak dobrze, że sam zacząłem bać się ją odnaleźć.”
+
+Cele:
+
+1. Porozmawiaj z Edrinem.
+2. Zbadaj magazyn za gospodą.
+3. Podążaj za śladem popiołu.
+4. Odzyskaj księgę.
+5. Zdecyduj, komu ją oddać.
+
+Nagrody:
+
+Oddaj Edrinowi:
+- 90 XP
+- 10 złota
+- Zaufanie Kronikarza
+
+Oddaj Alenie:
+- 120 XP
+- modlitwa za Elianę
+- dobra reputacja
+
+Oddaj Caelowi:
+- 130 XP
+- łatwiejsze pokojowe zdobycie Pieczęci
+- Prawda o Zdrajcach
+
+Zachowaj:
+- 70 XP
+- Księga Zakazanej Kroniki
+- ryzyko popiołu przy czytaniu
+
+
+------------------------------------------------------------
+MISJA 9: TRZY MONETY DLA PRZEWOŹNIKA
+------------------------------------------------------------
+
+Miejsce: Bagna Umarłych, Martwy Prom
+NPC: Przewoźnik
+XP: 30–120 XP
+
+Lore:
+Przewoźnik przewoził uciekinierów z Valdorinu i nie zdołał ich ocalić.
+
+Dialog:
+
+Przewoźnik:
+„Trzy monety. Za ciało, które wieziesz. Za imię, które możesz stracić. Za żal, który jeszcze nie wie, że będzie twój.”
+
+Cele:
+
+1. Spotkaj Przewoźnika.
+2. Zdobądź trzy stare monety Valdorinu.
+3. Zapłać, oszukaj albo odmów.
+
+Nagrody:
+
+Zapłać prawdziwymi monetami:
+- 120 XP
+- bezpieczny skrót przez bagna
+- wiedza o uciekinierach
+
+Oszukaj:
+- 50 XP
+- zachowujesz monety
+- chciwość +1
+
+Odmów:
+- 30 XP
+- możliwa walka z Topielcami
+
+
+------------------------------------------------------------
+MISJA 10: SERCE BAGIENNEGO KORZENIA
+------------------------------------------------------------
+
+Miejsce: Chata Mirny
+NPC: Mirna
+XP: 60–150 XP
+
+Lore:
+Korzeń wyrósł na miejscu pochówku uciekinierów z Valdorinu.
+
+Dialog:
+
+Mirna:
+„Potrzebuję korzenia, który rośnie tam, gdzie ziemia nie chce pamiętać kości.”
+
+Cele:
+
+1. Idź na Wyspę Kości.
+2. Znajdź Bagienny Korzeń.
+3. Poproś duchy o zgodę albo wyrwij korzeń siłą.
+4. Wróć do Mirny.
+
+Nagrody:
+
+Poproś duchy:
+- 150 XP
+- Eliksir Pamięci
+- szacunek duchów
+
+Wyrwij siłą:
+- 90 XP
+- Bagienny Korzeń
+- walka z Upiorem Uciekiniera
+- popiół +1
+
+Zostaw korzeń:
+- 60 XP
+- duchy bagien rzadziej atakują
+
+
+------------------------------------------------------------
+MISJA 11: RYCERZ BEZ HERBU
+------------------------------------------------------------
+
+Miejsce: Mroczny Las albo droga do Fortu
+NPC: Bezherbowy Rycerz
+XP: 40–150 XP
+
+Lore:
+Rycerz wyrzekł się herbu, gdy zrozumiał, że król uległ Koronie.
+
+Dialog:
+
+Rycerz:
+„Naucz się rozpoznawać chwilę, w której herb przestaje oznaczać honor.”
+
+Cele:
+
+1. Spotkaj ducha rycerza.
+2. Znajdź jego herb.
+3. Zdecyduj, czy zwrócić, zniszczyć, sprzedać albo oddać Caelowi.
+
+Nagrody:
+
+Zwróć herb:
+- 130 XP
+- Pas Rycerskiej Przysięgi
+
+Oddaj Caelowi:
+- 150 XP
+- łatwiejsza rozmowa w Forcie
+- Dowód prawdziwego buntu
+
+Zniszcz:
+- 100 XP
+- status: Odrzucił fałszywy honor
+
+Sprzedaj:
+- 40 XP
+- 25 złota
+- chciwość +1
+
+
+------------------------------------------------------------
+MISJA 12: HEŁM, KTÓREGO NIE WOLNO ZAŁOŻYĆ
+------------------------------------------------------------
+
+Miejsce: Krypta Milczących
+NPC: szept strażnika
+XP: 50–120 XP
+
+Lore:
+Hełm należał do kapitana, który pierwszy zobaczył przemianę króla.
+
+Dialog:
+
+Szept:
+„Nie zakładaj pamięci, której nie uniesiesz.”
+
+Nagrody:
+
+Załóż hełm:
+- 120 XP
+- wiedza o pierwszej przemianie króla
+- strata 4 zdrowia
+
+Zostaw hełm:
+- 90 XP
+- Stary Amulet
+- dobra reputacja
+
+Zabierz hełm:
+- 50 XP
+- Hełm Kapitana
+- dodatkowa walka
+
+Zniszcz:
+- 60 XP
+- Wola Zniszczenia +1
+
+
+------------------------------------------------------------
+MISJA 13: PŁACZ W STUDNI SZEPTÓW
+------------------------------------------------------------
+
+Miejsce: Krypta Milczących
+NPC: Głosy zmarłych
+XP: 100–160 XP
+
+Lore:
+Studnia przechowuje imiona, których Korona nie zdołała całkowicie wymazać.
+
+Dialog:
+
+Głosy:
+„Oddaj imię. Weź prawdę.”
+
+Nagrody:
+
+Wypowiedz własne imię:
+- 130 XP
+- poznajesz imię służącej Eliany: Nera
+- strata 3 zdrowia
+
+Użyj Księgi Imion Umarłych:
+- 160 XP
+- wiedza bez straty zdrowia
+- szacunek duchów
+
+Poświęć cudze imię:
+- 100 XP
+- popiół +2
+- późniejszy cień tej osoby w ruinach
+
+
+------------------------------------------------------------
+MISJA 14: ZŁAMANA PRZYSIĘGA CAELA
+------------------------------------------------------------
+
+Miejsce: Fort Zdrajców
+NPC: Cael
+XP: 80–180 XP
+
+Lore:
+Cael przysiągł nigdy nie oddać Pieczęci. Gracz może pomóc mu zrozumieć, że sama przysięga stała się częścią klątwy.
+
+Dialog:
+
+Cael:
+„Mój ojciec umarł z tą przysięgą na ustach. A ty chcesz, bym złamał ją w jeden dzień?”
+
+Cele:
+
+1. Znajdź trzy dowody przebudzenia Korony.
+2. Przynieś je Caelowi.
+3. Przekonaj go albo zastrasz.
+
+Nagrody:
+
+Pokojowe przekonanie:
+- 180 XP
+- Pieczęć Starego Króla
+- Cael jako sojusznik
+- dobra reputacja
+
+Zastraszenie:
+- 100 XP
+- Pieczęć
+- brak wsparcia Caela
+
+Kłamstwo:
+- 80 XP
+- ryzyko wrogości Fortu
+
+
+------------------------------------------------------------
+MISJA 15: CZERWONE ZNAKI NA MAPIE
+------------------------------------------------------------
+
+Miejsce: Fort Zdrajców
+NPC: Ivara
+XP: 60–120 XP
+
+Lore:
+Czerwone znaki pokazują miejsca, gdzie ginęli poprzedni śmiałkowie.
+
+Dialog:
+
+Ivara:
+„Nie patrz na główną drogę. Wszyscy patrzą na główną drogę. I wszyscy tam giną.”
+
+Nagrody:
+
+Zaufaj Ivarze:
+- 120 XP
+- Mapa Martwych Ulic
+- mniej pułapek w Valdorinie
+
+Ukradnij mapę:
+- 60 XP
+- Mapa Martwych Ulic
+- Fort mniej ufa graczowi
+
+Zignoruj:
+- brak nagrody
+- trudniejsze ruiny
+
+
+------------------------------------------------------------
+MISJA 16: DEZERTER ZE STRAŻY PIECZĘCI
+------------------------------------------------------------
+
+Miejsce: droga między Fortem a Ravenford
+NPC: Rauk
+XP: 50–140 XP
+
+Lore:
+Rauk uciekł, bo usłyszał głos Korony.
+
+Dialog:
+
+Rauk:
+„Nie będę pilnował drzwi, za którymi coś zna moje sny.”
+
+Nagrody:
+
+Ukryj Rauka:
+- 140 XP
+- Rauk ostrzega przed pułapką w pałacu
+
+Odprowadź do Fortu:
+- 100 XP
+- lepsze relacje z Caelem
+
+Zabij:
+- 50 XP
+- 10 złota
+- popiół +1
+
+Pozwól odejść:
+- 70 XP
+- może wrócić jako sługa Korony
+
+
+------------------------------------------------------------
+MISJA 17: KSIĘGA GWIAZD BEZ TYTUŁU
+------------------------------------------------------------
+
+Miejsce: Wieża Astromanty
+NPC: Głos Astromanty
+XP: 80–150 XP
+
+Lore:
+Księga opisuje możliwą przyszłość gracza.
+
+Dialog:
+
+Głos:
+„Nie każda księga opisuje przeszłość. Niektóre próbują ostrzec przyszłość.”
+
+Nagrody:
+
+Czytaj do końca:
+- 150 XP
+- poznajesz możliwe zakończenie
+- możliwa strata zdrowia
+
+Zamknij księgę:
+- 100 XP
+- Odmówił przeznaczeniu
+- Cień Gracza słabszy
+
+Spal:
+- 80 XP
+- Wola Zniszczenia +1
+
+Zabierz:
+- 120 XP
+- Księga Nienapisanej Drogi
+- ryzyko szeptów Korony
+
+
+------------------------------------------------------------
+MISJA 18: LUSTRO, KTÓRE NIE POKAZUJE TWARZY
+------------------------------------------------------------
+
+Miejsce: Wieża Astromanty
+NPC: Odbicie bez twarzy
+XP: 120–150 XP
+
+Lore:
+Lustro pokazuje, czym gracz może się stać pod wpływem Korony.
+
+Dialog:
+
+Odbicie:
+„Nie mam twarzy, bo jeszcze jej nie wybrałeś.”
+
+Nagrody:
+
+Zapytaj o strach:
+- 130 XP
+- Zna własny lęk
+- Cień Gracza słabszy
+
+Zapytaj o pragnienie:
+- 120 XP
+- +1 ataku w następnej walce
+- popiół +1
+
+Rozbij lustro:
+- 150 XP
+- Odłamek Szczerego Lustra
+- walka
+
+
+------------------------------------------------------------
+MISJA 19: POPIÓŁ W KOŁYSCE
+------------------------------------------------------------
+
+Miejsce: Ruiny Valdorinu
+NPC: Cień matki
+XP: 40–150 XP
+
+Lore:
+Pokazuje tragedię zwykłych mieszkańców Valdorinu.
+
+Dialog:
+
+Cień matki:
+„Proszę, nie budź jej. Całą noc płakała.”
+
+Nagrody:
+
+Oddaj grzechotkę matce:
+- 120 XP
+- cienie dzieci spokojniejsze
+
+Zanieś grzechotkę do kaplicy:
+- 150 XP
+- Modlitwa za dzieci Valdorinu
+
+Zabierz na sprzedaż:
+- 40 XP
+- 20 złota
+- popiół +1
+
+
+------------------------------------------------------------
+MISJA 20: TEATR OSTATNIEGO DNIA
+------------------------------------------------------------
+
+Miejsce: Spalony teatr w ruinach
+NPC: Aktor Bez Twarzy
+XP: 80–180 XP
+
+Lore:
+Teatr odgrywa ostatni dzień Valdorinu.
+
+Dialog:
+
+Aktor:
+„Witaj na ostatnim przedstawieniu. Publiczność przyszła sto lat temu i wciąż czeka na zakończenie.”
+
+Kluczowe pytanie:
+„Czy jedno życie jest warte całego królestwa?”
+
+Nagrody:
+
+Odpowiedź: „Nie, jeśli to życie nie wyraziło zgody”:
+- 180 XP
+- wiedza: Eliana bała się Korony
+- łatwiejsze zdobycie Łzy Eliany
+
+„Nie wiem”:
+- 120 XP
+- dodatkowa wizja
+
+Przerwij przedstawienie:
+- 140 XP
+- Maska Teatru
+- walka
+
+Zła odpowiedź:
+- 80 XP
+- popiół +1
+
+
+------------------------------------------------------------
+MISJA 21: IMIONA NA RYNKU
+------------------------------------------------------------
+
+Miejsce: Rynek bez głosów w Valdorinie
+NPC: Cienie mieszkańców
+XP: 50–220 XP
+
+Lore:
+Korona odebrała mieszkańcom imiona.
+
+Cele:
+
+1. Zdobądź Księgę Imion Umarłych.
+2. Porozmawiaj z trzema cieniami.
+3. Znajdź ich imiona.
+4. Zapisz imiona w księdze.
+
+Nagrody:
+
+Prawdziwe imiona:
+- 220 XP
+- Głosy Rynku
+- cienie pomagają w finale
+
+Fałszywe imiona:
+- 80 XP
+- walka z Cieniami Rynku
+
+Kradzież ze straganów:
+- 50 XP
+- 30 złota
+- popiół +2
+
+
+------------------------------------------------------------
+MISJA 22: ZABAWKOWY KOŃ ELIANY
+------------------------------------------------------------
+
+Miejsce: Pokój Eliany
+NPC: Cień Eliany
+XP: 40–200 XP
+
+Lore:
+Zabawka pokazuje, że Eliana była dzieckiem, a nie symbolem.
+
+Dialog:
+
+Cichy głos:
+„Tata mówił, że jak wyzdrowieję, pojadę na prawdziwym koniu.”
+
+Nagrody:
+
+Napraw konia:
+- 200 XP
+- łatwiejsze zdobycie Łzy Eliany
+- Naprawił wspomnienie Eliany
+
+Zostaw świecę:
+- 140 XP
+- Eliana pojawia się spokojniej
+
+Zabierz konia:
+- 40 XP
+- blokada albo utrudnienie najlepszego zakończenia
+
+Zniszcz:
+- 60 XP
+- Wola Zniszczenia +1
+- brak najlepszego zakończenia
+
+
+------------------------------------------------------------
+MISJA 23: CZARNY ODŁAMEK W DŁONI DZIECKA
+------------------------------------------------------------
+
+Miejsce: Ruiny Valdorinu
+NPC: Cień dziecka
+XP: 40–220 XP
+
+Lore:
+Odłamek jest fragmentem Korony, który chce wrócić do całości.
+
+Dialog:
+
+Dziecko:
+„To nie moje. Ale nie mogę puścić.”
+
+Nagrody:
+
+Zabierz:
+- 120 XP
+- Czarny Odłamek Korony
+- popiół +2
+
+Oczyść Kryształem Świtu:
+- 220 XP
+- Jasny Odłamek Woli
+- ochrona przed pokusą Korony
+
+Zniszcz:
+- 160 XP
+- Wola Zniszczenia +1
+- Popielny Król ma mniej opcji kuszenia
+
+Zostaw:
+- 40 XP
+
+
+------------------------------------------------------------
+MISJA 24: OSTATNI ROZKAZ POPIELNEGO RYCERZA
+------------------------------------------------------------
+
+Miejsce: Most Popielnych Cieni albo atak na Ravenford
+NPC: Popielny Rycerz
+XP: 130–200 XP
+
+Lore:
+Rycerz nadal wykonuje ostatni rozkaz króla: nikt nie opuszcza Valdorinu.
+
+Dialog:
+
+Rycerz:
+„Rozkaz królewski: bramy zamknięte. Nikt nie opuszcza Valdorinu.”
+
+Nagrody:
+
+Pokaż Pieczęć albo rozkaz Eliany:
+- 200 XP
+- Popielna Ostroga
+- rycerz pomaga w finale
+
+Pokonaj:
+- 130 XP
+- Popielna Zbroja
+
+Podporządkuj Czarnym Odłamkiem:
+- 150 XP
+- tymczasowy sojusznik
+- popiół +3
+
+
+------------------------------------------------------------
+MISJA 25: MODLITWA ZA MIASTO BEZ GROBÓW
+------------------------------------------------------------
+
+Miejsce: Kaplica Świtu
+NPC: Alena, Edrin, Mirna, Cael
+XP: 180–250 XP
+
+Lore:
+Valdorin nie ma grobów, bo jego mieszkańcy nie odeszli. Rytuał pozwala ich przypomnieć i osłabić Koronę.
+
+Dialog:
+
+Alena:
+„Miasta nie grzebie się kamieniem. Miasto grzebie się imionami.”
+
+Cele:
+
+1. Porozmawiaj z Aleną.
+2. Zbierz imiona mieszkańców.
+3. Zdobądź Świecę Świtu.
+4. Zdobądź popiół albo ziemię z Valdorinu.
+5. Zaproś świadków.
+6. Odpraw modlitwę.
+
+Nagrody:
+
+Modlitwa za mieszkańców:
+- 180 XP
+- Pamięć Valdorinu
+- mniej wrogich cieni
+
+Modlitwa za Elianę:
+- 200 XP
+- łatwiejsze najlepsze zakończenie
+
+Modlitwa za króla:
+- 180 XP
+- dodatkowy dialog z Arvandem
+
+Modlitwa za wszystkich:
+- 250 XP
+- Rytuał Miasta bez Grobów
+- Popielny Król osłabiony
+- rozszerzony epilog najlepszego zakończenia
+
+
+============================================================
+8. NOWE WYPOSAŻENIE KLASOWE
+============================================================
+
+------------------------------------------------------------
+WOJOWNIK — BRONIE I SPRZĘT
+------------------------------------------------------------
+
+Stary miecz
+- Atak +3
+- Startowa broń
+- Dobry tylko na początek
+
+Stalowy miecz Borena
+- Atak +5
+- Kupowany u kowala lub nagroda za skrzynię
+- Najlepszy uniwersalny wybór na pierwsze przejście
+
+Miecz Strażnika Bramy
+- Atak +6
+- Obrona +1
+- +2 obrażenia przeciw nieumarłym
+- Zdobywany w Krypcie albo po Strażniku Krypty
+
+Topór Najemnika
+- Atak +7
+- +2 przeciw ludziom i bandytom
+- Dobra broń dla agresywnego Wojownika
+
+Młot Przysięgi
+- Atak +8
+- Obrona +1
+- Raz na walkę może ogłuszyć przeciwnika
+- Nagroda z wątku Caela
+
+Tarcza Ostatniej Bramy
+- Obrona +3
+- Wola +1
+- Raz na walkę blokuje cały atak
+- Relikt z Ruin Valdorinu
+
+Ostrze Królewskiej Straży
+- Atak +9
+- Wola +1
+- +3 przeciw Popielnym Rycerzom
+- Może uruchomić specjalny dialog z królem
+
+Popielna Zbroja
+- Obrona +4
+- Wola -2
+- Przeklęta
+- Ułatwia walkę, utrudnia dobre zakończenia
+
+Rękawice Bramnika
+- Atak +1
+- Obrona +1
+- Pozwalają wyważać drzwi bez obrażeń
+
+Pas Rycerskiej Przysięgi
+- Wola +2
+- Chroni przed jedną pokusą Korony
+- Pomaga w rozmowie z Caelem
+
+
+------------------------------------------------------------
+ŁOTRZYK — BRONIE I NARZĘDZIA
+------------------------------------------------------------
+
+Sztylet
+- Atak +2
+- Unik +1
+- Startowa broń Łotrzyka
+
+Para Cienkich Ostrzy
+- Atak +4
+- Unik +2
+- Bonus do ataku z zaskoczenia
+
+Sztylet Milczącego Dzwonu
+- Atak +5
+- Spryt +2
+- Pierwszy atak nie budzi dodatkowych przeciwników
+- Można go wykuć z fragmentu dzwonu
+
+Wytrychy
+- Otwierają zamki i skrzynie
+- Startowy sprzęt Łotrzyka
+
+Zestaw Precyzyjnych Wytrychów
+- Spryt +2
+- Otwiera trudniejsze zamki
+- Nagroda od Loriana
+
+Linka z hakiem
+- Pozwala przechodzić mury, studnie i zawalone mosty
+
+Płaszcz Bez Cienia
+- Unik +3
+- Spryt +2
+- Wola -1
+- Świetny do skradania, ale ryzykowny w Wieży
+
+Igły z Jadem Topielca
+- Jednorazowy atak trucizną
+- Nie działa na duchy i szkielety
+
+Sakiewka Fałszywych Monet
+- Pozwala oszukiwać przy płatnościach
+- Ryzyko utraty reputacji
+
+Nóż do Przecinania Pieczęci
+- Atak +4
+- Spryt +3
+- Otwiera magiczne zabezpieczenia
+- Może uszkodzić ochronę fabularną
+
+Rękawiczki Kieszonkowca
+- Spryt +2
+- Zwiększają szansę kradzieży
+
+Gwizdek Straży
+- Jednorazowo przyzywa pomoc albo odciąga przeciwnika
+- Nagroda za uratowanie Edrica
+
+
+------------------------------------------------------------
+UCZEŃ MAGA — RELIKTY I NARZĘDZIA
+------------------------------------------------------------
+
+Iskra many
+- Atak magiczny +2
+- Wiedza +1
+- Pozwala używać światła i odczytywać proste runy
+
+Kostur ucznia
+- Atak +2
+- Wiedza +1
+
+Kostur Iskier
+- Atak +4
+- Wiedza +2
+- +3 przeciw nieumarłym i cieniom
+
+Laska Astromanty
+- Atak +6
+- Wiedza +3
+- Wola +1
+- Raz na walkę redukuje klątwę lub obrażenia magiczne
+
+Notatnik Runiczny
+- Wiedza +1
+- Pozwala zapisywać runy i odblokowywać późniejsze wskazówki
+
+Księga Nienapisanej Drogi
+- Wiedza +4
+- Wola -1
+- Pokazuje możliwe konsekwencje wyborów
+- Ryzyko szeptów Korony
+
+Soczewka Astromanty
+- Wiedza +2
+- Wykrywa ukryte runy i iluzje
+
+Pierścień Cichej Many
+- Wola +2
+- Wiedza +1
+- Magia nie budzi części duchów
+
+Kreda Runiczna
+- Rysuje znak ochronny
+- Przydatna w Krypcie i ruinach
+
+Fiolka Gwiezdnego Pyłu
+- Rozprasza iluzję
+- Dobra na Lustro, Teatr i fałszywe bramy
+
+Amulet Ostatniego Snu
+- Wola +3
+- Chroni przed wizją Korony
+- Pomaga w scenach z Elianą
+
+Zapisane Imię
+- Pozwala przywołać konkretnego ducha
+
+
+------------------------------------------------------------
+BANITA — SPRZĘT PÓŁŚWIATKA
+------------------------------------------------------------
+
+Toporek Banity
+- Atak +4
+- Startowa broń
+
+Pałka Poborcy
+- Atak +4
+- Spryt +1
+- Pozwala ogłuszyć zamiast zabić
+
+Hak Łupieżcy
+- Atak +5
+- Spryt +1
+- Pozwala ściągać przeciwników i wyciągać przedmioty
+
+Płaszcz Banity
+- Spryt +1
+- Unik +1
+- Bandyci częściej rozmawiają zamiast walczyć
+
+Stary Znak Bandy
+- Odblokowuje dialogi z bandytami i dezerterami
+
+Kości Oszusta
+- Spryt +2
+- Pozwalają wygrać informacje lub złoto w hazardzie
+
+Nóż Dłużnika
+- Atak +5
+- Spryt +2
+- Bonus przeciw zastraszonym przeciwnikom
+
+Łańcuch z Czarnego Targu
+- Atak +5
+- Obrona +1
+- Może unieruchomić przeciwnika
+
+Maska Fałszywego Kultysty
+- Spryt +3
+- Wola -1
+- Pozwala udawać sługę Popiołu
+- Zwiększa ryzyko złego finału
+
+Kaptur Bezdomnego Króla
+- Spryt +3
+- Wola -2
+- Daje wpływ na wyrzutków
+- Może odblokować zakończenie „Król Bez Tronu”
+
+Fiolka Ślepego Dymu
+- Pozwala uciec z walki albo zaatakować z zaskoczenia
+
+Gwóźdź z Szubienicy
+- Atak +2
+- Wola -1
+- Odstrasza niektóre duchy, ale źle działa na reputację
+
+
+============================================================
+9. PRZEDMIOTY UNIWERSALNE
+============================================================
+
+Mikstura Leczenia
+- +10 zdrowia
+
+Duża Mikstura Leczenia
+- +20 zdrowia
+
+Mała Mikstura
+- +6 zdrowia
+
+Chleb
+- +3 zdrowia poza walką
+
+Suszone Mięso
+- +5 zdrowia poza walką
+
+Pochodnia
+- pozwala wejść do ciemnych lokacji
+- osłabia słabe duchy
+
+Latarnia Świtu
+- nie gaśnie od mgły
+- osłabia cienie
+- nagroda z misji Aleny
+
+Mapa Bagien
+- bezpieczne poruszanie po Bagnach Umarłych
+
+Mapa Martwych Ulic
+- mniej pułapek w Valdorinie
+
+Eliksir Czystej Krwi
+- chroni przed trucizną i częścią klątwy
+
+Eliksir Pamięci
+- chroni przed utratą imienia w ruinach
+
+Świeca Świtu
+- jednorazowo odstrasza ducha albo osłabia cienie
+
+Bandaże
+- +4 zdrowia poza walką
+- można użyć na rannych NPC
+
+Zestaw Obozowy
+- pozwala odpocząć poza wioską raz na wyprawę
+
+Księga Imion Umarłych
+- pozwala rozmawiać z cieniami
+- kluczowa do misji z imionami
+
+Stary Amulet
+- chroni przed jedną pułapką albo przekleństwem
+
+Amulet Dziecka
+- cienie dzieci nie atakują
+- pomaga w scenach z Elianą
+
+Odłamek Szczerego Lustra
+- raz pokazuje, która opcja dialogowa jest kłamstwem albo pułapką
+
+Jasny Odłamek Woli
+- chroni przed jedną próbą przejęcia przez Koronę
+
+Czarny Odłamek Korony
+- +3 atak
+- Wola -2
+- odblokowuje rozkazy wobec cieni
+- zwiększa reputację popiołu
+
+Pieczęć Zaufania Ravenford
+- mieszkańcy pomagają graczowi
+- lepsze ceny, nocleg, wsparcie w finale
+
+
+============================================================
+10. PANCERZE, AMULETY I RELIKTY
+============================================================
+
+PANCERZE
+
+Wytarta Kolczuga
+- Obrona +2
+- Unik -1
+- start Wojownika
+
+Skórzana Kurtka Najemnika
+- Obrona +1
+- Unik +1
+- dobra dla Łotrzyka i Banity
+
+Płaszcz Podróżnika
+- Wola +1
+- podstawowa ochrona przed pogodą i zmęczeniem
+
+Szata Ucznia
+- Wiedza +1
+- Wola +1
+
+Szata Astromanty
+- Wiedza +3
+- Wola +2
+- Obrona +1
+- dobra dla Maga
+
+Pancerz Strażnika Pieczęci
+- Obrona +3
+- Wola +1
+- zdobywany w Forcie
+
+Płaszcz Żałobnika
+- Wola +2
+- duchy ufają bardziej
+
+Królewski Płaszcz z Popiołu
+- Atak +2
+- Wola -3
+- popiół +3
+- bardzo ryzykowny
+
+AMULETY I PIERŚCIENIE
+
+Żelazny Pierścień
+- zmniejsza obrażenia od pułapek albo obrażenia fizyczne o 1
+
+Pierścień Cichej Many
+- magia nie budzi części duchów
+
+Pierścień Uczciwego Długu
+- lepsze ceny, jeśli gracz pomagał ludziom
+- pęka, jeśli gracz okrada NPC
+
+Medalion Zdrajcy
+- Strażnicy Pieczęci traktują gracza przychylniej
+
+Wisior Popielnego Szeptu
+- raz pozwala poznać myśl przeciwnika
+- popiół +1
+
+Oko Astromanty
+- wykrywa iluzje
+
+Znak Świtu
+- Wola +2
+- cienie słabiej kuszą gracza
+
+Pęknięty Medalion Arvanda
+- odblokowuje dodatkowy dialog z Popielnym Królem
+
+RELIKTY FABULARNE
+
+Srebrny Klucz
+- główny artefakt
+
+Kryształ Świtu
+- główny artefakt
+
+Pieczęć Starego Króla
+- główny artefakt
+
+Łza Księżniczki Eliany
+- najlepsze zakończenie
+
+Stary List Króla
+- prawda o Arvandzie
+
+Dziennik Królewskiego Medyka
+- prawda o chorobie Eliany
+
+Kwiatowa Korona Eliany
+- ułatwia kontakt z Elianą, ale nie powinna być kradziona
+
+Zabawkowy Koń Eliany
+- naprawienie ułatwia najlepsze zakończenie
+
+Fragment Pałacowego Dzwonu
+- można oczyścić, sprzedać, przekuć albo zniszczyć
+
+Herb Bezherbowego Rycerza
+- pomaga w Forcie albo kończy misję ducha
+
+Grzechotka z Popiołu
+- można oddać matce albo zanieść do kaplicy
+
+Maska Teatru
+- raz zmusza przeciwnika do odpowiedzi prawdą
+
+Popielna Ostroga
+- przyzywa ducha rycerza raz w finale
+
+Rytualna Świeca Miasta bez Grobów
+- osłabia Koronę w finale
+
+
+============================================================
+11. SKLEPY I NAGRODY OD NPC
+============================================================
+
+SKLEP LORIANA — STANDARD
+
+- Mikstura Leczenia — 5 złota
+- Mała Mikstura — 3 złota
+- Chleb — 1 złoto
+- Pochodnia — 3 złota
+- Mapa Bagien — 8 złota
+- Wytrychy — 10 złota
+- Bandaże — 4 złota
+- Zestaw Obozowy — 12 złota
+
+PO URATOWANIU KUPCA
+
+- ceny niższe o 30–50%
+- Precyzyjne Wytrychy
+- Pierścień Uczciwego Długu
+- Krople Przeciw Mgłom
+
+KUŹNIA BORENA
+
+- Stalowy Miecz — 15 złota
+- Topór Najemnika — 22 złota
+- Naprawa broni — 6 złota
+- Skórzana Kurtka Najemnika — 12 złota
+- Wytarta Kolczuga — 14 złota
+
+CHATA MIRNY
+
+- Mikstura Leczenia — 5 złota
+- Nalewka Mirny — 7 złota
+- Krople Przeciw Mgłom — 10 złota
+- Proszek Srebrnego Mchu — 8 złota
+- Eliksir Czystej Krwi — za składniki lub przysługę
+- Eliksir Pamięci — za ukończenie misji Bagiennego Korzenia
+
+CZARNY HANDLARZ
+
+- Sakiewka Fałszywych Monet — 12 złota
+- Fiolka Ślepego Dymu — 9 złota
+- Igły z Jadem Topielca — 14 złota
+- Gwóźdź z Szubienicy — 7 złota
+- Maska Fałszywego Kultysty — 25 złota
+
+NAGRODY OD NPC
+
+Boren:
+- Żelazny Pierścień
+- Stalowy Miecz
+- ulepszenie broni
+- przekucie Fragmentu Dzwonu
+
+Lorian:
+- zniżki
+- Precyzyjne Wytrychy
+- Pierścień Uczciwego Długu
+- Mapa Bagien
+
+Mirna:
+- Eliksir Czystej Krwi
+- Eliksir Pamięci
+- Nalewka Mirny
+- Krople Przeciw Mgłom
+
+Alena:
+- Świeca Świtu
+- Latarnia Świtu
+- Znak Świtu
+- Rytualna Świeca Miasta bez Grobów
+
+Cael:
+- Pieczęć Starego Króla
+- Medalion Zdrajcy
+- Pancerz Strażnika Pieczęci
+- Mapa Martwych Ulic
+
+Edrin:
+- Fragment Kroniki
+- Notatnik runiczny
+- stare monety Valdorinu
+- informacje o Elianie
+
+
+============================================================
+12. PRZECIWNICY I TAKTYKI
+============================================================
+
+Wilk Cienia
+- Zdrowie: 12
+- Atak: 3
+- XP: 25
+- Łup: Wilcze Futro
+Taktyka: prosty przeciwnik. Pokonaj go, żeby zdobyć futro dla zielarki.
+
+Stary Wilk
+- Zdrowie: 20
+- Atak: 5
+- XP: 45
+Taktyka: lepiej mieć Stalowy Miecz albo dobrą miksturę.
+
+Leśny Upiór
+- Zdrowie: 18
+- Atak: 4
+- XP: 50
+Taktyka: użyj pochodni, magii albo poznaj jego imię.
+
+Topielec
+- Zdrowie: 16
+- Atak: 4
+- XP: 40
+Taktyka: miej Eliksir Czystej Krwi. Unikaj, jeśli masz mało zdrowia.
+
+Szkielet Wartownik
+- Zdrowie: 18
+- Atak: 5
+- XP: 50
+Taktyka: Kostur Iskier, pochodnia albo unikanie hałasu w Krypcie.
+
+Najemnik Zdrajców
+- Zdrowie: 20
+- Atak: 5
+- XP: 55
+Taktyka: często da się ominąć dialogiem, skradaniem albo reputacją.
+
+Dowódca Cael
+- Zdrowie: 30
+- Atak: 7
+- XP: 100
+Taktyka: najlepiej nie walczyć. Pokojowe przekonanie daje lepsze skutki.
+
+Cień Gracza
+- Zdrowie zależne od gracza
+- XP: 100–150
+Taktyka: im gorsze decyzje, tym silniejszy. Pomaga Wola, Błogosławieństwo i mikstury.
+
+Aktor Bez Twarzy
+- Zdrowie: 24
+- Atak: 6
+- XP: 90
+Taktyka: lepiej odpowiedzieć na pytanie niż przerywać przedstawienie.
+
+Popielny Rycerz
+- Zdrowie: 32
+- Atak: 8
+- XP: 120
+Taktyka: można go uwolnić Pieczęcią albo rozkazem Eliany. Walka nie jest najlepszym rozwiązaniem.
+
+Popielny Król
+- Zdrowie: 45+
+- Atak: 8
+- XP: finał
+Taktyka:
+- nie walcz bez artefaktów,
+- Kryształ Świtu osłabia jego moc,
+- Łza Eliany odblokowuje najlepszy finał,
+- Czarny Odłamek kusi, ale prowadzi ku złemu zakończeniu.
+
+
+============================================================
+13. CHECKLISTA PRZED FINAŁEM
+============================================================
+
+MINIMUM DO NORMALNEGO FINAŁU
+
+[ ] Srebrny Klucz
+[ ] Kryształ Świtu
+[ ] Pieczęć Starego Króla
+[ ] dobra broń
+[ ] przynajmniej 2 Mikstury Leczenia
+[ ] zdrowie blisko maksimum
+[ ] brak ciężkiej klątwy lub zatrucia
+
+DO DOBREGO ZAKOŃCZENIA
+
+[ ] nie założyłem Korony
+[ ] nie używałem często Czarnego Odłamka
+[ ] nie zniszczyłem kapliczki
+[ ] nie mam wysokiej reputacji popiołu
+[ ] mam Kryształ Świtu
+[ ] znam część prawdy o królu
+
+DO NAJLEPSZEGO ZAKOŃCZENIA
+
+[ ] pomogłem kupcowi
+[ ] pomogłem mieszkańcom Ravenford
+[ ] zdobyłem wiedzę o Elianie
+[ ] przeczytałem Dziennik Królewskiego Medyka
+[ ] byłem w pokoju Eliany
+[ ] naprawiłem lub uszanowałem Zabawkowego Konia Eliany
+[ ] zdobyłem Łzę Księżniczki Eliany
+[ ] wykonałem lub rozpocząłem Modlitwę za miasto bez grobów
+[ ] mam dobrą reputację
+[ ] mam szacunek duchów
+[ ] Cael żyje albo został przekonany pokojowo
+
+NAJLEPSZE PRZEDMIOTY PRZED FINAŁEM
+
+[ ] Latarnia Świtu
+[ ] Księga Imion Umarłych
+[ ] Eliksir Pamięci
+[ ] Amulet Dziecka
+[ ] Jasny Odłamek Woli
+[ ] Znak Świtu
+[ ] Rytualna Świeca Miasta bez Grobów
+[ ] Mapa Martwych Ulic
+
+
+============================================================
+14. NAJLEPSZE ZESTAWY WYPOSAŻENIA
+============================================================
+
+WOJOWNIK — STRAŻNIK OSTATNIEJ BRAMY
+
+Elementy:
+
+- Miecz Strażnika Bramy
+- Tarcza Ostatniej Bramy
+- Pas Rycerskiej Przysięgi
+
+Bonus:
+- większa obrona,
+- blokowanie ataku,
+- opcja ochrony sojusznika w finale.
+
+Dobre do:
+- dobrego zakończenia,
+- honorowego przejścia,
+- obrony Ravenford.
+
+
+ŁOTRZYK — MILCZĄCY ŚLAD
+
+Elementy:
+
+- Sztylet Milczącego Dzwonu
+- Płaszcz Bez Cienia
+- Zestaw Precyzyjnych Wytrychów
+
+Bonus:
+- lepsze skradanie,
+- łatwiejsze unikanie walk,
+- omijanie pułapek.
+
+Ryzyko:
+- jeśli grasz chciwie, łatwo zejść na złą ścieżkę.
+
+
+UCZEŃ MAGA — UCZEŃ ASTROMANTY
+
+Elementy:
+
+- Laska Astromanty
+- Soczewka Astromanty
+- Szata Astromanty
+
+Bonus:
+- dużo Wiedzy,
+- rozpoznawanie iluzji,
+- słabszy Cień Gracza,
+- łatwiejsze najlepsze zakończenie.
+
+
+BANITA — KRÓL CZARNEGO SZLAKU
+
+Elementy:
+
+- Nóż Dłużnika
+- Kaptur Bezdomnego Króla
+- Kości Oszusta
+
+Bonus:
+- lepsze rozmowy z bandytami,
+- więcej opcji zastraszania,
+- możliwość zebrania wyrzutków.
+
+Ryzyko:
+- wysoka szansa mrocznego albo złego zakończenia.
+
+
+ŚCIEŻKA DOBREGO ZAKOŃCZENIA — UNIWERSALNY ZESTAW
+
+Polecane:
+
+- Stalowy Miecz albo Kostur Iskier
+- Latarnia Świtu
+- Księga Imion Umarłych
+- Eliksir Pamięci
+- Amulet Dziecka
+- Znak Świtu
+- Jasny Odłamek Woli
+
+Unikać:
+
+- Czarny Odłamek Korony
+- Popielna Zbroja
+- Królewski Płaszcz z Popiołu
+- Nóż do Przecinania Pieczęci używany bez potrzeby
+
+
+============================================================
+15. SZYBKIE ŚCIEŻKI PRZEJŚCIA
+============================================================
+
+SZYBKA ŚCIEŻKA DO DOBREGO ZAKOŃCZENIA
+
+1. Wybierz Wojownika.
+2. Pomóż rannemu kupcowi.
+3. Nie niszcz kapliczki.
+4. Kup Stalowy Miecz.
+5. Kup Mapę Bagien.
+6. Zdobądź Eliksir Czystej Krwi.
+7. Przejdź Kryptę z szacunkiem.
+8. Zdobądź Srebrny Klucz.
+9. Przekonaj Caela.
+10. Zdobądź Pieczęć.
+11. W Wieży wybierz prawdę.
+12. Zdobądź Kryształ Świtu.
+13. Wejdź do ruin z kompletem artefaktów.
+14. Pokonaj Popielnego Króla.
+15. Zniszcz Koronę.
+
+
+SZYBKA ŚCIEŻKA DO NAJLEPSZEGO ZAKOŃCZENIA
+
+1. Wybierz Ucznia Maga.
+2. Pomóż strażnikowi w gospodzie.
+3. Pomóż kupcowi.
+4. Pomódl się przy kapliczce.
+5. Oddaj skrzynię kowalowi.
+6. Zdobądź Mapę Bagien.
+7. Pomóż Mirnie.
+8. Zdobądź Eliksir Pamięci.
+9. W Krypcie zachowaj ciszę i szacunek.
+10. Zdobądź Srebrny Klucz.
+11. Pokojowo przekonaj Caela.
+12. Zdobądź Pieczęć.
+13. W Wieży przeczytaj księgi o Koronie, Arvandzie i Elianie.
+14. Zdobądź Kryształ.
+15. Wykonaj Teatr ostatniego dnia.
+16. W ruinach znajdź dom medyka.
+17. Znajdź pokój Eliany.
+18. Napraw Zabawkowego Konia Eliany.
+19. Zdobądź Łzę Eliany.
+20. Wykonaj Modlitwę za miasto bez grobów.
+21. W finale użyj Łzy i wybierz przebaczenie.
+
+
+SZYBKA ŚCIEŻKA DO ZŁEGO ZAKOŃCZENIA
+
+1. Wybierz Banitę albo Łotrzyka.
+2. Okradnij kupca.
+3. Zniszcz kapliczkę.
+4. Kradnij w Krypcie.
+5. Zabij Caela.
+6. W Wieży wybierz władzę.
+7. Zabierz Czarny Odłamek.
+8. Używaj przeklętych przedmiotów.
+9. W ruinach przeszukuj stragany i ignoruj cienie.
+10. W finale załóż Koronę.
+
+
+SZYBKA ŚCIEŻKA DO TRAGICZNEGO ZAKOŃCZENIA
+
+1. Zignoruj ostrzeżenia.
+2. Zdobądź tylko jeden artefakt albo żaden.
+3. Wejdź do Ruin Valdorinu za wcześnie.
+4. Nie miej Kryształu Świtu.
+5. Pozwól, by miasto odebrało ci imię.
+
+
+============================================================
+KONIEC PORADNIKA
+============================================================
+
+Główna zasada gry:
+
+Siła pozwala dojść do finału, ale tylko prawda, pamięć i współczucie pozwalają go naprawdę wygrać.
