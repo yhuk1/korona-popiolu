@@ -465,6 +465,7 @@ const SKILLS = {
 let state;
 let selectedInventoryItem = null;
 let selectedJournalTab = "quests";
+let nextDialogueSpeaker = null;
 
 function defaultEquipmentSlots() {
   return {
@@ -971,11 +972,146 @@ function addArtifact(artifact) {
   }
 }
 
+const STATUS_DESCRIPTIONS = {
+  "Zna imię Arvanda III": "Edrin wyjaśnia, że Popielny Król naprawdę nazywał się Arvand III.",
+  "Zna legendę Korony": "Edrin opowiada legendę Korony Popiołu i ostrzega, że spełnia pragnienia za cudzą cenę.",
+  "Podejrzewa Edrina": "Zachowanie Edrina budzi twoją nieufność. Kronikarz wie więcej, niż mówi przy ludziach.",
+  "Widział popielatą mgłę": "Przez okno widzisz popielatą mgłę sunącą od lasu w stronę Ravenford.",
+  "Pierwszy znak klątwy": "Ślad popiołu w pokoju potwierdza, że sen o Koronie nie był zwykłym koszmarem.",
+  "Odczytał zaklęcie przywołania": "Magiczny ślad w pokoju wskazuje, że ktoś lub coś próbowało przywołać cię do Valdorinu.",
+  "Pomógł rannemu strażnikowi": "Pomagasz rannemu strażnikowi w gospodzie, zanim chaos całkiem przejmie salę.",
+  "Wie, że mgła wyszła z lasu": "Oren mówi, że pierwsza fala mgły wyszła z Mrocznego Lasu, nie z drogi do ruin.",
+  "Opuścił gospodę bez pełnej wiedzy": "Wychodzisz z gospody, zanim Edrin zdąży wyjaśnić całą historię Korony.",
+  "Korona szepnęła twoje imię": "Korona w śnie wypowiada twoje imię i zostawia po sobie ślad popiołu.",
+  "Usłyszał szept Eliany": "W śnie słyszysz drugi, cichszy głos. Należy do Eliany albo do wspomnienia, które ją udaje.",
+  "Wola Oporu": "Postanawiasz nie odpowiadać na wezwanie Korony bez walki.",
+
+  "Oczyszczony Dzwon Ravenford": "Alena oczyszcza fragment dzwonu. Ravenford zyskuje słabą ochronę przed mgłą.",
+  "Wie, że Ravenford zbudowano na dawnym trakcie Valdorinu": "Edrin rozpoznaje metal z dzwonu i mówi, że Ravenford leży na starym trakcie do Valdorinu.",
+  "Sprzedał fragment dzwonu": "Oddajesz niebezpieczny fragment Lorianowi w zamian za złoto.",
+  "Przerwał głos dzwonu": "Niszczysz fragment dzwonu, uciszając jego wezwanie bez sprawdzania, czego chciał.",
+  "Wie, że dzieci boją się studni": "Mieszkańcy gospody wspominają, że dzieci słyszą szepty dobiegające ze starej studni.",
+  "Wyleczył Edrica": "Eliksir Mirny przywraca Edricowi pamięć i siły.",
+  "Edric wskazał dawny trakt do fortu": "Edric, choć wciąż osłabiony, opisuje zapomnianą drogę prowadzącą do Fortu Zdrajców.",
+  "Edric traci imiona": "Zostawiony bez pomocy Edric zaczyna zapominać imiona bliskich.",
+  "Zaufanie Kronikarza": "Edrin zaczyna ci ufać po odzyskaniu swojej księgi.",
+  "Alena zna pełniejszą historię Eliany": "Po otrzymaniu kroniki Alena poznaje więcej prawdy o Elianie i ostatnim dniu Valdorinu.",
+
+  "Zaufanie Loriana": "Lorian uznaje, że można powierzyć ci sprawy wymagające uczciwości.",
+  "Modlitwa za podziemia Valdorinu": "Alena zapisuje imiona ludzi, którzy uciekli do podziemi Valdorinu.",
+  "Wie o uciekinierach z podziemi Valdorinu": "Edrin dopisuje do kroniki historię uciekinierów z podziemi miasta.",
+  "Sprzedał monety uciekinierów": "Zamieniasz monety uciekinierów z Valdorinu na szybki zysk.",
+  "Boren szuka skrzyni narzędzi": "Boren prosi cię o odzyskanie skrzyni narzędzi z Mrocznego Lasu.",
+  "Boren naprawi Pieczęć, jeśli będzie trzeba": "Wdzięczny Boren obiecuje pomóc przy Pieczęci Starego Króla.",
+  "Pomógł kowalowi": "Oddajesz Borenowi skrzynię narzędzi i zyskujesz jego wdzięczność.",
+  "Boren odmawia zniżek": "Boren dowiaduje się, że zatrzymujesz jego narzędzia. Kuźnia staje się chłodniejszym miejscem.",
+
+  "Alena wierzy w przebaczenie": "Alena mówi, że przebaczenie nie zdejmuje winy, ale może odebrać Koronie część władzy.",
+  "Obietnica dla Eliany": "Obiecujesz Alenie, że jeśli Eliana naprawdę jest uwięziona w Koronie, spróbujesz ją ocalić.",
+  "Błogosławieństwo Świtu": "Alena udziela ci błogosławieństwa Świtu przed drogą do Valdorinu.",
+  "Światło w Kaplicy": "Oddane świece wzmacniają kaplicę i dają Ravenford jaśniejszą noc.",
+  "Niesie Świece Świtu": "Zabierasz ze sobą świece Aleny, które mogą rozpraszać ciemność w ruinach.",
+  "Pamięć Valdorinu": "Alena odprawia modlitwę za mieszkańców Valdorinu, którzy nie mieli grobów.",
+  "Modlitwa za Elianę": "W kaplicy pada imię Eliany. Jej los staje się czymś więcej niż legendą.",
+  "Modlitwa za Arvanda": "Modlisz się za Arvanda, nie po to, by go uniewinnić, ale by odebrać Koronie jego rozpacz.",
+  "Rytuał Miasta bez Grobów": "Kaplica odprawia pełny rytuał pamięci dla Valdorinu.",
+
+  "Pomógł głodnym w Ravenford": "Oddajesz chleb ludziom z Ravenford, którzy nie mają już czym karmić rodzin.",
+  "Edric potrzebuje eliksiru od Mirny": "Z tablicy ogłoszeń wynika, że Edric może przeżyć dzięki eliksirowi Mirny.",
+  "Skrzynia Borena zaginęła w lesie": "Z tablicy ogłoszeń zapisujesz trop do zaginionej skrzyni narzędzi Borena.",
+  "Uratował zagubione dziecko": "Wyprowadzasz zagubione dziecko z błędnych ogników przy granicy lasu.",
+  "Wybrał skarb zamiast dziecka": "Zamiast ratować dziecko, sięgasz po skarb ukryty przy ognikach.",
+  "Pomógł kupcowi": "Ranny kupiec przeżyje dzięki twojej pomocy przy przewróconym wozie.",
+  "Okradł kupca": "Przeszukujesz przewrócony wóz, zostawiając rannego kupca bez pomocy.",
+  "Dobił kupca": "Kończysz cierpienie kupca w sposób, którego Ravenford nie wybaczy łatwo.",
+  "Zostawił kupca": "Odchodzisz od przewróconego wozu, zostawiając kupca własnemu losowi.",
+  "Modlił się przy kapliczce": "Stara kapliczka w lesie odpowiada ciepłem na twoją modlitwę.",
+  "Zniszczył kapliczkę": "Rozbijasz leśną kapliczkę, a cisza po uderzeniu brzmi jak ostrzeżenie.",
+
+  "Rycerz bez herbu odzyskał spokój": "Oddajesz rycerzowi znak jego przysięgi i pozwalasz mu odejść.",
+  "Dowód prawdziwego buntu": "Rycerz bez herbu zostawia dowód, że bunt przeciw Arvandowi zaczął się jako obrona miasta.",
+  "Odrzucił fałszywy honor": "Niszczysz symbol rycerza, uznając, że dawny honor był tylko maską rozkazów.",
+  "Na toporze widnieją inicjały T.R.": "Na toporze w chacie drwala znajdujesz inicjały T.R.",
+  "Uczeń Borena ukrył się przed upiorem": "W chacie drwala odkrywasz ślad ucznia Borena i powód jego zniknięcia.",
+  "Uwolnił ducha drwala": "Wypowiadasz prawdziwe imię Tomasza Rany i uwalniasz ducha drwala.",
+  "Wysłuchał ducha drwala": "Duch drwala opowiada, jak las zabiera ludziom imiona.",
+
+  "Wizja bagiennego przewoźnika": "Na bagnach widzisz wizję przewoźnika, który kiedyś obiecał uciekinierom drugi brzeg.",
+  "Szacunek duchów bagien": "Duchy bagien pozwalają ci zabrać korzeń bez walki.",
+  "Szacunek dla Uciekinierów": "Zostawiasz korzeń w spokoju, szanując pamięć ludzi pochowanych w bagnie.",
+  "Ostatni uciekinierzy Valdorinu": "Przewoźnik przyjmuje zapłatę i pokazuje ślad ostatnich uciekinierów z Valdorinu.",
+  "Korzeń oddany za zgodą duchów": "Duchy bagien oddają korzeń, bo prosisz zamiast brać siłą.",
+  "Służąca Eliany miała na imię Nera": "Studnia Szeptów zdradza imię Nery, służącej Eliany.",
+  "Poświęcił cudze imię Studni": "Oddajesz Studni cudze imię i czujesz, że ktoś w Valdorinie właśnie staje się mniej realny.",
+
+  "Strażnicy boją się Srebrnego Klucza": "Podsłuchani strażnicy fortu przyznają, że Srebrny Klucz budzi w nich strach.",
+  "Cael docenia uczciwość": "Odprowadzenie Rauka do fortu sprawia, że Cael patrzy na ciebie mniej podejrzliwie.",
+  "Szept Korony": "Historia Rauka pokazuje, że Korona przemawia głosem cudzych pragnień.",
+  "Rauk może odpowiedzieć na szept Korony": "Pozwalasz Raukowi odejść, choć nie wiesz, czy ucieknie przed głosem Korony.",
+  "Zna układ ruin": "Studiujesz mapę Valdorinu i zapamiętujesz drogę przez martwe dzielnice.",
+  "Zna bezpieczniejszą trasę przez ruiny": "Ivara wskazuje czerwone znaki na mapie i bezpieczniejszą trasę przez Valdorin.",
+  "Fort nie ufa złodziejowi mapy": "Kradzież mapy pomaga w ruinach, ale ludzie fortu zapamiętują twoje ręce.",
+  "Zignorował czerwone znaki na mapie": "Lekceważysz ostrzeżenia Ivary przy czerwonych znakach na mapie.",
+  "Cael jako sojusznik": "Cael uznaje twoje racje i staje po twojej stronie.",
+  "Przekonał Caela": "Cael oddaje Pieczęć, bo wierzy, że nie szukasz władzy.",
+  "Wie, że zdrajcy byli pierwszymi obrońcami": "Cael wyjaśnia, że ludzie nazwani zdrajcami jako pierwsi próbowali zatrzymać Arvanda.",
+  "Cael widzi w tobie cień Arvanda": "Twoje słowa o prawie zwycięzcy przypominają Caelowi pychę Arvanda.",
+  "Złamana przysięga przez strach": "Zdobywasz Pieczęć, zastraszając Caela zamiast przekonywać go do prawdy.",
+  "Zabił Caela": "Cael ginie, a Pieczęć przechodzi w twoje ręce cięższa niż wcześniej.",
+
+  "Chce zakończyć cierpienie": "Przy drzwiach wieży odpowiadasz, że idziesz do Korony, by zakończyć cierpienie.",
+  "Widział los poprzednich śmiałków": "Wieża pokazuje ci los ludzi, którzy przed tobą próbowali dojść do Korony.",
+  "Wie, że Korona wzmacnia pragnienia": "Księga w wieży wyjaśnia, że Korona nie tworzy pragnień, tylko czyni je potworniejszymi.",
+  "Zna rozpacz Arvanda": "Księga Arvanda pokazuje króla bardziej zrozpaczonego niż dumnego.",
+  "Wie, że Eliana jest uwięziona w Koronie": "Księga Eliany sugeruje, że księżniczka nie odeszła, lecz została zamknięta w Koronie.",
+  "Zna jedno możliwe zakończenie": "Księga bez tytułu pokazuje ci jeden z możliwych finałów wyprawy.",
+  "Odmówił przeznaczeniu": "Zamykasz Księgę bez tytułu i odmawiasz przyjęcia gotowego losu.",
+  "Księga szepcze o finale": "Zabrana księga zaczyna podsuwać obrazy możliwego finału.",
+  "Zna własny lęk": "Lustro pokazuje ci strach, który Korona mogłaby wykorzystać.",
+  "Zna własne pragnienie": "Lustro pokazuje ci pragnienie, które Korona mogłaby powiększyć.",
+
+  "Ewakuował dzieci do kaplicy": "Podczas nocnego ataku prowadzisz dzieci Ravenford do kaplicy Aleny.",
+  "Widział Edrina rozmawiającego z cieniem": "W czasie ataku widzisz Edrina przy studni, mówiącego do czegoś w mroku.",
+  "Edrin wie o Łzie Eliany": "Edrin przyznaje, że Łza Eliany może zmienić finał spotkania z Koroną.",
+  "Ma fragment historii Korony": "Wyciągasz ze studni kartki opisujące prawdę o Koronie.",
+  "Edrin uciekł": "Oskarżony Edrin ucieka, zanim zdradzi wszystko, co wie o Elianie.",
+  "Odblokował trop do Łzy Eliany": "Pytania o Elianę prowadzą cię do tropu, który może odsłonić drogę do jej Łzy.",
+
+  "Głosy Rynku": "Zapisujesz prawdziwe imiona mieszkańców rynku, a część cieni odzyskuje głos.",
+  "Wspomnienie ostatnich chwil miasta": "Dotknięcie postaci z popiołu pokazuje ostatnie chwile życia Valdorinu.",
+  "Wie o chorobie księżniczki": "Tablica ogłoszeń w ruinach wspomina chorobę Eliany sprzed upadku miasta.",
+  "Medalion Arvanda odblokowuje dodatkowy dialog z królem": "Pęknięty medalion Arvanda może wywołać dodatkową reakcję Popielnego Króla.",
+  "Wie, że Eliana była śmiertelnie chora": "Dziennik medyka potwierdza, że Eliana była śmiertelnie chora.",
+  "Zdobył Łzę Księżniczki Eliany": "W ukrytym miejscu znajdujesz Łzę Eliany, pamiątkę zdolną przemówić do Korony.",
+  "Cienie dzieci są spokojniejsze": "Oddana grzechotka uspokaja cienie dzieci w ruinach.",
+  "Modlitwa za dzieci Valdorinu": "Grzechotka trafia do kaplicy jako znak pamięci o dzieciach Valdorinu.",
+  "Eliana bała się Korony": "Scena w teatrze pokazuje, że Eliana bała się Korony i ceny królewskiego cudu.",
+  "Korona zna twoją wymówkę": "Twoja odpowiedź w teatrze brzmi jak usprawiedliwienie, które Korona chętnie zapamięta.",
+  "Widział dodatkową scenę ostatniego dnia": "Teatr odsłania jeszcze jeden fragment ostatniego dnia Valdorinu.",
+  "Zna alegorię upadku króla": "Przedstawienie pokazuje upadek Arvanda jako ostrzeżenie przed miłością zmienioną we władzę.",
+  "Naprawił wspomnienie Eliany": "Naprawiasz zabawkowego konia i przywracasz Elianie jedno spokojne wspomnienie.",
+  "Boren naprawił wspomnienie Eliany": "Boren naprawia konia Eliany, traktując zabawkę z taką troską jak królewską relikwię.",
+  "Eliana słyszy ciepły płomień": "Świeca Świtu zostawiona przy koniu sprawia, że pokój Eliany staje się mniej zimny.",
+  "Eliana nie będzie narzędziem": "Obiecujesz, że nie użyjesz Eliany jako broni przeciw Koronie.",
+  "Obietnica pamięci Valdorinu": "Obiecujesz cieniom Valdorinu pamięć zamiast zemsty.",
+  "Jasny Odłamek Woli chroni przed pokusą Korony": "Oczyszczony odłamek staje się ochroną przed szeptem Korony.",
+  "Popielny Rycerz odzyskał wolę": "Pokazanie Pieczęci pozwala Popielnemu Rycerzowi odróżnić rozkaz od winy.",
+  "Popielny Rycerz słucha twojego rozkazu": "Czarny Odłamek zmusza Popielnego Rycerza do posłuszeństwa.",
+  "Król usłyszał prawdę o Elianie": "Mówisz Arvandowi, że Eliana nie była jego własnością, nawet jeśli chciał ją ocalić.",
+  "Sala Korony słucha umarłych": "Dajesz głos umarłym Valdorinu w samej sali Korony.",
+  "Korona śmieje się twoim głosem": "Twoja pycha sprawia, że Korona rozpoznaje w tobie przyszłego władcę popiołu.",
+  "Wola Zniszczenia": "Wybierasz zniszczenie jako odpowiedź na klątwę, nawet jeśli cena może spaść na umarłych.",
+};
+
+function statusText(status) {
+  return STATUS_DESCRIPTIONS[status] || status;
+}
+
 function addStatus(status, options = {}) {
   if (status && !state.statuses.includes(status)) {
     state.statuses.push(status);
     if (options.notify !== false) {
-      addNotification(`Ważna informacja: ${status}.`, "info");
+      addNotification(`Dziennik: ${statusText(status)}`, "info");
     }
   }
 }
@@ -1071,7 +1207,10 @@ function addNotification(text, type = "info") {
 }
 
 function isHeroTraitNotificationText(text) {
-  return Object.values(HEROES).some((hero) => text === `Ważna informacja: ${hero.trait}.`);
+  return Object.values(HEROES).some((hero) =>
+    text === `Ważna informacja: ${hero.trait}.` ||
+    text === `Dziennik: ${statusText(hero.trait)}`
+  );
 }
 
 function renderNotifications() {
@@ -1169,6 +1308,10 @@ function takeChoice(choice) {
   if (!isAvailable(choice)) {
     return renderNotice("Ten wybór jest niedostępny", describeRequirement(choice), state.scene);
   }
+  nextDialogueSpeaker = choice.speaker ? {
+    scene: choice.to || state.scene,
+    speaker: choice.speaker,
+  } : null;
   if (choice.requireGold) {
     state.gold -= choice.requireGold;
     addNotification(`Wydajesz ${choice.requireGold} złota.`, "loss");
@@ -1662,7 +1805,7 @@ const SCENE_SPEAKERS = {
   dream: "eliana",
   bellQuest: "oren",
   tavern: "oren",
-  innHall: "edric",
+  innHall: "oren",
   edricQuest: "edric",
   edrinIntro: "edrin",
   edrinBookQuest: "edrin",
@@ -1703,9 +1846,9 @@ const SCENE_SPEAKERS = {
   crownHall: "ashKing",
 };
 
-function renderDialoguePortrait(id) {
+function renderDialoguePortrait(id, speakerOverride = null) {
   if (!els.dialoguePortrait) return;
-  const speakerKey = SCENE_SPEAKERS[id];
+  const speakerKey = speakerOverride || SCENE_SPEAKERS[id];
   const speaker = speakerKey ? DIALOGUE_CHARACTERS[speakerKey] : null;
   els.dialoguePortrait.hidden = !speaker;
   if (!speaker) return;
@@ -1753,7 +1896,9 @@ function renderScene(id) {
   els.sceneName.textContent = scene.title;
   const atmosphere = scene.atmosphere || LOCATION_ATMOSPHERE[art] || "";
   renderSceneHero(scene.title, art, atmosphere);
-  renderDialoguePortrait(id);
+  const speakerOverride = nextDialogueSpeaker?.scene === id ? nextDialogueSpeaker.speaker : null;
+  renderDialoguePortrait(id, speakerOverride);
+  nextDialogueSpeaker = null;
   const storyText = SIDE_QUEST_DIALOGS[id] || MAIN_QUEST_DIALOGS[id] || EXTRA_SCENE_DIALOGS[id] || scene.text();
   els.storyText.innerHTML = storyText.split("\n").map((p) => `<p>${p}</p>`).join("");
   renderNotifications();
@@ -2008,7 +2153,7 @@ function renderStats() {
   if (els.cunning) els.cunning.textContent = state.maxHealth ? cunningValue() : "-";
   fillList(els.inventory, state.inventory);
   fillList(els.artifacts, state.artifacts);
-  if (els.statuses) fillList(els.statuses, state.statuses);
+  if (els.statuses) fillList(els.statuses, state.statuses, statusText);
   renderReputationPanel();
   renderLoadoutPreview();
   renderJourneyPanel();
@@ -2019,7 +2164,7 @@ function renderStats() {
   renderJournalModal();
 }
 
-function fillList(element, values) {
+function fillList(element, values, format = (value) => value) {
   if (!element) return;
   element.innerHTML = "";
   if (!values.length) {
@@ -2030,7 +2175,7 @@ function fillList(element, values) {
   }
   values.forEach((value) => {
     const li = document.createElement("li");
-    li.textContent = value;
+    li.textContent = format(value);
     element.appendChild(li);
   });
 }
@@ -2759,7 +2904,7 @@ function questEntries() {
 function journalInfoEntries() {
   const entries = [];
   state.statuses.forEach((text, index) => {
-    entries.push({ label: `Wpis ${index + 1}`, text });
+    entries.push({ label: `Wpis ${index + 1}`, text: statusText(text) });
   });
   if (!entries.length && !state.maxHealth) {
     entries.push({ label: "Pusta karta", text: "Wybierz klasę postaci, aby rozpocząć zapiski z podróży." });
@@ -2796,7 +2941,7 @@ function renderJournalPreview() {
     return;
   }
   const lastEntry = state.statuses[state.statuses.length - 1];
-  els.journalPreview.textContent = `${activeQuests} aktywnych zadań / ${journalCountLabel(state.statuses.length)}${lastEntry ? `. Ostatni: ${lastEntry}` : "."}`;
+  els.journalPreview.textContent = `${activeQuests} aktywnych zadań / ${journalCountLabel(state.statuses.length)}${lastEntry ? `. Ostatni: ${statusText(lastEntry)}` : "."}`;
 }
 
 function renderJournalOverview(quests) {
@@ -3577,8 +3722,8 @@ const SCENES = {
     text: () => "W sali panuje chaos. Karczmarz rygluje drzwi. Dwóch chłopów niesie rannego strażnika. Przy kominku siedzi starzec z księgą na kolanach. Tylko on wygląda, jakby spodziewał się tego od dawna.",
     choices: [
       c("Porozmawiaj z kronikarzem Edrinem", { to: "edrinIntro", kind: "good" }),
-      c("Pomóż rannemu strażnikowi", { to: "innHall", unless: () => hasFlag("helpedGuard"), effects: [{ flag: "helpedGuard" }, { rep: { good: 1 } }, { status: "Pomógł rannemu strażnikowi" }] }),
-      c("Zapytaj karczmarza, co się stało", { to: "innHall", effects: [{ status: "Wie, że mgła wyszła z lasu" }] }),
+      c("Pomóż rannemu strażnikowi", { to: "innHall", speaker: "edric", unless: () => hasFlag("helpedGuard"), effects: [{ flag: "helpedGuard" }, { rep: { good: 1 } }, { status: "Pomógł rannemu strażnikowi" }] }),
+      c("Zapytaj karczmarza, co się stało", { to: "innHall", speaker: "oren", effects: [{ status: "Wie, że mgła wyszła z lasu" }] }),
       c("Wyjdź mimo ostrzeżeń", { to: "village", effects: [{ status: "Opuścił gospodę bez pełnej wiedzy" }] }),
     ],
   },
@@ -3617,9 +3762,9 @@ const SCENES = {
     art: "village",
     text: () => "Karczmarz Oren prowadzi cię pod starą studnię. Tam, pod kamiennym wieńcem, tkwi odłamek metalu, który drży w rytmie odległych ruin.\n„To z niego odlano serce dzwonu” - mówi Oren. „Kiedy bije, mgła odpowiada.”",
     choices: [
-      c("Oddaj fragment Alenie do oczyszczenia", { to: "village", effects: [{ xp: 80 }, { gold: 5 }, { status: "Oczyszczony Dzwon Ravenford" }, { flag: "cleansedBell" }, { flag: "bellQuestDone" }, { rep: { good: 1 } }], kind: "good" }),
-      c("Pokaż fragment Edrinowi", { to: "village", effects: [{ xp: 70 }, { status: "Wie, że Ravenford zbudowano na dawnym trakcie Valdorinu" }, { flag: "edrinBellTruth" }, { flag: "bellQuestDone" }, { rep: { good: 1 } }] }),
-      c("Sprzedaj fragment Lorianowi", { to: "village", effects: [{ xp: 40 }, { gold: 15 }, { status: "Sprzedał fragment dzwonu" }, { flag: "soldBellFragment" }, { flag: "bellQuestDone" }, { rep: { greed: 1 } }], kind: "danger" }),
+      c("Oddaj fragment Alenie do oczyszczenia", { to: "village", speaker: "alena", effects: [{ xp: 80 }, { gold: 5 }, { status: "Oczyszczony Dzwon Ravenford" }, { flag: "cleansedBell" }, { flag: "bellQuestDone" }, { rep: { good: 1 } }], kind: "good" }),
+      c("Pokaż fragment Edrinowi", { to: "village", speaker: "edrin", effects: [{ xp: 70 }, { status: "Wie, że Ravenford zbudowano na dawnym trakcie Valdorinu" }, { flag: "edrinBellTruth" }, { flag: "bellQuestDone" }, { rep: { good: 1 } }] }),
+      c("Sprzedaj fragment Lorianowi", { to: "village", speaker: "lorian", effects: [{ xp: 40 }, { gold: 15 }, { status: "Sprzedał fragment dzwonu" }, { flag: "soldBellFragment" }, { flag: "bellQuestDone" }, { rep: { greed: 1 } }], kind: "danger" }),
       c("Zniszcz fragment", { to: "village", effects: [{ xp: 60 }, { status: "Przerwał głos dzwonu" }, { flag: "destroyedBellFragment" }, { flag: "bellQuestDone" }, { rep: { ash: 1 } }], kind: "danger" }),
       c("Jeszcze nie teraz", { to: "village" }),
     ],
@@ -3707,9 +3852,9 @@ const SCENES = {
     text: () => "Lorian kładzie na ladzie paczkę owiniętą w ceratę. W środku brzęczą stare monety, ale pod sznurkiem widać pieczęć rodziny, która uciekła z Valdorinu po pierwszej nocy klątwy.",
     choices: [
       c("Dostarcz paczkę bez otwierania", { to: "shop", effects: [{ xp: 90 }, { gold: 10 }, { item: ITEMS.honestDebtRing }, { status: "Zaufanie Loriana" }, { flag: "lorianPackageDone" }, { rep: { good: 1 } }], kind: "good" }),
-      c("Oddaj list Alenie", { to: "chapel", effects: [{ xp: 120 }, { status: "Modlitwa za podziemia Valdorinu" }, { flag: "lorianPackageDone" }, { flag: "gaveLorianLetterToAlena" }, { rep: { good: 2 } }], kind: "good" }),
-      c("Oddaj list Edrinowi", { to: "tavern", effects: [{ xp: 110 }, { status: "Wie o uciekinierach z podziemi Valdorinu" }, { flag: "lorianPackageDone" }, { flag: "edrinKnowsUndergroundSurvivors" }, { rep: { good: 1 } }] }),
-      c("Sprzedaj stare monety", { to: "shop", effects: [{ xp: 40 }, { gold: 35 }, { item: ITEMS.falseCoins }, { flag: "lorianPackageDone" }, { status: "Sprzedał monety uciekinierów" }, { rep: { greed: 1 } }], kind: "danger" }),
+      c("Oddaj list Alenie", { to: "chapel", speaker: "alena", effects: [{ xp: 120 }, { status: "Modlitwa za podziemia Valdorinu" }, { flag: "lorianPackageDone" }, { flag: "gaveLorianLetterToAlena" }, { rep: { good: 2 } }], kind: "good" }),
+      c("Oddaj list Edrinowi", { to: "tavern", speaker: "edrin", effects: [{ xp: 110 }, { status: "Wie o uciekinierach z podziemi Valdorinu" }, { flag: "lorianPackageDone" }, { flag: "edrinKnowsUndergroundSurvivors" }, { rep: { good: 1 } }] }),
+      c("Sprzedaj stare monety", { to: "shop", speaker: "lorian", effects: [{ xp: 40 }, { gold: 35 }, { item: ITEMS.falseCoins }, { flag: "lorianPackageDone" }, { status: "Sprzedał monety uciekinierów" }, { rep: { greed: 1 } }], kind: "danger" }),
       c("Wróć", { to: "shop" }),
     ],
   },
@@ -3820,11 +3965,11 @@ const SCENES = {
     art: "forest",
     text: () => hasFlag("cartResolved") ? "Wóz leży w błocie. Decyzja została już podjęta." : "Wóz leży na boku. Jedno koło nadal powoli się obraca. Między skrzyniami leży ranny kupiec, a jego płaszcz nasiąkł krwią i czarnym deszczem.",
     choices: [
-      c("Pomóż kupcowi", { when: () => !hasFlag("cartResolved"), to: "forest", effects: [{ flag: "cartResolved" }, { status: "Pomógł kupcowi" }, { rep: { good: 1 } }] }),
-      c("Daj mu miksturę", { when: () => !hasFlag("cartResolved"), requireItem: ITEMS.potion, to: "forest", effects: [{ removeItem: ITEMS.potion }, { flag: "cartResolved" }, { status: "Pomógł kupcowi" }, { rep: { good: 2 } }] }),
-      c("Przeszukaj wóz", { when: () => !hasFlag("cartResolved"), to: "forest", effects: [{ flag: "cartResolved" }, { status: "Okradł kupca" }, { gold: 12 }, { rep: { greed: 2 } }], kind: "danger" }),
-      c("Dobij go", { when: () => !hasFlag("cartResolved"), to: "forest", effects: [{ flag: "cartResolved" }, { status: "Dobił kupca" }, { rep: { ash: 2 } }], kind: "danger" }),
-      c("Zostaw go", { when: () => !hasFlag("cartResolved"), to: "forest", effects: [{ flag: "cartResolved" }, { status: "Zostawił kupca" }] }),
+      c("Pomóż kupcowi", { when: () => !hasFlag("cartResolved"), to: "forest", speaker: "woundedMerchant", effects: [{ flag: "cartResolved" }, { status: "Pomógł kupcowi" }, { rep: { good: 1 } }] }),
+      c("Daj mu miksturę", { when: () => !hasFlag("cartResolved"), requireItem: ITEMS.potion, to: "forest", speaker: "woundedMerchant", effects: [{ removeItem: ITEMS.potion }, { flag: "cartResolved" }, { status: "Pomógł kupcowi" }, { rep: { good: 2 } }] }),
+      c("Przeszukaj wóz", { when: () => !hasFlag("cartResolved"), to: "forest", speaker: "woundedMerchant", effects: [{ flag: "cartResolved" }, { status: "Okradł kupca" }, { gold: 12 }, { rep: { greed: 2 } }], kind: "danger" }),
+      c("Dobij go", { when: () => !hasFlag("cartResolved"), to: "forest", speaker: "woundedMerchant", effects: [{ flag: "cartResolved" }, { status: "Dobił kupca" }, { rep: { ash: 2 } }], kind: "danger" }),
+      c("Zostaw go", { when: () => !hasFlag("cartResolved"), to: "forest", speaker: "woundedMerchant", effects: [{ flag: "cartResolved" }, { status: "Zostawił kupca" }] }),
       c("Wróć", { to: "forest" }),
     ],
   },
